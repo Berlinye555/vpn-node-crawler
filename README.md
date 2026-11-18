@@ -60,9 +60,11 @@ HTTPS_PROXY=http://127.0.0.1:7890 HTTP_PROXY=http://127.0.0.1:7890 \
 订阅地址（固定不变）：
 
 ```text
-https://fastly.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/clash.yaml   # Clash
-https://fastly.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/sub.base64   # v2rayN
+https://testingcf.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/clash.yaml   # Clash
+https://testingcf.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/sub.base64   # v2rayN
 ```
+
+备用镜像（内容相同）：把 `testingcf.jsdelivr.net` 换成 `gcore.jsdelivr.net`。注意 `fastly.jsdelivr.net` 缓存滞后明显，`cdn.jsdelivr.net` 国内常不可达。
 
 注意事项：
 
