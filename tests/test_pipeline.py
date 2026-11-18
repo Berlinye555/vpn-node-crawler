@@ -48,7 +48,7 @@ def test_offline_pipeline_end_to_end(tmp_path):
     assert "Weak-SS" not in names
     assert "Plain-HTTP" not in names
     assert not any(p["server"] == "10.0.0.1" for p in doc["proxies"])
-    assert any(p["name"] == "HK-Clash" for p in doc["proxies"])
+    assert any(p["server"] == "2.2.2.2" for p in doc["proxies"])
 
 
 def test_offline_precheck_reasons_recorded(tmp_path):
@@ -73,6 +73,16 @@ def test_offline_dedup(tmp_path):
     report = run_offline(tmp_path)
     aggregate_stats = report["stats"]["aggregate"]
     assert aggregate_stats["duplicates"] >= 1
+
+
+def test_nodes_are_renamed(tmp_path):
+    run_offline(tmp_path)
+    doc = yaml.safe_load((tmp_path / "out" / "clash.yaml").read_text(encoding="utf-8"))
+    names = [p["name"] for p in doc["proxies"]]
+    # 离线模式跳过信誉查询，没有国家信息，统一归入「其他」
+    assert names and all(name.startswith("🌍 其他 ") for name in names)
+    nums = [int(name.rsplit(" ", 1)[1]) for name in names]
+    assert nums == list(range(1, len(names) + 1))
 
 
 def test_report_json_written(tmp_path):

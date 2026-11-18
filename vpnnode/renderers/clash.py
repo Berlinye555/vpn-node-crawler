@@ -37,6 +37,13 @@ def _group_name(country: str) -> str:
     return f"{_country_flag(key)} {label}" if label else f"🌍 {country}"
 
 
+def country_label(country: str) -> str:
+    """节点显示名用的地区前缀；未识别地区归入「其他」。"""
+    key = (country or "").upper()
+    label = COUNTRY_NAMES.get(key)
+    return f"{_country_flag(key)} {label}" if label else "🌍 其他"
+
+
 def _unique_names(nodes: list[Node]) -> list[str]:
     seen: dict[str, int] = {}
     names = []

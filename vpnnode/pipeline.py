@@ -19,7 +19,7 @@ from vpnnode.filters.quality import apply_quality
 from vpnnode.filters.reputation import apply_reputation
 from vpnnode.models import Node
 from vpnnode.renderers.base64_sub import render_base64
-from vpnnode.renderers.clash import render_clash
+from vpnnode.renderers.clash import country_label, render_clash
 from vpnnode.sources import github, subscription, telegram, webpage
 from vpnnode.sources.common import parse_any_text
 
@@ -107,6 +107,15 @@ def _reason_counts(rejected: list[tuple[Node, str]]) -> dict:
     return dict(Counter(reason for _, reason in rejected))
 
 
+def assign_display_names(nodes: list[Node]) -> None:
+    """统一命名：{国旗} {地区} {序号}，序号按探测延迟升序（quality 已排序）。"""
+    counters: dict[str, int] = {}
+    for node in nodes:
+        label = country_label(str(node.params.get("country") or ""))
+        counters[label] = counters.get(label, 0) + 1
+        node.name = f"{label} {counters[label]:02d}"
+
+
 async def run_pipeline(args: argparse.Namespace) -> dict:
     config_dir = pathlib.Path(args.config)
     output_dir = pathlib.Path(args.out)
@@ -166,6 +175,7 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
     all_rejected.extend(quality_rejected)
     report["stats"]["quality"] = {"kept": len(kept), "rejected": len(quality_rejected),
                                   "reasons": _reason_counts(quality_rejected)}
+    assign_display_names(kept)
     report["stats"]["final"] = len(kept)
     report["rejected_samples"] = _sample_rejections(all_rejected)
 
