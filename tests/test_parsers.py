@@ -111,6 +111,35 @@ def test_parse_ss_legacy():
     assert node.params["password"] == "pass123"
 
 
+def test_parse_vless_keeps_fingerprint():
+    uri = ("vless://uuid-1@x.example.com:443?security=reality&sni=s.example.com"
+           "&pbk=public-key&sid=abcd&fp=chrome&type=tcp#R")
+    node = parse_uri(uri)
+    assert node is not None
+    assert node.params["client_fingerprint"] == "chrome"
+    assert node.params["reality_pbk"] == "public-key"
+    assert node.params["reality_sid"] == "abcd"
+
+
+def test_parse_ss_plugin():
+    userinfo = base64.urlsafe_b64encode(b"aes-256-gcm:pw").decode().rstrip("=")
+    uri = (f"ss://{userinfo}@s.example.com:8388"
+           "?plugin=obfs-local%3Bobfs%3Dhttp%3Bobfs-host%3Dh.example.com#P")
+    node = parse_uri(uri)
+    assert node is not None
+    assert node.params["plugin"] == "obfs"
+    assert node.params["plugin_opts"]["mode"] == "http"
+    assert node.params["plugin_opts"]["host"] == "h.example.com"
+
+
+def test_parse_hysteria2_obfs():
+    uri = "hysteria2://pw@hy.example.com:8443?sni=hy.example.com&obfs=salamander&obfs-password=xx#H"
+    node = parse_uri(uri)
+    assert node is not None
+    assert node.params["obfs"] == "salamander"
+    assert node.params["obfs_password"] == "xx"
+
+
 def test_parse_hysteria2():
     uri = "hysteria2://secret@hy.example.com:8443/?sni=hy.example.com&insecure=0#HY"
     node = parse_uri(uri)

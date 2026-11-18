@@ -23,9 +23,25 @@ def _unique_names(nodes: list[Node]) -> list[str]:
     return names
 
 
+# 来自 Clash 源的节点原样保留这些标准字段（指纹、reality、obfs、grpc、插件等），
+# 丢弃非标准私有字段，避免客户端解析报错。script/javascript 由 precheck 拦截，这里再兜一层。
+PASSTHROUGH_FIELDS = {
+    "tls", "servername", "sni", "network", "uuid", "password", "cipher", "alterId",
+    "flow", "alpn", "udp", "skip-cert-verify", "client-fingerprint", "fingerprint",
+    "ws-opts", "grpc-opts", "reality-opts", "xhttp-opts", "http-opts", "h2-opts",
+    "plugin", "plugin-opts", "obfs", "obfs-password", "up", "down", "encryption",
+    "packet-encoding", "auth", "auth-str", "username", "ports", "hop-interval",
+}
+FORBIDDEN_FIELDS = {"script", "javascript"}
+
+
 def _to_clash(node: Node, name: str) -> dict:
     p = node.params
-    proxy: dict = {"name": name, "type": node.protocol, "server": node.server, "port": node.port}
+    proxy: dict = {}
+    for field in PASSTHROUGH_FIELDS:
+        if field in node.raw and field not in FORBIDDEN_FIELDS:
+            proxy[field] = node.raw[field]
+    proxy.update({"name": name, "type": node.protocol, "server": node.server, "port": node.port})
 
     if node.protocol == "vmess":
         proxy.update(
@@ -44,7 +60,7 @@ def _to_clash(node: Node, name: str) -> dict:
         )
         if p.get("flow"):
             proxy["flow"] = p["flow"]
-        if p.get("security") == "reality":
+        if p.get("security") == "reality" or p.get("reality_pbk"):
             proxy["tls"] = True
             proxy["servername"] = p.get("sni") or node.server
             proxy["reality-opts"] = {
@@ -61,10 +77,21 @@ def _to_clash(node: Node, name: str) -> dict:
         proxy["network"] = p.get("network", "tcp")
     elif node.protocol == "ss":
         proxy.update(cipher=p.get("cipher", ""), password=p.get("password", ""))
+        if p.get("plugin") and "plugin" not in proxy:
+            proxy["plugin"] = p["plugin"]
+            proxy["plugin-opts"] = p.get("plugin_opts") or {}
     elif node.protocol == "hysteria2":
         proxy["password"] = p.get("password", "")
         if p.get("sni"):
             proxy["sni"] = p["sni"]
+        if p.get("obfs"):
+            proxy["obfs"] = p["obfs"]
+            proxy["obfs-password"] = p.get("obfs_password", "")
+
+    if p.get("client_fingerprint") and "client-fingerprint" not in proxy:
+        proxy["client-fingerprint"] = p["client_fingerprint"]
+    if p.get("grpc_service") and "grpc-opts" not in proxy:
+        proxy["grpc-opts"] = {"grpc-service-name": p["grpc_service"]}
 
     ws_opts = {}
     if p.get("ws_path"):

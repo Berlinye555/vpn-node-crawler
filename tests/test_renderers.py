@@ -51,6 +51,54 @@ def test_render_clash_empty_nodes():
     assert doc["proxies"] == []
 
 
+def test_render_passes_through_protocol_fields():
+    node = Node(
+        protocol="vless", name="Reality", server="r.example.com", port=443,
+        params={"uuid": "u", "tls": True, "security": "reality", "sni": "r.example.com",
+                "reality_pbk": "pbk", "reality_sid": "ab", "network": "tcp"},
+        raw={"type": "vless", "client-fingerprint": "chrome",
+             "reality-opts": {"public-key": "pbk", "short-id": "ab"},
+             "sub_tag": "private-field"},
+    )
+    proxy = yaml.safe_load(render_clash([node], {}))["proxies"][0]
+    assert proxy["client-fingerprint"] == "chrome"
+    assert proxy["reality-opts"]["public-key"] == "pbk"
+    assert "sub_tag" not in proxy
+
+
+def test_render_blocks_script_field():
+    node = Node("vmess", "evil", "1.2.3.4", 443, {"uuid": "u"},
+                raw={"type": "vmess", "script": "doEvil()"})
+    proxy = yaml.safe_load(render_clash([node], {}))["proxies"][0]
+    assert "script" not in proxy
+
+
+def test_render_hysteria2_obfs_and_updown():
+    node = Node("hysteria2", "HY", "hy.example.com", 8443,
+                {"password": "pw", "sni": "hy.example.com", "obfs": "salamander", "obfs_password": "s"},
+                raw={"type": "hysteria2", "up": "50", "down": "100"})
+    proxy = yaml.safe_load(render_clash([node], {}))["proxies"][0]
+    assert proxy["obfs"] == "salamander"
+    assert proxy["obfs-password"] == "s"
+    assert proxy["up"] == "50"
+
+
+def test_render_grpc_opts():
+    node = Node("vless", "GRPC", "g.example.com", 443,
+                {"uuid": "u", "network": "grpc", "grpc_service": "svc"}, raw={})
+    proxy = yaml.safe_load(render_clash([node], {}))["proxies"][0]
+    assert proxy["grpc-opts"]["grpc-service-name"] == "svc"
+
+
+def test_render_ss_plugin():
+    node = Node("ss", "SSP", "s.example.com", 8388,
+                {"cipher": "aes-256-gcm", "password": "p", "plugin": "obfs",
+                 "plugin_opts": {"mode": "http", "host": "h.example.com"}}, raw={})
+    proxy = yaml.safe_load(render_clash([node], {}))["proxies"][0]
+    assert proxy["plugin"] == "obfs"
+    assert proxy["plugin-opts"]["host"] == "h.example.com"
+
+
 def test_render_base64_roundtrip():
     text = render_base64(sample_nodes())
     decoded = base64.b64decode(text).decode()

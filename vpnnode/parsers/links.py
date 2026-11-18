@@ -122,6 +122,7 @@ def _parse_vless(uri: str) -> Node | None:
             "ws_host": query.get("host", "") if network in ("ws", "h2") else "",
             "flow": query.get("flow", ""),
             "alpn": query.get("alpn", ""),
+            "client_fingerprint": query.get("fp", ""),
             "reality_pbk": query.get("pbk", ""),
             "reality_sid": query.get("sid", ""),
         },
@@ -155,12 +156,44 @@ def _parse_trojan(uri: str) -> Node | None:
     )
 
 
+def _parse_ss_plugin(plugin: str) -> tuple[str, dict] | tuple[str, str]:
+    """SIP002 plugin 参数 → Clash 的 plugin / plugin-opts。"""
+    if not plugin:
+        return "", ""
+    parts = plugin.split(";")
+    plugin_name = parts[0].strip()
+    opts: dict[str, str] = {}
+    for part in parts[1:]:
+        if "=" in part:
+            key, value = part.split("=", 1)
+            opts[key.strip()] = value.strip()
+        elif part.strip():
+            opts["mode"] = part.strip()
+    if plugin_name in ("obfs-local", "simple-obfs", "obfs"):
+        return "obfs", {"mode": opts.get("obfs", opts.get("mode", "http")), "host": opts.get("obfs-host", "")}
+    if plugin_name == "v2ray-plugin":
+        clash_opts: dict = {"mode": opts.get("mode", "websocket")}
+        if opts.get("host"):
+            clash_opts["host"] = opts["host"]
+        if opts.get("path"):
+            clash_opts["path"] = opts["path"]
+        if opts.get("tls") in ("1", "true"):
+            clash_opts["tls"] = True
+        return "v2ray-plugin", clash_opts
+    return plugin_name, opts
+
+
 def _parse_ss(uri: str) -> Node | None:
     body = uri[len("ss://"):]
     fragment = ""
     if "#" in body:
         body, fragment = body.split("#", 1)
     name = urllib.parse.unquote(fragment)
+
+    query: dict[str, str] = {}
+    if "?" in body:
+        body, query_str = body.split("?", 1)
+        query = dict(urllib.parse.parse_qsl(query_str, keep_blank_values=True))
 
     if "@" in body:
         # SIP002: ss://base64(method:password)@host:port 或 ss://method:password@host:port
@@ -182,13 +215,18 @@ def _parse_ss(uri: str) -> Node | None:
     port = _parse_port(port_str)
     if not server or not cipher or port is None:
         return None
+    plugin_name, plugin_opts = _parse_ss_plugin(query.get("plugin", ""))
+    params = {"cipher": cipher.strip(), "password": password, "tls": False, "network": "tcp"}
+    if plugin_name:
+        params["plugin"] = plugin_name
+        params["plugin_opts"] = plugin_opts
     return Node(
         protocol="ss",
         name=name or server,
         server=server.strip("[]"),
         port=port,
-        params={"cipher": cipher.strip(), "password": password, "tls": False, "network": "tcp"},
-        raw={"uri": uri},
+        params=params,
+        raw={"uri": uri, "query": query},
     )
 
 
@@ -209,6 +247,8 @@ def _parse_hysteria2(uri: str) -> Node | None:
             "tls": True,
             "network": "udp",
             "sni": query.get("sni", ""),
+            "obfs": query.get("obfs", ""),
+            "obfs_password": query.get("obfs-password", ""),
             "allow_insecure": _truthy(query.get("insecure", "0")),
         },
         raw={"uri": uri, "query": query},
