@@ -11,6 +11,31 @@ log = logging.getLogger(__name__)
 AUTO_GROUP = "🚀 自动"
 MANUAL_GROUP = "♻️ 手动"
 
+COUNTRY_NAMES = {
+    "HK": "香港", "TW": "台湾", "JP": "日本", "SG": "新加坡", "KR": "韩国",
+    "US": "美国", "CA": "加拿大", "GB": "英国", "DE": "德国", "FR": "法国",
+    "NL": "荷兰", "IT": "意大利", "ES": "西班牙", "CH": "瑞士", "SE": "瑞典",
+    "NO": "挪威", "DK": "丹麦", "FI": "芬兰", "IE": "爱尔兰", "AT": "奥地利",
+    "BE": "比利时", "PL": "波兰", "CZ": "捷克", "RO": "罗马尼亚", "UA": "乌克兰",
+    "RU": "俄罗斯", "AU": "澳大利亚", "NZ": "新西兰", "IN": "印度", "TH": "泰国",
+    "VN": "越南", "MY": "马来西亚", "ID": "印尼", "PH": "菲律宾", "TR": "土耳其",
+    "AE": "阿联酋", "IL": "以色列", "SA": "沙特", "MX": "墨西哥", "BR": "巴西",
+    "AR": "阿根廷", "CL": "智利", "ZA": "南非", "EG": "埃及",
+}
+
+
+def _country_flag(code: str) -> str:
+    code = (code or "").upper()
+    if len(code) != 2 or not code.isalpha():
+        return "🌍"
+    return "".join(chr(ord(char) + 0x1F1A5) for char in code)
+
+
+def _group_name(country: str) -> str:
+    key = (country or "").upper()
+    label = COUNTRY_NAMES.get(key)
+    return f"{_country_flag(key)} {label}" if label else f"🌍 {country}"
+
 
 def _unique_names(nodes: list[Node]) -> list[str]:
     seen: dict[str, int] = {}
@@ -123,21 +148,43 @@ def _build_groups(nodes: list[Node], names: list[str]) -> list[dict]:
         if country:
             by_country.setdefault(str(country), []).append(name)
     for country, members in sorted(by_country.items()):
-        groups.append({"name": f"🌍 {country}", "type": "url-test",
+        groups.append({"name": _group_name(country), "type": "url-test",
                        "url": "https://www.gstatic.com/generate_204",
                        "interval": 300, "proxies": members})
     return groups
 
 
 RULES = [
-    "DOMAIN-SUFFIX,local,DIRECT",
-    "IP-CIDR,127.0.0.0/8,DIRECT",
-    "IP-CIDR,10.0.0.0/8,DIRECT",
-    "IP-CIDR,172.16.0.0/12,DIRECT",
-    "IP-CIDR,192.168.0.0/16,DIRECT",
+    "GEOSITE,private,DIRECT",
+    "GEOIP,private,DIRECT,no-resolve",
+    "GEOSITE,cn,DIRECT",
     "GEOIP,CN,DIRECT",
     f"MATCH,{AUTO_GROUP}",
 ]
+
+# geo 数据默认从 GitHub 下载，国内常失败；改用 jsDelivr 镜像
+GEOX_URL = {
+    "geoip": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat",
+    "geosite": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat",
+    "mmdb": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country-lite.mmdb",
+}
+
+DNS = {
+    "enable": True,
+    "ipv6": False,
+    "enhanced-mode": "fake-ip",
+    "fake-ip-range": "198.18.0.1/16",
+    "fake-ip-filter": [
+        "*.lan",
+        "*.local",
+        "+.msftconnecttest.com",
+        "+.msftncsi.com",
+        "+.stun.*.*",
+        "+.stun.*.*.*",
+    ],
+    "default-nameserver": ["223.5.5.5", "119.29.29.29"],
+    "nameserver": ["https://223.5.5.5/dns-query", "https://doh.pub/dns-query"],
+}
 
 
 def render_clash(nodes: list[Node], cfg: dict | None = None) -> str:
@@ -148,6 +195,11 @@ def render_clash(nodes: list[Node], cfg: dict | None = None) -> str:
         "allow-lan": False,
         "mode": "rule",
         "log-level": "info",
+        "ipv6": False,
+        "tcp-concurrent": True,
+        "unified-delay": True,
+        "geox-url": GEOX_URL,
+        "dns": DNS,
         "proxies": proxies,
         "proxy-groups": _build_groups(nodes, names),
         "rules": RULES,

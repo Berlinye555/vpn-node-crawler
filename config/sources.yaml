@@ -15,6 +15,11 @@ sources:
       - https://fastly.jsdelivr.net/gh/freefq/free@master/v2
       - https://gcore.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
 
+  # 第三方聚合订阅（Clash 格式），四层过滤会再筛一遍
+  - type: subscription
+    timeout: 25
+    url: https://leidahub.top/clash.yaml
+
   # Telegram 公开频道（频道名不含 @）
   # - type: telegram
   #   channel: your_channel

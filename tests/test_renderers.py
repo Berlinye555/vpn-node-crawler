@@ -46,6 +46,27 @@ def test_render_clash_has_urltest_group():
     assert len(auto["proxies"]) == 3
 
 
+def test_render_clash_includes_client_perf_settings():
+    doc = yaml.safe_load(render_clash(sample_nodes(), {}))
+    assert doc["tcp-concurrent"] is True
+    assert doc["unified-delay"] is True
+    assert doc["dns"]["enhanced-mode"] == "fake-ip"
+    assert "jsdelivr" in doc["geox-url"]["geosite"]
+    assert doc["rules"][0] == "GEOSITE,private,DIRECT"
+    assert doc["rules"][-1].startswith("MATCH")
+
+
+def test_country_group_uses_flag_and_name():
+    nodes = sample_nodes()
+    nodes[0].params["country"] = "JP"
+    nodes[1].params["country"] = "US"
+    nodes[2].params["country"] = "XX"
+    names = [g["name"] for g in yaml.safe_load(render_clash(nodes, {}))["proxy-groups"]]
+    assert "🇯🇵 日本" in names
+    assert "🇺🇸 美国" in names
+    assert "🌍 XX" in names
+
+
 def test_render_clash_empty_nodes():
     doc = yaml.safe_load(render_clash([], {}))
     assert doc["proxies"] == []
