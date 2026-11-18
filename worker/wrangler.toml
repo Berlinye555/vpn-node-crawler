@@ -1,0 +1,14 @@
+name = "vpn-sub"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"
+
+# 部署前：
+#   npx wrangler kv namespace create SUBSTORE
+# 把返回的 id 填到下面。
+[[kv_namespaces]]
+binding = "SUBSTORE"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# 密钥通过命令行写入，不要写进本文件：
+#   npx wrangler secret put SUB_ACCESS_KEY
+#   npx wrangler secret put UPLOAD_TOKEN

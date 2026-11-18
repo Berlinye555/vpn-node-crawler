@@ -1,0 +1,10 @@
+# 每日节点样本
+vmess://eyJ2IjogIjIiLCAicHMiOiAiSEstMDEiLCAiYWRkIjogIjguOC44LjgiLCAicG9ydCI6ICI0NDMiLCAiaWQiOiAiMTExMTExMTEtMjIyMi0zMzMzLTQ0NDQtNTU1NTU1NTU1NTU1IiwgImFpZCI6ICIwIiwgInNjeSI6ICJhdXRvIiwgIm5ldCI6ICJ3cyIsICJ0eXBlIjogIm5vbmUiLCAiaG9zdCI6ICJjZG4uZXhhbXBsZS5jb20iLCAicGF0aCI6ICIvd3MiLCAidGxzIjogInRscyIsICJzbmkiOiAiY2RuLmV4YW1wbGUuY29tIn0=
+vless://22222222-3333-4444-5555-666666666666@8.8.4.4:443?encryption=none&security=tls&sni=a.example.com&type=ws&path=%2Fws#JP-%E4%B8%9C%E4%BA%AC
+trojan://pw@9.9.9.9:443?sni=b.example.com#US-%E7%BE%8E%E5%9B%BD
+ss://YWVzLTI1Ni1nY206c2VjcmV0@1.1.1.1:8388#SG
+
+# 以下应被过滤
+trojan://pw@10.0.0.1:443#%E7%A7%81%E7%BD%91
+trojan://pw@3.3.3.3:443?allowInsecure=1#%E4%B8%8D%E5%AE%89%E5%85%A8
+http://1.1.1.1:8080#%E6%98%8E%E6%96%87

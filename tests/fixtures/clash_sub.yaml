@@ -1,0 +1,31 @@
+proxies:
+  - name: HK-Clash
+    type: vmess
+    server: 2.2.2.2
+    port: 443
+    uuid: 33333333-4444-5555-6666-777777777777
+    alterId: 0
+    cipher: auto
+    network: ws
+    tls: true
+    servername: hk.example.com
+    ws-opts:
+      path: /ws
+      headers:
+        Host: cdn.example.com
+  - name: EVIL-Script
+    type: vmess
+    server: 4.4.4.4
+    port: 443
+    uuid: 99999999-aaaa-bbbb-cccc-dddddddddddd
+    script: alert(1)
+  - name: Weak-SS
+    type: ss
+    server: 5.5.5.5
+    port: 8388
+    cipher: rc4-md5
+    password: x
+  - name: Plain-HTTP
+    type: http
+    server: 6.6.6.6
+    port: 8080

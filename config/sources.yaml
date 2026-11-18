@@ -1,0 +1,25 @@
+# 数据源清单。新增源只需改这里，不用改代码。
+sources:
+  - type: github
+    urls:
+      # jsDelivr 镜像：国内网络可直连
+      - https://fastly.jsdelivr.net/gh/freefq/free@master/v2
+      - https://gcore.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
+      # 官方 raw 源（国内需代理，Actions 中可用）
+      # - https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/v2
+      # - https://raw.githubusercontent.com/freefq/free/master/v2
+      # - https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub
+      # - https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+
+  # Telegram 公开频道（频道名不含 @）
+  # - type: telegram
+  #   channel: your_channel
+
+  # 公开网页分享页；regex 可选，用于从噪声页面中先截取节点片段
+  # - type: webpage
+  #   url: https://example.com/daily-vpn
+  #   regex: 'vmess://[^"<>\s]+'
+
+  # 订阅链接（base64 / Clash YAML / 明文链接均可）
+  # - type: subscription
+  #   url: https://example.com/sub
