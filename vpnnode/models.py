@@ -67,7 +67,11 @@ class Node:
                 "path": p.get("ws_path", ""),
                 "host": p.get("ws_host", ""),
                 "flow": p.get("flow", ""),
+                "fp": p.get("client_fingerprint", ""),
+                "pbk": p.get("reality_pbk", ""),
+                "sid": p.get("reality_sid", ""),
             }
+            query = {key: value for key, value in query.items() if value}
             return f"vless://{p.get('uuid', '')}@{self.server}:{self.port}?{urllib.parse.urlencode(query)}#{name}"
         if proto == "trojan":
             query = {
@@ -81,9 +85,31 @@ class Node:
             return f"trojan://{password}@{self.server}:{self.port}?{urllib.parse.urlencode(query)}#{name}"
         if proto == "ss":
             userinfo = _b64(f"{p.get('cipher', '')}:{p.get('password', '')}")
-            return f"ss://{userinfo}@{self.server}:{self.port}#{name}"
+            plugin_query = ""
+            plugin = p.get("plugin")
+            if plugin:
+                opts = p.get("plugin_opts") or {}
+                if plugin == "obfs":
+                    parts = ["obfs-local", f"obfs={opts.get('mode', 'http')}"]
+                    if opts.get("host"):
+                        parts.append(f"obfs-host={opts['host']}")
+                elif plugin == "v2ray-plugin":
+                    parts = ["v2ray-plugin", f"mode={opts.get('mode', 'websocket')}"]
+                    for key in ("host", "path"):
+                        if opts.get(key):
+                            parts.append(f"{key}={opts[key]}")
+                    if opts.get("tls"):
+                        parts.append("tls")
+                else:
+                    parts = [plugin]
+                plugin_query = "?plugin=" + urllib.parse.quote(";".join(parts), safe="")
+            return f"ss://{userinfo}@{self.server}:{self.port}{plugin_query}#{name}"
         if proto == "hysteria2":
             password = urllib.parse.quote(str(p.get("password", "")), safe="")
-            query = urllib.parse.urlencode({"sni": p.get("sni", "")})
-            return f"hysteria2://{password}@{self.server}:{self.port}/?{query}#{name}"
+            query = {"sni": p.get("sni", "")}
+            if p.get("obfs"):
+                query["obfs"] = p["obfs"]
+                query["obfs-password"] = p.get("obfs_password", "")
+            query = {key: value for key, value in query.items() if value}
+            return f"hysteria2://{password}@{self.server}:{self.port}/?{urllib.parse.urlencode(query)}#{name}"
         raise ValueError(f"unsupported protocol: {proto}")

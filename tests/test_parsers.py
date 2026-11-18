@@ -157,6 +157,43 @@ def test_parse_hy2_alias():
     assert node.protocol == "hysteria2"
 
 
+def test_to_uri_vless_reality_roundtrip():
+    uri = ("vless://uuid-9@r.example.com:443?security=reality&sni=s.example.com"
+           "&pbk=KEY&sid=abcd&fp=chrome&type=tcp&flow=xtls-rprx-vision#R")
+    node = parse_uri(uri)
+    assert node is not None
+    again = parse_uri(node.to_uri())
+    assert again is not None
+    assert again.params["security"] == "reality"
+    assert again.params["reality_pbk"] == "KEY"
+    assert again.params["reality_sid"] == "abcd"
+    assert again.params["client_fingerprint"] == "chrome"
+    assert again.params["flow"] == "xtls-rprx-vision"
+
+
+def test_to_uri_ss_plugin_roundtrip():
+    userinfo = base64.urlsafe_b64encode(b"aes-256-gcm:pw").decode().rstrip("=")
+    uri = (f"ss://{userinfo}@s.example.com:8388"
+           "?plugin=obfs-local%3Bobfs%3Dhttp%3Bobfs-host%3Dh.example.com#P")
+    node = parse_uri(uri)
+    assert node is not None
+    again = parse_uri(node.to_uri())
+    assert again is not None
+    assert again.params["plugin"] == "obfs"
+    assert again.params["plugin_opts"]["mode"] == "http"
+    assert again.params["plugin_opts"]["host"] == "h.example.com"
+
+
+def test_to_uri_hysteria2_obfs_roundtrip():
+    uri = "hysteria2://pw@hy.example.com:8443?sni=h.example.com&obfs=salamander&obfs-password=xx#H"
+    node = parse_uri(uri)
+    assert node is not None
+    again = parse_uri(node.to_uri())
+    assert again is not None
+    assert again.params["obfs"] == "salamander"
+    assert again.params["obfs_password"] == "xx"
+
+
 def test_unknown_scheme_returns_none():
     assert parse_uri("ftp://example.com/file") is None
     assert parse_uri("not a uri") is None
