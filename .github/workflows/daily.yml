@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: daily-crawl
@@ -32,10 +32,26 @@ jobs:
       - name: Run crawler
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WORKER_BASE_URL: ${{ secrets.WORKER_BASE_URL }}
-          UPLOAD_TOKEN: ${{ secrets.UPLOAD_TOKEN }}
-          SUB_ACCESS_KEY: ${{ secrets.SUB_ACCESS_KEY }}
-        run: python -m vpnnode.pipeline --out output
+        run: python -m vpnnode.pipeline --out output --no-upload
+
+      - name: Commit and push outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f output/
+          if git diff --cached --quiet; then
+            echo "no output changes"
+          else
+            git commit -m "chore(data): update nodes $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Purge jsDelivr cache
+        run: |
+          for f in clash.yaml sub.base64 report.json; do
+            curl -fsS "https://purge.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/$f" \
+              && echo "purged $f" || echo "purge failed: $f"
+          done
 
       - name: Upload artifact
         if: always()

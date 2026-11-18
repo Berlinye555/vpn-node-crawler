@@ -1,0 +1,1496 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+proxies:
+- name: github.com/freefq - 美国CloudFlare公司CDN节点 9
+  type: vmess
+  server: 104.21.82.183
+  port: 8880
+  uuid: 5a7021e0-26b4-45d6-b175-fe551601ca97
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: server26.beheshtbaneh.com
+- name: 日本|@ripaojiedian
+  type: vless
+  server: 139.162.91.239
+  port: 443
+  uuid: b0dc852a-97ec-4d4e-9179-f0e5c2ef1489
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: 7PBmAR6CGAh2naIi09rlP_PtmLmqhlXF_toZEdAHmRo
+    short-id: 7c6d6833
+  ws-opts:
+    path: /ws
+- name: 新加坡|@ripaojiedian
+  type: vless
+  server: 139.162.20.241
+  port: 443
+  uuid: 7f0270f9-1abc-4c4f-960d-0a23e32f1eb8
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: fG1u2AZj5pgSNWO3MBmkoY6K61xBwnuYX3_z1fSeR0o
+    short-id: 640c807d
+  ws-opts:
+    path: /ws
+- name: 🇸🇬_SG_新加坡_IPV4 (3)
+  type: vless
+  server: 172.104.48.194
+  port: 443
+  uuid: a28d0884-193d-4591-aa64-8638ba1481ce
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: u_4r8NRmRsN5Ndbt0koyC73DLC7mCcK4wAA0YiIR4ko
+    short-id: b0af872e
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇯🇵_JP_日本_IPV4
+  type: vless
+  server: 172.104.86.181
+  port: 443
+  uuid: 010431f3-04f6-4404-a801-b93bf2e3c2b2
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: ujYDprigWFLxcj4BtitDNa-hoPjIbpSzrnEcqp3cgjk
+    short-id: c8559ca1
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇩🇪 德国 | DEU 4
+  type: vless
+  server: 2.27.58.17
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 2.27.58.17
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇳🇱 荷兰 | NLD 6
+  type: vless
+  server: 31.76.250.171
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 31.76.250.171
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇯🇵_JP_日本_IPV4 (2)
+  type: vless
+  server: 45.76.222.108
+  port: 443
+  uuid: bd95a04e-e3e1-460e-b89d-e9a693d393e0
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: -_YzpVlKrn08il_kQdHxHTvJyWYAdetWN_IFRtvPgmE
+    short-id: b5c85d2d
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇮🇹 意大利 | ITA #1'
+  type: ss
+  server: 57.131.27.21
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+- name: '🇮🇹[www.v2nodes.com] ss-IT-1619... #5'
+  type: ss
+  server: 202.50.253.90
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇨🇿 捷克 | CZE
+  type: vless
+  server: 191.217.200.133
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 191.217.200.133
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇸🇪 瑞典 | SWE 2
+  type: vless
+  server: 88.216.189.192
+  port: 443
+  uuid: 955d8dc7-5e3b-40ac-b2bb-bd8aa20fc7e6
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: modx.wey-land.net
+  reality-opts:
+    public-key: 1VhM5R3IlHPjzxEeTuik1lcUad-HI6C57MzXxppyXg4
+    short-id: ''
+- name: 🇺🇸_US_美国_IPV4
+  type: vless
+  server: 172.235.63.167
+  port: 443
+  uuid: d95f222c-3a63-47f8-8e61-af83e1f143f5
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: oxf_WPNwjjrO2uknpE9vbM9uwiQ4vbasL-Bgy3lwCHg
+    short-id: dd78b5c3
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇺🇸_US_美国_IPV4 (4)
+  type: vless
+  server: 172.233.142.149
+  port: 443
+  uuid: 61e3954d-0d66-4b69-b6cd-9b4fc2352303
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: f9D1ZzG6vP1HgjCaCIutbykWkab8VEDuitwuwaeuBgY
+    short-id: 4206512a
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇸🇬[www.v2nodes.com] vless-SG-7... #2'
+  type: vless
+  server: 104.18.109.147
+  port: 2052
+  uuid: c29d39bd-92a4-45db-bb61-56013998617c
+  network: ws
+  ws-opts:
+    path: /Telegram-XV2ry2?ed=2048
+    headers:
+      Host: www.speedtest.net.www.1google.com.bing.com.visa.com.tls.xv98.ip-ddns.com
+- name: '🇮🇹 意大利 | ITA #2'
+  type: ss
+  server: 202.50.253.81
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🇮🇹 意大利 | ITA #4'
+  type: ss
+  server: 202.50.253.99
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🇮🇹 意大利 | ITA #7'
+  type: ss
+  server: 202.50.253.45
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇨🇭 瑞士 | CHE
+  type: vless
+  server: 191.217.240.88
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 191.217.240.88
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇭🇷 HR_40
+  type: vless
+  server: 191.217.201.227
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 191.217.201.227
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: '🇮🇹 意大利 | ITA #9'
+  type: ss
+  server: 202.50.253.72
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 | USA 2
+  type: vless
+  server: 162.35.101.177
+  port: 443
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+  network: grpc
+  tls: true
+  servername: 0592efg.us8.h1clayd.click
+  reality-opts:
+    public-key: cO3wYHISTeorXcM8ffaDCDdqZ-olBQL-GyZqb-W7rTk
+    short-id: bd8f712209a9c283
+- name: 意大利|@ripaojiedian
+  type: ss
+  server: 202.50.253.63
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸_US_美国_IPV4 (2)
+  type: vless
+  server: 45.32.70.42
+  port: 443
+  uuid: 8c392beb-524d-4d0a-a3a6-4d542d54a1ff
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: cQZ-dTY4QSQteDYpngP2PavOsn9yY9lIP-OscwzwAio
+    short-id: 4dda4608
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇺🇸_US_美国_IPV4 (3)
+  type: vless
+  server: 172.236.227.60
+  port: 443
+  uuid: 3c8a110d-f04d-4f0e-9579-fd00631b8830
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: BHBzo_I0M-sChoOqTyOczYBP8l1L_dkmB6u3ijAOaGo
+    short-id: 664c1530
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇮🇹 意大利 | ITA #3'
+  type: ss
+  server: 202.50.253.54
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🇹🇭[www.v2nodes.com] vless-TH-1... #1'
+  type: vless
+  server: assets.opensignal.com
+  port: 80
+  uuid: 0c85001b-ad48-4f43-bdc9-b2b5c626a26e
+  network: ws
+  ws-opts:
+    path: /logout
+    headers:
+      Host: d36lt9hzl2ug3d.cloudfront.net:assets.opensignal.com
+- name: 🇺🇸 美国 | USA 7
+  type: vless
+  server: 48.102.251.246
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 48.102.251.246
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇩🇪 德国 | DEU
+  type: vless
+  server: 191.217.252.92
+  port: 2053
+  uuid: 4cf2635f-400a-4556-bb66-645990da5fe1
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: tabletestgame.mooo.com
+  reality-opts:
+    public-key: uc610xVav3aFo020WeOeitgSp-_hecAeCDYRBuNa7Sg
+    short-id: 5a8e1a04f3d92b67
+- name: 🇵🇱 波兰 | POL
+  type: vless
+  server: 80.47.10.106
+  port: 443
+  uuid: a30903dc-1bf0-4be5-8b1b-603a3a56211c
+  network: tcp
+  tls: true
+  servername: pl8.galioncc.com
+  reality-opts:
+    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
+    short-id: a7c92e4b10d6f835
+- name: 🇺🇸 美国 | USA 5
+  type: vless
+  server: 48.102.225.242
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 48.102.225.242
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇺🇸_US_美国_IPV4 (11)
+  type: vless
+  server: 172.233.129.172
+  port: 443
+  uuid: 40a4b915-5e6f-4316-9bb1-e899f30608e3
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: LWfC_chpo4uDtzJ9VVnuTcf6zTzWKx-LCJAE2Ltl7h4
+    short-id: 5818adc3
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇳🇱 荷兰 | NLD 2
+  type: vless
+  server: 191.217.206.147
+  port: 6443
+  uuid: 0b22812b-4a79-42b1-93ec-5b157b0f2f7f
+  network: xhttp
+  tls: true
+  servername: nl.krabvpn.pro
+  reality-opts:
+    public-key: RBQhVV7u-QBkQL79vHRE2tQEeR1SA8CJ9zI9i99XA24
+    short-id: 3bcbfe3856680516
+- name: 🇷🇺 俄罗斯 | RUS
+  type: vless
+  server: 81.200.152.153
+  port: 443
+  uuid: 955d8dc7-5e3b-40ac-b2bb-bd8aa20fc7e6
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: gmbasdasd.wey-land.net
+  reality-opts:
+    public-key: t2iopaZn9-fADmIi4taXbGUV6wFTFku4eGi8KISuZAM
+    short-id: ''
+- name: 🇸🇪 瑞典 | SWE
+  type: vless
+  server: 191.217.206.147
+  port: 7443
+  uuid: 0b22812b-4a79-42b1-93ec-5b157b0f2f7f
+  network: xhttp
+  tls: true
+  servername: pl-origin.krabvpn.pro
+  reality-opts:
+    public-key: NmMggGv5jmohnMmZytnLdenxmpNwa4P9E2PZW1EV8go
+    short-id: 5e25bf4462660ed8
+- name: 🇺🇸 美国 | USA
+  type: vless
+  server: 48.102.241.194
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 48.102.241.194
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇺🇸 美国 | USA 8
+  type: vless
+  server: 48.102.226.22
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 48.102.226.22
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 意大利2|@ripaojiedian
+  type: ss
+  server: 202.50.253.27
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🏳[www.v2nodes.com] vless- #20'
+  type: vless
+  server: 104.26.13.31
+  port: 8080
+  uuid: 3e06b1db-2efb-446e-ba2d-68850dfd2f9d
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: bdfba-cool-tree-b580.v8fz4kbv.workers.dev
+- name: 🇦🇱 AL_18
+  type: vless
+  server: 196.196.148.85
+  port: 443
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+  network: tcp
+  tls: true
+  servername: 5d0319t.nl7.h1clayd.click
+  reality-opts:
+    public-key: l-GzBDuNuhnjxoRlZqKvT7jAt_sbVAxhGFsAttO5kXs
+    short-id: 361d0dd59c70516f
+- name: 🇧🇪 比利时 | BEL
+  type: vless
+  server: 191.217.198.88
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 191.217.198.88
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇩🇪 德国 | DEU 7
+  type: vless
+  server: 191.217.206.147
+  port: 9443
+  uuid: 0b22812b-4a79-42b1-93ec-5b157b0f2f7f
+  network: xhttp
+  tls: true
+  servername: fin.krabvpn.pro
+  reality-opts:
+    public-key: zd4L59ejBo94N8N9GQtZMox2eBBF9TQf2TLyIgpwlCg
+    short-id: fd7624659f1e7d66
+- name: 🇱🇹 立陶宛 | LTU
+  type: vless
+  server: 88.216.127.115
+  port: 443
+  uuid: 955d8dc7-5e3b-40ac-b2bb-bd8aa20fc7e6
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: lt-modx.nodexphere.net
+  reality-opts:
+    public-key: cc2mDH9C31IlAwrn1eEhbuzZ3l4Ijw3mKl7rF75GUDo
+    short-id: ''
+- name: 🇸🇬_SG_新加坡_IPV4 (4)
+  type: vless
+  server: 139.180.221.53
+  port: 443
+  uuid: 2b30d0df-6ebe-4aed-9bad-b7c554e35e1d
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: plfXwkb-ewI6iibJBTRmPnf8eqPId1BfdArMIm3_mB4
+    short-id: 2f6f6f87
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇷🇴 罗马尼亚 | ROU
+  type: vless
+  server: 191.217.220.239
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 191.217.220.239
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇺🇸 美国 | USA 6
+  type: vless
+  server: 48.102.224.183
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 48.102.224.183
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇵🇹 葡萄牙 | PRT
+  type: vless
+  server: 201.58.174.23
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 201.58.174.23
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇺🇸_US_美国_IPV4 (9)
+  type: vless
+  server: 172.235.48.245
+  port: 443
+  uuid: c923b26b-a941-456d-8ccc-834f3b4080e0
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: WoN4MfFQoLTmHhsa6cgsjjDtditjn2VfDbp9jd3hbSs
+    short-id: 7378fab7
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇺🇸_US_美国_IPV4 (10)
+  type: vless
+  server: 172.233.129.65
+  port: 443
+  uuid: 9d91b606-9117-4f8f-8df7-dda7facf3a57
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: Z-RbKKLYcL0Rs6FgAjrrIyN6pAuZjP0JmaP9kLKoER0
+    short-id: 08d9f55d
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇭🇺 匈牙利 | HUN
+  type: vless
+  server: 191.217.222.78
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 191.217.222.78
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇺🇸 美国 | USA 3
+  type: vless
+  server: 48.102.227.83
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 48.102.227.83
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: 🇺🇸_US_美国_IPV4 (5)
+  type: vless
+  server: 172.236.241.130
+  port: 443
+  uuid: 21117a67-21c2-4e2a-ba8f-bc49e23b0ae8
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: ibi0jOH5SfYhh7ycxdBrqq5oN4ajN3-dNiHKWC2VYWs
+    short-id: 51ecfe9e
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇺🇸_US_美国_IPV4 (6)
+  type: vless
+  server: 172.235.37.168
+  port: 443
+  uuid: dbac71f3-ab05-4194-985b-f07088bf1a4a
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: 1iwAzh_XzSCYWZEVZ0lfczKFd--jXx3coCt5le58gEM
+    short-id: c52e85fe
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇺🇸_US_美国_IPV4 (7)
+  type: vless
+  server: 172.236.233.130
+  port: 443
+  uuid: a663dc28-28dc-4f97-9665-6ac215c8e567
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: 4wXbhUoSy9s9bGy9PaK18XVTTw3wXkBDjEusiMHaMB4
+    short-id: '53908445'
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇺🇸_US_美国_IPV4 (8)
+  type: vless
+  server: 107.191.58.86
+  port: 443
+  uuid: 4444e77e-3d2a-4dc9-bf31-936f038f5570
+  network: ws
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: ZZwZGoX0Us8t6nLvckDWskC1c25F9rL0_nUXmd8BFxQ
+    short-id: 8dd324c1
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇹🇭[www.v2nodes.com] vless-TH-1...
+  type: vless
+  server: www.true.th
+  port: 80
+  uuid: f4c5605a-8424-441e-b23d-d6384d012c28
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: dcm4kwis2exkw.cloudfront.net
+- name: 🇧🇬 保加利亚 | BGR 2
+  type: vless
+  server: 191.217.223.246
+  port: 443
+  uuid: 2bba3b63-eb4c-470b-aa58-ae9d4a1430c8
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 191.217.223.246
+  reality-opts:
+    public-key: m6US_Wo7oYwRvmXWu2_bMRST1FB_rVcPpW3TqZX5_xY
+    short-id: ''
+- name: '🇮🇹 意大利 | ITA #5'
+  type: ss
+  server: 202.50.253.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇪🇪 爱沙尼亚 | EST
+  type: vless
+  server: 5.129.202.80
+  port: 443
+  uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: mirror-50.topp-con.xyz
+  reality-opts:
+    public-key: NY2bvH4IFKTstWkBWwyU5MmlzuKk0nU08cBoHlti2S8
+    short-id: 2ef2b10d5143d798
+- name: 🇸🇨_SC_塞舌尔->🇳🇱_NL_荷兰_IPV4
+  type: vless
+  server: 196.196.148.63
+  port: 443
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+  network: grpc
+  tls: true
+  servername: 717252g.nl8.h1clayd.click
+  reality-opts:
+    public-key: PD8Jdlg3xB9QY--jwQjp8PFPzCS8-Oryw6-HWBcHMFU
+    short-id: d3bd772514c87d28
+- name: '🇺🇸[www.v2nodes.com] vless-US-1... #1'
+  type: vless
+  server: sajed.kdns.fr
+  port: 443
+  uuid: 8e40cd7b-ce15-4887-8fe2-0af534a941a2
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: sajed.kdns.fr
+- name: 法国|@ripaojiedian
+  type: vless
+  server: edge.bookmai.com
+  port: 443
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: mother-earth.fyi
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+- name: 🇮🇹_IT_意大利_IPV4 (2)
+  type: ss
+  server: 202.50.253.36
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🇬🇧 英国 | GBR #1'
+  type: vless
+  server: 89.116.46.150
+  port: 443
+  uuid: 003ec416-45f0-462a-8030-016fe0a71703
+  network: xhttp
+  tls: true
+  servername: 145.baklajann.ru
+- name: 🇫🇮[www.v2nodes.com] vless-FI-1...
+  type: vless
+  server: 198.202.24.142
+  port: 2083
+  uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
+  network: ws
+  tls: true
+  servername: vipfree.dr-ping.ir
+  ws-opts:
+    path: /
+    headers:
+      Host: vipfree.dr-ping.ir
+- name: 🇮🇳[www.v2nodes.com] vless-IN-1...
+  type: vless
+  server: 188.114.99.137
+  port: 443
+  uuid: c1208c5a-2350-0003-affd-fc41b4319286
+  network: ws
+  tls: true
+  servername: decdn-28.nome-rkp.net
+  ws-opts:
+    path: /media/ws/
+    headers:
+      Host: decdn-28.nome-rkp.net
+- name: 🇷🇺 俄罗斯 | RUS 4
+  type: vless
+  server: 147.45.99.100
+  port: 443
+  uuid: 4b50270b-5caf-4c34-b3da-17b4525604a6
+  network: grpc
+  tls: true
+  servername: luminexorizon.ink
+- name: 🇺🇸 机场推荐:dafei.de 美国 89_IPV4
+  type: vmess
+  server: 188.114.99.137
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: guanwang.awsno.com
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+- name: 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  type: vmess
+  server: 172.67.190.164
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: guanwang.awsno.com
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+- name: BR_speednode_0003
+  type: vless
+  server: de9.pad-sservice.lat
+  port: 8443
+  uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
+  network: ws
+  tls: true
+  servername: de9.pad-sservice.lat
+  ws-opts:
+    path: /DE9W
+    headers:
+      Host: de9.pad-service.com
+- name: 🇺🇸_US_美国_IPV4 (13)
+  type: vmess
+  server: 104.18.42.163
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: guanwang.awsno.com
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+- name: github.com/freefq - 美国CloudFlare公司CDN节点 4
+  type: vmess
+  server: www.darkroom.lol
+  port: 8080
+  uuid: 22826b44-5c1a-4b4b-dbaa-83a2e8bd95f0
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: www.darkroom.lol
+- name: '@DeltaKroneckerGithub_3021_IPV4'
+  type: vmess
+  server: 172.64.145.93
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: guanwang.awsno.com
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+- name: 🇷🇺 俄罗斯 | RUS 3
+  type: vless
+  server: 201.24.116.192
+  port: 443
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
+  network: grpc
+  tls: true
+  servername: vps3.nemnogogo.com
+- name: AT_speednode_0001
+  type: vless
+  server: au2.pad-sservice.lat
+  port: 8443
+  uuid: 2b0e5676-fb62-4bf0-9607-6e7818421e8e
+  network: ws
+  tls: true
+  servername: au2.pad-sservice.lat
+  ws-opts:
+    path: /A11U
+    headers:
+      Host: au2.pad-service.com
+- name: 🇹🇷[www.v2nodes.com] trojan-TR-...
+  type: trojan
+  server: sclass-b1.catcat321.com
+  port: 20027
+  password: d7563108-615c-4338-a7bd-77f359869a4a
+  sni: hk.catxstar.com
+  network: tcp
+- name: '🇺🇸 美国 | USA #4'
+  type: vless
+  server: 186.243.218.221
+  port: 8443
+  uuid: fa937345-6d3e-4ff4-8127-1a836987a0db
+  network: ws
+  tls: true
+  servername: cloudehouse24.ru
+  ws-opts:
+    path: /v1/assets/7c3f9a2e6b4d8f10/us.js
+    headers:
+      Host: cloudehouse24.ru
+- name: '🇨🇦[www.v2nodes.com] vless-CA-1... #1'
+  type: vless
+  server: 188.114.98.0
+  port: 443
+  uuid: d4733e5a-5850-4523-942e-f28f82ebf4a9
+  network: ws
+  tls: true
+  servername: party-5cn.pages.dev
+  ws-opts:
+    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
+    headers:
+      Host: party-5cn.pages.dev
+- name: '🇳🇱 荷兰 | NLD #1'
+  type: vless
+  server: 201.34.142.108
+  port: 443
+  uuid: 4777d90d-265b-4927-a0d1-63f36ed1421c
+  network: xhttp
+  tls: true
+  servername: 201.34.142.108
+- name: '🇩🇪[www.v2nodes.com] vless-DE-1... #3'
+  type: vless
+  server: ir2.cryptojakiro.com
+  port: 443
+  uuid: 8a1a991a-f206-447a-adaf-37a57c133418
+  network: ws
+  tls: true
+  servername: ir2.cryptojakiro.com
+  ws-opts:
+    path: /
+    headers:
+      Host: ir2.cryptojakiro.com
+- name: 🇱🇹 15@exclavevpn
+  type: hysteria2
+  server: 179.254.127.219
+  port: 25318
+  password: b36a14f8-fc3f-4142-968f-48031cf5f330
+  sni: 775c8bt.lt4.h1clayd.click
+- name: '@OutlineReleasedKey'
+  type: hysteria2
+  server: 201.8.71.59
+  port: 443
+  password: 23c82941-70f4-4381-90db-bd28e9a902e9
+  sni: steel7.hadsvpn.com
+- name: '@OutlineReleasedKey #1'
+  type: hysteria2
+  server: steel7.hadsvpn.com
+  port: 443
+  password: 23c82941-70f4-4381-90db-bd28e9a902e9
+- name: '@OutlineReleasedKey #4'
+  type: hysteria2
+  server: 94.183.164.119
+  port: 24433
+  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
+  sni: lakes.blog-forme.ru
+- name: '@OutlineReleasedKey #5'
+  type: hysteria2
+  server: guide.blog-forme.ru
+  port: 443
+  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
+- name: Telegram  ⚜️Join -> @tik7net_v...
+  type: hysteria2
+  server: 109.70.74.213
+  port: 2098
+  password: 5ictxgawam84vgrp
+  sni: 109.70.74.213
+- name: Telegram:@v2rayng3
+  type: hysteria2
+  server: 31.76.80.69
+  port: 443
+  password: 6aab8efdf13945829ae3699c342be406
+  sni: fiproxy1.lockdwn.com
+- name: '@ConfigV2RayNG'
+  type: hysteria2
+  server: ide.vipvirtualnet.eu
+  port: 30746
+  password: 99a271e85dbc4aa8950f9c7beee06b19
+  sni: del.vipvirtualnet.eu
+- name: '@v2ray313 کانالمون 😀'
+  type: hysteria2
+  server: ir.config7x.site
+  port: 26503
+  password: Telegram--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X--CONFIG7X-
+  sni: hy.config7x.site
+- name: 🇵🇱218385 | ⚡️Telegram = t.me/L...
+  type: hysteria2
+  server: 13.143.189.105
+  port: 4444
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl2.nexfile.net
+- name: 🇵🇱218381 | ⚡️Telegram = t.me/L...
+  type: hysteria2
+  server: 13.143.189.106
+  port: 4444
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl2.nexfile.net
+- name: 🇵🇱218384 | ⚡️Telegram = t.me/L...
+  type: hysteria2
+  server: 13.143.189.142
+  port: 4444
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl3.nexfile.net
+- name: 🇵🇱218383 | ⚡️Telegram = t.me/L...
+  type: hysteria2
+  server: 13.143.189.147
+  port: 4444
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl2.nexfile.net
+- name: 🇵🇱218380 | ⚡️Telegram = t.me/L...
+  type: hysteria2
+  server: 13.143.189.149
+  port: 4444
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
+  sni: pl2.nexfile.net
+- name: '@OutlineReleasedKey #7'
+  type: hysteria2
+  server: hy2-eee-1.aloranode.top
+  port: 443
+  password: b36a14f8-fc3f-4142-968f-48031cf5f330
+  sni: hy2-eee-1.aloranode.top
+- name: 'Channel : @Daily_Configs'
+  type: hysteria2
+  server: panel.autonetshop.ir
+  port: 43345
+  password: d1gkicdgem3bsoaa
+  sni: panel.autonetshop.ir
+- name: '@OutlineReleasedKey #8'
+  type: hysteria2
+  server: 50.7.38.243
+  port: 443
+  password: d4ca9415f0eac7897472e1e5b86d2e96
+  sni: promo.betust.net
+- name: '@Nexus_Panell چنل تلگرام #1'
+  type: hysteria2
+  server: 152.32.254.68
+  port: 5010
+  password: eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
+  sni: nas.aizhzo.com
+- name: 🔹13@oneclickvpnkeys
+  type: hysteria2
+  server: 195.63.138.212
+  port: 10444
+  password: fa937345-6d3e-4ff4-8127-1a836987a0db
+  sni: cloudehouse24.ru
+- name: '@confiig_hub #1'
+  type: hysteria2
+  server: 130.49.161.70
+  port: 443
+  password: p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
+  sni: hy2.aspidnet.xyz
+- name: 🇺🇸US_1|2.2MB/s
+  type: hysteria2
+  server: 45.86.74.193
+  port: 443
+  password: 3a17ce52-4547-45aa-9820-a7d03ad5faca
+  sni: media.embrofree.org
+proxy-groups:
+- name: 🚀 自动
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 50
+  proxies:
+  - github.com/freefq - 美国CloudFlare公司CDN节点 9
+  - 日本|@ripaojiedian
+  - 新加坡|@ripaojiedian
+  - 🇸🇬_SG_新加坡_IPV4 (3)
+  - 🇯🇵_JP_日本_IPV4
+  - 🇩🇪 德国 | DEU 4
+  - 🇳🇱 荷兰 | NLD 6
+  - 🇯🇵_JP_日本_IPV4 (2)
+  - '🇮🇹 意大利 | ITA #1'
+  - '🇮🇹[www.v2nodes.com] ss-IT-1619... #5'
+  - 🇨🇿 捷克 | CZE
+  - 🇸🇪 瑞典 | SWE 2
+  - 🇺🇸_US_美国_IPV4
+  - 🇺🇸_US_美国_IPV4 (4)
+  - '🇸🇬[www.v2nodes.com] vless-SG-7... #2'
+  - '🇮🇹 意大利 | ITA #2'
+  - '🇮🇹 意大利 | ITA #4'
+  - '🇮🇹 意大利 | ITA #7'
+  - 🇨🇭 瑞士 | CHE
+  - 🇭🇷 HR_40
+  - '🇮🇹 意大利 | ITA #9'
+  - 🇺🇸 美国 | USA 2
+  - 意大利|@ripaojiedian
+  - 🇺🇸_US_美国_IPV4 (2)
+  - 🇺🇸_US_美国_IPV4 (3)
+  - '🇮🇹 意大利 | ITA #3'
+  - '🇹🇭[www.v2nodes.com] vless-TH-1... #1'
+  - 🇺🇸 美国 | USA 7
+  - 🇩🇪 德国 | DEU
+  - 🇵🇱 波兰 | POL
+  - 🇺🇸 美国 | USA 5
+  - 🇺🇸_US_美国_IPV4 (11)
+  - 🇳🇱 荷兰 | NLD 2
+  - 🇷🇺 俄罗斯 | RUS
+  - 🇸🇪 瑞典 | SWE
+  - 🇺🇸 美国 | USA
+  - 🇺🇸 美国 | USA 8
+  - 意大利2|@ripaojiedian
+  - '🏳[www.v2nodes.com] vless- #20'
+  - 🇦🇱 AL_18
+  - 🇧🇪 比利时 | BEL
+  - 🇩🇪 德国 | DEU 7
+  - 🇱🇹 立陶宛 | LTU
+  - 🇸🇬_SG_新加坡_IPV4 (4)
+  - 🇷🇴 罗马尼亚 | ROU
+  - 🇺🇸 美国 | USA 6
+  - 🇵🇹 葡萄牙 | PRT
+  - 🇺🇸_US_美国_IPV4 (9)
+  - 🇺🇸_US_美国_IPV4 (10)
+  - 🇭🇺 匈牙利 | HUN
+  - 🇺🇸 美国 | USA 3
+  - 🇺🇸_US_美国_IPV4 (5)
+  - 🇺🇸_US_美国_IPV4 (6)
+  - 🇺🇸_US_美国_IPV4 (7)
+  - 🇺🇸_US_美国_IPV4 (8)
+  - 🇹🇭[www.v2nodes.com] vless-TH-1...
+  - 🇧🇬 保加利亚 | BGR 2
+  - '🇮🇹 意大利 | ITA #5'
+  - 🇪🇪 爱沙尼亚 | EST
+  - 🇸🇨_SC_塞舌尔->🇳🇱_NL_荷兰_IPV4
+  - '🇺🇸[www.v2nodes.com] vless-US-1... #1'
+  - 法国|@ripaojiedian
+  - 🇮🇹_IT_意大利_IPV4 (2)
+  - '🇬🇧 英国 | GBR #1'
+  - 🇫🇮[www.v2nodes.com] vless-FI-1...
+  - 🇮🇳[www.v2nodes.com] vless-IN-1...
+  - 🇷🇺 俄罗斯 | RUS 4
+  - 🇺🇸 机场推荐:dafei.de 美国 89_IPV4
+  - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  - BR_speednode_0003
+  - 🇺🇸_US_美国_IPV4 (13)
+  - github.com/freefq - 美国CloudFlare公司CDN节点 4
+  - '@DeltaKroneckerGithub_3021_IPV4'
+  - 🇷🇺 俄罗斯 | RUS 3
+  - AT_speednode_0001
+  - 🇹🇷[www.v2nodes.com] trojan-TR-...
+  - '🇺🇸 美国 | USA #4'
+  - '🇨🇦[www.v2nodes.com] vless-CA-1... #1'
+  - '🇳🇱 荷兰 | NLD #1'
+  - '🇩🇪[www.v2nodes.com] vless-DE-1... #3'
+  - 🇱🇹 15@exclavevpn
+  - '@OutlineReleasedKey'
+  - '@OutlineReleasedKey #1'
+  - '@OutlineReleasedKey #4'
+  - '@OutlineReleasedKey #5'
+  - Telegram  ⚜️Join -> @tik7net_v...
+  - Telegram:@v2rayng3
+  - '@ConfigV2RayNG'
+  - '@v2ray313 کانالمون 😀'
+  - 🇵🇱218385 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218381 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218384 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218383 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218380 | ⚡️Telegram = t.me/L...
+  - '@OutlineReleasedKey #7'
+  - 'Channel : @Daily_Configs'
+  - '@OutlineReleasedKey #8'
+  - '@Nexus_Panell چنل تلگرام #1'
+  - 🔹13@oneclickvpnkeys
+  - '@confiig_hub #1'
+  - 🇺🇸US_1|2.2MB/s
+- name: ♻️ 手动
+  type: select
+  proxies:
+  - github.com/freefq - 美国CloudFlare公司CDN节点 9
+  - 日本|@ripaojiedian
+  - 新加坡|@ripaojiedian
+  - 🇸🇬_SG_新加坡_IPV4 (3)
+  - 🇯🇵_JP_日本_IPV4
+  - 🇩🇪 德国 | DEU 4
+  - 🇳🇱 荷兰 | NLD 6
+  - 🇯🇵_JP_日本_IPV4 (2)
+  - '🇮🇹 意大利 | ITA #1'
+  - '🇮🇹[www.v2nodes.com] ss-IT-1619... #5'
+  - 🇨🇿 捷克 | CZE
+  - 🇸🇪 瑞典 | SWE 2
+  - 🇺🇸_US_美国_IPV4
+  - 🇺🇸_US_美国_IPV4 (4)
+  - '🇸🇬[www.v2nodes.com] vless-SG-7... #2'
+  - '🇮🇹 意大利 | ITA #2'
+  - '🇮🇹 意大利 | ITA #4'
+  - '🇮🇹 意大利 | ITA #7'
+  - 🇨🇭 瑞士 | CHE
+  - 🇭🇷 HR_40
+  - '🇮🇹 意大利 | ITA #9'
+  - 🇺🇸 美国 | USA 2
+  - 意大利|@ripaojiedian
+  - 🇺🇸_US_美国_IPV4 (2)
+  - 🇺🇸_US_美国_IPV4 (3)
+  - '🇮🇹 意大利 | ITA #3'
+  - '🇹🇭[www.v2nodes.com] vless-TH-1... #1'
+  - 🇺🇸 美国 | USA 7
+  - 🇩🇪 德国 | DEU
+  - 🇵🇱 波兰 | POL
+  - 🇺🇸 美国 | USA 5
+  - 🇺🇸_US_美国_IPV4 (11)
+  - 🇳🇱 荷兰 | NLD 2
+  - 🇷🇺 俄罗斯 | RUS
+  - 🇸🇪 瑞典 | SWE
+  - 🇺🇸 美国 | USA
+  - 🇺🇸 美国 | USA 8
+  - 意大利2|@ripaojiedian
+  - '🏳[www.v2nodes.com] vless- #20'
+  - 🇦🇱 AL_18
+  - 🇧🇪 比利时 | BEL
+  - 🇩🇪 德国 | DEU 7
+  - 🇱🇹 立陶宛 | LTU
+  - 🇸🇬_SG_新加坡_IPV4 (4)
+  - 🇷🇴 罗马尼亚 | ROU
+  - 🇺🇸 美国 | USA 6
+  - 🇵🇹 葡萄牙 | PRT
+  - 🇺🇸_US_美国_IPV4 (9)
+  - 🇺🇸_US_美国_IPV4 (10)
+  - 🇭🇺 匈牙利 | HUN
+  - 🇺🇸 美国 | USA 3
+  - 🇺🇸_US_美国_IPV4 (5)
+  - 🇺🇸_US_美国_IPV4 (6)
+  - 🇺🇸_US_美国_IPV4 (7)
+  - 🇺🇸_US_美国_IPV4 (8)
+  - 🇹🇭[www.v2nodes.com] vless-TH-1...
+  - 🇧🇬 保加利亚 | BGR 2
+  - '🇮🇹 意大利 | ITA #5'
+  - 🇪🇪 爱沙尼亚 | EST
+  - 🇸🇨_SC_塞舌尔->🇳🇱_NL_荷兰_IPV4
+  - '🇺🇸[www.v2nodes.com] vless-US-1... #1'
+  - 法国|@ripaojiedian
+  - 🇮🇹_IT_意大利_IPV4 (2)
+  - '🇬🇧 英国 | GBR #1'
+  - 🇫🇮[www.v2nodes.com] vless-FI-1...
+  - 🇮🇳[www.v2nodes.com] vless-IN-1...
+  - 🇷🇺 俄罗斯 | RUS 4
+  - 🇺🇸 机场推荐:dafei.de 美国 89_IPV4
+  - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  - BR_speednode_0003
+  - 🇺🇸_US_美国_IPV4 (13)
+  - github.com/freefq - 美国CloudFlare公司CDN节点 4
+  - '@DeltaKroneckerGithub_3021_IPV4'
+  - 🇷🇺 俄罗斯 | RUS 3
+  - AT_speednode_0001
+  - 🇹🇷[www.v2nodes.com] trojan-TR-...
+  - '🇺🇸 美国 | USA #4'
+  - '🇨🇦[www.v2nodes.com] vless-CA-1... #1'
+  - '🇳🇱 荷兰 | NLD #1'
+  - '🇩🇪[www.v2nodes.com] vless-DE-1... #3'
+  - 🇱🇹 15@exclavevpn
+  - '@OutlineReleasedKey'
+  - '@OutlineReleasedKey #1'
+  - '@OutlineReleasedKey #4'
+  - '@OutlineReleasedKey #5'
+  - Telegram  ⚜️Join -> @tik7net_v...
+  - Telegram:@v2rayng3
+  - '@ConfigV2RayNG'
+  - '@v2ray313 کانالمون 😀'
+  - 🇵🇱218385 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218381 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218384 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218383 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218380 | ⚡️Telegram = t.me/L...
+  - '@OutlineReleasedKey #7'
+  - 'Channel : @Daily_Configs'
+  - '@OutlineReleasedKey #8'
+  - '@Nexus_Panell چنل تلگرام #1'
+  - 🔹13@oneclickvpnkeys
+  - '@confiig_hub #1'
+  - 🇺🇸US_1|2.2MB/s
+- name: 🌍 BE
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇧🇪 比利时 | BEL
+- name: 🌍 BG
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇧🇬 保加利亚 | BGR 2
+- name: 🌍 CA
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - github.com/freefq - 美国CloudFlare公司CDN节点 9
+  - '🇸🇬[www.v2nodes.com] vless-SG-7... #2'
+  - '🏳[www.v2nodes.com] vless- #20'
+  - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  - 🇺🇸_US_美国_IPV4 (13)
+  - github.com/freefq - 美国CloudFlare公司CDN节点 4
+  - '@DeltaKroneckerGithub_3021_IPV4'
+  - '🇨🇦[www.v2nodes.com] vless-CA-1... #1'
+- name: 🌍 CH
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇨🇭 瑞士 | CHE
+  - AT_speednode_0001
+- name: 🌍 CY
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇺🇸US_1|2.2MB/s
+- name: 🌍 CZ
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇨🇿 捷克 | CZE
+- name: 🌍 DE
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇩🇪 德国 | DEU 4
+  - '🇬🇧 英国 | GBR #1'
+  - BR_speednode_0003
+  - 🇱🇹 15@exclavevpn
+  - '@OutlineReleasedKey #5'
+  - Telegram  ⚜️Join -> @tik7net_v...
+- name: 🌍 EE
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - '@OutlineReleasedKey #7'
+- name: 🌍 FI
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇩🇪 德国 | DEU
+  - Telegram:@v2rayng3
+- name: 🌍 FR
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 法国|@ripaojiedian
+- name: 🌍 HK
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - '🇹🇭[www.v2nodes.com] vless-TH-1... #1'
+  - 🇹🇭[www.v2nodes.com] vless-TH-1...
+  - '@Nexus_Panell چنل تلگرام #1'
+- name: 🌍 HR
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇭🇷 HR_40
+- name: 🌍 HU
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇭🇺 匈牙利 | HUN
+- name: 🌍 IR
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - '🇩🇪[www.v2nodes.com] vless-DE-1... #3'
+  - '@OutlineReleasedKey #4'
+  - '@ConfigV2RayNG'
+  - '@v2ray313 کانالمون 😀'
+- name: 🌍 IT
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - '🇮🇹 意大利 | ITA #1'
+  - '🇮🇹[www.v2nodes.com] ss-IT-1619... #5'
+  - '🇮🇹 意大利 | ITA #2'
+  - '🇮🇹 意大利 | ITA #4'
+  - '🇮🇹 意大利 | ITA #7'
+  - '🇮🇹 意大利 | ITA #9'
+  - 意大利|@ripaojiedian
+  - '🇮🇹 意大利 | ITA #3'
+  - 意大利2|@ripaojiedian
+  - '🇮🇹 意大利 | ITA #5'
+  - 🇮🇹_IT_意大利_IPV4 (2)
+- name: 🌍 JP
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 日本|@ripaojiedian
+  - 🇯🇵_JP_日本_IPV4
+  - 🇯🇵_JP_日本_IPV4 (2)
+- name: 🌍 LT
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇱🇹 立陶宛 | LTU
+- name: 🌍 NE
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇦🇱 AL_18
+  - 🇸🇨_SC_塞舌尔->🇳🇱_NL_荷兰_IPV4
+- name: 🌍 NL
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇳🇱 荷兰 | NLD 6
+  - 🔹13@oneclickvpnkeys
+  - '@confiig_hub #1'
+- name: 🌍 PL
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇵🇱 波兰 | POL
+  - 🇵🇱218385 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218381 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218384 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218383 | ⚡️Telegram = t.me/L...
+  - 🇵🇱218380 | ⚡️Telegram = t.me/L...
+- name: 🌍 PT
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇵🇹 葡萄牙 | PRT
+- name: 🌍 RO
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇷🇴 罗马尼亚 | ROU
+- name: 🌍 RU
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇷🇺 俄罗斯 | RUS
+  - 🇪🇪 爱沙尼亚 | EST
+  - 🇷🇺 俄罗斯 | RUS 4
+  - 🇷🇺 俄罗斯 | RUS 3
+  - '🇺🇸 美国 | USA #4'
+  - '🇳🇱 荷兰 | NLD #1'
+- name: 🌍 SE
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇸🇪 瑞典 | SWE 2
+  - 🇳🇱 荷兰 | NLD 2
+  - 🇸🇪 瑞典 | SWE
+  - 🇩🇪 德国 | DEU 7
+  - '🇺🇸[www.v2nodes.com] vless-US-1... #1'
+  - '@OutlineReleasedKey #8'
+- name: 🌍 SG
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 新加坡|@ripaojiedian
+  - 🇸🇬_SG_新加坡_IPV4 (3)
+  - 🇸🇬_SG_新加坡_IPV4 (4)
+  - 🇹🇷[www.v2nodes.com] trojan-TR-...
+- name: 🌍 TR
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 'Channel : @Daily_Configs'
+- name: 🌍 US
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇺🇸_US_美国_IPV4
+  - 🇺🇸_US_美国_IPV4 (4)
+  - 🇺🇸 美国 | USA 2
+  - 🇺🇸_US_美国_IPV4 (2)
+  - 🇺🇸_US_美国_IPV4 (3)
+  - 🇺🇸 美国 | USA 7
+  - 🇺🇸 美国 | USA 5
+  - 🇺🇸_US_美国_IPV4 (11)
+  - 🇺🇸 美国 | USA
+  - 🇺🇸 美国 | USA 8
+  - 🇺🇸 美国 | USA 6
+  - 🇺🇸_US_美国_IPV4 (9)
+  - 🇺🇸_US_美国_IPV4 (10)
+  - 🇺🇸 美国 | USA 3
+  - 🇺🇸_US_美国_IPV4 (5)
+  - 🇺🇸_US_美国_IPV4 (6)
+  - 🇺🇸_US_美国_IPV4 (7)
+  - 🇺🇸_US_美国_IPV4 (8)
+  - 🇫🇮[www.v2nodes.com] vless-FI-1...
+  - 🇮🇳[www.v2nodes.com] vless-IN-1...
+  - 🇺🇸 机场推荐:dafei.de 美国 89_IPV4
+  - '@OutlineReleasedKey'
+  - '@OutlineReleasedKey #1'
+rules:
+- DOMAIN-SUFFIX,local,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT
+- IP-CIDR,172.16.0.0/12,DIRECT
+- IP-CIDR,192.168.0.0/16,DIRECT
+- GEOIP,CN,DIRECT
+- MATCH,🚀 自动

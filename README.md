@@ -53,42 +53,23 @@ HTTPS_PROXY=http://127.0.0.1:7890 HTTP_PROXY=http://127.0.0.1:7890 \
 .venv/Scripts/python.exe -m pytest -q
 ```
 
-## 定时任务（GitHub Actions）
+## 定时任务与订阅（GitHub Actions + jsDelivr）
 
-`.github/workflows/daily.yml` 每天北京时间 05:17 自动运行，支持手动触发。
+`.github/workflows/daily.yml` 每天北京时间 05:17 自动运行：抓取、过滤，把结果提交回仓库的 `output/`，然后主动清除 jsDelivr 缓存。
 
-Actions 在境外机房运行，GitHub raw 与 Telegram 源天然可达。未配置 Worker 密钥时只产出 artifact（保留 7 天）。
-
-## 订阅服务（Cloudflare Worker）
-
-```bash
-cd worker
-npm install
-npx wrangler login
-npx wrangler kv namespace create SUBSTORE      # 把返回的 id 填进 wrangler.toml
-
-# 生成两个随机密钥
-python -c "import secrets; print('SUB_ACCESS_KEY=' + secrets.token_urlsafe(32))"
-python -c "import secrets; print('UPLOAD_TOKEN=' + secrets.token_urlsafe(32))"
-
-npx wrangler secret put SUB_ACCESS_KEY
-npx wrangler secret put UPLOAD_TOKEN
-npx wrangler deploy
-```
-
-然后在 GitHub 仓库 → Settings → Secrets and variables → Actions 添加：
-
-| Secret | 值 |
-| --- | --- |
-| `WORKER_BASE_URL` | Worker 地址，如 `https://vpn-sub.xxx.workers.dev` |
-| `UPLOAD_TOKEN` | Worker 的 `UPLOAD_TOKEN` |
-| `SUB_ACCESS_KEY` | Worker 的 `SUB_ACCESS_KEY` |
-
-订阅地址：
+订阅地址（固定不变）：
 
 ```text
-https://<worker>/sub/<SUB_ACCESS_KEY>/clash.yaml    # Clash
-https://<worker>/sub/<SUB_ACCESS_KEY>/sub.base64    # v2rayN
+https://fastly.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/clash.yaml   # Clash
+https://fastly.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/sub.base64   # v2rayN
 ```
 
-密钥更换后旧链接立即失效。订阅 URL 中的密钥会出现在客户端日志里，建议定期轮换并只用于个人设备。
+注意事项：
+
+- 仓库必须保持**公开**，jsDelivr 只能读取公开仓库
+- 节点列表因此对所有访问者可见（节点本身来自公开渠道）
+- jsDelivr 对分支引用有缓存，workflow 每次运行后会调用 purge 接口刷新；若更新仍有延迟，手动打开 `https://purge.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/clash.yaml` 即可清除
+
+### 可选：私密订阅（Cloudflare Worker）
+
+如果不想公开节点，`worker/` 目录提供私有订阅方案（KV 存储 + 带密钥 URL），部署说明见 [worker/wrangler.toml](worker/wrangler.toml) 注释。注意 `workers.dev` 在国内不稳定，通常需要绑定自定义域名才可靠。
