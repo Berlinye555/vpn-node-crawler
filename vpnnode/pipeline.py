@@ -4,6 +4,7 @@ import argparse
 import asyncio
 import json
 import logging
+import os
 import pathlib
 import sys
 from collections import Counter
@@ -13,6 +14,7 @@ import yaml
 
 from vpnnode.aggregator import aggregate
 from vpnnode.deliver import upload_outputs
+from vpnnode.filters.alive import check_alive
 from vpnnode.filters.precheck import precheck
 from vpnnode.filters.probe import ProbeResult, probe_nodes
 from vpnnode.filters.quality import apply_quality
@@ -180,6 +182,31 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
         all_rejected.extend(rep_rejected)
         report["stats"]["reputation"] = rep_stats
 
+    mihomo_path = getattr(args, "mihomo", "") or os.environ.get("MIHOMO_PATH", "")
+    if mihomo_path:
+        alive_results = await check_alive(nodes, mihomo_path, filters)
+        if alive_results:
+            alive_kept: list[Node] = []
+            alive_rejected: list[tuple[Node, str]] = []
+            for node in nodes:
+                if node.fingerprint not in alive_results:
+                    alive_kept.append(node)  # 未测试到的保留
+                elif alive_results[node.fingerprint]:
+                    alive_kept.append(node)
+                else:
+                    alive_rejected.append((node, "dead_proxy"))
+            nodes = alive_kept
+            all_rejected.extend(alive_rejected)
+            report["stats"]["alive"] = {
+                "tested": len(alive_results),
+                "alive": sum(1 for delay in alive_results.values() if delay),
+                "dead": len(alive_rejected),
+            }
+        else:
+            report["stats"]["alive"] = {"skipped": True}
+    else:
+        report["stats"]["alive"] = {"skipped": "no mihomo"}
+
     kept, quality_rejected = apply_quality(nodes, results, filters)
     all_rejected.extend(quality_rejected)
     report["stats"]["quality"] = {"kept": len(kept), "rejected": len(quality_rejected),
@@ -218,6 +245,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--no-probe", action="store_true", help="跳过连通性探测")
     parser.add_argument("--no-reputation", action="store_true", help="跳过 IP 信誉检测")
     parser.add_argument("--no-upload", action="store_true", help="跳过上传到 Worker")
+    parser.add_argument("--mihomo", default="", help="mihomo 内核路径；提供后对每个节点做真实连通测试")
     parser.add_argument("--min-nodes", type=int, default=20, help="最终节点数低于该值时任务失败")
     parser.add_argument("--verbose", action="store_true", help="输出调试日志")
     return parser
