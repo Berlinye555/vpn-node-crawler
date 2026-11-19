@@ -72,6 +72,11 @@ def main() -> None:
     token = get_token()
     head = call(token, "GET", f"{API}/git/ref/heads/{BRANCH}", allow_404=True)
     parents = [head["object"]["sha"]] if head else []
+    # 以远端最新 tree 为基底，只覆盖本地提供的文件；CI 提交的 output/ 等远端文件不会被误删
+    base_tree = None
+    if head:
+        commit_info = call(token, "GET", f"{API}/git/commits/{head['object']['sha']}")
+        base_tree = commit_info["tree"]["sha"]
 
     files = sorted(
         path
@@ -91,7 +96,10 @@ def main() -> None:
         if index % 15 == 0 or index == len(files):
             print(f"  {index}/{len(files)}")
 
-    tree = call(token, "POST", f"{API}/git/trees", {"tree": tree_items})
+    tree_payload = {"tree": tree_items}
+    if base_tree:
+        tree_payload["base_tree"] = base_tree
+    tree = call(token, "POST", f"{API}/git/trees", tree_payload)
     commit_message = sys.argv[1] if len(sys.argv) > 1 else COMMIT_MESSAGE
     commit = call(token, "POST", f"{API}/git/commits", {
         "message": commit_message, "tree": tree["sha"], "parents": parents,
