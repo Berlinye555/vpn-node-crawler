@@ -20,6 +20,7 @@ from vpnnode.filters.precheck import precheck
 from vpnnode.filters.probe import ProbeResult, probe_nodes
 from vpnnode.filters.quality import apply_quality
 from vpnnode.filters.reputation import apply_reputation
+from vpnnode.history import append_history, render_markdown
 from vpnnode.models import Node
 from vpnnode.renderers.base64_sub import render_base64
 from vpnnode.renderers.clash import country_label, render_clash
@@ -120,6 +121,15 @@ def _reason_counts(rejected: list[tuple[Node, str]]) -> dict:
 
 def _short_source(source: str) -> str:
     return source.split(":", 1)[-1][:90] if ":" in source else source
+
+
+def _source_stats(report: dict) -> dict:
+    fetched = report["stats"].get("fetched_by_source", {})
+    final = report["stats"].get("final_by_source", {})
+    return {
+        name: {"fetched": fetched.get(name, 0), "final": final.get(name, 0)}
+        for name in set(fetched) | set(final)
+    }
 
 
 def assign_display_names(nodes: list[Node]) -> None:
@@ -252,6 +262,22 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
     (output_dir / "report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+
+    record = {
+        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "generated_at": report["generated_at"],
+        "fetched": report["stats"]["fetched"].get("total", 0),
+        "precheck": report["stats"]["precheck"].get("kept", 0),
+        "ws_dead": report["stats"]["probe"].get("ws_dead", 0),
+        "alive_reliable": report["stats"]["alive"].get("reliable", 0),
+        "alive_dead": report["stats"]["alive"].get("dead", 0),
+        "final": len(kept),
+        "total_seconds": round(sum(timings.values()), 1),
+        "timings": timings,
+        "sources": _source_stats(report),
+    }
+    records = append_history(output_dir / "history.jsonl", record)
+    (output_dir / "history.md").write_text(render_markdown(records), encoding="utf-8")
 
     if not getattr(args, "no_upload", False):
         uploaded = upload_outputs(output_dir)
