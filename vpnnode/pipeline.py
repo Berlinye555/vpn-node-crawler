@@ -118,6 +118,10 @@ def _reason_counts(rejected: list[tuple[Node, str]]) -> dict:
     return dict(Counter(reason for _, reason in rejected))
 
 
+def _short_source(source: str) -> str:
+    return source.split(":", 1)[-1][:90] if ":" in source else source
+
+
 def assign_display_names(nodes: list[Node]) -> None:
     """统一命名：{国旗} {地区} {序号}，序号按探测延迟升序（quality 已排序）。"""
     counters: dict[str, int] = {}
@@ -166,6 +170,10 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
         }
         log.info("fetched %d nodes from %d source entries", len(nodes), len(specs))
 
+    report["stats"]["fetched_by_source"] = {
+        _short_source(source): count
+        for source, count in Counter(node.source for node in nodes).most_common()
+    }
     mark("fetch")
 
     nodes, aggregate_stats = aggregate(nodes)
@@ -228,6 +236,10 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
 
     assign_display_names(kept)
     report["stats"]["final"] = len(kept)
+    report["stats"]["final_by_source"] = {
+        _short_source(source): count
+        for source, count in Counter(node.source for node in kept).most_common()
+    }
     report["stats"]["timings"] = timings
     report["rejected_samples"] = _sample_rejections(all_rejected)
 
