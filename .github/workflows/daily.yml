@@ -53,10 +53,11 @@ jobs:
               && echo "purged $f" || echo "purge failed: $f"
           done
 
-      - name: Upload artifact
-        if: always()
+      - name: Upload artifact on failure
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: vpn-nodes-${{ github.run_id }}
           path: output/
           retention-days: 7
+          if-no-files-found: ignore

@@ -37,6 +37,14 @@ DEFAULT_FILTERS = {
     "reputation_enabled": True,
 }
 
+class InsufficientNodes(Exception):
+    """最终节点数低于 min_nodes，不应覆盖已有订阅。"""
+
+
+class UploadFailed(Exception):
+    """上传到 Worker 连续失败。"""
+
+
 FETCHERS = {
     "github": github.fetch_source,
     "webpage": webpage.fetch_source,
@@ -179,14 +187,22 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
     report["stats"]["final"] = len(kept)
     report["rejected_samples"] = _sample_rejections(all_rejected)
 
+    min_nodes = int(getattr(args, "min_nodes", 0) or 0)
+    if len(kept) < min_nodes:
+        raise InsufficientNodes(f"final node count {len(kept)} < min_nodes {min_nodes}")
+
     (output_dir / "clash.yaml").write_text(render_clash(kept, filters), encoding="utf-8")
     (output_dir / "sub.base64").write_text(render_base64(kept), encoding="utf-8")
     (output_dir / "report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    if not args.no_upload:
-        upload_outputs(output_dir)
+    if not getattr(args, "no_upload", False):
+        uploaded = upload_outputs(output_dir)
+        if uploaded is False:
+            uploaded = upload_outputs(output_dir)  # 失败重试一次
+        if uploaded is False:
+            raise UploadFailed("worker upload failed after retry")
 
     log.info("done: %d nodes -> %s", len(kept), output_dir)
     print(json.dumps(report["stats"], ensure_ascii=False, indent=2))
@@ -216,10 +232,10 @@ def main(argv: list[str] | None = None) -> None:
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     except Exception:
         pass
-    report = asyncio.run(run_pipeline(args))
-    final = report["stats"]["final"]
-    if final < args.min_nodes:
-        log.error("final node count %d < min_nodes %d, keeping previous subscription", final, args.min_nodes)
+    try:
+        asyncio.run(run_pipeline(args))
+    except (InsufficientNodes, UploadFailed) as exc:
+        log.error("%s; previous subscription kept", exc)
         raise SystemExit(1)
 
 

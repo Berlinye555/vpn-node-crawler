@@ -134,13 +134,25 @@ def _to_clash(node: Node, name: str) -> dict:
     if p.get("grpc_service") and "grpc-opts" not in proxy:
         proxy["grpc-opts"] = {"grpc-service-name": p["grpc_service"]}
 
-    ws_opts = {}
-    if p.get("ws_path"):
-        ws_opts["path"] = p["ws_path"]
-    if p.get("ws_host"):
-        ws_opts["headers"] = {"Host": p["ws_host"]}
-    if ws_opts and p.get("network") in ("ws", "h2"):
-        proxy["ws-opts"] = ws_opts
+    network = p.get("network")
+    if network == "h2":
+        h2_opts = dict(proxy.get("h2-opts") or {}) if isinstance(proxy.get("h2-opts"), dict) else {}
+        if p.get("ws_path"):
+            h2_opts["path"] = p["ws_path"]
+        if p.get("ws_host"):
+            h2_opts["host"] = [p["ws_host"]]
+        if h2_opts:
+            proxy["h2-opts"] = h2_opts
+    elif network == "ws":
+        ws_opts = dict(proxy.get("ws-opts") or {}) if isinstance(proxy.get("ws-opts"), dict) else {}
+        if p.get("ws_path"):
+            ws_opts["path"] = p["ws_path"]
+        if p.get("ws_host"):
+            headers = dict(ws_opts.get("headers") or {}) if isinstance(ws_opts.get("headers"), dict) else {}
+            headers["Host"] = p["ws_host"]
+            ws_opts["headers"] = headers
+        if ws_opts:
+            proxy["ws-opts"] = ws_opts
 
     return proxy
 

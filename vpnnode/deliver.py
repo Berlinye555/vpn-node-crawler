@@ -10,14 +10,14 @@ log = logging.getLogger(__name__)
 UPLOAD_FILES = ("clash.yaml", "sub.base64")  # report.json 不上传，避免通过订阅地址暴露
 
 
-def upload_outputs(output_dir: pathlib.Path) -> bool:
-    """把输出上传到 Cloudflare Worker；未配置环境变量时静默跳过。"""
+def upload_outputs(output_dir: pathlib.Path) -> bool | None:
+    """把输出上传到 Cloudflare Worker。未配置环境变量时返回 None（跳过），失败返回 False。"""
     base_url = os.environ.get("WORKER_BASE_URL", "").rstrip("/")
     upload_token = os.environ.get("UPLOAD_TOKEN", "")
     access_key = os.environ.get("SUB_ACCESS_KEY", "")
     if not (base_url and upload_token and access_key):
         log.info("upload skipped: WORKER_BASE_URL / UPLOAD_TOKEN / SUB_ACCESS_KEY not set")
-        return False
+        return None
 
     for name in UPLOAD_FILES:
         path = output_dir / name

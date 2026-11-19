@@ -92,6 +92,10 @@ async def _probe_once(node: Node, timeout: float) -> ProbeResult:
 
     cert_ok, tls_error = await _tls_connect(node.server, node.port, node.params.get("sni", ""), timeout)
     elapsed = int((time.monotonic() - start) * 1000)
+    if not cert_ok and not tls_error.startswith("cert:"):
+        # 超时/重置等 TLS 连接失败：计入连接失败并可重试，不当作证书问题
+        return ProbeResult(ok=False, attempts=1, failures=1, handshake_ms=None,
+                           tls_ok=None, error=tls_error)
     return ProbeResult(
         ok=True,
         attempts=1,

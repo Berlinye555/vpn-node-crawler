@@ -27,6 +27,13 @@ def _port(value: Any) -> int | None:
     return port if 1 <= port <= 65535 else None
 
 
+def _int(value: Any) -> int:
+    try:
+        return int(str(value).strip())
+    except (TypeError, ValueError):
+        return 0
+
+
 def _clash_to_node(proxy: dict) -> Node | None:
     """Clash proxy 条目 → Node。未知类型保留原 protocol，交由 precheck 剔除。"""
     if not isinstance(proxy, dict):
@@ -39,9 +46,10 @@ def _clash_to_node(proxy: dict) -> Node | None:
     raw_type = str(proxy.get("type", "")).lower()
     protocol = _TYPE_MAP.get(raw_type, raw_type)
     network = str(proxy.get("network", "tcp") or "tcp")
-    ws_opts = proxy.get("ws-opts") or {}
-    headers = ws_opts.get("headers") or {}
-    reality = proxy.get("reality-opts") or {}
+    ws_opts = proxy.get("ws-opts") if isinstance(proxy.get("ws-opts"), dict) else {}
+    headers = ws_opts.get("headers") if isinstance(ws_opts.get("headers"), dict) else {}
+    grpc_opts = proxy.get("grpc-opts") if isinstance(proxy.get("grpc-opts"), dict) else {}
+    reality = proxy.get("reality-opts") if isinstance(proxy.get("reality-opts"), dict) else {}
 
     params: dict[str, Any] = {
         "network": network,
@@ -50,11 +58,11 @@ def _clash_to_node(proxy: dict) -> Node | None:
         "alpn": ",".join(proxy.get("alpn") or []) if isinstance(proxy.get("alpn"), list) else str(proxy.get("alpn") or ""),
         "ws_path": str(ws_opts.get("path", "")),
         "ws_host": str(headers.get("Host", "")),
-        "grpc_service": str((proxy.get("grpc-opts") or {}).get("grpc-service-name", "")),
+        "grpc_service": str(grpc_opts.get("grpc-service-name", "")),
         "allow_insecure": bool(proxy.get("skip-cert-verify")),
     }
     if protocol == "vmess":
-        params.update(uuid=str(proxy.get("uuid", "")), alter_id=int(proxy.get("alterId") or 0),
+        params.update(uuid=str(proxy.get("uuid", "")), alter_id=_int(proxy.get("alterId")),
                       cipher=str(proxy.get("cipher") or "auto"))
     elif protocol == "vless":
         params.update(uuid=str(proxy.get("uuid", "")), flow=str(proxy.get("flow", "")),
@@ -92,7 +100,11 @@ def parse_clash_yaml(text: str) -> list[Node]:
         return []
     nodes = []
     for proxy in proxies:
-        node = _clash_to_node(proxy)
+        try:
+            node = _clash_to_node(proxy)
+        except Exception as exc:  # 单条畸形配置不拖垮整个源
+            log.warning("skip malformed proxy entry: %s", exc)
+            continue
         if node is not None:
             nodes.append(node)
     return nodes

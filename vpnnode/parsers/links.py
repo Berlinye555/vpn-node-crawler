@@ -7,6 +7,7 @@ import re
 import urllib.parse
 
 from vpnnode.models import Node
+from vpnnode.parsers.clash import parse_clash_yaml
 
 log = logging.getLogger(__name__)
 
@@ -264,10 +265,15 @@ def parse_text(text: str) -> list[Node]:
     if len(stripped) > 16 and BASE64_RE.match(stripped):
         try:
             decoded = _decode_b64(stripped).decode("utf-8", "replace")
-            if "://" in decoded:
+            if "://" in decoded or "proxies:" in decoded:
                 text = decoded
         except Exception:
             pass
+
+    if "proxies:" in text:
+        nodes = parse_clash_yaml(text)
+        if nodes:
+            return nodes
 
     nodes = []
     for match in URI_RE.finditer(text):

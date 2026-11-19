@@ -111,6 +111,28 @@ def test_render_grpc_opts():
     assert proxy["grpc-opts"]["grpc-service-name"] == "svc"
 
 
+def test_render_h2_uses_h2_opts():
+    node = Node("vless", "H2", "h.example.com", 443,
+                {"uuid": "u", "network": "h2", "tls": True, "ws_path": "/x",
+                 "ws_host": "cdn.example.com"}, raw={})
+    proxy = yaml.safe_load(render_clash([node], {}))["proxies"][0]
+    assert proxy["h2-opts"]["path"] == "/x"
+    assert proxy["h2-opts"]["host"] == ["cdn.example.com"]
+    assert "ws-opts" not in proxy
+
+
+def test_render_ws_opts_preserves_passthrough_extras():
+    node = Node("vmess", "WS", "w.example.com", 443,
+                {"uuid": "u", "network": "ws", "tls": True, "ws_path": "/new",
+                 "ws_host": "cdn.example.com"},
+                raw={"type": "vmess", "ws-opts": {"path": "/old", "max-early-data": 2048,
+                                                 "headers": {"Host": "old.example.com"}}})
+    proxy = yaml.safe_load(render_clash([node], {}))["proxies"][0]
+    assert proxy["ws-opts"]["path"] == "/new"
+    assert proxy["ws-opts"]["headers"]["Host"] == "cdn.example.com"
+    assert proxy["ws-opts"]["max-early-data"] == 2048
+
+
 def test_render_ss_plugin():
     node = Node("ss", "SSP", "s.example.com", 8388,
                 {"cipher": "aes-256-gcm", "password": "p", "plugin": "obfs",

@@ -290,6 +290,66 @@ def test_clash_yaml_invalid_returns_empty():
     assert parse_clash_yaml("proxies: []") == []
 
 
+def test_clash_yaml_skips_entry_that_raises(monkeypatch):
+    import vpnnode.parsers.clash as clash_mod
+
+    original = clash_mod._clash_to_node
+    calls = {"n": 0}
+
+    def flaky(proxy):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise ValueError("boom")
+        return original(proxy)
+
+    monkeypatch.setattr(clash_mod, "_clash_to_node", flaky)
+    doc = """
+    proxies:
+      - {name: A, type: ss, server: a.example.com, port: 1, cipher: aes-256-gcm, password: y}
+      - {name: B, type: ss, server: b.example.com, port: 2, cipher: aes-256-gcm, password: y}
+    """
+    nodes = parse_clash_yaml(doc)
+    assert len(nodes) == 1
+    assert nodes[0].name == "B"
+
+
+def test_clash_yaml_tolerates_malformed_fields():
+    doc = """
+    proxies:
+      - name: WEIRD
+        type: vmess
+        server: a.example.com
+        port: 443
+        uuid: u
+        alterId: auto
+        ws-opts: "not-a-dict"
+      - name: OK
+        type: ss
+        server: b.example.com
+        port: 8388
+        cipher: aes-256-gcm
+        password: p
+    """
+    nodes = parse_clash_yaml(doc)
+    assert len(nodes) == 2
+    assert nodes[0].params["alter_id"] == 0
+
+
+def test_parse_text_handles_base64_wrapped_clash_yaml():
+    inner = ("proxies:\n"
+             "  - {name: A, type: ss, server: a.example.com, port: 1, "
+             "cipher: aes-256-gcm, password: p}\n")
+    nodes = parse_text(base64.b64encode(inner.encode()).decode())
+    assert len(nodes) == 1
+    assert nodes[0].protocol == "ss"
+
+
+def test_to_uri_ipv6_uses_brackets():
+    node = parse_uri("trojan://pw@[2001:db8::1]:443?sni=x#V6")
+    assert node is not None
+    assert "@[2001:db8::1]:443" in node.to_uri()
+
+
 def test_fingerprint_dedup():
     a = parse_uri(make_vmess())
     b = parse_uri(make_vmess(ps="另一个名字"))

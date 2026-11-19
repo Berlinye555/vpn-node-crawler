@@ -46,8 +46,13 @@ async function handleUpload(
   const stored = FILE_KEYS[filename];
   if (!stored) return new Response("Bad Request", { status: 400 });
 
+  // 先看声明长度，避免把超大请求体整个读进内存（isolate 内存有限）
+  const declared = Number(request.headers.get("Content-Length") ?? "0");
+  if (Number.isFinite(declared) && declared > MAX_UPLOAD_BYTES) {
+    return new Response("Payload Too Large", { status: 413 });
+  }
   const body = await request.text();
-  if (body.length > MAX_UPLOAD_BYTES) {
+  if (new TextEncoder().encode(body).length > MAX_UPLOAD_BYTES) {
     return new Response("Payload Too Large", { status: 413 });
   }
   await env.SUBSTORE.put(stored, body);

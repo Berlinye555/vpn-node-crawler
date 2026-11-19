@@ -50,19 +50,28 @@ def _query_ip_api(ips: list[str]) -> dict[str, dict]:
     return {row.get("query", ""): row for row in rows if row.get("status") == "success"}
 
 
-def _dnsbl_hit(ip: str) -> bool:
+def _dnsbl_check(ip: str, zones: list[str]) -> tuple[bool, bool]:
+    """返回 (是否命中黑名单, 是否至少查询成功一次)。查询失败不应被当作"未命中"。"""
     try:
         parsed = ipaddress.ip_address(ip)
     except ValueError:
-        return False
+        return False, False
     if parsed.version != 4:
-        return False
+        return False, True
     reversed_ip = ".".join(reversed(str(parsed).split(".")))
-    try:
-        answers = dns.resolver.resolve(f"{reversed_ip}.zen.spamhaus.org", "A", lifetime=3)
-    except Exception:
-        return False
-    return any(record.address in DNSBL_HIT_CODES for record in answers)
+    checked = False
+    for zone in zones:
+        try:
+            answers = dns.resolver.resolve(f"{reversed_ip}.{zone}", "A", lifetime=3)
+        except dns.resolver.NXDOMAIN:
+            checked = True
+            continue
+        except Exception:
+            continue
+        checked = True
+        if any(record.address in DNSBL_HIT_CODES for record in answers):
+            return True, True
+    return False, checked
 
 
 async def apply_reputation(nodes: list[Node], cfg: dict | None = None) -> tuple[list[Node], list[tuple[Node, str]], dict]:
@@ -88,8 +97,12 @@ async def apply_reputation(nodes: list[Node], cfg: dict | None = None) -> tuple[
         if start + BATCH_SIZE < len(unique_ips):
             await asyncio.sleep(1.5)
 
-    dnsbl_hits = await asyncio.gather(*(asyncio.to_thread(_dnsbl_hit, ip) for ip in unique_ips))
-    hit_ips = {ip for ip, hit in zip(unique_ips, dnsbl_hits) if hit}
+    zones = list(cfg.get("dnsbl_zones") or ["zen.spamhaus.org"])
+    dnsbl_checks = await asyncio.gather(
+        *(asyncio.to_thread(_dnsbl_check, ip, zones) for ip in unique_ips)
+    )
+    hit_ips = {ip for ip, (hit, _) in zip(unique_ips, dnsbl_checks) if hit}
+    dnsbl_unverified = sum(1 for _, (_, checked) in zip(unique_ips, dnsbl_checks) if not checked)
 
     kept: list[Node] = []
     rejected: list[tuple[Node, str]] = []
@@ -115,6 +128,7 @@ async def apply_reputation(nodes: list[Node], cfg: dict | None = None) -> tuple[
         "enabled": True,
         "resolved_ips": len(unique_ips),
         "dnsbl_hits": len(hit_ips),
+        "dnsbl_unverified": dnsbl_unverified,
         "unverified": unverified,
         "rejected": len(rejected),
     }

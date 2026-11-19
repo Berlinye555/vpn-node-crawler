@@ -44,14 +44,16 @@ def apply_quality(
 
     group_count: dict[str, int] = {}
     for node, _ in passed:
-        group = str(node.params.get("country") or "未知")
-        if group_count.get(group, 0) >= per_group:
-            rejected.append((node, "over_group_limit"))
-            continue
         if len(kept) >= total_limit:
             rejected.append((node, "over_total_limit"))
             continue
-        group_count[group] = group_count.get(group, 0) + 1
+        country = str(node.params.get("country") or "")
+        if country:
+            if group_count.get(country, 0) >= per_group:
+                rejected.append((node, "over_group_limit"))
+                continue
+            group_count[country] = group_count.get(country, 0) + 1
+        # 无国家信息（信誉查询失败/关闭）时不套用单组上限，只受总量约束
         kept.append(node)
 
     return kept, rejected

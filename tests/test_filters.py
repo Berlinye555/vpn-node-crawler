@@ -143,12 +143,29 @@ def test_quality_strict_rejects_bad_cert():
 def test_quality_caps_total_and_per_group():
     cfg = {**CFG, "max_nodes_total": 3, "max_nodes_per_group": 2}
     nodes = [mk(server=f"7.7.7.{i}", name=f"n{i}") for i in range(1, 6)]
-    for i, n in enumerate(nodes):
-        n.params["country"] = "HK"
+    for node, country in zip(nodes, ["HK", "HK", "HK", "JP", "JP"]):
+        node.params["country"] = country
     results = {n.fingerprint: pr(handshake_ms=100 + i) for i, n in enumerate(nodes)}
     kept, rejected = apply_quality(nodes, results, cfg)
-    assert len(kept) == 2
-    assert set(reasons(rejected)) <= {"over_group_limit", "over_total_limit"}
+    # 组上限允许 2+2=4，总上限压到 3
+    assert len(kept) == 3
+    assert "over_total_limit" in reasons(rejected)
+
+
+def test_quality_does_not_cap_nodes_without_country():
+    cfg = {**CFG, "max_nodes_per_group": 2, "max_nodes_total": 100}
+    nodes = [mk(server=f"9.9.9.{i}") for i in range(1, 6)]
+    results = {n.fingerprint: pr(handshake_ms=100 + i) for i, n in enumerate(nodes)}
+    kept, rejected = apply_quality(nodes, results, cfg)
+    # 信誉查询失败/关闭时没有国家信息，不能被单组上限砍到 2
+    assert len(kept) == 5
+    assert rejected == []
+
+
+def test_fingerprint_includes_cipher():
+    a = mk("ss", "1.1.1.1", cipher="aes-256-gcm")
+    b = mk("ss", "1.1.1.1", cipher="chacha20-ietf-poly1305")
+    assert a.fingerprint != b.fingerprint
 
 
 def test_quality_sorts_by_handshake():

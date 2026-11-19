@@ -32,14 +32,24 @@ class Node:
             if value:
                 credential = str(value)
                 break
-        material = f"{self.protocol}|{self.server.lower()}|{self.port}|{credential}"
-        return hashlib.sha256(material.encode()).hexdigest()[:32]
+        # 同一端点的不同配置（加密方式/传输/路径/SNI）不能合并，否则去重可能留下坏配置
+        parts = [
+            self.protocol, self.server.lower(), str(self.port), credential,
+            str(self.params.get("cipher") or ""),
+            str(self.params.get("network") or ""),
+            str(self.params.get("ws_path") or ""),
+            str(self.params.get("sni") or ""),
+        ]
+        return hashlib.sha256("|".join(parts).encode()).hexdigest()[:32]
 
     def to_uri(self) -> str:
         """按协议生成标准分享链接，供 Base64 订阅使用。"""
         name = urllib.parse.quote(self.name or self.server, safe="")
         p = self.params
         proto = self.protocol
+        host = self.server
+        if ":" in host and not host.startswith("["):
+            host = f"[{host}]"  # IPv6 分享链接必须加方括号
         if proto == "vmess":
             payload = {
                 "v": "2",
@@ -72,7 +82,7 @@ class Node:
                 "sid": p.get("reality_sid", ""),
             }
             query = {key: value for key, value in query.items() if value}
-            return f"vless://{p.get('uuid', '')}@{self.server}:{self.port}?{urllib.parse.urlencode(query)}#{name}"
+            return f"vless://{p.get('uuid', '')}@{host}:{self.port}?{urllib.parse.urlencode(query)}#{name}"
         if proto == "trojan":
             query = {
                 "security": "tls",
@@ -82,7 +92,7 @@ class Node:
                 "host": p.get("ws_host", ""),
             }
             password = urllib.parse.quote(str(p.get("password", "")), safe="")
-            return f"trojan://{password}@{self.server}:{self.port}?{urllib.parse.urlencode(query)}#{name}"
+            return f"trojan://{password}@{host}:{self.port}?{urllib.parse.urlencode(query)}#{name}"
         if proto == "ss":
             userinfo = _b64(f"{p.get('cipher', '')}:{p.get('password', '')}")
             plugin_query = ""
@@ -103,7 +113,7 @@ class Node:
                 else:
                     parts = [plugin]
                 plugin_query = "?plugin=" + urllib.parse.quote(";".join(parts), safe="")
-            return f"ss://{userinfo}@{self.server}:{self.port}{plugin_query}#{name}"
+            return f"ss://{userinfo}@{host}:{self.port}{plugin_query}#{name}"
         if proto == "hysteria2":
             password = urllib.parse.quote(str(p.get("password", "")), safe="")
             query = {"sni": p.get("sni", "")}
@@ -111,5 +121,5 @@ class Node:
                 query["obfs"] = p["obfs"]
                 query["obfs-password"] = p.get("obfs_password", "")
             query = {key: value for key, value in query.items() if value}
-            return f"hysteria2://{password}@{self.server}:{self.port}/?{urllib.parse.urlencode(query)}#{name}"
+            return f"hysteria2://{password}@{host}:{self.port}/?{urllib.parse.urlencode(query)}#{name}"
         raise ValueError(f"unsupported protocol: {proto}")
