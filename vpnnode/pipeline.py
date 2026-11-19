@@ -7,6 +7,7 @@ import logging
 import os
 import pathlib
 import sys
+import time
 from collections import Counter
 from datetime import datetime, timezone
 
@@ -141,6 +142,16 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
     }
     all_rejected: list[tuple[Node, str]] = []
 
+    stage_start = time.monotonic()
+    timings: dict[str, float] = {}
+
+    def mark(name: str) -> None:
+        nonlocal stage_start
+        now = time.monotonic()
+        timings[name] = round(now - stage_start, 1)
+        log.info("stage %-12s %6.1fs", name, now - stage_start)
+        stage_start = now
+
     if args.offline:
         nodes = offline_load(pathlib.Path(args.offline))
         report["stats"]["fetched"] = {"total": len(nodes), "by_source": {}}
@@ -155,13 +166,17 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
         }
         log.info("fetched %d nodes from %d source entries", len(nodes), len(specs))
 
+    mark("fetch")
+
     nodes, aggregate_stats = aggregate(nodes)
     report["stats"]["aggregate"] = aggregate_stats
+    mark("aggregate")
 
     nodes, rejected = precheck(nodes, filters)
     all_rejected.extend(rejected)
     report["stats"]["precheck"] = {"kept": len(nodes), "rejected": len(rejected),
                                    "reasons": _reason_counts(rejected)}
+    mark("precheck")
 
     if args.no_probe:
         results = {node.fingerprint: ProbeResult(ok=True, handshake_ms=0) for node in nodes}
@@ -175,12 +190,15 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
             "ws_dead": sum(1 for r in results.values() if r.ws_ok is False),
         }
 
+    mark("probe")
+
     if args.no_reputation:
         report["stats"]["reputation"] = {"skipped": True}
     else:
         nodes, rep_rejected, rep_stats = await apply_reputation(nodes, filters)
         all_rejected.extend(rep_rejected)
         report["stats"]["reputation"] = rep_stats
+    mark("reputation")
 
     mihomo_path = getattr(args, "mihomo", "") or os.environ.get("MIHOMO_PATH", "")
     if mihomo_path:
@@ -200,13 +218,17 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
             report["stats"]["alive"] = {"skipped": True}
     else:
         report["stats"]["alive"] = {"skipped": "no mihomo"}
+    mark("alive")
 
     kept, quality_rejected = apply_quality(nodes, results, filters)
     all_rejected.extend(quality_rejected)
     report["stats"]["quality"] = {"kept": len(kept), "rejected": len(quality_rejected),
                                   "reasons": _reason_counts(quality_rejected)}
+    mark("quality")
+
     assign_display_names(kept)
     report["stats"]["final"] = len(kept)
+    report["stats"]["timings"] = timings
     report["rejected_samples"] = _sample_rejections(all_rejected)
 
     min_nodes = int(getattr(args, "min_nodes", 0) or 0)
