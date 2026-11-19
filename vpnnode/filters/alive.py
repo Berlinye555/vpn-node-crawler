@@ -10,6 +10,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 
 import yaml
@@ -138,11 +139,15 @@ async def _run_batch(
         needed = max(1, math.ceil(samples * min_rate))
         semaphore = asyncio.Semaphore(concurrency)
         encoded_url = urllib.parse.quote(TEST_URL, safe="")
+        # 默认线程池在 2 核 runner 上只有 6 个线程，会把手动设置的并发压死
+        loop = asyncio.get_running_loop()
+        executor = ThreadPoolExecutor(max_workers=concurrency)
 
         async def delay_once(short: str) -> int | None:
             url = (f"http://{API_HOST}:{API_PORT}/proxies/{short}/delay"
                    f"?timeout={timeout_ms}&url={encoded_url}")
-            code, body = await asyncio.to_thread(_http_get, url, timeout_ms / 1000 + 3)
+            code, body = await loop.run_in_executor(
+                executor, _http_get, url, timeout_ms / 1000 + 3)
             if code != 200:
                 return None
             try:
@@ -168,7 +173,10 @@ async def _run_batch(
                         break
                 return short, AliveResult(success, done, best)
 
-        pairs = await asyncio.gather(*(test(short) for short in name_map))
+        try:
+            pairs = await asyncio.gather(*(test(short) for short in name_map))
+        finally:
+            executor.shutdown(wait=False)
         results = {name_map[short].fingerprint: result for short, result in pairs}
         reliable = sum(1 for result in results.values() if result.rate >= min_rate)
         log.info("alive check: %d/%d nodes reliable (samples=%d, min_rate=%.2f)",
