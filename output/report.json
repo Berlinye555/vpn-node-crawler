@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T07:54:32.340038+00:00",
+  "generated_at": "2026-11-19T08:11:31.260546+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
@@ -41,9 +41,9 @@
     },
     "probe": {
       "probed": 1553,
-      "failed": 642,
-      "bad_cert": 69,
-      "ws_dead": 332
+      "failed": 646,
+      "bad_cert": 70,
+      "ws_dead": 336
     },
     "reputation": {
       "enabled": true,
@@ -55,20 +55,22 @@
     },
     "alive": {
       "tested": 1311,
-      "alive": 242,
-      "dead": 1069
+      "reliable": 248,
+      "dead": 1048,
+      "unstable": 15,
+      "samples": 3
     },
     "quality": {
-      "kept": 164,
-      "rejected": 78,
+      "kept": 166,
+      "rejected": 82,
       "reasons": {
-        "slow_handshake": 2,
-        "ws_dead": 2,
+        "connect_failed": 8,
         "bad_certificate": 1,
-        "over_group_limit": 73
+        "slow_handshake": 1,
+        "over_group_limit": 72
       }
     },
-    "final": 164
+    "final": 166
   },
   "failed_sources": [],
   "rejected_samples": [
