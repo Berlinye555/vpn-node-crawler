@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-11-19T05:52:44.828816+00:00",
+  "generated_at": "2026-11-19T07:09:36.541663+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
-      "total": 914,
+      "total": 5591,
       "specs": 3,
-      "urls": 5
+      "urls": 10
     },
     "aggregate": {
-      "input": 914,
-      "unique": 691,
-      "duplicates": 223,
+      "input": 5591,
+      "unique": 2817,
+      "duplicates": 2774,
       "by_source": {
-        "github": 367,
-        "subscription": 324
+        "github": 2561,
+        "subscription": 256
       },
       "by_protocol": {
-        "ss": 205,
-        "vmess": 58,
-        "vless": 136,
-        "trojan": 106,
+        "ss": 257,
+        "vmess": 972,
+        "vless": 961,
+        "trojan": 441,
         "hysteria": 3,
         "hysteria2": 141,
         "http": 33,
@@ -30,39 +30,39 @@
       }
     },
     "precheck": {
-      "kept": 443,
-      "rejected": 248,
+      "kept": 1541,
+      "rejected": 1276,
       "reasons": {
-        "insecure_tls": 173,
+        "insecure_tls": 1200,
         "unsupported_protocol": 45,
         "private_address": 10,
-        "weak_cipher": 20
+        "weak_cipher": 21
       }
     },
     "probe": {
-      "probed": 443,
-      "failed": 28,
-      "bad_cert": 19
+      "probed": 1541,
+      "failed": 628,
+      "bad_cert": 66
     },
     "reputation": {
       "enabled": true,
-      "resolved_ips": 453,
-      "dnsbl_hits": 108,
+      "resolved_ips": 1484,
+      "dnsbl_hits": 218,
       "dnsbl_unverified": 0,
-      "unverified": 7,
-      "rejected": 119
+      "unverified": 18,
+      "rejected": 238
     },
     "quality": {
-      "kept": 197,
-      "rejected": 127,
+      "kept": 289,
+      "rejected": 1014,
       "reasons": {
-        "connect_failed": 25,
-        "bad_certificate": 15,
-        "slow_handshake": 2,
-        "over_group_limit": 85
+        "connect_failed": 558,
+        "bad_certificate": 56,
+        "slow_handshake": 4,
+        "over_group_limit": 396
       }
     },
-    "final": 197
+    "final": 289
   },
   "failed_sources": [],
   "rejected_samples": [
@@ -811,860 +811,860 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇯🇵 日本 01",
-      "protocol": "hysteria2",
-      "server": "138.3.208.26",
-      "port": 50160,
+      "name": "美国 022",
+      "protocol": "vmess",
+      "server": "US122205.ssgreen.org",
+      "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇯🇵 日本 02",
-      "protocol": "hysteria2",
-      "server": "138.3.208.26",
-      "port": 50160,
+      "name": "美国 033",
+      "protocol": "trojan",
+      "server": "23.227.38.11",
+      "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇯🇵 日本 03",
-      "protocol": "hysteria2",
-      "server": "8.211.175.236",
+      "name": "乌克兰 001",
+      "protocol": "trojan",
+      "server": "95.164.33.62",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 016",
+      "protocol": "vmess",
+      "server": "547.rtxconfigz.shop",
+      "port": 8080,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 048",
+      "protocol": "vmess",
+      "server": "t1.620720.xyz",
       "port": 8443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇯🇵 日本 04",
-      "protocol": "hysteria2",
-      "server": "8.211.175.236",
+      "name": "加拿大 002",
+      "protocol": "vmess",
+      "server": "51.79.102.253",
+      "port": 80,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 017",
+      "protocol": "vmess",
+      "server": "v2ray.codefyinc.com",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 049",
+      "protocol": "vmess",
+      "server": "support.zoom.us",
+      "port": 8080,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 050",
+      "protocol": "vmess",
+      "server": "209.126.84.189",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 051",
+      "protocol": "vmess",
+      "server": "sy4.620720.xyz",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 052",
+      "protocol": "vmess",
+      "server": "hgtrojan.zabc.net",
+      "port": 2083,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 054",
+      "protocol": "vmess",
+      "server": "cg1c04.waimaojd.com",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 055",
+      "protocol": "vmess",
+      "server": "cg1c14.waimaojd.com",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 018",
+      "protocol": "trojan",
+      "server": "fkvip102.qlgq.fun",
+      "port": 11789,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 019",
+      "protocol": "trojan",
+      "server": "fkvip102.qlgq.fun",
+      "port": 21789,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 020",
+      "protocol": "trojan",
+      "server": "fkvip102.qlgq.fun",
+      "port": 31789,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 021",
+      "protocol": "trojan",
+      "server": "ukvip101.qlgq.fun",
+      "port": 14568,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 022",
+      "protocol": "trojan",
+      "server": "ukvip101.qlgq.fun",
+      "port": 14586,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 023",
+      "protocol": "trojan",
+      "server": "ukvip101.qlgq.fun",
+      "port": 18885,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 024",
+      "protocol": "trojan",
+      "server": "klvip101.qlgq.fun",
+      "port": 10443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 025",
+      "protocol": "trojan",
+      "server": "klvip101.qlgq.fun",
+      "port": 20443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 026",
+      "protocol": "trojan",
+      "server": "klvip101.qlgq.fun",
+      "port": 30443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 027",
+      "protocol": "trojan",
+      "server": "sgvip101.qlgq.fun",
+      "port": 11223,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 028",
+      "protocol": "trojan",
+      "server": "sgvip101.qlgq.fun",
+      "port": 21223,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 029",
+      "protocol": "trojan",
+      "server": "sgvip101.qlgq.fun",
+      "port": 31223,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 030",
+      "protocol": "trojan",
+      "server": "sgvip101.qlgq.fun",
+      "port": 41223,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 031",
+      "protocol": "trojan",
+      "server": "sgvip101.qlgq.fun",
+      "port": 51223,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 032",
+      "protocol": "trojan",
+      "server": "lavip101.qlgq.fun",
+      "port": 11156,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 033",
+      "protocol": "trojan",
+      "server": "lavip101.qlgq.fun",
+      "port": 21156,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 034",
+      "protocol": "trojan",
+      "server": "lavip101.qlgq.fun",
+      "port": 31156,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 035",
+      "protocol": "trojan",
+      "server": "lavip102.qlgq.fun",
+      "port": 49643,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 036",
+      "protocol": "trojan",
+      "server": "lavip102.qlgq.fun",
+      "port": 20443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 037",
+      "protocol": "trojan",
+      "server": "lavip102.qlgq.fun",
+      "port": 30443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 038",
+      "protocol": "trojan",
+      "server": "hkvip101.qlgq.fun",
+      "port": 12249,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 039",
+      "protocol": "trojan",
+      "server": "hkvip101.qlgq.fun",
+      "port": 22249,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 040",
+      "protocol": "trojan",
+      "server": "hkvip102.qlgq.fun",
+      "port": 32249,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 041",
+      "protocol": "trojan",
+      "server": "hkvip102.qlgq.fun",
+      "port": 42249,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 042",
+      "protocol": "trojan",
+      "server": "hkvip103.qlgq.fun",
+      "port": 52249,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 043",
+      "protocol": "trojan",
+      "server": "hkvip103.qlgq.fun",
+      "port": 11116,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 044",
+      "protocol": "trojan",
+      "server": "hkvip104.qlgq.fun",
+      "port": 45136,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 045",
+      "protocol": "trojan",
+      "server": "hkvip104.qlgq.fun",
+      "port": 46216,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 046",
+      "protocol": "trojan",
+      "server": "hkvip105.qlgq.fun",
+      "port": 41116,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 047",
+      "protocol": "trojan",
+      "server": "hkvip105.qlgq.fun",
+      "port": 51116,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "澳大利亚 001",
+      "protocol": "vmess",
+      "server": "1.1.1.1",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 048",
+      "protocol": "vmess",
+      "server": "usbk.cfip.top",
       "port": 8443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇯🇵 日本 05",
-      "protocol": "hysteria2",
-      "server": "138.3.208.26",
-      "port": 50160,
+      "name": "其他 049",
+      "protocol": "vmess",
+      "server": "US-Los_Angeles-A.cfip.top",
+      "port": 8443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇭🇰 香港 01",
-      "protocol": "hysteria2",
-      "server": "202.146.222.174",
+      "name": "其他 050",
+      "protocol": "vmess",
+      "server": "US-Los_Angeles-B.cfip.top",
+      "port": 8443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 051",
+      "protocol": "vmess",
+      "server": "htsub-2024.899696998.xyz",
+      "port": 20011,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "比利时 002",
+      "protocol": "vmess",
+      "server": "57.129.25.20",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇯🇵 日本 06",
-      "protocol": "hysteria2",
-      "server": "138.3.208.26",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇭🇰 香港 02",
-      "protocol": "hysteria2",
-      "server": "202.146.222.89",
+      "name": "美国 056",
+      "protocol": "vmess",
+      "server": "134.195.198.92",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇹🇼 台湾 01",
-      "protocol": "hysteria2",
-      "server": "vpn-tw-002.fastervpn.world",
+      "name": "其他 052",
+      "protocol": "vmess",
+      "server": "c.jamekk.org",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇭🇰 香港 03",
-      "protocol": "hysteria2",
-      "server": "202.146.222.174",
+      "name": "美国 057",
+      "protocol": "vmess",
+      "server": "104.19.45.50",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 058",
+      "protocol": "vmess",
+      "server": "172.64.167.5",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 059",
+      "protocol": "vmess",
+      "server": "172.64.167.35",
+      "port": 2095,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 060",
+      "protocol": "vmess",
+      "server": "172.64.166.8",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 061",
+      "protocol": "vmess",
+      "server": "104.19.21.63",
+      "port": 2095,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 062",
+      "protocol": "vmess",
+      "server": "104.19.55.49",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 063",
+      "protocol": "vmess",
+      "server": "russia.com",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 064",
+      "protocol": "vmess",
+      "server": "172.64.167.10",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 065",
+      "protocol": "vmess",
+      "server": "104.20.17.186",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 066",
+      "protocol": "vmess",
+      "server": "104.19.42.49",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 067",
+      "protocol": "vmess",
+      "server": "172.64.99.22",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 068",
+      "protocol": "vmess",
+      "server": "172.64.167.35",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 069",
+      "protocol": "vmess",
+      "server": "172.64.175.213",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 070",
+      "protocol": "vmess",
+      "server": "162.159.140.45",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 071",
+      "protocol": "vmess",
+      "server": "singapore.com",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 072",
+      "protocol": "vmess",
+      "server": "172.64.166.20",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 073",
+      "protocol": "vmess",
+      "server": "104.26.5.67",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 074",
+      "protocol": "vmess",
+      "server": "104.19.45.90",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 075",
+      "protocol": "vmess",
+      "server": "malaysia.com",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 076",
+      "protocol": "vmess",
+      "server": "www.visa.com",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 077",
+      "protocol": "vmess",
+      "server": "104.19.45.42",
+      "port": 2095,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 078",
+      "protocol": "vmess",
+      "server": "104.21.238.100",
+      "port": 2095,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "比利时 003",
+      "protocol": "vmess",
+      "server": "57.129.24.142",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇰🇷 韩国 01",
-      "protocol": "hysteria2",
-      "server": "152.70.237.123",
-      "port": 2053,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 02",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 03",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 04",
-      "protocol": "hysteria2",
-      "server": "132.226.226.189",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇭🇰 香港 04",
-      "protocol": "hysteria2",
-      "server": "202.146.222.89",
+      "name": "美国 079",
+      "protocol": "vmess",
+      "server": "23.162.200.227",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇯🇵 日本 08",
-      "protocol": "hysteria2",
-      "server": "138.3.208.26",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇹🇼 台湾 02",
-      "protocol": "hysteria2",
-      "server": "160.187.100.109",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 01",
-      "protocol": "hysteria2",
-      "server": "138.2.73.238",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 05",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇭🇰 香港 06",
-      "protocol": "hysteria2",
-      "server": "202.146.222.174",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 12",
-      "protocol": "hysteria2",
-      "server": "138.2.73.238",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 06",
-      "protocol": "hysteria2",
-      "server": "132.226.226.189",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 07",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇭🇰 香港 07",
-      "protocol": "hysteria2",
-      "server": "202.146.222.89",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 08",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇭🇰 香港 08",
-      "protocol": "hysteria2",
-      "server": "202.146.222.89",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇹🇼 台湾 03",
-      "protocol": "hysteria2",
-      "server": "vpn-tw-002.fastervpn.world",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇹🇼 台湾 04",
-      "protocol": "hysteria2",
-      "server": "vpn-tw-002.fastervpn.world",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 09",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 10",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇭🇰 香港 09",
-      "protocol": "hysteria2",
-      "server": "202.146.222.174",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 11",
-      "protocol": "hysteria2",
-      "server": "132.226.226.189",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 12",
-      "protocol": "hysteria2",
-      "server": "152.70.237.123",
-      "port": 2053,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 22",
-      "protocol": "ss",
-      "server": "68.183.227.4",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 24",
-      "protocol": "ss",
-      "server": "68.183.227.45",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇭🇰 香港 11",
-      "protocol": "hysteria2",
-      "server": "31.57.248.176",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 13",
-      "protocol": "hysteria2",
-      "server": "152.70.237.123",
-      "port": 2053,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 28",
-      "protocol": "ss",
-      "server": "128.1.186.73",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 29",
-      "protocol": "ss",
-      "server": "128.1.186.132",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 15",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 16",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇹🇼 台湾 05",
-      "protocol": "hysteria2",
-      "server": "103.115.109.49",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇹🇼 台湾 06",
-      "protocol": "hysteria2",
-      "server": "103.115.109.49",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇹🇼 台湾 07",
-      "protocol": "hysteria2",
-      "server": "103.115.109.49",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 31",
-      "protocol": "hysteria2",
-      "server": "138.2.73.238",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 32",
-      "protocol": "hysteria2",
-      "server": "138.2.89.249",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇹🇼 台湾 08",
-      "protocol": "hysteria2",
-      "server": "vpn-tw-002.fastervpn.world",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 18",
-      "protocol": "hysteria2",
-      "server": "132.226.226.189",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 19",
-      "protocol": "hysteria2",
-      "server": "152.67.200.82",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 012",
-      "protocol": "hysteria2",
-      "server": "66.94.121.46",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇭🇰 香港 15",
-      "protocol": "hysteria2",
-      "server": "152.32.254.68",
-      "port": 5010,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇦🇺 澳大利亚 01",
-      "protocol": "hysteria2",
-      "server": "152.67.115.203",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 020",
-      "protocol": "hysteria2",
-      "server": "66.94.121.46",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 34",
-      "protocol": "ss",
-      "server": "128.199.172.224",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇹🇼 台湾 09",
-      "protocol": "hysteria2",
-      "server": "103.115.109.49",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 024",
-      "protocol": "ss",
-      "server": "138.199.43.159",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 026",
-      "protocol": "ss",
-      "server": "107.151.182.253",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇭🇰 香港 17",
-      "protocol": "hysteria2",
-      "server": "24.233.8.109",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇹🇼 台湾 10",
-      "protocol": "hysteria2",
-      "server": "vpn-tw-002.fastervpn.world",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 01",
-      "protocol": "hysteria2",
-      "server": "3.76.203.180",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 37",
-      "protocol": "ss",
-      "server": "68.183.227.236",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 02",
-      "protocol": "hysteria2",
-      "server": "3.69.232.199",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇫🇷 法国 01",
-      "protocol": "hysteria2",
-      "server": "62.210.7.139",
-      "port": 60111,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 03",
-      "protocol": "hysteria2",
-      "server": "3.76.203.180",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 031",
-      "protocol": "hysteria2",
-      "server": "66.94.121.46",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 033",
+      "name": "加拿大 003",
       "protocol": "trojan",
-      "server": "216.106.186.66",
-      "port": 443,
+      "server": "52.60.59.39",
+      "port": 22222,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇭🇰 香港 18",
-      "protocol": "hysteria2",
-      "server": "31.57.248.176",
-      "port": 50160,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 04",
-      "protocol": "hysteria2",
-      "server": "18.193.79.104",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇫🇷 法国 02",
-      "protocol": "hysteria2",
-      "server": "13.36.234.11",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇫🇷 法国 03",
-      "protocol": "hysteria2",
-      "server": "62.210.147.2",
-      "port": 43115,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇫🇷 法国 04",
-      "protocol": "hysteria2",
-      "server": "62.210.7.139",
-      "port": 60111,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 037",
+      "name": "其他 053",
       "protocol": "trojan",
-      "server": "66.163.112.76",
-      "port": 443,
+      "server": "ent1.imyourdaddy.top",
+      "port": 20992,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇺🇸 美国 039",
+      "name": "其他 054",
+      "protocol": "vmess",
+      "server": "discord.vpnsell.beauty",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "英国 002",
       "protocol": "trojan",
-      "server": "66.163.112.121",
+      "server": "35.177.201.76",
+      "port": 22222,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "日本 004",
+      "protocol": "vmess",
+      "server": "92.38.178.93",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇫🇷 法国 05",
-      "protocol": "hysteria2",
-      "server": "62.210.7.139",
-      "port": 60111,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 05",
-      "protocol": "hysteria2",
-      "server": "3.69.232.199",
+      "name": "其他 055",
+      "protocol": "trojan",
+      "server": "plowman.meijireform.com",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇩🇪 德国 06",
-      "protocol": "hysteria2",
-      "server": "18.193.79.104",
+      "name": "美国 080",
+      "protocol": "trojan",
+      "server": "154.31.114.10",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇩🇪 德国 07",
-      "protocol": "hysteria2",
-      "server": "3.69.232.199",
+      "name": "其他 056",
+      "protocol": "trojan",
+      "server": "n3.jp4589871.top",
+      "port": 8443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "俄罗斯 003",
+      "protocol": "vmess",
+      "server": "socks5tobefree.ydns.eu",
+      "port": 33026,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 081",
+      "protocol": "trojan",
+      "server": "aafrtpfxr.jpl01i9zjfegelp.5xfsur8v62.gosdk.xyz",
+      "port": 27001,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 057",
+      "protocol": "vmess",
+      "server": "bs.yichueng.org",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇩🇪 德国 08",
-      "protocol": "hysteria2",
-      "server": "18.153.65.67",
-      "port": 443,
+      "name": "其他 058",
+      "protocol": "vmess",
+      "server": "us-new03.daluquan.top",
+      "port": 8880,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇫🇷 法国 06",
-      "protocol": "hysteria2",
-      "server": "62.210.7.139",
-      "port": 60111,
+      "name": "美国 082",
+      "protocol": "trojan",
+      "server": "h.522226.xyz",
+      "port": 45800,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇩🇪 德国 09",
-      "protocol": "hysteria2",
-      "server": "18.193.79.104",
-      "port": 443,
+      "name": "美国 083",
+      "protocol": "trojan",
+      "server": "f.522226.xyz",
+      "port": 45601,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇺🇸 美国 046",
-      "protocol": "ss",
-      "server": "79.110.54.250",
+      "name": "其他 059",
+      "protocol": "vmess",
+      "server": "de-new01.daluquan.top",
       "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇫🇷 法国 07",
-      "protocol": "hysteria2",
-      "server": "13.36.234.11",
+      "name": "美国 084",
+      "protocol": "vmess",
+      "server": "shs.xiaoqi666.xyz",
+      "port": 2086,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 085",
+      "protocol": "vmess",
+      "server": "obdii.cfd",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇺🇸 美国 047",
-      "protocol": "hysteria2",
-      "server": "34.24.25.1",
+      "name": "其他 060",
+      "protocol": "vmess",
+      "server": "fkyyg.mmzhk.website",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇺🇸 美国 049",
-      "protocol": "ss",
-      "server": "79.110.53.169",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇨🇭 瑞士 01",
-      "protocol": "hysteria2",
-      "server": "152.67.75.161",
+      "name": "其他 061",
+      "protocol": "vmess",
+      "server": "fnujs.whmvmkwuey.store",
       "port": 443,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇺🇸 美国 052",
-      "protocol": "hysteria2",
-      "server": "66.94.121.46",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 053",
+      "name": "其他 062",
       "protocol": "trojan",
-      "server": "66.23.203.21",
-      "port": 59689,
+      "server": "ent1.imyourdaddy.top",
+      "port": 20983,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇺🇸 美国 054",
+      "name": "其他 063",
       "protocol": "trojan",
-      "server": "66.163.114.106",
-      "port": 443,
+      "server": "ent1.imyourdaddy.top",
+      "port": 20982,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇺🇸 美国 056",
+      "name": "美国 086",
+      "protocol": "vmess",
+      "server": "172.64.166.16",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 087",
+      "protocol": "vmess",
+      "server": "104.19.47.65",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 088",
+      "protocol": "vmess",
+      "server": "172.64.175.88",
+      "port": 2082,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "其他 064",
       "protocol": "trojan",
-      "server": "66.163.114.132",
-      "port": 443,
+      "server": "ent1.imyourdaddy.top",
+      "port": 20987,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇰🇷 韩国 20",
+      "name": "美国 089",
+      "protocol": "vmess",
+      "server": "104.19.45.17",
+      "port": 2095,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 090",
+      "protocol": "vmess",
+      "server": "fbi.gov",
+      "port": 2095,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 091",
+      "protocol": "vmess",
+      "server": "singapore.com",
+      "port": 2095,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 092",
+      "protocol": "vmess",
+      "server": "104.19.21.230",
+      "port": 2095,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 093",
+      "protocol": "vmess",
+      "server": "172.64.167.44",
+      "port": 2095,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    },
+    {
+      "name": "美国 094",
       "protocol": "trojan",
-      "server": "154.90.62.70",
-      "port": 56127,
+      "server": "54.46.30.217",
+      "port": 53012,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "🇺🇸 美国 059",
-      "protocol": "ss",
-      "server": "107.155.57.51",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇫🇷 法国 08",
-      "protocol": "hysteria2",
-      "server": "62.210.7.139",
-      "port": 60111,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 060",
-      "protocol": "ss",
-      "server": "107.155.57.11",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇰🇷 韩国 21",
+      "name": "美国 095",
       "protocol": "trojan",
-      "server": "154.90.62.70",
-      "port": 56127,
+      "server": "54.46.109.132",
+      "port": 20744,
       "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 10",
-      "protocol": "hysteria2",
-      "server": "3.76.203.180",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 063",
-      "protocol": "trojan",
-      "server": "66.163.114.245",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 067",
-      "protocol": "trojan",
-      "server": "66.163.112.13",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 11",
-      "protocol": "hysteria2",
-      "server": "3.76.221.4",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 12",
-      "protocol": "hysteria2",
-      "server": "18.193.79.104",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 074",
-      "protocol": "ss",
-      "server": "23.251.121.242",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 078",
-      "protocol": "trojan",
-      "server": "66.163.112.13",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 081",
-      "protocol": "trojan",
-      "server": "66.163.112.242",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇸🇬 新加坡 40",
-      "protocol": "ss",
-      "server": "68.183.235.240",
-      "port": 8080,
-      "reason": "weak_cipher",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 087",
-      "protocol": "trojan",
-      "server": "216.152.155.54",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 13",
-      "protocol": "hysteria2",
-      "server": "3.69.232.199",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇺🇸 美国 090",
-      "protocol": "trojan",
-      "server": "66.163.114.114",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
-    },
-    {
-      "name": "🇩🇪 德国 14",
-      "protocol": "hysteria2",
-      "server": "18.153.65.67",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "subscription:https://leidahub.top/clash.yaml"
+      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     }
   ]
 }
