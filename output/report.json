@@ -1,76 +1,74 @@
 {
-  "generated_at": "2026-11-19T08:11:31.260546+00:00",
+  "generated_at": "2026-11-19T08:49:41.719321+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
-      "total": 5592,
-      "specs": 3,
-      "urls": 10
+      "total": 9538,
+      "specs": 4,
+      "urls": 17
     },
     "aggregate": {
-      "input": 5592,
-      "unique": 2829,
-      "duplicates": 2763,
+      "input": 9538,
+      "unique": 4543,
+      "duplicates": 4995,
       "by_source": {
-        "github": 2573,
-        "subscription": 256
+        "github": 4023,
+        "subscription": 520
       },
       "by_protocol": {
-        "ss": 267,
-        "vmess": 974,
-        "vless": 961,
-        "trojan": 441,
+        "ss": 539,
+        "vmess": 1735,
+        "vless": 1496,
+        "trojan": 586,
         "hysteria": 3,
         "hysteria2": 141,
         "http": 33,
-        "socks5": 3,
+        "socks5": 4,
         "wireguard": 4,
         "ssr": 1,
         "anytls": 1
       }
     },
     "precheck": {
-      "kept": 1553,
-      "rejected": 1276,
+      "kept": 2502,
+      "rejected": 2041,
       "reasons": {
-        "insecure_tls": 1200,
-        "unsupported_protocol": 45,
+        "insecure_tls": 1962,
+        "unsupported_protocol": 46,
         "private_address": 10,
-        "weak_cipher": 21
+        "weak_cipher": 23
       }
     },
     "probe": {
-      "probed": 1553,
-      "failed": 646,
-      "bad_cert": 70,
-      "ws_dead": 336
+      "probed": 2502,
+      "failed": 1290,
+      "bad_cert": 99,
+      "ws_dead": 399
     },
     "reputation": {
       "enabled": true,
-      "resolved_ips": 1493,
-      "dnsbl_hits": 222,
+      "resolved_ips": 2173,
+      "dnsbl_hits": 0,
       "dnsbl_unverified": 0,
-      "unverified": 18,
-      "rejected": 242
+      "unverified": 121,
+      "rejected": 0
     },
     "alive": {
-      "tested": 1311,
-      "reliable": 248,
-      "dead": 1048,
-      "unstable": 15,
-      "samples": 3
+      "skipped": true
     },
     "quality": {
-      "kept": 166,
-      "rejected": 82,
+      "kept": 300,
+      "rejected": 2202,
       "reasons": {
-        "connect_failed": 8,
-        "bad_certificate": 1,
-        "slow_handshake": 1,
-        "over_group_limit": 72
+        "connect_failed": 1290,
+        "ws_dead": 399,
+        "bad_certificate": 99,
+        "slow_handshake": 7,
+        "over_group_limit": 235,
+        "over_total_limit": 172
       }
     },
-    "final": 166
+    "final": 300
   },
   "failed_sources": [],
   "rejected_samples": [
