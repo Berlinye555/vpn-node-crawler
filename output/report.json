@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T09:58:33.386137+00:00",
+  "generated_at": "2026-11-19T10:13:57.378599+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
@@ -64,53 +64,51 @@
     },
     "probe": {
       "probed": 2795,
-      "failed": 1585,
+      "failed": 1587,
       "bad_cert": 97,
-      "ws_dead": 405
+      "ws_dead": 398
     },
     "reputation": {
       "enabled": true,
-      "resolved_ips": 2236,
-      "dnsbl_hits": 223,
-      "dnsbl_unverified": 800,
+      "resolved_ips": 2235,
+      "dnsbl_hits": 0,
+      "dnsbl_unverified": 799,
       "unverified": 121,
-      "rejected": 236
+      "rejected": 0
     },
     "alive": {
-      "tested": 2559,
-      "reliable": 270,
-      "dead": 2289,
+      "tested": 2795,
+      "reliable": 344,
+      "dead": 2451,
       "unstable": 0,
       "samples": 1
     },
     "quality": {
-      "kept": 183,
-      "rejected": 87,
+      "kept": 294,
+      "rejected": 50,
       "reasons": {
-        "slow_handshake": 2,
-        "ws_dead": 1,
+        "connect_failed": 3,
         "bad_certificate": 1,
-        "connect_failed": 6,
-        "over_group_limit": 77
+        "over_group_limit": 46
       }
     },
-    "final": 183,
+    "final": 294,
     "final_by_source": {
-      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 79,
-      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 46,
-      "https://leidahub.top/clash.yaml": 25,
-      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 14,
-      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 13,
-      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 3,
+      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 108,
+      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 90,
+      "https://leidahub.top/clash.yaml": 54,
+      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 19,
+      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 15,
+      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 5,
       "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 3
     },
     "timings": {
-      "fetch": 5.0,
+      "fetch": 6.7,
       "aggregate": 0.0,
-      "precheck": 0.0,
-      "probe": 45.1,
-      "reputation": 45.6,
-      "alive": 525.4,
+      "precheck": 0.1,
+      "probe": 45.4,
+      "reputation": 62.5,
+      "alive": 40.7,
       "quality": 0.0
     }
   },
