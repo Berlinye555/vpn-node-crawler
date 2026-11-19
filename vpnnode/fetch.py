@@ -39,7 +39,7 @@ async def fetch_text(
     url: str,
     *,
     timeout: float = 15,
-    retries: int = 2,
+    retries: int = 1,
     headers: dict | None = None,
 ) -> str:
     last_error: Exception | None = None

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import logging
 import os
 import urllib.parse
@@ -24,16 +25,20 @@ def _headers_for(url: str) -> dict:
 
 async def fetch_source(spec: dict) -> list[Node]:
     """spec: {type: github, urls: [raw 链接, ...]}"""
-    nodes: list[Node] = []
-    for url in spec.get("urls", []):
+    urls = spec.get("urls", [])
+    timeout = float(spec.get("timeout", 20))
+
+    async def one(url: str) -> list[Node]:
         try:
-            text = await fetch_text(url, headers=_headers_for(url), timeout=float(spec.get("timeout", 20)))
+            text = await fetch_text(url, headers=_headers_for(url), timeout=timeout)
         except Exception as exc:
             log.warning("github source failed: %s (%s)", url, exc)
-            continue
+            return []
         batch = parse_any_text(text)
         for node in batch:
             node.source = f"github:{url}"
-        nodes.extend(batch)
         log.info("github %s -> %d nodes", url, len(batch))
-    return nodes
+        return batch
+
+    batches = await asyncio.gather(*(one(url) for url in urls))
+    return [node for batch in batches for node in batch]

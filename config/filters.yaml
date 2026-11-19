@@ -1,8 +1,8 @@
 # 过滤策略。strict 会剔除自签/无效证书的节点；free 节点较多时可视情况改 loose。
 tls_policy: strict
 
-probe_concurrency: 80
-probe_timeout_s: 5
+probe_concurrency: 150
+probe_timeout_s: 3
 tcp_fail_threshold: 2
 max_handshake_ms: 3000
 

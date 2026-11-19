@@ -62,7 +62,7 @@ def _dnsbl_check(ip: str, zones: list[str]) -> tuple[bool, bool]:
     checked = False
     for zone in zones:
         try:
-            answers = dns.resolver.resolve(f"{reversed_ip}.{zone}", "A", lifetime=3)
+            answers = dns.resolver.resolve(f"{reversed_ip}.{zone}", "A", lifetime=2)
         except dns.resolver.NXDOMAIN:
             checked = True
             continue

@@ -199,9 +199,13 @@ async def check_alive(nodes: list[Node], mihomo_path: str, cfg: dict | None = No
         return result
 
     log.warning("full batch rejected by core, retrying in chunks of 200")
+    chunks = [nodes[i:i + 200] for i in range(0, len(nodes), 200)]
+    if len(chunks) > 3:
+        log.warning("too many chunks (%d), only first 3 are tested", len(chunks))
+        chunks = chunks[:3]
     merged: dict[str, AliveResult] = {}
-    for start in range(0, len(nodes), 200):
-        part = await _run_batch(nodes[start:start + 200], mihomo_path, cfg)
+    for chunk in chunks:
+        part = await _run_batch(chunk, mihomo_path, cfg)
         if part:
             merged.update(part)
     return merged
