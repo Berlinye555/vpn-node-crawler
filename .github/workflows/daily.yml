@@ -35,21 +35,25 @@ jobs:
         run: python -m vpnnode.pipeline --out output --no-upload
 
       - name: Commit and push outputs
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f output/
           if git diff --cached --quiet; then
             echo "no output changes"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore(data): update nodes $(date -u +%Y-%m-%d)"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Purge jsDelivr cache
+        if: steps.commit.outputs.changed == 'true'
         run: |
-          for f in clash.yaml sub.base64 report.json; do
-            curl -fsS "https://purge.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/$f" \
+          for f in clash.yaml sub.base64; do
+            curl -fsS "https://purge.jsdelivr.net/gh/${{ github.repository }}@${{ github.ref_name }}/output/$f" \
               && echo "purged $f" || echo "purge failed: $f"
           done
 
