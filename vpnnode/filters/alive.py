@@ -54,9 +54,11 @@ def _http_get(url: str, timeout: float = 3) -> tuple[int, bytes]:
         return 0, b""
 
 
-async def _wait_api(timeout: float = 15) -> bool:
+async def _wait_api(proc, timeout: float = 30) -> bool:
     deadline = time.monotonic() + timeout
     while time.monotonic() < deadline:
+        if proc.returncode is not None:
+            return False
         code, _ = await asyncio.to_thread(_http_get, f"http://{API_HOST}:{API_PORT}/version", 1)
         if code == 200:
             return True
@@ -79,18 +81,28 @@ async def check_alive(nodes: list[Node], mihomo_path: str, cfg: dict | None = No
     config_path = pathlib.Path(workdir) / "config.yaml"
     config_path.write_text(yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding="utf-8")
 
+    log_path = pathlib.Path(workdir) / "mihomo.log"
     try:
-        proc = await asyncio.create_subprocess_exec(
-            mihomo_path, "-f", str(config_path), "-d", workdir,
-            stdout=asyncio.subprocess.DEVNULL, stderr=asyncio.subprocess.DEVNULL,
-        )
+        log_handle = open(log_path, "wb")
+        try:
+            proc = await asyncio.create_subprocess_exec(
+                mihomo_path, "-f", str(config_path), "-d", workdir,
+                stdout=log_handle, stderr=log_handle,
+            )
+        finally:
+            log_handle.close()
     except Exception as exc:
         log.warning("mihomo launch failed: %s", exc)
         return {}
 
     try:
-        if not await _wait_api():
-            log.warning("mihomo API not ready, skip alive check")
+        if not await _wait_api(proc):
+            tail = ""
+            try:
+                tail = log_path.read_text(encoding="utf-8", errors="replace")[-1200:]
+            except Exception:
+                pass
+            log.warning("mihomo not ready (exit=%s): %s", proc.returncode, tail)
             return {}
 
         timeout_ms = int(cfg.get("alive_timeout_ms", 6000))
