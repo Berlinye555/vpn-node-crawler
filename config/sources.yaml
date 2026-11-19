@@ -7,13 +7,18 @@ sources:
       - https://raw.githubusercontent.com/freefq/free/master/v2
       - https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub
       - https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+      - https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
+      - https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity
+      - https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml
 
   # jsDelivr 镜像：国内网络可直连（文件有缓存，可能滞后）
   - type: github
-    timeout: 20
+    timeout: 25
     urls:
       - https://fastly.jsdelivr.net/gh/freefq/free@master/v2
       - https://gcore.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
+      - https://fastly.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
+      - https://fastly.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/Eternity
 
   # 第三方聚合订阅（Clash 格式），四层过滤会再筛一遍
   - type: subscription
