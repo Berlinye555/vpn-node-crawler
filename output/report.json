@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-19T07:25:40.356906+00:00",
+  "generated_at": "2026-11-19T07:45:52.566225+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
-      "total": 5591,
+      "total": 5592,
       "specs": 3,
       "urls": 10
     },
     "aggregate": {
-      "input": 5591,
-      "unique": 2817,
-      "duplicates": 2774,
+      "input": 5592,
+      "unique": 2829,
+      "duplicates": 2763,
       "by_source": {
-        "github": 2561,
+        "github": 2573,
         "subscription": 256
       },
       "by_protocol": {
-        "ss": 257,
-        "vmess": 972,
+        "ss": 267,
+        "vmess": 974,
         "vless": 961,
         "trojan": 441,
         "hysteria": 3,
@@ -30,7 +30,7 @@
       }
     },
     "precheck": {
-      "kept": 1541,
+      "kept": 1553,
       "rejected": 1276,
       "reasons": {
         "insecure_tls": 1200,
@@ -40,31 +40,34 @@
       }
     },
     "probe": {
-      "probed": 1541,
-      "failed": 648,
+      "probed": 1553,
+      "failed": 643,
       "bad_cert": 69,
-      "ws_dead": 333
+      "ws_dead": 332
     },
     "reputation": {
       "enabled": true,
-      "resolved_ips": 1484,
-      "dnsbl_hits": 218,
+      "resolved_ips": 1493,
+      "dnsbl_hits": 222,
       "dnsbl_unverified": 0,
       "unverified": 18,
-      "rejected": 238
+      "rejected": 242
+    },
+    "alive": {
+      "skipped": true
     },
     "quality": {
-      "kept": 243,
-      "rejected": 1060,
+      "kept": 248,
+      "rejected": 1063,
       "reasons": {
-        "connect_failed": 576,
-        "ws_dead": 317,
+        "connect_failed": 573,
+        "ws_dead": 315,
         "bad_certificate": 59,
-        "slow_handshake": 3,
-        "over_group_limit": 105
+        "slow_handshake": 7,
+        "over_group_limit": 109
       }
     },
-    "final": 243
+    "final": 248
   },
   "failed_sources": [],
   "rejected_samples": [
