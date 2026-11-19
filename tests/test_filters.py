@@ -86,6 +86,17 @@ def test_precheck_rejects_invalid_port():
     assert reasons(rejected) == ["invalid_port", "invalid_port"]
 
 
+def test_precheck_rejects_legacy_vless_flow():
+    node = mk("vless", "1.1.1.1", flow="xtls-rprx-direct")
+    kept, rejected = precheck([node], CFG)
+    assert kept == []
+    assert reasons(rejected) == ["unsupported_flow"]
+
+    ok = mk("vless", "2.2.2.2", flow="xtls-rprx-vision")
+    kept, _ = precheck([ok], CFG)
+    assert len(kept) == 1
+
+
 def test_precheck_rejects_missing_credentials():
     kept, rejected = precheck([mk("vmess", uuid=""), mk("trojan", password="")], CFG)
     assert kept == []

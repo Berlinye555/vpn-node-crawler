@@ -96,16 +96,12 @@ async def _wait_api(proc, timeout: float = 30) -> bool:
     return False
 
 
-async def check_alive(nodes: list[Node], mihomo_path: str, cfg: dict | None = None) -> dict[str, AliveResult]:
-    """用 mihomo 内核多次真实请求，统计每个节点的成功率。
-
-    采样带提前终止：成功次数达标或失败次数不可能达标时立即结束。
-    内核无法启动时返回空 dict（调用方跳过这一层）。
-    """
-    cfg = cfg or {}
-    if not nodes:
-        return {}
-
+async def _run_batch(
+    nodes: list[Node],
+    mihomo_path: str,
+    cfg: dict,
+) -> dict[str, AliveResult] | None:
+    """跑一批节点；返回 None 表示内核因配置问题未能启动。"""
     workdir = tempfile.mkdtemp(prefix="mihomo-alive-")
     config, name_map = build_config(nodes)
     config_path = pathlib.Path(workdir) / "config.yaml"
@@ -123,7 +119,7 @@ async def check_alive(nodes: list[Node], mihomo_path: str, cfg: dict | None = No
             log_handle.close()
     except Exception as exc:
         log.warning("mihomo launch failed: %s", exc)
-        return {}
+        return None
 
     try:
         if not await _wait_api(proc):
@@ -133,7 +129,7 @@ async def check_alive(nodes: list[Node], mihomo_path: str, cfg: dict | None = No
             except Exception:
                 pass
             log.warning("mihomo not ready (exit=%s): %s", proc.returncode, tail)
-            return {}
+            return None
 
         timeout_ms = int(cfg.get("alive_timeout_ms", 6000))
         concurrency = int(cfg.get("alive_concurrency", 50))
@@ -187,3 +183,25 @@ async def check_alive(nodes: list[Node], mihomo_path: str, cfg: dict | None = No
                 proc.kill()
             except Exception:
                 pass
+
+
+async def check_alive(nodes: list[Node], mihomo_path: str, cfg: dict | None = None) -> dict[str, AliveResult]:
+    """用 mihomo 内核真实请求验证节点。
+
+    整批配置被内核拒绝时，自动按 200 个一组降级重试，避免个别畸形节点让整层失效。
+    """
+    cfg = cfg or {}
+    if not nodes:
+        return {}
+
+    result = await _run_batch(nodes, mihomo_path, cfg)
+    if result is not None:
+        return result
+
+    log.warning("full batch rejected by core, retrying in chunks of 200")
+    merged: dict[str, AliveResult] = {}
+    for start in range(0, len(nodes), 200):
+        part = await _run_batch(nodes[start:start + 200], mihomo_path, cfg)
+        if part:
+            merged.update(part)
+    return merged

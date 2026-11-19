@@ -5,6 +5,7 @@ import ipaddress
 from vpnnode.models import SUPPORTED_PROTOCOLS, Node
 
 WEAK_SS_CIPHERS = {"none", "rc4", "rc4-md5", "table", "plain", "dummy", "chacha20", "aes-128-cfb"}
+VALID_VLESS_FLOWS = {"", "xtls-rprx-vision", "xtls-rprx-vision-udp443"}
 PRIVATE_SUFFIXES = (".local", ".internal", ".lan", ".home", ".localhost", ".invalid", ".test")
 FORBIDDEN_RAW_FIELDS = ("script", "javascript")
 
@@ -56,6 +57,10 @@ def check_node(node: Node) -> str | None:
         return "missing_credentials"
     if node.protocol == "ss" and str(node.params.get("cipher", "")).lower() in WEAK_SS_CIPHERS:
         return "weak_cipher"
+    if node.protocol == "vless":
+        flow = str(node.params.get("flow") or "").strip()
+        if flow and flow not in VALID_VLESS_FLOWS:
+            return "unsupported_flow"
     return None
 
 
