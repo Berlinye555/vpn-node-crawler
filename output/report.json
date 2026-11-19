@@ -1,11 +1,33 @@
 {
-  "generated_at": "2026-11-19T09:25:02.051432+00:00",
+  "generated_at": "2026-11-19T09:58:33.386137+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
       "total": 10190,
       "specs": 4,
       "urls": 18
+    },
+    "fetched_by_source": {
+      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 2119,
+      "https://fastly.jsdelivr.net/gh/anaer/Sub@main/clash.yaml": 2119,
+      "https://raw.githubusercontent.com/LonUp/NodeList/main/Clash/Node/Latest.yaml": 1451,
+      "https://fastly.jsdelivr.net/gh/LonUp/NodeList@main/Clash/Node/Latest.yaml": 1451,
+      "https://leidahub.top/clash.yaml": 500,
+      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 389,
+      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 362,
+      "https://jiang.netlify.app": 296,
+      "https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/jingfu": 267,
+      "https://fastly.jsdelivr.net/gh/hermanb001/ProxyTest@main/subscribe/jingfu": 267,
+      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 199,
+      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 199,
+      "https://fastly.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/Eternity": 198,
+      "https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray": 160,
+      "https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/hellopool": 118,
+      "https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml": 43,
+      "https://raw.githubusercontent.com/freefq/free/master/v2": 14,
+      "https://fastly.jsdelivr.net/gh/freefq/free@master/v2": 14,
+      "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 12,
+      "https://gcore.jsdelivr.net/gh/ripaojiedian/freenode@main/sub": 12
     },
     "aggregate": {
       "input": 10190,
@@ -42,36 +64,55 @@
     },
     "probe": {
       "probed": 2795,
-      "failed": 1571,
-      "bad_cert": 98,
-      "ws_dead": 402
+      "failed": 1585,
+      "bad_cert": 97,
+      "ws_dead": 405
     },
     "reputation": {
       "enabled": true,
       "resolved_ips": 2236,
-      "dnsbl_hits": 0,
-      "dnsbl_unverified": 778,
+      "dnsbl_hits": 223,
+      "dnsbl_unverified": 800,
       "unverified": 121,
-      "rejected": 0
+      "rejected": 236
     },
     "alive": {
-      "tested": 2795,
-      "reliable": 354,
-      "dead": 2441,
+      "tested": 2559,
+      "reliable": 270,
+      "dead": 2289,
       "unstable": 0,
       "samples": 1
     },
     "quality": {
-      "kept": 288,
-      "rejected": 66,
+      "kept": 183,
+      "rejected": 87,
       "reasons": {
-        "connect_failed": 3,
+        "slow_handshake": 2,
         "ws_dead": 1,
         "bad_certificate": 1,
-        "over_group_limit": 61
+        "connect_failed": 6,
+        "over_group_limit": 77
       }
     },
-    "final": 288
+    "final": 183,
+    "final_by_source": {
+      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 79,
+      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 46,
+      "https://leidahub.top/clash.yaml": 25,
+      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 14,
+      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 13,
+      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 3,
+      "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 3
+    },
+    "timings": {
+      "fetch": 5.0,
+      "aggregate": 0.0,
+      "precheck": 0.0,
+      "probe": 45.1,
+      "reputation": 45.6,
+      "alive": 525.4,
+      "quality": 0.0
+    }
   },
   "failed_sources": [],
   "rejected_samples": [
