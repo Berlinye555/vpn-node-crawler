@@ -170,6 +170,7 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
             "probed": len(results),
             "failed": sum(1 for r in results.values() if not r.ok),
             "bad_cert": sum(1 for r in results.values() if r.tls_ok is False),
+            "ws_dead": sum(1 for r in results.values() if r.ws_ok is False),
         }
 
     if args.no_reputation:

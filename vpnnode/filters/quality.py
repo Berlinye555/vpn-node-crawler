@@ -33,6 +33,9 @@ def apply_quality(
         if result.tls_ok is False and tls_policy == "strict":
             rejected.append((node, "bad_certificate"))
             continue
+        if result.ws_ok is False:
+            rejected.append((node, "ws_dead"))
+            continue
         if result.handshake_ms is not None and result.handshake_ms > max_ms:
             rejected.append((node, "slow_handshake"))
             continue

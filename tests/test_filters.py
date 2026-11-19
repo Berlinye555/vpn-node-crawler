@@ -1,5 +1,5 @@
 from vpnnode.filters.precheck import precheck
-from vpnnode.filters.probe import ProbeResult
+from vpnnode.filters.probe import ProbeResult, build_ws_request, parse_http_status
 from vpnnode.filters.quality import apply_quality
 from vpnnode.models import Node
 
@@ -116,6 +116,28 @@ def test_quality_rejects_slow_handshake():
     kept, rejected = apply_quality([node], {node.fingerprint: pr(handshake_ms=5000)}, CFG)
     assert kept == []
     assert reasons(rejected) == ["slow_handshake"]
+
+
+def test_quality_rejects_ws_dead():
+    node = mk("vless", "5.5.5.5", network="ws", tls=True)
+    result = pr(ws_ok=False)
+    kept, rejected = apply_quality([node], {node.fingerprint: result}, CFG)
+    assert kept == []
+    assert reasons(rejected) == ["ws_dead"]
+
+
+def test_build_ws_request():
+    req = build_ws_request("/path", "example.com", key="abc")
+    assert req.startswith("GET /path HTTP/1.1\r\n")
+    assert "Host: example.com\r\n" in req
+    assert "Upgrade: websocket\r\n" in req
+    assert "Sec-WebSocket-Key: abc\r\n" in req
+
+
+def test_parse_http_status():
+    assert parse_http_status(b"HTTP/1.1 101 Switching Protocols\r\n") == 101
+    assert parse_http_status(b"HTTP/1.1 502 Bad Gateway\r\n") == 502
+    assert parse_http_status(b"garbage\r\n") is None
 
 
 def test_quality_rejects_missing_probe_result():
