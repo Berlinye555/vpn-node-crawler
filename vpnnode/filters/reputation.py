@@ -6,6 +6,7 @@ import json
 import logging
 import socket
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 
 import dns.resolver
 
@@ -98,11 +99,20 @@ async def apply_reputation(nodes: list[Node], cfg: dict | None = None) -> tuple[
             await asyncio.sleep(1.5)
 
     zones = list(cfg.get("dnsbl_zones") or ["zen.spamhaus.org"])
-    dnsbl_checks = await asyncio.gather(
-        *(asyncio.to_thread(_dnsbl_check, ip, zones) for ip in unique_ips)
-    )
-    hit_ips = {ip for ip, (hit, _) in zip(unique_ips, dnsbl_checks) if hit}
-    dnsbl_unverified = sum(1 for _, (_, checked) in zip(unique_ips, dnsbl_checks) if not checked)
+    # 默认线程池在 2 核 runner 上只有 6 个线程，DNS 查询会被严重串行化
+    max_ips = int(cfg.get("dnsbl_max_ips", 1500))
+    targets = unique_ips[:max_ips]
+    loop = asyncio.get_running_loop()
+    executor = ThreadPoolExecutor(max_workers=64)
+    try:
+        dnsbl_checks = await asyncio.gather(
+            *(loop.run_in_executor(executor, _dnsbl_check, ip, zones) for ip in targets)
+        )
+    finally:
+        executor.shutdown(wait=False)
+    hit_ips = {ip for ip, (hit, _) in zip(targets, dnsbl_checks) if hit}
+    dnsbl_unverified = sum(1 for _, (_, checked) in zip(targets, dnsbl_checks) if not checked)
+    dnsbl_unverified += len(unique_ips) - len(targets)
 
     kept: list[Node] = []
     rejected: list[tuple[Node, str]] = []
