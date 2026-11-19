@@ -87,6 +87,19 @@ def test_render_passes_through_protocol_fields():
     assert "sub_tag" not in proxy
 
 
+def test_render_normalizes_string_bools_and_bad_nesting():
+    node = Node("vless", "x", "e.example.com", 443,
+                {"uuid": "u", "tls": True, "network": "ws"},
+                raw={"type": "vless", "tls": "true", "udp": "1",
+                     "skip-cert-verify": "false", "alpn": "h2",
+                     "ws-opts": "not-a-dict"})
+    proxy = yaml.safe_load(render_clash([node], {}))["proxies"][0]
+    assert proxy["tls"] is True
+    assert proxy["udp"] is True
+    assert proxy["skip-cert-verify"] is False
+    assert proxy["alpn"] == ["h2"]
+
+
 def test_render_blocks_script_field():
     node = Node("vmess", "evil", "1.2.3.4", 443, {"uuid": "u"},
                 raw={"type": "vmess", "script": "doEvil()"})

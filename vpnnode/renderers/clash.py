@@ -74,6 +74,33 @@ PASSTHROUGH_FIELDS = {
     "packet-encoding", "auth", "auth-str", "username", "ports", "hop-interval",
 }
 FORBIDDEN_FIELDS = {"script", "javascript"}
+BOOL_FIELDS = {"tls", "udp", "skip-cert-verify", "tfo", "mptcp", "xudp",
+               "reduce-rtt", "fast-open", "global-padding", "authenticated-length"}
+DICT_FIELDS = {"ws-opts", "grpc-opts", "reality-opts", "xhttp-opts", "http-opts",
+               "h2-opts", "plugin-opts", "smux"}
+
+
+def _as_bool(value) -> bool:
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, (int, float)):
+        return value != 0
+    if isinstance(value, str):
+        return value.strip().lower() in ("1", "true", "yes", "on")
+    return bool(value)
+
+
+def _clean_field(field: str, value):
+    """源数据里常见字符串形式的布尔值/错误的嵌套类型，内核会严格拒绝。"""
+    if field in BOOL_FIELDS:
+        return _as_bool(value)
+    if field in DICT_FIELDS:
+        return value if isinstance(value, dict) else None
+    if field == "alpn":
+        if isinstance(value, str):
+            return [value]
+        return value if isinstance(value, list) else None
+    return value
 
 
 def _to_clash(node: Node, name: str) -> dict:
@@ -81,7 +108,9 @@ def _to_clash(node: Node, name: str) -> dict:
     proxy: dict = {}
     for field in PASSTHROUGH_FIELDS:
         if field in node.raw and field not in FORBIDDEN_FIELDS:
-            proxy[field] = node.raw[field]
+            value = _clean_field(field, node.raw[field])
+            if value is not None:
+                proxy[field] = value
     proxy.update({"name": name, "type": node.protocol, "server": node.server, "port": node.port})
 
     if node.protocol == "vmess":
