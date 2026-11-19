@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T07:50:37.577911+00:00",
+  "generated_at": "2026-11-19T07:54:32.340038+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
@@ -41,34 +41,34 @@
     },
     "probe": {
       "probed": 1553,
-      "failed": 645,
-      "bad_cert": 68,
-      "ws_dead": 334
+      "failed": 642,
+      "bad_cert": 69,
+      "ws_dead": 332
     },
     "reputation": {
       "enabled": true,
       "resolved_ips": 1493,
-      "dnsbl_hits": 0,
+      "dnsbl_hits": 222,
       "dnsbl_unverified": 0,
       "unverified": 18,
-      "rejected": 0
+      "rejected": 242
     },
     "alive": {
-      "skipped": true
+      "tested": 1311,
+      "alive": 242,
+      "dead": 1069
     },
     "quality": {
-      "kept": 300,
-      "rejected": 1253,
+      "kept": 164,
+      "rejected": 78,
       "reasons": {
-        "connect_failed": 645,
-        "ws_dead": 334,
-        "bad_certificate": 68,
-        "slow_handshake": 3,
-        "over_group_limit": 161,
-        "over_total_limit": 42
+        "slow_handshake": 2,
+        "ws_dead": 2,
+        "bad_certificate": 1,
+        "over_group_limit": 73
       }
     },
-    "final": 300
+    "final": 164
   },
   "failed_sources": [],
   "rejected_samples": [
