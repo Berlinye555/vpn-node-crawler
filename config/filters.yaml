@@ -10,8 +10,8 @@ max_nodes_total: 300
 max_nodes_per_group: 30
 
 # 真实连通测试（需 mihomo 内核）：每个节点采样次数与成功率阈值
-alive_samples: 3
-alive_min_success_rate: 0.66
+alive_samples: 1
+alive_min_success_rate: 1.0
 alive_timeout_ms: 4000
 alive_concurrency: 120
 

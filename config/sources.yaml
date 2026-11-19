@@ -10,6 +10,11 @@ sources:
       - https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml
       - https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity
       - https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml
+      - https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/cloudkingz
+      - https://raw.githubusercontent.com/LonUp/NodeList/main/Clash/Node/Latest.yaml
+      - https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt
+      - https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray
+      - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt
 
   # jsDelivr 镜像：国内网络可直连（文件有缓存，可能滞后）
   - type: github
@@ -19,11 +24,16 @@ sources:
       - https://gcore.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
       - https://fastly.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
       - https://fastly.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/Eternity
+      - https://fastly.jsdelivr.net/gh/hermanb001/ProxyTest@main/subscribe/cloudkingz
+      - https://fastly.jsdelivr.net/gh/LonUp/NodeList@main/Clash/Node/Latest.yaml
 
   # 第三方聚合订阅（Clash 格式），四层过滤会再筛一遍
   - type: subscription
     timeout: 25
     url: https://leidahub.top/clash.yaml
+  - type: subscription
+    timeout: 20
+    url: https://jiang.netlify.app
 
   # Telegram 公开频道（频道名不含 @）
   # - type: telegram
