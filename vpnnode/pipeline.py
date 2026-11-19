@@ -14,7 +14,7 @@ import yaml
 
 from vpnnode.aggregator import aggregate
 from vpnnode.deliver import upload_outputs
-from vpnnode.filters.alive import check_alive
+from vpnnode.filters.alive import check_alive, filter_alive
 from vpnnode.filters.precheck import precheck
 from vpnnode.filters.probe import ProbeResult, probe_nodes
 from vpnnode.filters.quality import apply_quality
@@ -186,21 +186,15 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
     if mihomo_path:
         alive_results = await check_alive(nodes, mihomo_path, filters)
         if alive_results:
-            alive_kept: list[Node] = []
-            alive_rejected: list[tuple[Node, str]] = []
-            for node in nodes:
-                if node.fingerprint not in alive_results:
-                    alive_kept.append(node)  # 未测试到的保留
-                elif alive_results[node.fingerprint]:
-                    alive_kept.append(node)
-                else:
-                    alive_rejected.append((node, "dead_proxy"))
-            nodes = alive_kept
+            min_rate = float(filters.get("alive_min_success_rate", 0.66))
+            nodes, alive_rejected = filter_alive(nodes, alive_results, min_rate)
             all_rejected.extend(alive_rejected)
             report["stats"]["alive"] = {
                 "tested": len(alive_results),
-                "alive": sum(1 for delay in alive_results.values() if delay),
-                "dead": len(alive_rejected),
+                "reliable": sum(1 for r in alive_results.values() if r.rate >= min_rate),
+                "dead": sum(1 for r in alive_results.values() if r.success == 0),
+                "unstable": sum(1 for r in alive_results.values() if 0 < r.rate < min_rate),
+                "samples": int(filters.get("alive_samples", 3)),
             }
         else:
             report["stats"]["alive"] = {"skipped": True}
