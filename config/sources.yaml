@@ -1,6 +1,7 @@
 # 数据源清单。新增源只需改这里，不用改代码。
 sources:
-  # 官方 raw 源：GitHub Actions 中可达；本地无代理时 DNS 立即失败，不影响其他源
+  # raw 源：GitHub Actions 中可达。本地调试若 raw 不可达，可临时把地址换成
+  # https://fastly.jsdelivr.net/gh/{owner}/{repo}@{branch}/{path}（勿长期启用，会重复抓取）
   - type: github
     timeout: 15
     urls:
@@ -16,17 +17,7 @@ sources:
       - https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray
       - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt
 
-  # jsDelivr 镜像：国内网络可直连（文件有缓存，可能滞后）
-  - type: github
-    timeout: 25
-    urls:
-      - https://fastly.jsdelivr.net/gh/freefq/free@master/v2
-      - https://gcore.jsdelivr.net/gh/ripaojiedian/freenode@main/sub
-      - https://fastly.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
-      - https://fastly.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/Eternity
-      - https://fastly.jsdelivr.net/gh/hermanb001/ProxyTest@main/subscribe/jingfu
-
-  # 第三方聚合订阅（Clash 格式），四层过滤会再筛一遍
+  # 第三方聚合订阅（Clash 格式），五层过滤会再筛一遍
   - type: subscription
     timeout: 25
     url: https://leidahub.top/clash.yaml

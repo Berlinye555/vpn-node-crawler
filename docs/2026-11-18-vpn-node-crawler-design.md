@@ -1,234 +1,218 @@
 # VPN 节点爬虫设计文档
 
-- 日期：2026-11-18
-- 状态：待实施
+- 首次编写：2026-11-18
+- 最近更新：2026-11-19（对齐实际实现）
 - 目录：`g:\workspace\makemo\VPN\`
 
 ## 1. 目标
 
-每天自动从公开渠道抓取 VPN/代理节点，按安全与可用性规则分层过滤，输出可直接导入客户端的订阅文件，并通过带密钥的固定 URL 提供订阅。
+每天自动从公开渠道抓取 VPN/代理节点，经五层过滤后用真实请求验证可用性，输出可直接导入客户端的订阅文件，通过公开仓库 + jsDelivr 提供固定订阅地址。
 
 **非目标**：
 
 - 不提供节点、不搭建代理服务、不绕过任何目标站点
-- 不做带宽测速（运行环境为 GitHub Actions，测速结果无参考价值）
-- 不做真实协议握手（需要引入代理内核，见第 3 节能力边界）
+- 不测带宽（运行环境为 GitHub Actions，测速结果无法代表用户网络）
+- 不在爬虫内实现协议握手（交给 mihomo 内核）
 
 ## 2. 合规声明
 
-在中国大陆，使用未经批准的跨境 VPN 属于违规行为。本方案只做公开数据的抓取与格式转换，不鼓励、不协助违规用途；使用者自行承担使用后果。爬虫遵守数据源的公开访问约定：限速、带正常 User-Agent、不爬取需要登录的内容。
+在中国大陆，使用未经批准的跨境 VPN 属于违规行为。本项目只做公开数据的抓取与格式转换，不鼓励、不协助违规用途；使用者自行承担使用后果。爬虫遵守数据源公开访问约定：限速、带正常 User-Agent、不抓取需要登录的内容。
 
 ## 3. 能力边界（必须如实告知）
 
 | 能力 | 能做 | 不能做 |
 | --- | --- | --- |
-| 恶意节点检测 | 校验 TLS 证书链、SNI 匹配、拒绝关闭证书校验的配置、识别内网地址指向 | 无法证明节点“不偷流量”，劫持行为只有实际使用才暴露 |
-| 可用性 | TCP 连通 + TLS 握手 + 失败率统计 | 无法测真实带宽和真实延迟（Actions 在境外机房） |
-| reality 节点 | TCP 连通探测 | reality 无证书可校验，安全性无法验证 |
-| 明文协议 | 识别并剔除 http/socks 无 TLS | — |
+| 配置安全 | 剔除明文代理、跳过证书校验、脚本注入字段、私网地址、弱加密、废弃 XTLS flow | 无法证明节点"不偷流量" |
+| TLS 校验 | 校验证书链与 SNI；区分证书错误和连接失败 | reality 无证书可校验 |
+| WS 后端 | 真实 WebSocket Upgrade，识别"入口活着但后端已死"的 CDN 中转节点 | 无法验证 UUID 认证是否正确 |
+| 真实连通 | 用 mihomo 内核真实发 HTTP 请求，按成功率筛节点 | 运行在境外机房，**无法代表国内网络可达性** |
+| 速度 | — | 不测带宽（见非目标） |
 
 ## 4. 架构
 
-模块化流水线，每层单一职责、独立可测：
-
 ```text
-sources（四类抓取）
-  → parsers（统一节点模型）
-  → aggregator（去重、来源标记）
-  → filters（四层过滤，逐层出漏斗统计）
-  → renderers（Clash YAML / Base64）
-  → deliver（Worker 上传）
+sources          抓取（GitHub raw / 订阅链接；webpage、telegram 为预留能力）
+  → parsers      统一节点模型（vmess/vless/trojan/ss/hysteria2）
+  → aggregator   按来源优先级去重
+  → precheck     静态安全检查（不联网）
+  → probe        TCP + TLS 证书 + WebSocket 握手
+  → reputation   DNS 解析、IP 归属、DNSBL 黑名单
+  → alive        mihomo 内核真实 HTTP 请求验证
+  → quality      失败阈值、分组/总量限额、排序与命名
+  → renderers    Clash YAML + Base64
+  → deliver      提交回仓库（jsDelivr 交付）；Worker 上传为可选
 ```
 
-任一数据源失败不影响整体；每一层都输出计数与原因，汇总到 `report.json`。
+任一数据源失败不影响整体；每层输出计数与原因，汇总到 `report.json`；每层打印耗时（`stage <name> <秒>`）。
 
 ## 5. 目录结构
 
 ```text
 VPN/
-├── .github/workflows/daily.yml
+├── .github/workflows/daily.yml   # 每日定时任务
 ├── config/
-│   ├── sources.yaml      # 数据源清单 + 网页解析规则
-│   ├── filters.yaml      # 过滤阈值、黑名单、协议策略
-│   └── render.yaml       # 分组、命名、输出上限
+│   ├── sources.yaml              # 数据源清单
+│   └── filters.yaml              # 过滤阈值
 ├── vpnnode/
-│   ├── __init__.py
-│   ├── models.py         # Node 模型
-│   ├── fetch.py          # HTTP 抓取（并发/重试/限速/UA）
-│   ├── sources/
-│   │   ├── github.py
-│   │   ├── webpage.py
-│   │   ├── subscription.py
-│   │   └── telegram.py
-│   ├── parsers/
-│   │   ├── links.py      # vmess/vless/trojan/ss/hysteria2 链接
-│   │   └── clash.py      # Clash proxies 段
-│   ├── aggregator.py
-│   ├── filters/
-│   │   ├── precheck.py
-│   │   ├── probe.py
-│   │   ├── reputation.py
-│   │   └── quality.py
-│   ├── renderers/
-│   │   ├── clash.py
-│   │   └── base64.py
-│   ├── deliver.py        # 上传到 Worker
-│   └── pipeline.py       # 入口
-├── worker/               # Cloudflare Worker 订阅服务
-│   ├── src/index.ts
-│   └── wrangler.toml
-├── tests/
-│   ├── fixtures/
-│   └── test_*.py
-├── requirements.txt
-├── requirements-dev.txt
-└── README.md
+│   ├── models.py                 # Node 模型、指纹、分享链接生成
+│   ├── fetch.py                  # HTTP 抓取（重试/UA/大小上限）
+│   ├── aggregator.py             # 去重
+│   ├── pipeline.py               # CLI 与流水线
+│   ├── deliver.py                # Worker 上传（可选路径）
+│   ├── sources/                  # github / subscription / webpage / telegram
+│   ├── parsers/                  # links.py（分享链接）/ clash.py（YAML）
+│   ├── filters/                  # precheck / probe / reputation / alive / quality
+│   └── renderers/                # clash.py / base64_sub.py
+├── worker/                       # 可选：私密订阅（Cloudflare Worker + KV）
+├── tools/push_via_api.py         # 网络受限时的 API 推送工具
+├── tests/                        # 72 个测试
+└── docs/                         # 本设计文档
 ```
 
 ## 6. 节点模型
 
 ```python
-@dataclass
-class Node:
-    protocol: str        # vmess | vless | trojan | ss | hysteria2
-    name: str
-    server: str
-    port: int
-    params: dict         # uuid/password/cipher/network/tls/sni/ws_opts/...
-    raw: dict            # 原始配置，全部保留用于回溯
-    source: str          # 来源标识，如 "github:owner/repo"
-    fingerprint: str     # sha256(protocol|server|port|凭据)
+Node: protocol, name, server, port, params, raw, source
+fingerprint = sha256(protocol|server|port|凭据|cipher|network|ws_path|sni)
 ```
 
-去重规则：按 `fingerprint` 哈希去重；同一节点保留“来源可信度最高”的那条（GitHub 聚合仓库 > 订阅 > 网页 > Telegram）。
+指纹包含传输与加密参数，避免"同一端点不同配置"被错误合并后留下坏配置。
 
-解析失败不静默：计入 `report.json` 的 `parse_failed`，附带来源与原始片段前缀，用于发现某数据源格式变化。
+解析失败不静默：Clash 条目逐条容错，畸形条目跳过并记日志。
 
 ## 7. 数据源
 
-全部配置化在 `config/sources.yaml`，新增源不改代码。
+全部配置化在 `config/sources.yaml`。
 
-| 类型 | 抓取方式 | 说明 |
+| 类型 | 当前启用 | 说明 |
 | --- | --- | --- |
-| `github` | `raw.githubusercontent.com` 拉取，带 `GITHUB_TOKEN` 提高限流额度 | 源清单是配置数据，实施第 2 阶段筛选 3～5 个每日更新、连续可用的聚合仓库写入 `sources.yaml`，本设计不锁定具体仓库 |
-| `webpage` | httpx 拉 HTML，按配置的正则/CSS 选择器提取链接 | 解析规则写在 YAML，页面改版只改配置 |
-| `subscription` | httpx 拉取，自动识别三种内容：base64 / Clash YAML / 纯文本链接 | 一个解析器吃三种格式 |
-| `telegram` | 抓 `t.me/s/<channel>` 网页预览页，正则提取链接 | 不使用 Telethon/API，无需账号与凭据 |
+| `github` | freefq、ripaojiedian、ermaozi、anaer/Sub、mahdibland Eternity、passcro、hermanb001（jingfu/hellopool）、YasserDivaR、xiyaowong、peasoft | 抓 raw.githubusercontent.com；源内并发；token 只发给 GitHub 域名 |
+| `subscription` | leidahub.top | 第三方聚合订阅 |
+| `webpage` | 未启用 | 按正则提取，页面改版只改配置 |
+| `telegram` | 未启用 | t.me/s/ 网页预览，无需账号 |
 
-抓取层统一：并发上限 20（Semaphore）、随机 User-Agent、超时 15 秒、失败重试 2 次（指数退避 1s/2s）、响应体大小上限 10MB。
+抓取策略：源内并发、重试 1 次、超时 10～25 秒、响应体上限 10MB。不启用 jsDelivr 镜像源——Actions 环境 raw 可达，镜像只会造成重复抓取。
 
-## 8. 四层过滤
+## 8. 五层过滤
 
-### 8.1 precheck（静态，不联网）
+### 8.1 precheck（静态）
 
-| 规则 | 结果 |
+| 规则 | 原因码 |
 | --- | --- |
-| 协议白名单之外（http、无 TLS 的 socks） | 剔除 |
-| `allowInsecure: true` / `skip-cert-verify: true` | 剔除 |
-| Clash 节点含 `script` / `javascript` 字段 | 剔除 |
-| server 为 127/8、10/8、172.16/12、192.168/16、169.254/16、0.0.0.0、IPv6 回环与链路本地 | 剔除 |
-| ss 加密为 `none`、`rc4-md5`、`rc4`、`table` 等弱算法 | 剔除 |
-| server 非合法域名/IP、端口不在 1-65535 | 剔除 |
+| 协议不在白名单 | `unsupported_protocol` |
+| 端口非法 | `invalid_port` |
+| 私网/保留地址、内网域名 | `private_address` |
+| 含 script/javascript 字段 | `script_field` |
+| allowInsecure / skip-cert-verify | `insecure_tls` |
+| 缺少 uuid/password/cipher | `missing_credentials` |
+| ss 弱加密 | `weak_cipher` |
+| vless 废弃 flow（xtls-rprx-direct 等） | `unsupported_flow` |
 
-### 8.2 probe（联网，异步并发）
+### 8.2 probe（TCP + TLS + WS）
 
-- 每个节点探测 2 次（`tcp_fail_threshold`）；2 次均失败剔除，至少 1 次成功则保留并取较优耗时
-- TLS 节点：`asyncio.open_connection` + 系统 CA 校验证书链 + hostname 校验（SNI）
-- 证书校验失败（自签、过期、域名不符）→ **默认剔除**；`filters.yaml` 可切 `tls_policy: strict | loose`，loose 下保留但标记 `self_signed`
-- reality 节点跳过证书校验，标记 `tls_unverifiable`
-- 并发 30，整体探测超时上限 15 分钟
-- 记录握手耗时与错误类型到 `report.json`
+- 非 ws 节点：TCP connect；TLS 节点完整校验证书链，区分"证书错误"与"连接失败"
+- **ws 节点**：发送真实 WebSocket Upgrade（正确的 Host/Path/Key）
+  - 101 → 后端存活
+  - 4xx/5xx → `ws_dead`（CDN 中转后端已死）
+  - 其他/超时 → 保守放过
+- 每节点探测 `tcp_fail_threshold` 次（默认 2），任一成功即通过
+- 连接关闭有 1 秒超时保护，避免挂起
 
-### 8.3 reputation（联网）
+### 8.3 reputation
 
-- `socket.getaddrinfo` 解析 server 域名，取全部 A/AAAA 记录
-- 归属查询：`ip-api.com/batch`（免费，45 次/分钟，单次 100 IP），得到国家、ASN、是否托管商
-- DNSBL：dnspython 直查 `zen.spamhaus.org`；处理 127.255.255.x 保留码（视为查询失败而非命中）
-- 命中黑名单 → 剔除；查询失败 → 标记 `unverified`，不阻塞
-- 托管商（VPS）只打标签，不剔除（大多数机场本身就是 VPS）
+- `getaddrinfo` 解析全部 IP
+- `ip-api.com/batch` 查国家、ASN、是否托管商（失败降级为未检测）
+- DNSBL 查 `zen.spamhaus.org`（`dnsbl_zones` 可配），**专用 64 线程池**，最多查 1500 个 IP
+- 命中黑名单剔除；查询失败记 `dnsbl_unverified`，不阻塞
 
-### 8.4 quality（基于 8.2 结果）
+### 8.4 alive（mihomo 真实测试）
 
-- 连续 2 次探测失败剔除
-- 握手耗时 > 3000ms 剔除（可配置）
-- 同协议 + 同国家分组内按握手耗时排序，每组最多保留 N 个
-- 全局输出上限 300 个（可配置）
-- 质量分 = 握手耗时升序优先，不测带宽
+- Actions 中下载 mihomo 内核，加载全部候选节点
+- 通过 `/proxies/{name}/delay` 对每个节点真实发 HTTP 请求（`generate_204`）
+- 采样 `alive_samples` 次（默认 1），成功率低于 `alive_min_success_rate` 剔除
+- 原因码：`dead_proxy`（0 次成功）、`unstable_proxy`
+- **专用线程池**（规模 = `alive_concurrency`）；2 核 runner 的默认线程池只有 6 个线程，会把手动并发压死
+- 整批配置被内核拒绝时按 200 个一组降级重试（最多 3 批）
+- 内核不可用时整层跳过，流水线继续
+
+### 8.5 quality
+
+- 连接失败、坏证书、`ws_dead`、握手超时剔除
+- 按握手耗时排序；无国家信息的节点不受单组上限约束
+- `max_nodes_per_group`（默认 30）、`max_nodes_total`（默认 300）
+- 统一命名 `{国旗} {国家} {序号}`，序号按延迟升序
 
 ## 9. 输出
 
-- `clash.yaml`：`proxies` + `proxy-groups`（`🚀 自动` url-test 全量、`♻️ 手动`、按地区分组）+ 基础规则（局域网直连 → 国内直连 `GEOSITE,cn`/`GEOIP,CN` → `MATCH,🚀 自动`）
-- `sub.base64`：标准链接列表（vmess/vless/trojan/ss/hysteria2），整体 base64
-- `report.json`：漏斗统计（每层剔除数与原因分布）、失败源列表、检测时间
-- 节点重命名为 `{地区代码}-{协议}-{序号}`，原始名称保存在 `raw`
+- `clash.yaml`
+  - 头部：`tcp-concurrent`、`unified-delay`、fake-ip DNS（国内 DoH）、`geox-url` jsDelivr 镜像
+  - 规则：`GEOSITE,private` → `GEOIP,private` → `GEOSITE,cn` → `GEOIP,CN` → `MATCH,🚀 自动`
+  - 分组：自动（url-test）、手动、按国家分组
+  - 节点字段透传：`client-fingerprint`、`reality-opts`、`obfs`、`grpc-opts`、`xhttp-opts`、`plugin` 等；布尔与嵌套字段做类型规范化
+- `sub.base64`：标准分享链接，v2rayN 可用
+- `report.json`：漏斗统计、失败源、被剔除样本、**分阶段耗时**、**每源抓取数与最终贡献**
 
-测速由用户客户端完成：`url-test` 健康检查 URL 使用 `https://www.gstatic.com/generate_204`，间隔 300 秒。
+测速交给客户端（`url-test` 指向 `gstatic/generate_204`）。
 
-## 10. 交付：Cloudflare Worker + KV
+## 10. 交付
 
-- KV namespace 存三个键：`clash.yaml`、`sub.base64`、`report.json`
-- 读取：`GET /sub/<key>/clash.yaml`、`GET /sub/<key>/sub.base64`，key 与 Worker 环境变量比对，错误返回 404（不暴露存在性）
-- 写入：`PUT /upload/<key>/<filename>`，Header `Authorization: Bearer <UPLOAD_TOKEN>`，限制 Content-Type 与大小（1MB）
-- 上传后返回 `Cache-Control: public, max-age=3600`，读取可配 `no-store` 以便立即生效
-- 密钥轮换：更换 Worker 环境变量即可，旧链接失效
-- `report.json` 不通过订阅 URL 暴露，仅上传备查（可选读取）
+### 主路径：公开仓库 + jsDelivr
 
-## 11. GitHub Actions 工作流
+```text
+Clash:  https://gcore.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/clash.yaml
+v2rayN: https://gcore.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/sub.base64
+```
+
+- Actions 每天把 `output/` 提交回仓库，并调用 purge 接口刷新缓存
+- **jsDelivr 对 `@分支` 的指针缓存 12 小时且 purge 不清**：固定地址会滞后；需要立即生效时用 `@commit-sha` 地址
+- 镜像域名：gcore / testingcf 可用；fastly 缓存滞后明显，cdn 国内常不可达
+
+### 可选：Worker 私密订阅（`worker/`，未启用）
+
+- KV 存储 + 带密钥 URL，节点不公开
+- 代价：workers.dev 国内不稳，通常需自定义域名；主流程用 `--no-upload` 跳过
+
+## 11. GitHub Actions
 
 ```yaml
 on:
-  schedule:
-    - cron: '17 21 * * *'   # 北京时间 05:17，避开整点
+  schedule: [{cron: "17 21 * * *"}]   # 北京时间 05:17
   workflow_dispatch:
-timeout-minutes: 30
 ```
 
-步骤：checkout → setup-python（3.12）→ pip install -r requirements.txt → `python -m vpnnode.pipeline` → 上传到 Worker → 上传 artifact（保留 7 天，备份）。
+步骤：checkout → setup-python 3.12 → 安装依赖 → 下载 mihomo（失败不阻塞）→ 运行流水线 → 提交 output → purge jsDelivr → 失败时上传 artifact。
 
-所需 Secrets：`SUB_ACCESS_KEY`、`UPLOAD_TOKEN`、`WORKER_BASE_URL`；`GITHUB_TOKEN` 由 Actions 自动注入，无需配置。
+`min_nodes`（默认 20）在写文件前校验：低于阈值直接失败，不覆盖已有订阅。
 
-失败策略：数据源失败跳过并记入报告；若最终可用节点数为 0 或低于 20，任务标记失败（防止把空订阅推上线）。上传失败则重新执行一次，仍失败则任务失败、旧订阅保持不动。
+## 12. 配置项
 
-## 12. 配置项（`config/filters.yaml` 摘要）
+`config/filters.yaml`：TLS 策略、探测并发/超时、失败阈值、总量与分组上限、DNSBL、alive 采样与并发。
 
-```yaml
-tls_policy: strict          # strict | loose
-probe_concurrency: 30
-probe_timeout_s: 5
-tcp_fail_threshold: 2
-max_handshake_ms: 3000
-max_nodes_total: 300
-max_nodes_per_group: 30
-dnsbl_zones: [zen.spamhaus.org]
-reputation_enabled: true
-reputation_fail_open: true  # 查询失败是否继续
-```
+## 13. 测试
 
-## 13. 测试策略
+72 个测试，覆盖解析器（含畸形输入）、各层过滤器、渲染器、端到端离线流水线、alive 过滤逻辑。测试不依赖外网。
 
-- **解析器单测**：每个协议 3 个以上样本（含畸形输入），断言解析结果或明确异常
-- **过滤器单测**：每条 precheck 规则一个用例；probe/quality 用本地伪服务或用例桩
-- **端到端**：`tests/fixtures/` 放离线样本（各源格式各一份），跑完整 pipeline，断言输出结构和漏斗数字
-- **Worker**：手测读写与鉴权，不强制自动化
-- 测试不依赖外网：联网层用 mock
-
-## 14. 错误处理与降级
+## 14. 错误处理
 
 | 故障 | 处理 |
 | --- | --- |
-| 某数据源 404/超时 | 跳过，记入 `failed_sources` |
-| 解析异常 | 单条计入 `parse_failed`，继续 |
-| IP 归属接口限流 | 降级为未检测，打 `unverified` 标签 |
-| DNSBL 查询失败 | 同上 |
-| 最终节点数过低 | 任务失败，不覆盖线上订阅 |
-| Worker 上传失败 | 重试一次；仍失败则保留旧订阅 |
+| 数据源失效/超时 | 跳过并记日志，不影响其他源 |
+| 单条畸形节点 | 逐条跳过，不中断解析 |
+| ip-api 限流 | 降级为未检测，继续 |
+| DNSBL 查询失败 | 标记未验证，继续 |
+| mihomo 启动失败 | 整批失败则分批重试；仍失败则跳过该层 |
+| 最终节点数不足 | 任务失败，旧订阅保持 |
+| 上传失败 | 重试一次；仍失败任务失败 |
 
-## 15. 实施阶段
+## 15. 演进记录
 
-1. 骨架：模型、fetch、解析器 + 单测
-2. 抓取层：四类数据源 + `sources.yaml`
-3. 过滤层：precheck → probe → reputation → quality
-4. 输出层：Clash / Base64 渲染
-5. Actions 工作流 + artifact
-6. Worker 订阅服务 + Secrets 联调
-7. README 与运维说明（如何换源、换密钥、调阈值）
+| 时间 | 变更 | 原因 |
+| --- | --- | --- |
+| 11-18 | 初版：四层过滤 + Worker 交付 | — |
+| 11-19 | 交付改为公开仓库 + jsDelivr | workers.dev 国内不可达 |
+| 11-19 | 渲染层字段透传白名单 | reality/obfs/grpc 参数丢失导致"能导入不能用" |
+| 11-19 | probe 增加 WebSocket 握手 | CDN 中转节点 TCP/TLS 永远通过、后端已死 |
+| 11-19 | 新增 alive 层（mihomo） | 前四层无法验证协议层，87% 死节点漏网 |
+| 11-19 | 多次采样改为单次 | 3 次采样让 CI 从 2 分钟涨到 12 分钟 |
+| 11-19 | DNSBL/alive 改用专用线程池 | 默认线程池在 2 核 runner 上只有 6 线程 |
+| 11-19 | 数据源扩充到 11 个，移除零贡献源 | 来源统计显示 LonUp/jiang 存活率 0% |
