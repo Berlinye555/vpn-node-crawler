@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T07:09:36.541663+00:00",
+  "generated_at": "2026-11-19T07:25:40.356906+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
@@ -41,8 +41,9 @@
     },
     "probe": {
       "probed": 1541,
-      "failed": 628,
-      "bad_cert": 66
+      "failed": 648,
+      "bad_cert": 69,
+      "ws_dead": 333
     },
     "reputation": {
       "enabled": true,
@@ -53,16 +54,17 @@
       "rejected": 238
     },
     "quality": {
-      "kept": 289,
-      "rejected": 1014,
+      "kept": 243,
+      "rejected": 1060,
       "reasons": {
-        "connect_failed": 558,
-        "bad_certificate": 56,
-        "slow_handshake": 4,
-        "over_group_limit": 396
+        "connect_failed": 576,
+        "ws_dead": 317,
+        "bad_certificate": 59,
+        "slow_handshake": 3,
+        "over_group_limit": 105
       }
     },
-    "final": 289
+    "final": 243
   },
   "failed_sources": [],
   "rejected_samples": [
