@@ -22,9 +22,13 @@ sources:
     timeout: 25
     url: https://leidahub.top/clash.yaml
 
-  # Telegram 公开频道（频道名不含 @）
-  # - type: telegram
-  #   channel: your_channel
+  # Telegram 公开频道（频道名不含 @）。t.me/s 预览页免凭据，CI 环境可达。
+  # 首轮跑完看 report.json 的 fetched_by_source：telegram:<channel> 产出为 0 的删掉。
+  - type: telegram
+    timeout: 20
+    max_pages: 3
+    channels:
+      - freenodedaily
 
   # 公开网页分享页；regex 可选，用于从噪声页面中先截取节点片段
   # - type: webpage
