@@ -28,6 +28,13 @@ reputation_enabled: true
 # 出口 IP 情报与分级标签：只对通过 alive 的节点查询，量级受最终数量约束。
 # 入口 IP 已由上面的 reputation 查过一次，这里针对真实出口再查，覆盖 CDN 中转。
 intel_enabled: true
+
+# AI 站点探测：经节点请求 OpenAI/Anthropic 端点，判断能否正常使用。
+# 需要 curl_cffi 模拟 Chrome 指纹，否则 Cloudflare 会按 JA3 把人判成机器人而误报 403。
+# 只对通过 alive 与限额的最终节点做（≤300 个 × 4 个请求），放在 quality 之后。
+ai_probe_enabled: true
+ai_probe_timeout_ms: 8000
+ai_probe_concurrency: 20
 latency_fast_ms: 300
 latency_slow_ms: 800
 intel_batch_size: 100

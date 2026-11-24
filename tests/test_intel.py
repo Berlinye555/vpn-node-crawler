@@ -67,6 +67,11 @@ def test_apply_tags_unsafe_slow():
     assert apply_tags(node) == ["🔴", "🐢"]
 
 
+def test_apply_tags_ai_clean_takes_second_slot():
+    node = _node(safety="safe", latency_level="fast", ai_level="clean")
+    assert apply_tags(node) == ["🟢", "🤖"]
+
+
 def test_apply_tags_limits_to_two():
     node = _node(safety="safe", latency_level="slow", ip_type="residential")
     assert len(apply_tags(node)) == 2

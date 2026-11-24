@@ -1,7 +1,7 @@
 # Telegram 扩源 · AI 平台 IP 干净度检测 · 节点分级打标
 
 - 日期：2026-11-24
-- 状态：P1–P3 已实施；P4–P5 待做（见第 10 节）
+- 状态：P1–P4 已实施；P5 待做（见第 10 节）
 - 关联：[2026-11-18-vpn-node-crawler-design.md](2026-11-18-vpn-node-crawler-design.md)
 
 本文只做设计，不改代码。三块能力的共同前提是：**现在的流水线只判断「节点能不能连」，新增的三块要回答「节点从哪来、IP 干不干净、适合干什么」。**
@@ -505,11 +505,24 @@ tagging:
 
 **真实验证**：`8.8.8.8` → datacenter / proxy+hosting → score 35；Cloudflare 段 `104.16.132.229` → cdn / score 75。
 
+#### P4 AI 站点探测
+
+- `filters/ai_probe.py`（新）：经节点请求 `api.openai.com`、`chatgpt.com`、`api.anthropic.com`、`claude.ai` 四个端点；`classify()` 归为 ok / region_blocked / challenge / blocked / dead / unknown，`overall_level()` 汇总为 clean / partial / blocked / dead。
+- 客户端优先 `curl_cffi` 的 `impersonate="chrome"`，未安装时自动降级 urllib，并在 `report.stats.ai.impersonate` 标注。
+- quality 之后单独起一台带 listeners 的 mihomo（复用 `build_config`），不占用 alive 阶段端口。
+- `renderers/clash.py` 新增 `🤖 AI 优选` 分组；`intel.apply_tags` 把 🤖 排在安全标签之后。
+- `report.stats.ai` 记录 levels 与 by_target 分布，便于判断信号可信度。
+
+三个实测结论：
+
+1. **同一网络下 `curl_cffi` 与 `urllib` 结果一致**——先前 403/401 的差异来自本地系统代理（urllib 走代理、cffi 直连），不是 TLS 指纹。
+2. **Anthropic 对部分出口返回 403 `Request not allowed`**，属服务端策略而非 IP 脏；`classify` 只把带明确封禁文案的 403 判为 blocked，其余归 unknown。
+3. 本地无法端到端验证：到免费节点的 TCP 全部超时，只能在 Actions 环境跑。
+
 ### 待做
 
 | 期 | 内容 | 状态 |
 | --- | --- | --- |
-| P4 | AI 站点探测（需定 TLS 指纹方案：`curl_cffi` vs 降级为仅 IP 情报） | 未开始 |
 | P5 | 吞吐测速（可选） | 未开始 |
 
 Shodan InternetDB 暂未接入：它返回的开放端口/漏洞对「IP 干不干净」帮助有限，先不增加请求量。

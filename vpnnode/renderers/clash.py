@@ -10,6 +10,7 @@ log = logging.getLogger(__name__)
 
 AUTO_GROUP = "🚀 自动"
 MANUAL_GROUP = "♻️ 手动"
+AI_GROUP = "🤖 AI 优选"
 RESIDENTIAL_GROUP = "🏠 住宅 IP"
 SAFE_GROUP = "🟢 安全"
 FAST_GROUP = "⚡ 低延迟"
@@ -203,6 +204,7 @@ def _build_groups(nodes: list[Node], names: list[str]) -> list[dict]:
 
     # 按用途拆分的分组：空组不输出，避免客户端出现选不中的组
     tag_groups = [
+        (AI_GROUP, lambda p: p.get("ai_level") == "clean"),
         (RESIDENTIAL_GROUP, lambda p: p.get("ip_type") == "residential"),
         (SAFE_GROUP, lambda p: p.get("safety") == "safe"),
         (FAST_GROUP, lambda p: p.get("latency_level") == "fast"),

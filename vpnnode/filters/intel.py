@@ -70,9 +70,11 @@ def ip_score(node: Node) -> int:
 
 
 def apply_tags(node: Node) -> list[str]:
-    """节点名只挂最有信息量的两个标签：安全等级 + 特殊 IP 类型 + 快慢。"""
+    """节点名只挂最有信息量的两个标签：安全等级 + AI 可用 + 特殊 IP 类型 + 快慢。"""
     p = node.params
     tags = [SAFETY_TAGS.get(p.get("safety"), "❔")]
+    if p.get("ai_level") == "clean":
+        tags.append("🤖")
     ip_tag = IP_TAGS.get(p.get("ip_type"))
     if ip_tag:
         tags.append(ip_tag)
