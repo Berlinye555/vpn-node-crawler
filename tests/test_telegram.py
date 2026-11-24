@@ -99,3 +99,19 @@ def test_fetch_source_raises_with_diagnostics_when_no_nodes(monkeypatch):
     assert '"bytes"' in message
     assert '"nodes": 0' in message
     assert '"channel_info": false' in message
+
+
+def test_diagnostics_distinguish_attachment_and_links(monkeypatch):
+    async def fake_fetch(url, **kwargs):
+        return ('<div class="tgme_widget_message">'
+                '<div class="tgme_widget_message_text">see https://sub.example.com/s</div>'
+                '<a href="https://sub.example.com/s">s</a>'
+                '<div class="tgme_widget_message_document"></div></div>')
+
+    monkeypatch.setattr(telegram, "fetch_text", fake_fetch)
+    with pytest.raises(telegram.TelegramEmpty) as exc:
+        asyncio.run(telegram.fetch_source({"type": "telegram", "channels": ["chn"]}))
+    message = str(exc.value)
+    assert '"documents": 1' in message
+    assert "sub.example.com" in message
+    assert '"text_sample"' in message

@@ -29,9 +29,9 @@ sources:
     timeout: 20
     max_pages: 3
     channels:
-      - freenodedaily      # openrunner 的频道，实测有日更
-      - ripaojiedian       # 与活跃 GitHub 源同名，待验证
-      - free-nodes         # 与 free-nodes/v2rayfree 同名，待验证
+      - freenodedaily      # openrunner 的频道，已确认存在且有大量消息
+      - ripaojiedian       # 与活跃 GitHub 源同名，已确认存在且有大量消息
+      # free-nodes 已移除：channel_info=false，频道不存在
 
   # 公开网页分享页；regex 可选，用于从噪声页面中先截取节点片段
   # - type: webpage

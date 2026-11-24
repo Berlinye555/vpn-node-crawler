@@ -4,6 +4,8 @@ import asyncio
 import json
 import logging
 import re
+import urllib.parse
+from collections import Counter
 
 from vpnnode.fetch import fetch_text
 from vpnnode.models import Node
@@ -31,6 +33,30 @@ def _extract_oldest_id(html: str) -> int | None:
     return min(ids) if ids else None
 
 
+HREF_RE = re.compile(r'href="([^"]+)"')
+MESSAGE_TEXT_RE = re.compile(
+    r'<div class="tgme_widget_message_text[^"]*"[^>]*>(.*?)</div>', re.S)
+
+
+def _link_hosts(html: str, limit: int = 6) -> dict[str, int]:
+    hosts: Counter = Counter()
+    for href in HREF_RE.findall(html):
+        try:
+            host = urllib.parse.urlsplit(href).hostname or ""
+        except ValueError:
+            continue
+        if host and host != "t.me":
+            hosts[host] += 1
+    return dict(hosts.most_common(limit))
+
+
+def _first_message_text(html: str, limit: int = 200) -> str:
+    match = MESSAGE_TEXT_RE.search(html)
+    if not match:
+        return ""
+    return re.sub(r"\s+", " ", strip_html(match.group(1))).strip()[:limit]
+
+
 def _diagnose(channel: str, page: int, html: str, cleaned: str, nodes: list[Node]) -> dict:
     return {
         "channel": channel,
@@ -41,6 +67,12 @@ def _diagnose(channel: str, page: int, html: str, cleaned: str, nodes: list[Node
         "uri_in_html": len(URI_RE.findall(html)),
         "uri_in_text": len(URI_RE.findall(cleaned)),
         "nodes": len(nodes),
+        # 区分「附件型频道」与「跳转型频道」：两者都拿不到节点，但后续策略不同
+        "documents": html.count("tgme_widget_message_document"),
+        "photos": html.count("tgme_widget_message_photo"),
+        "link_previews": html.count("tgme_widget_message_link_preview"),
+        "link_hosts": _link_hosts(html),
+        "text_sample": _first_message_text(html),
     }
 
 
