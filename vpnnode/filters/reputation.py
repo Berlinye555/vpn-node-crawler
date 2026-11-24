@@ -53,16 +53,17 @@ def _query_ip_api(ips: list[str]) -> dict[str, dict]:
     return {row.get("query", ""): row for row in rows if row.get("status") == "success"}
 
 
-def _dnsbl_check(ip: str, zones: list[str]) -> tuple[bool, bool]:
-    """返回 (是否命中黑名单, 是否至少查询成功一次)。查询失败不应被当作"未命中"。"""
+def _dnsbl_zones_hit(ip: str, zones: list[str]) -> tuple[list[str], bool]:
+    """返回 (命中的 zone 列表, 是否至少查询成功一次)。保留 zone 名便于排查误伤。"""
     try:
         parsed = ipaddress.ip_address(ip)
     except ValueError:
-        return False, False
+        return [], False
     if parsed.version != 4:
-        return False, True
+        return [], True
     reversed_ip = ".".join(reversed(str(parsed).split(".")))
     checked = False
+    hits: list[str] = []
     for zone in zones:
         try:
             answers = dns.resolver.resolve(f"{reversed_ip}.{zone}", "A", lifetime=2)
@@ -73,8 +74,14 @@ def _dnsbl_check(ip: str, zones: list[str]) -> tuple[bool, bool]:
             continue
         checked = True
         if any(record.address in DNSBL_HIT_CODES for record in answers):
-            return True, True
-    return False, checked
+            hits.append(zone)
+    return hits, checked
+
+
+def _dnsbl_check(ip: str, zones: list[str]) -> tuple[bool, bool]:
+    """返回 (是否命中黑名单, 是否至少查询成功一次)。查询失败不应被当作"未命中"。"""
+    hits, checked = _dnsbl_zones_hit(ip, zones)
+    return bool(hits), checked
 
 
 async def apply_reputation(nodes: list[Node], cfg: dict | None = None) -> tuple[list[Node], list[tuple[Node, str]], dict]:

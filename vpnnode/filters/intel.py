@@ -5,7 +5,7 @@ import logging
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 
-from vpnnode.filters.reputation import _dnsbl_check, _query_ip_api
+from vpnnode.filters.reputation import _dnsbl_zones_hit, _query_ip_api
 from vpnnode.models import Node
 
 log = logging.getLogger(__name__)
@@ -82,18 +82,26 @@ def apply_tags(node: Node) -> list[str]:
     return tags[:2]
 
 
-async def _dnsbl_lookup(ips: list[str], zones: list[str]) -> set[str]:
+async def _dnsbl_lookup(ips: list[str], zones: list[str]) -> tuple[set[str], dict[str, int]]:
+    """返回 (命中任一列表的 IP 集合, 各列表命中次数)。后者用于识别误伤严重的列表。"""
     if not ips or not zones:
-        return set()
+        return set(), {}
     loop = asyncio.get_running_loop()
     executor = ThreadPoolExecutor(max_workers=32)
     try:
         checks = await asyncio.gather(
-            *(loop.run_in_executor(executor, _dnsbl_check, ip, zones) for ip in ips)
+            *(loop.run_in_executor(executor, _dnsbl_zones_hit, ip, zones) for ip in ips)
         )
     finally:
         executor.shutdown(wait=False)
-    return {ip for ip, (hit, _) in zip(ips, checks) if hit}
+
+    hit_ips: set[str] = set()
+    by_zone: Counter = Counter()
+    for ip, (zones_hit, _) in zip(ips, checks):
+        if zones_hit:
+            hit_ips.add(ip)
+            by_zone.update(zones_hit)
+    return hit_ips, dict(by_zone)
 
 
 async def apply_intel(nodes: list[Node], cfg: dict | None = None) -> dict:
@@ -119,7 +127,7 @@ async def apply_intel(nodes: list[Node], cfg: dict | None = None) -> dict:
         if start + batch_size < len(query_ips):
             await asyncio.sleep(1.5)
 
-    hits = await _dnsbl_lookup(query_ips, list(cfg.get("intel_dnsbl_zones") or []))
+    hits, by_zone = await _dnsbl_lookup(query_ips, list(cfg.get("intel_dnsbl_zones") or []))
 
     for node in nodes:
         ip = node.params.get("exit_ip") or ""
@@ -142,6 +150,7 @@ async def apply_intel(nodes: list[Node], cfg: dict | None = None) -> dict:
         "queried": len(query_ips),
         "resolved": len(info),
         "dnsbl_hits": len(hits),
+        "dnsbl_by_zone": by_zone,
         "by_ip_type": dict(Counter(node.params.get("ip_type") for node in nodes)),
         "by_safety": dict(Counter(node.params.get("safety") for node in nodes)),
         "by_latency": dict(Counter(node.params.get("latency_level") for node in nodes)),

@@ -79,6 +79,26 @@ def test_ip_score_penalties():
     assert ip_score(_node(proxy=True, hosting=True)) == 35
 
 
+def test_dnsbl_by_zone_stats(monkeypatch):
+    def fake_query(ips):
+        return {ip: {"status": "success", "query": ip, "countryCode": "US",
+                     "as": "AS1 Example", "hosting": False, "proxy": False}
+                for ip in ips}
+
+    def fake_zones_hit(ip, zones):
+        return (["zen.spamhaus.org"] if ip == "1.1.1.1" else []), True
+
+    monkeypatch.setattr(intel_mod, "_query_ip_api", fake_query)
+    monkeypatch.setattr(intel_mod, "_dnsbl_zones_hit", fake_zones_hit)
+    nodes = [_node(exit_ip="1.1.1.1"), _node(exit_ip="2.2.2.2")]
+    stats = asyncio.run(apply_intel(nodes, {"intel_dnsbl_zones": ["zen.spamhaus.org"]}))
+
+    assert stats["dnsbl_hits"] == 1
+    assert stats["dnsbl_by_zone"] == {"zen.spamhaus.org": 1}
+    assert nodes[0].params["dnsbl_hit"] is True
+    assert "dnsbl_hit" not in nodes[1].params
+
+
 def test_apply_intel_reads_ipapi_proxy_flag(monkeypatch):
     """ip-api 的 fields 一旦漏掉 proxy，风险分就会静默失真，这里锁住。"""
     def fake_query(ips):
