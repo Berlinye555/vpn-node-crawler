@@ -15,6 +15,7 @@ sources:
       - https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/hellopool
       - https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt
       - https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray
+      - https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray
       - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt
 
   # 第三方聚合订阅（Clash 格式），五层过滤会再筛一遍
