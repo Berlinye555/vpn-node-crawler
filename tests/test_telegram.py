@@ -38,6 +38,17 @@ def test_strip_html_joins_uri_split_by_tags():
     assert "ss://YWVzLTI1@1.2.3.4:8388#n" in text
 
 
+def test_strip_html_separates_uris_on_br_and_blocks():
+    # 一条消息里多个节点靠 <br> / </div> 分隔，不能粘成一条
+    text = strip_html("ss://a@1.1.1.1:1#one<br>ss://b@2.2.2.2:2#two</div>"
+                      "trojan://p@3.3.3.3:3#three")
+    assert "ss://a@1.1.1.1:1#one" in text
+    assert "ss://b@2.2.2.2:2#two" in text
+    assert "trojan://p@3.3.3.3:3#three" in text
+    assert "oness://" not in text
+    assert "twotrojan://" not in text
+
+
 def test_extract_oldest_id():
     html = ('<div data-post="chn/105"></div><div data-post="chn/103"></div>'
             '<div data-post="chn/104"></div>')

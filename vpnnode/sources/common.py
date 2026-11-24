@@ -31,19 +31,24 @@ _SCRIPT_STYLE_RE = re.compile(r"<(script|style)\b[^>]*>.*?</\1\s*>", re.IGNORECA
 _COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
 _HREF_RE = re.compile(r"""href\s*=\s*["']([^"']+)["']""", re.IGNORECASE)
 _TAG_RE = re.compile(r"<[^>]*>")
+_LINE_BREAK_RE = re.compile(r"<br\s*/?>", re.IGNORECASE)
+_BLOCK_END_RE = re.compile(r"</(?:div|p|li|tr|h[1-6]|blockquote)\s*>", re.IGNORECASE)
 
 
 def strip_html(text: str) -> str:
     """提取可见文本与链接地址，供从频道预览页等网页中抓取节点。
 
-    删除标签而不是替换成空白：Telegram 有时把长 URI 拆进多个 span，
-    直接删标签才能把链接接回去。
+    行内标签（span/b 等）直接删除：Telegram 有时把长 URI 拆进多个 span，
+    删掉才能把链接接回去。换行与块级边界保留成 ``\\n``：否则一条消息里的
+    多个节点会粘成 ``...#名字ss://...`` 这样一条，只能解析出第一个。
     """
     if not text:
         return ""
     text = _COMMENT_RE.sub(" ", text)
     text = _SCRIPT_STYLE_RE.sub(" ", text)
     links = _HREF_RE.findall(text)
+    text = _LINE_BREAK_RE.sub("\n", text)
+    text = _BLOCK_END_RE.sub("\n", text)
     text = _TAG_RE.sub("", text)
     text = unescape_html(text)
     if links:
