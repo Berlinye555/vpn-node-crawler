@@ -1,5 +1,7 @@
 import asyncio
 
+import pytest
+
 from vpnnode.sources import telegram
 from vpnnode.sources.common import strip_html
 
@@ -83,3 +85,17 @@ def test_fetch_source_single_channel_key(monkeypatch):
 
 def test_fetch_source_empty_channel():
     assert asyncio.run(telegram.fetch_source({"type": "telegram", "channel": ""})) == []
+
+
+def test_fetch_source_raises_with_diagnostics_when_no_nodes(monkeypatch):
+    async def fake_fetch(url, **kwargs):
+        return "<html><body>Just a moment...</body></html>"
+
+    monkeypatch.setattr(telegram, "fetch_text", fake_fetch)
+    with pytest.raises(telegram.TelegramEmpty) as exc:
+        asyncio.run(telegram.fetch_source({"type": "telegram", "channels": ["chn"]}))
+    message = str(exc.value)
+    assert "chn" in message
+    assert '"bytes"' in message
+    assert '"nodes": 0' in message
+    assert '"channel_info": false' in message

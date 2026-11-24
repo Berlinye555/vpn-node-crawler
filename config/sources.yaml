@@ -23,12 +23,15 @@ sources:
     url: https://leidahub.top/clash.yaml
 
   # Telegram 公开频道（频道名不含 @）。t.me/s 预览页免凭据，CI 环境可达。
-  # 首轮跑完看 report.json 的 fetched_by_source：telegram:<channel> 产出为 0 的删掉。
+  # 抓取为空时 report.failed_sources 会带诊断（bytes/messages/uri_in_html），
+  # 据此判断是频道没货、被拦还是解析问题，再把无效频道删掉。
   - type: telegram
     timeout: 20
     max_pages: 3
     channels:
-      - freenodedaily
+      - freenodedaily      # openrunner 的频道，实测有日更
+      - ripaojiedian       # 与活跃 GitHub 源同名，待验证
+      - free-nodes         # 与 free-nodes/v2rayfree 同名，待验证
 
   # 公开网页分享页；regex 可选，用于从噪声页面中先截取节点片段
   # - type: webpage
