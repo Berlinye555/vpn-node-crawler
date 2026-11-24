@@ -16,6 +16,7 @@ import yaml
 from vpnnode.aggregator import aggregate
 from vpnnode.deliver import upload_outputs
 from vpnnode.filters.alive import check_alive, filter_alive
+from vpnnode.filters.intel import apply_intel
 from vpnnode.filters.precheck import precheck
 from vpnnode.filters.probe import ProbeResult, probe_nodes
 from vpnnode.filters.quality import apply_quality
@@ -138,7 +139,37 @@ def assign_display_names(nodes: list[Node]) -> None:
     for node in nodes:
         label = country_label(str(node.params.get("country") or ""))
         counters[label] = counters.get(label, 0) + 1
-        node.name = f"{label} {counters[label]:02d}"
+        suffix = "".join(f" {tag}" for tag in node.params.get("tags") or [])
+        node.name = f"{label} {counters[label]:02d}{suffix}"
+
+
+def export_nodes(nodes: list[Node]) -> list[dict]:
+    """单节点明细，给自检和后续分析用；clash/base64 订阅只放渲染后的配置。"""
+    rows = []
+    for node in nodes:
+        p = node.params
+        rows.append({
+            "name": node.name,
+            "protocol": node.protocol,
+            "server": node.server,
+            "port": node.port,
+            "source": _short_source(node.source),
+            "exit_ip": p.get("exit_ip", ""),
+            "exit_country": p.get("exit_country", ""),
+            "country": p.get("country", ""),
+            "asn": p.get("asn", ""),
+            "ip_type": p.get("ip_type", ""),
+            "proxy": bool(p.get("proxy")),
+            "hosting": bool(p.get("hosting")),
+            "dnsbl": bool(p.get("dnsbl_hit")),
+            "self_signed": bool(p.get("self_signed")),
+            "latency_ms": p.get("latency_ms"),
+            "latency_level": p.get("latency_level", ""),
+            "safety": p.get("safety", ""),
+            "ip_score": p.get("ip_score", 0),
+            "tags": p.get("tags", []),
+        })
+    return rows
 
 
 async def run_pipeline(args: argparse.Namespace) -> dict:
@@ -225,11 +256,23 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
             min_rate = float(filters.get("alive_min_success_rate", 0.66))
             nodes, alive_rejected = filter_alive(nodes, alive_results, min_rate)
             all_rejected.extend(alive_rejected)
+            for node in nodes:
+                result = alive_results.get(node.fingerprint)
+                if result is None:
+                    continue
+                if result.delay:
+                    node.params["latency_ms"] = result.delay
+                if result.exit_ip:
+                    node.params["exit_ip"] = result.exit_ip
+                    node.params["exit_loc"] = result.exit_loc
+                    if result.warp:
+                        node.params["warp"] = result.warp
             report["stats"]["alive"] = {
                 "tested": len(alive_results),
                 "reliable": sum(1 for r in alive_results.values() if r.rate >= min_rate),
                 "dead": sum(1 for r in alive_results.values() if r.success == 0),
                 "unstable": sum(1 for r in alive_results.values() if 0 < r.rate < min_rate),
+                "exit_resolved": sum(1 for r in alive_results.values() if r.exit_ip),
                 "samples": int(filters.get("alive_samples", 3)),
             }
         else:
@@ -243,6 +286,12 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
     report["stats"]["quality"] = {"kept": len(kept), "rejected": len(quality_rejected),
                                   "reasons": _reason_counts(quality_rejected)}
     mark("quality")
+
+    if filters.get("intel_enabled", True) and kept:
+        report["stats"]["tagging"] = await apply_intel(kept, filters)
+    else:
+        report["stats"]["tagging"] = {"skipped": True}
+    mark("intel")
 
     assign_display_names(kept)
     report["stats"]["final"] = len(kept)
@@ -259,6 +308,9 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
 
     (output_dir / "clash.yaml").write_text(render_clash(kept, filters), encoding="utf-8")
     (output_dir / "sub.base64").write_text(render_base64(kept), encoding="utf-8")
+    (output_dir / "nodes.json").write_text(
+        json.dumps(export_nodes(kept), ensure_ascii=False, indent=2), encoding="utf-8"
+    )
     (output_dir / "report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
     )

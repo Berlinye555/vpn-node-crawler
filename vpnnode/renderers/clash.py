@@ -10,6 +10,16 @@ log = logging.getLogger(__name__)
 
 AUTO_GROUP = "🚀 自动"
 MANUAL_GROUP = "♻️ 手动"
+RESIDENTIAL_GROUP = "🏠 住宅 IP"
+SAFE_GROUP = "🟢 安全"
+FAST_GROUP = "⚡ 低延迟"
+
+URLTEST_OPTS = {
+    "type": "url-test",
+    "url": "https://www.gstatic.com/generate_204",
+    "interval": 300,
+    "tolerance": 50,
+}
 
 COUNTRY_NAMES = {
     "HK": "香港", "TW": "台湾", "JP": "日本", "SG": "新加坡", "KR": "韩国",
@@ -188,16 +198,21 @@ def _to_clash(node: Node, name: str) -> dict:
 
 def _build_groups(nodes: list[Node], names: list[str]) -> list[dict]:
     groups: list[dict] = [
-        {
-            "name": AUTO_GROUP,
-            "type": "url-test",
-            "url": "https://www.gstatic.com/generate_204",
-            "interval": 300,
-            "tolerance": 50,
-            "proxies": list(names),
-        },
-        {"name": MANUAL_GROUP, "type": "select", "proxies": list(names) or ["DIRECT"]},
+        {**URLTEST_OPTS, "name": AUTO_GROUP, "proxies": list(names)},
     ]
+
+    # 按用途拆分的分组：空组不输出，避免客户端出现选不中的组
+    tag_groups = [
+        (RESIDENTIAL_GROUP, lambda p: p.get("ip_type") == "residential"),
+        (SAFE_GROUP, lambda p: p.get("safety") == "safe"),
+        (FAST_GROUP, lambda p: p.get("latency_level") == "fast"),
+    ]
+    for group_name, predicate in tag_groups:
+        members = [name for node, name in zip(nodes, names) if predicate(node.params)]
+        if members:
+            groups.append({**URLTEST_OPTS, "name": group_name, "proxies": members})
+
+    groups.append({"name": MANUAL_GROUP, "type": "select", "proxies": list(names) or ["DIRECT"]})
 
     by_country: dict[str, list[str]] = {}
     for node, name in zip(nodes, names):

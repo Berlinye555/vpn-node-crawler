@@ -14,7 +14,9 @@ from vpnnode.models import Node
 
 log = logging.getLogger(__name__)
 
-IP_API_BATCH = "http://ip-api.com/batch?fields=status,countryCode,country,hosting,query,as"
+# proxy/mobile 供 intel 分级使用；ip-api 免费版实测会返回这两个字段
+IP_API_BATCH = ("http://ip-api.com/batch"
+                "?fields=status,countryCode,country,hosting,proxy,mobile,query,as")
 DNSBL_HIT_CODES = {f"127.0.0.{i}" for i in range(2, 12)}
 BATCH_SIZE = 100
 

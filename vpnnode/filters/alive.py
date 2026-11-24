@@ -15,6 +15,7 @@ from dataclasses import dataclass
 
 import yaml
 
+from vpnnode.filters.exit_probe import MIXED_BASE_PORT, probe_exit
 from vpnnode.models import Node
 from vpnnode.renderers.clash import _to_clash
 
@@ -26,6 +27,9 @@ class AliveResult:
     success: int
     samples: int
     delay: int | None = None
+    exit_ip: str = ""
+    exit_loc: str = ""
+    warp: str = ""
 
     @property
     def rate(self) -> float:
@@ -54,8 +58,15 @@ MIXED_PORT = 17890
 TEST_URL = "https://www.gstatic.com/generate_204"
 
 
-def build_config(nodes: list[Node]) -> tuple[dict, dict[str, Node]]:
-    """生成供 mihomo 加载的临时配置，节点名统一为短 ASCII 名避免编码问题。"""
+def build_config(
+    nodes: list[Node],
+    listen_base_port: int | None = None,
+) -> tuple[dict, dict[str, Node]]:
+    """生成供 mihomo 加载的临时配置，节点名统一为短 ASCII 名避免编码问题。
+
+    listen_base_port 非空时，为每个节点额外开一个本地 mixed 端口并钉死出口，
+    供出口 IP 探测等真实请求使用；不传则只保留 delay API 测试所需的配置。
+    """
     proxies = []
     name_map: dict[str, Node] = {}
     for index, node in enumerate(nodes):
@@ -71,6 +82,17 @@ def build_config(nodes: list[Node]) -> tuple[dict, dict[str, Node]]:
         "proxy-groups": [],
         "rules": ["MATCH,DIRECT"],
     }
+    if listen_base_port:
+        config["listeners"] = [
+            {
+                "name": f"l{index:05d}",
+                "type": "mixed",
+                "port": listen_base_port + index,
+                "listen": API_HOST,
+                "proxy": short,
+            }
+            for index, short in enumerate(name_map)
+        ]
     return config, name_map
 
 
@@ -97,14 +119,54 @@ async def _wait_api(proc, timeout: float = 30) -> bool:
     return False
 
 
+async def _probe_exits(
+    results: dict[str, AliveResult],
+    name_map: dict[str, Node],
+    listen_base_port: int,
+    cfg: dict,
+) -> None:
+    """对存活节点经各自端口请求 trace，回填出口 IP。"""
+    timeout_ms = int(cfg.get("exit_probe_timeout_ms", 5000))
+    concurrency = int(cfg.get("exit_probe_concurrency", 30))
+    min_rate = float(cfg.get("alive_min_success_rate", 0.66))
+    semaphore = asyncio.Semaphore(concurrency)
+    loop = asyncio.get_running_loop()
+    executor = ThreadPoolExecutor(max_workers=concurrency)
+
+    targets: list[tuple[int, AliveResult]] = []
+    for index, (short, node) in enumerate(name_map.items()):
+        result = results.get(node.fingerprint)
+        if result is not None and result.rate >= min_rate:
+            targets.append((index, result))
+
+    async def one(index: int, result: AliveResult) -> None:
+        async with semaphore:
+            info = await loop.run_in_executor(
+                executor, probe_exit, listen_base_port + index, timeout_ms)
+        if not info:
+            return
+        result.exit_ip = info["ip"]
+        result.exit_loc = info["loc"]
+        result.warp = info["warp"]
+
+    try:
+        await asyncio.gather(*(one(index, result) for index, result in targets))
+    finally:
+        executor.shutdown(wait=False)
+    resolved = sum(1 for result in results.values() if result.exit_ip)
+    log.info("exit probe: %d/%d nodes resolved (listen_base=%d)",
+             resolved, len(targets), listen_base_port)
+
+
 async def _run_batch(
     nodes: list[Node],
     mihomo_path: str,
     cfg: dict,
+    listen_base_port: int | None = None,
 ) -> dict[str, AliveResult] | None:
     """跑一批节点；返回 None 表示内核因配置问题未能启动。"""
     workdir = tempfile.mkdtemp(prefix="mihomo-alive-")
-    config, name_map = build_config(nodes)
+    config, name_map = build_config(nodes, listen_base_port=listen_base_port)
     config_path = pathlib.Path(workdir) / "config.yaml"
     config_path.write_text(yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding="utf-8")
 
@@ -181,6 +243,8 @@ async def _run_batch(
         reliable = sum(1 for result in results.values() if result.rate >= min_rate)
         log.info("alive check: %d/%d nodes reliable (samples=%d, min_rate=%.2f)",
                  reliable, len(results), samples, min_rate)
+        if listen_base_port:
+            await _probe_exits(results, name_map, listen_base_port, cfg)
         return results
     finally:
         try:
@@ -202,10 +266,12 @@ async def check_alive(nodes: list[Node], mihomo_path: str, cfg: dict | None = No
     if not nodes:
         return {}
 
-    result = await _run_batch(nodes, mihomo_path, cfg)
+    listen_base_port = MIXED_BASE_PORT if cfg.get("exit_probe", True) else None
+    result = await _run_batch(nodes, mihomo_path, cfg, listen_base_port)
     if result is not None:
         return result
 
+    # 降级重试不再挂 listeners：整批被杀更可能是监听器/端口问题，先保 alive 主干
     log.warning("full batch rejected by core, retrying in chunks of 200")
     chunks = [nodes[i:i + 200] for i in range(0, len(nodes), 200)]
     if len(chunks) > 3:

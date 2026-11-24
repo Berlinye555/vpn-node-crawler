@@ -67,6 +67,25 @@ def test_country_group_uses_flag_and_name():
     assert "🌍 XX" in names
 
 
+def test_tag_groups_are_created():
+    nodes = sample_nodes()
+    nodes[0].params.update(ip_type="residential", safety="safe", latency_level="fast")
+    nodes[1].params.update(ip_type="datacenter", safety="suspicious", latency_level="medium")
+    nodes[2].params.update(ip_type="cdn", safety="safe", latency_level="slow")
+    by_name = {g["name"]: g for g in yaml.safe_load(render_clash(nodes, {}))["proxy-groups"]}
+    assert by_name["🏠 住宅 IP"]["proxies"] == ["HK-01"]
+    assert by_name["🟢 安全"]["proxies"] == ["HK-01", "SG-01"]
+    assert by_name["⚡ 低延迟"]["proxies"] == ["HK-01"]
+    assert by_name["🏠 住宅 IP"]["type"] == "url-test"
+
+
+def test_tag_groups_skipped_when_empty():
+    names = [g["name"] for g in yaml.safe_load(render_clash(sample_nodes(), {}))["proxy-groups"]]
+    assert "🏠 住宅 IP" not in names
+    assert "🟢 安全" not in names
+    assert "⚡ 低延迟" not in names
+
+
 def test_render_clash_empty_nodes():
     doc = yaml.safe_load(render_clash([], {}))
     assert doc["proxies"] == []

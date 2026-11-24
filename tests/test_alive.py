@@ -39,6 +39,23 @@ def test_build_config_uses_unique_ascii_names():
     assert config["rules"] == ["MATCH,DIRECT"]
 
 
+def test_build_config_with_listeners():
+    nodes = [_node("1.1.1.1"), _node("2.2.2.2")]
+    config, name_map = build_config(nodes, listen_base_port=20000)
+    listeners = config["listeners"]
+    assert len(listeners) == 2
+    assert listeners[0] == {"name": "l00000", "type": "mixed", "port": 20000,
+                            "listen": "127.0.0.1", "proxy": "n00000"}
+    assert listeners[1]["port"] == 20001
+    assert listeners[1]["proxy"] == "n00001"
+    assert set(listener["proxy"] for listener in listeners) == set(name_map)
+
+
+def test_build_config_without_listeners():
+    config, _ = build_config([_node("1.1.1.1")])
+    assert "listeners" not in config
+
+
 def test_build_config_keeps_protocol_fields():
     node = Node("vless", "n", "example.com", 443,
                 {"uuid": "u", "network": "xhttp", "tls": True, "sni": "s.example.com"},

@@ -79,9 +79,9 @@ def test_nodes_are_renamed(tmp_path):
     run_offline(tmp_path)
     doc = yaml.safe_load((tmp_path / "out" / "clash.yaml").read_text(encoding="utf-8"))
     names = [p["name"] for p in doc["proxies"]]
-    # 离线模式跳过信誉查询，没有国家信息，统一归入「其他」
+    # 离线模式跳过信誉查询，没有国家信息，统一归入「其他」；名字后面可能跟分级标签
     assert names and all(name.startswith("🌍 其他 ") for name in names)
-    nums = [int(name.rsplit(" ", 1)[1]) for name in names]
+    nums = [int(name.split()[2]) for name in names]
     assert nums == list(range(1, len(names) + 1))
 
 

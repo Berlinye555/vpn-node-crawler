@@ -37,20 +37,35 @@ HTTPS_PROXY=http://127.0.0.1:7890 HTTP_PROXY=http://127.0.0.1:7890 \
 
 输出：
 
-- `output/clash.yaml` — 直接导入 Clash Verge / Mihomo
+- `output/clash.yaml` — 直接导入 Clash Verge / Mihomo；节点名带分级标签，含 `🏠 住宅 IP` / `🟢 安全` / `⚡ 低延迟` 等用途分组
 - `output/sub.base64` — v2rayN / v2rayNG 订阅
-- `output/report.json` — 漏斗统计、分阶段耗时、每源抓取数与最终贡献、被剔除原因
+- `output/nodes.json` — 单节点明细：出口 IP、ASN、IP 类型、安全等级、延迟、`ip_score`、标签
+- `output/report.json` — 漏斗统计、分阶段耗时、每源抓取数与最终贡献、被剔除原因、分级分布
+
+节点分级为三个正交维度，不合成单一等级：
+
+| 维度 | 取值 | 依据 |
+| --- | --- | --- |
+| 安全 | 🟢 安全 / 🟡 存疑 / 🔴 危险 | 自签证书、跳过校验、出口被标记 proxy/hosting、DNSBL 命中 |
+| 速度 | ⚡ 快 / 🐢 慢（300–800ms 不标） | mihomo 真实请求延迟 |
+| IP 类型 | 🏠 住宅 / ☁️ CDN / 数据中心 / 移动 | 出口 IP 的 ASN 与 hosting 标记 |
 
 ## 配置
 
 | 文件 | 说明 |
 | --- | --- |
-| `config/sources.yaml` | 数据源清单：`github` / `subscription`（`webpage` / `telegram` 为预留能力） |
-| `config/filters.yaml` | TLS 策略、探测并发/超时、限额、DNSBL、alive 采样 |
+| `config/sources.yaml` | 数据源清单：`github` / `subscription` / `telegram`（`webpage` 为预留能力） |
+| `config/filters.yaml` | TLS 策略、探测并发/超时、限额、DNSBL、alive 采样、出口 IP 探测 |
 
 `tls_policy: strict` 会剔除自签证书节点；免费节点淘汰率高时改成 `loose`（保留但打 `self_signed` 标记）。
 
 `alive_samples` / `alive_min_success_rate` 控制真实请求的成功率阈值；`alive_concurrency` 同时决定专用线程池大小。
+
+Telegram 源抓 `t.me/s/<channel>` 公开预览页，免 token：`channels` 支持多频道，`max_pages` 控制翻页（`?before=`）。首轮跑完看 `report.json` 的 `fetched_by_source`，产出为 0 的频道删掉。
+
+`exit_probe: true` 会在 alive 阶段为每个存活节点开一个独立本地端口，经节点请求 `cloudflare/cdn-cgi/trace` 记录真实出口 IP —— CDN 中转节点的 `server` 解析地址是入口，不等于出口。结果写入 `node.params.exit_ip` 与 `report.stats.alive.exit_resolved`。
+
+`intel_enabled: true` 会在 quality 之后按出口 IP 查 ip-api（国家/ASN/`proxy`/`hosting`）和 `intel_dnsbl_zones` 里的黑名单，给每个节点打安全/速度/IP 类型标签。注意 `dnsbl_zones` 查的是入口 IP（剔除用），`intel_dnsbl_zones` 查的是出口 IP（打标用），两者分开。
 
 ## 测试
 

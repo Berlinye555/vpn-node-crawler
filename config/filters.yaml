@@ -15,6 +15,28 @@ alive_min_success_rate: 1.0
 alive_timeout_ms: 4000
 alive_concurrency: 120
 
+# 出口 IP 探测：经每个存活节点请求 cloudflare trace，拿真实出口地址。
+# CDN 中转节点的 server 解析地址是入口，不代表出口；关掉可省一轮请求。
+exit_probe: true
+exit_probe_timeout_ms: 5000
+exit_probe_concurrency: 30
+
 dnsbl_zones:
   - zen.spamhaus.org
 reputation_enabled: true
+
+# 出口 IP 情报与分级标签：只对通过 alive 的节点查询，量级受最终数量约束。
+# 入口 IP 已由上面的 reputation 查过一次，这里针对真实出口再查，覆盖 CDN 中转。
+intel_enabled: true
+latency_fast_ms: 300
+latency_slow_ms: 800
+intel_batch_size: 100
+intel_dnsbl_zones:
+  - zen.spamhaus.org
+  - bl.spamcop.net
+  - psbl.surriel.com
+  - bl.blocklist.de
+  - dnsbl-1.uceprotect.net
+  - all.s5h.net
+  - dnsbl.dronebl.org
+  - spam.spamrats.com
