@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T12:58:50.448793+00:00",
+  "generated_at": "2026-11-24T13:17:53.831747+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
@@ -55,76 +55,72 @@
     },
     "probe": {
       "probed": 2218,
-      "failed": 1212,
-      "bad_cert": 76,
-      "ws_dead": 373
+      "failed": 1233,
+      "bad_cert": 75,
+      "ws_dead": 364
     },
     "reputation": {
       "enabled": true,
-      "resolved_ips": 1807,
-      "dnsbl_hits": 218,
-      "dnsbl_unverified": 371,
+      "resolved_ips": 1798,
+      "dnsbl_hits": 0,
+      "dnsbl_unverified": 298,
       "unverified": 52,
-      "rejected": 260
+      "rejected": 0
     },
     "alive": {
-      "tested": 1958,
-      "reliable": 258,
-      "dead": 1700,
-      "unstable": 0,
-      "exit_resolved": 248,
-      "samples": 1
+      "skipped": "no mihomo"
     },
     "quality": {
-      "kept": 170,
-      "rejected": 88,
+      "kept": 300,
+      "rejected": 1918,
       "reasons": {
-        "connect_failed": 3,
-        "slow_handshake": 1,
-        "ws_dead": 2,
-        "over_group_limit": 82
+        "connect_failed": 1233,
+        "ws_dead": 364,
+        "bad_certificate": 75,
+        "slow_handshake": 4,
+        "over_group_limit": 113,
+        "over_total_limit": 129
       }
     },
     "tagging": {
-      "queried": 143,
-      "resolved": 143,
-      "dnsbl_hits": 79,
+      "queried": 0,
+      "resolved": 0,
+      "dnsbl_hits": 0,
+      "dnsbl_by_zone": {},
       "by_ip_type": {
-        "datacenter": 94,
-        "residential": 69,
-        "unknown": 6,
-        "cdn": 1
+        "unknown": 300
       },
       "by_safety": {
-        "suspicious": 155,
-        "safe": 15
+        "suspicious": 170,
+        "safe": 130
       },
       "by_latency": {
-        "fast": 31,
-        "medium": 91,
-        "slow": 48
+        "unknown": 300
       },
-      "ip_score_avg": 39.5
+      "ip_score_avg": 85.8
     },
-    "final": 170,
+    "final": 300,
     "final_by_source": {
-      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 69,
-      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 43,
-      "https://leidahub.top/clash.yaml": 34,
-      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 14,
-      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 7,
-      "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 2,
-      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 1
+      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 80,
+      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 76,
+      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 52,
+      "https://leidahub.top/clash.yaml": 44,
+      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 29,
+      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 8,
+      "https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray": 5,
+      "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 3,
+      "https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/jingfu": 2,
+      "https://raw.githubusercontent.com/freefq/free/master/v2": 1
     },
     "timings": {
-      "fetch": 3.7,
+      "fetch": 4.2,
       "aggregate": 0.0,
       "precheck": 0.0,
-      "probe": 37.3,
-      "reputation": 33.4,
-      "alive": 41.1,
+      "probe": 36.8,
+      "reputation": 28.1,
+      "alive": 0.0,
       "quality": 0.0,
-      "intel": 13.2
+      "intel": 0.0
     }
   },
   "failed_sources": [
@@ -134,10 +130,12 @@
         "timeout": 20,
         "max_pages": 3,
         "channels": [
-          "freenodedaily"
+          "freenodedaily",
+          "ripaojiedian",
+          "free-nodes"
         ]
       },
-      "error": "empty result"
+      "error": "[{\"channel\": \"ripaojiedian\", \"page\": 1, \"bytes\": 145457, \"messages\": 357, \"channel_info\": true, \"uri_in_html\": 0, \"uri_in_text\": 0, \"nodes\": 0}, {\"channel\": \"freenodedaily\", \"page\": 1, \"bytes\": 128767, \"messages\": 404, \"channel_info\": true, \"uri_in_html\": 0, \"uri_in_text\": 0, \"nodes\": 0}, {\"channel\": \"free-nodes\", \"page\": 1, \"bytes\": 19863, \"messages\": 0, \"channel_info\": false, \"uri_in_html\": 0, \"uri_in_text\": 0, \"nodes\": 0}, {\"channel\": \"freenodedaily\", \"page\": 2, \"bytes\": 127192, \"messages\": 394, \"channel_info\": true, \"uri_in_html\": 0, \"uri_in_text\": 0, \"nodes\": 0}, {\"channel\": \"ripaojiedian\", \"page\": 2, \"bytes\": 152997, \"messages\": 364, \"channel_info\": true, \"uri_in_html\": 0, \"uri_in_text\": 0, \"nodes\": 0}, {\"channel\": \"freenodedaily\", \"page\": 3, \"bytes\": 128996, \"messages\": 405, \"channel_info\": true, \"uri_in_html\": 0, \"uri_in_text\": 0, \"nodes\": 0}, {\"channel\": \"ripaojiedian\", \"page\": "
     }
   ],
   "rejected_samples": [
