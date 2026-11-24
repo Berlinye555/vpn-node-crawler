@@ -28,15 +28,34 @@ sources:
   # （bytes/messages/uri_in_html/documents/link_hosts），据此判断是附件型还是跳转型。
   # 已移除 freenodedaily、ripaojiedian：页面有几百条消息但 uri_in_html=0，
   # 属于附件/图片型，公开途径拿不到节点。free-nodes 则是频道不存在。
+  # 已排除 VPNzhilian：正文发的是 tg://proxy（MTProto 代理），不是可导入的节点。
   - type: telegram
     timeout: 20
     max_pages: 3
-    # 已排除 VPNzhilian：正文发的是 tg://proxy（MTProto 代理），不是可导入的节点。
     channels:
       - PrivateVPNs       # 实测 3 页 52 节点（vless）
       - VlessConfig       # 实测 3 页 52 节点（vless）；与 PrivateVPNs 同源，仅端口不同
       - clashv8           # 实测 3 页 50 节点（ss），41 个通过静态检查
       - xlyv2ray          # 实测 3 页 61 节点（hysteria2 为主）
+
+  # 高产频道：单页就有上百个节点，翻页性价比低，只抓 1 页控制抓取量和后续探测压力。
+  # 清单来源 denxv/TGV2RayScraper 的 channels/urls.txt（173 个频道中 92 个有明文节点），
+  # 这里取单页产出 ≥130 的前 11 个；想扩充就照这个清单继续加，注意观察 CI 总耗时。
+  - type: telegram
+    timeout: 20
+    max_pages: 1
+    channels:
+      - v2ray_official    # 单页 503
+      - ar14n24b          # 单页 267
+      - v2ray_extractor   # 单页 205
+      - farah_vpn         # 单页 200
+      - soskeynet         # 单页 177
+      - daily_configs     # 单页 154
+      - prrofile_purple   # 单页 147
+      - icv2ray           # 单页 137
+      - v2ray1_ng         # 单页 134
+      - gh_v2rayng        # 单页 131
+      - irv2rey           # 单页 131
 
   # 公开网页分享页；regex 可选，用于从噪声页面中先截取节点片段
   # - type: webpage
