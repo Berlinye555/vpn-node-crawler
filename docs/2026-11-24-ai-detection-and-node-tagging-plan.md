@@ -491,6 +491,11 @@ tagging:
 
 **真实内核验证**：mihomo v1.19.34 用 `build_config` 生成的配置启动成功，`17890/19090/20000/20001` 四个端口全部监听在 `127.0.0.1`，证明 `listeners.proxy` 字段可用。
 
+**事故修复（2026-11-25）**：节点数从 2820 涨到 6000+ 后，alive 阶段「每个节点一个 listener」让整批配置被内核拒绝，降级重试又只覆盖前 3 个 chunk，导致 `alive.tested` 卡在 600、`exit_resolved` 为 0。修复拆成两步：
+
+1. `check_alive()` 改为按 `chunk_size`（默认 2000）分批，单批被拒再按 200 细分，且**覆盖全部节点**；
+2. 出口探测移出 alive，改为 `exit_probe.probe_exits()` 单独起实例，只对存活节点开端口（通常几十到几百个）；AI 探测的端口段顺延到 `21000`，避免与出口探测争用。
+
 #### P3 分级打标
 
 - `filters/intel.py`（新）：`classify_ip`（cdn/mobile/datacenter/residential）、`safety_level`、`latency_level`、`ip_score`、`apply_tags`；`apply_intel` 按**出口 IP** 查 ip-api 与 DNSBL，给节点打标。

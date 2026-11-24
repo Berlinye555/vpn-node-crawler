@@ -15,7 +15,6 @@ from dataclasses import dataclass
 
 import yaml
 
-from vpnnode.filters.exit_probe import MIXED_BASE_PORT, probe_exit
 from vpnnode.models import Node
 from vpnnode.renderers.clash import _to_clash
 
@@ -119,45 +118,6 @@ async def _wait_api(proc, timeout: float = 30) -> bool:
     return False
 
 
-async def _probe_exits(
-    results: dict[str, AliveResult],
-    name_map: dict[str, Node],
-    listen_base_port: int,
-    cfg: dict,
-) -> None:
-    """对存活节点经各自端口请求 trace，回填出口 IP。"""
-    timeout_ms = int(cfg.get("exit_probe_timeout_ms", 5000))
-    concurrency = int(cfg.get("exit_probe_concurrency", 30))
-    min_rate = float(cfg.get("alive_min_success_rate", 0.66))
-    semaphore = asyncio.Semaphore(concurrency)
-    loop = asyncio.get_running_loop()
-    executor = ThreadPoolExecutor(max_workers=concurrency)
-
-    targets: list[tuple[int, AliveResult]] = []
-    for index, (short, node) in enumerate(name_map.items()):
-        result = results.get(node.fingerprint)
-        if result is not None and result.rate >= min_rate:
-            targets.append((index, result))
-
-    async def one(index: int, result: AliveResult) -> None:
-        async with semaphore:
-            info = await loop.run_in_executor(
-                executor, probe_exit, listen_base_port + index, timeout_ms)
-        if not info:
-            return
-        result.exit_ip = info["ip"]
-        result.exit_loc = info["loc"]
-        result.warp = info["warp"]
-
-    try:
-        await asyncio.gather(*(one(index, result) for index, result in targets))
-    finally:
-        executor.shutdown(wait=False)
-    resolved = sum(1 for result in results.values() if result.exit_ip)
-    log.info("exit probe: %d/%d nodes resolved (listen_base=%d)",
-             resolved, len(targets), listen_base_port)
-
-
 async def _run_batch(
     nodes: list[Node],
     mihomo_path: str,
@@ -243,8 +203,6 @@ async def _run_batch(
         reliable = sum(1 for result in results.values() if result.rate >= min_rate)
         log.info("alive check: %d/%d nodes reliable (samples=%d, min_rate=%.2f)",
                  reliable, len(results), samples, min_rate)
-        if listen_base_port:
-            await _probe_exits(results, name_map, listen_base_port, cfg)
         return results
     finally:
         try:
@@ -257,29 +215,33 @@ async def _run_batch(
                 pass
 
 
-async def check_alive(nodes: list[Node], mihomo_path: str, cfg: dict | None = None) -> dict[str, AliveResult]:
+async def check_alive(
+    nodes: list[Node],
+    mihomo_path: str,
+    cfg: dict | None = None,
+    chunk_size: int = 2000,
+) -> dict[str, AliveResult]:
     """用 mihomo 内核真实请求验证节点。
 
-    整批配置被内核拒绝时，自动按 200 个一组降级重试，避免个别畸形节点让整层失效。
+    节点规模到数千时整批配置容易超出内核承受范围，所以先按 chunk_size 分批，
+    每批独立起内核；单批被拒时再按 200 个一组细分，且覆盖全部节点而不是只测前几组。
     """
     cfg = cfg or {}
     if not nodes:
         return {}
 
-    listen_base_port = MIXED_BASE_PORT if cfg.get("exit_probe", True) else None
-    result = await _run_batch(nodes, mihomo_path, cfg, listen_base_port)
-    if result is not None:
-        return result
-
-    # 降级重试不再挂 listeners：整批被杀更可能是监听器/端口问题，先保 alive 主干
-    log.warning("full batch rejected by core, retrying in chunks of 200")
-    chunks = [nodes[i:i + 200] for i in range(0, len(nodes), 200)]
-    if len(chunks) > 3:
-        log.warning("too many chunks (%d), only first 3 are tested", len(chunks))
-        chunks = chunks[:3]
+    batches = [nodes[i:i + chunk_size] for i in range(0, len(nodes), chunk_size)]
     merged: dict[str, AliveResult] = {}
-    for chunk in chunks:
-        part = await _run_batch(chunk, mihomo_path, cfg)
-        if part:
+    for batch in batches:
+        part = await _run_batch(batch, mihomo_path, cfg)
+        if part is not None:
             merged.update(part)
+            continue
+        log.warning("batch of %d rejected by core, retrying in chunks of 200", len(batch))
+        for start in range(0, len(batch), 200):
+            sub = batch[start:start + 200]
+            sub_result = await _run_batch(sub, mihomo_path, cfg)
+            if sub_result:
+                merged.update(sub_result)
+    log.info("alive check done: %d/%d nodes tested", len(merged), len(nodes))
     return merged

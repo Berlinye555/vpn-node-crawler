@@ -1,3 +1,6 @@
+import asyncio
+
+from vpnnode.filters import alive as alive_mod
 from vpnnode.filters.alive import AliveResult, build_config, filter_alive
 from vpnnode.models import Node
 
@@ -37,6 +40,35 @@ def test_build_config_uses_unique_ascii_names():
     assert name_map["n00001"].server == "2.2.2.2"
     assert config["external-controller"].endswith(":19090")
     assert config["rules"] == ["MATCH,DIRECT"]
+
+
+def test_check_alive_covers_all_nodes_across_batches(monkeypatch):
+    """数千节点时分批测试，必须合并全部批次而不是只测前几批。"""
+    nodes = [_node(f"10.0.{i}.1") for i in range(5)]
+
+    async def fake_run_batch(batch, path, cfg, listen_base_port=None):
+        return {node.fingerprint: AliveResult(1, 1, 100) for node in batch}
+
+    monkeypatch.setattr(alive_mod, "_run_batch", fake_run_batch)
+    result = asyncio.run(alive_mod.check_alive(nodes, "mihomo", {}, chunk_size=2))
+    assert len(result) == 5
+
+
+def test_check_alive_splits_rejected_batch(monkeypatch):
+    """单批被内核拒绝时按 200 细分重试，不能整批丢弃。"""
+    nodes = [_node(f"10.{i // 250}.{i % 250}.1") for i in range(250)]
+    calls = []
+
+    async def fake_run_batch(batch, path, cfg, listen_base_port=None):
+        calls.append(len(batch))
+        if len(batch) > 200:      # 模拟大配置被拒
+            return None
+        return {node.fingerprint: AliveResult(1, 1, 100) for node in batch}
+
+    monkeypatch.setattr(alive_mod, "_run_batch", fake_run_batch)
+    result = asyncio.run(alive_mod.check_alive(nodes, "mihomo", {}, chunk_size=250))
+    assert calls[0] == 250            # 先整批
+    assert len(result) == 250         # 细分成 200 + 50 后仍覆盖全部
 
 
 def test_build_config_with_listeners():

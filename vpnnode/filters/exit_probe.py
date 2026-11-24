@@ -1,8 +1,16 @@
 from __future__ import annotations
 
+import asyncio
 import logging
+import pathlib
+import tempfile
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+
+import yaml
+
+from vpnnode.models import Node
 
 log = logging.getLogger(__name__)
 
@@ -44,3 +52,79 @@ def probe_exit(port: int, timeout_ms: int = 5000) -> dict[str, str] | None:
         return None
     info = parse_trace(body)
     return info if info["ip"] else None
+
+
+async def probe_exits(
+    nodes: list[Node],
+    mihomo_path: str,
+    cfg: dict | None = None,
+) -> dict[str, dict[str, str]]:
+    """对给定节点各开一个本地端口测真实出口，返回 {fingerprint: {ip, loc, warp}}。
+
+    只在 alive 之后调用：存活节点通常只有几十到几百个，listeners 数量可控。
+    整批挂在 alive 阶段会随节点总数线性膨胀，数千节点时会让内核起不来。
+    """
+    from vpnnode.filters.alive import _wait_api, build_config
+
+    cfg = cfg or {}
+    if not nodes:
+        return {}
+
+    workdir = tempfile.mkdtemp(prefix="mihomo-exit-")
+    config, _ = build_config(nodes, listen_base_port=MIXED_BASE_PORT)
+    config_path = pathlib.Path(workdir) / "config.yaml"
+    config_path.write_text(yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding="utf-8")
+
+    log_path = pathlib.Path(workdir) / "mihomo.log"
+    try:
+        handle = open(log_path, "wb")
+        try:
+            proc = await asyncio.create_subprocess_exec(
+                mihomo_path, "-f", str(config_path), "-d", workdir,
+                stdout=handle, stderr=handle,
+            )
+        finally:
+            handle.close()
+    except Exception as exc:
+        log.warning("exit probe launch failed: %s", exc)
+        return {}
+
+    try:
+        if not await _wait_api(proc):
+            tail = ""
+            try:
+                tail = log_path.read_text(encoding="utf-8", errors="replace")[-800:]
+            except Exception:
+                pass
+            log.warning("exit probe mihomo not ready (exit=%s): %s", proc.returncode, tail)
+            return {}
+
+        timeout_ms = int(cfg.get("exit_probe_timeout_ms", 5000))
+        concurrency = int(cfg.get("exit_probe_concurrency", 30))
+        semaphore = asyncio.Semaphore(concurrency)
+        loop = asyncio.get_running_loop()
+        executor = ThreadPoolExecutor(max_workers=concurrency)
+
+        async def one(index: int, node: Node) -> tuple[str, dict[str, str] | None]:
+            async with semaphore:
+                info = await loop.run_in_executor(
+                    executor, probe_exit, MIXED_BASE_PORT + index, timeout_ms)
+            return node.fingerprint, info
+
+        try:
+            pairs = await asyncio.gather(*(one(index, node) for index, node in enumerate(nodes)))
+        finally:
+            executor.shutdown(wait=False)
+
+        result = {fingerprint: info for fingerprint, info in pairs if info}
+        log.info("exit probe: %d/%d resolved", len(result), len(nodes))
+        return result
+    finally:
+        try:
+            proc.terminate()
+            await asyncio.wait_for(proc.wait(), timeout=5)
+        except Exception:
+            try:
+                proc.kill()
+            except Exception:
+                pass

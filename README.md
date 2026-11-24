@@ -63,7 +63,9 @@ HTTPS_PROXY=http://127.0.0.1:7890 HTTP_PROXY=http://127.0.0.1:7890 \
 
 Telegram 源抓 `t.me/s/<channel>` 公开预览页，免 token：`channels` 支持多频道，`max_pages` 控制翻页（`?before=`）。首轮跑完看 `report.json` 的 `fetched_by_source`，产出为 0 的频道删掉。
 
-`exit_probe: true` 会在 alive 阶段为每个存活节点开一个独立本地端口，经节点请求 `cloudflare/cdn-cgi/trace` 记录真实出口 IP —— CDN 中转节点的 `server` 解析地址是入口，不等于出口。结果写入 `node.params.exit_ip` 与 `report.stats.alive.exit_resolved`。
+`exit_probe: true` 会在 alive 之后**单独起一台内核**，只给存活节点各开一个本地端口，经端口请求 `cloudflare/cdn-cgi/trace` 记录真实出口 IP —— CDN 中转节点的 `server` 解析地址是入口，不等于出口。结果写入 `node.params.exit_ip` 与 `report.stats.exit_probe`。
+
+> 出口探测不能挂在 alive 阶段：alive 面对的是全量节点（数千个），每节点一个 listener 会让内核起不来；拆开后 listeners 数量只与存活节点数（几十到几百）相关。
 
 `intel_enabled: true` 会在 quality 之后按出口 IP 查 ip-api（国家/ASN/`proxy`/`hosting`）和 `intel_dnsbl_zones` 里的黑名单，给每个节点打安全/速度/IP 类型标签。注意 `dnsbl_zones` 查的是入口 IP（剔除用），`intel_dnsbl_zones` 查的是出口 IP（打标用），两者分开。
 

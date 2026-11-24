@@ -17,6 +17,7 @@ from vpnnode.aggregator import aggregate
 from vpnnode.deliver import upload_outputs
 from vpnnode.filters.ai_probe import HAS_CURL_CFFI, check_ai, overall_level
 from vpnnode.filters.alive import check_alive, filter_alive
+from vpnnode.filters.exit_probe import probe_exits
 from vpnnode.filters.intel import apply_intel
 from vpnnode.filters.precheck import precheck
 from vpnnode.filters.probe import ProbeResult, probe_nodes
@@ -259,21 +260,13 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
             all_rejected.extend(alive_rejected)
             for node in nodes:
                 result = alive_results.get(node.fingerprint)
-                if result is None:
-                    continue
-                if result.delay:
+                if result is not None and result.delay:
                     node.params["latency_ms"] = result.delay
-                if result.exit_ip:
-                    node.params["exit_ip"] = result.exit_ip
-                    node.params["exit_loc"] = result.exit_loc
-                    if result.warp:
-                        node.params["warp"] = result.warp
             report["stats"]["alive"] = {
                 "tested": len(alive_results),
                 "reliable": sum(1 for r in alive_results.values() if r.rate >= min_rate),
                 "dead": sum(1 for r in alive_results.values() if r.success == 0),
                 "unstable": sum(1 for r in alive_results.values() if 0 < r.rate < min_rate),
-                "exit_resolved": sum(1 for r in alive_results.values() if r.exit_ip),
                 "samples": int(filters.get("alive_samples", 3)),
             }
         else:
@@ -281,6 +274,22 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
     else:
         report["stats"]["alive"] = {"skipped": "no mihomo"}
     mark("alive")
+
+    # 出口探测单独起一台小实例，只对存活节点开端口；挂在 alive 里会随节点总数膨胀
+    if mihomo_path and nodes and filters.get("exit_probe", True):
+        exit_infos = await probe_exits(nodes, mihomo_path, filters)
+        for node in nodes:
+            info = exit_infos.get(node.fingerprint)
+            if not info:
+                continue
+            node.params["exit_ip"] = info["ip"]
+            node.params["exit_loc"] = info["loc"]
+            if info["warp"]:
+                node.params["warp"] = info["warp"]
+        report["stats"]["exit_probe"] = {"tested": len(nodes), "resolved": len(exit_infos)}
+    else:
+        report["stats"]["exit_probe"] = {"skipped": True}
+    mark("exit")
 
     kept, quality_rejected = apply_quality(nodes, results, filters)
     all_rejected.extend(quality_rejected)

@@ -11,8 +11,10 @@ from concurrent.futures import ThreadPoolExecutor
 import yaml
 
 from vpnnode.filters.alive import _wait_api, build_config
-from vpnnode.filters.exit_probe import MIXED_BASE_PORT
 from vpnnode.models import Node
+
+# 与 exit_probe(20000) 错开，避免两个阶段的实例争用端口。
+AI_BASE_PORT = 21000
 
 log = logging.getLogger(__name__)
 
@@ -117,7 +119,7 @@ def probe_node(port: int, timeout_s: float) -> dict[str, tuple[int, str]]:
 
 async def _run(nodes: list[Node], mihomo_path: str, cfg: dict) -> dict[str, dict[str, str]] | None:
     workdir = tempfile.mkdtemp(prefix="mihomo-ai-")
-    config, _ = build_config(nodes, listen_base_port=MIXED_BASE_PORT)
+    config, _ = build_config(nodes, listen_base_port=AI_BASE_PORT)
     config_path = pathlib.Path(workdir) / "config.yaml"
     config_path.write_text(yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding="utf-8")
 
@@ -154,7 +156,7 @@ async def _run(nodes: list[Node], mihomo_path: str, cfg: dict) -> dict[str, dict
         async def one(index: int, node: Node) -> tuple[str, dict[str, str]]:
             async with semaphore:
                 raw = await loop.run_in_executor(
-                    executor, probe_node, MIXED_BASE_PORT + index, timeout_ms / 1000)
+                    executor, probe_node, AI_BASE_PORT + index, timeout_ms / 1000)
             levels = {
                 name: classify(status, body, TARGETS[name]["healthy"])
                 for name, (status, body) in raw.items()
