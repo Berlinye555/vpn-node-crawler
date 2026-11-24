@@ -38,24 +38,106 @@ sources:
       - clashv8           # 实测 3 页 50 节点（ss），41 个通过静态检查
       - xlyv2ray          # 实测 3 页 61 节点（hysteria2 为主）
 
-  # 高产频道：单页就有上百个节点，翻页性价比低，只抓 1 页控制抓取量和后续探测压力。
-  # 清单来源 denxv/TGV2RayScraper 的 channels/urls.txt（173 个频道中 92 个有明文节点），
-  # 这里取单页产出 ≥130 的前 11 个；想扩充就照这个清单继续加，注意观察 CI 总耗时。
+  # 全量频道：来自 denxv/TGV2RayScraper 的 channels/urls.txt（173 个频道，
+  # 实测 93 个单页含明文节点，合计约 5200 个）。单页已经足够，统一只抓 1 页。
+  # 这是 2026-11-24 的快照：产出会漂移，定期重测并剔除归零的频道。
   - type: telegram
     timeout: 20
     max_pages: 1
     channels:
-      - v2ray_official    # 单页 503
-      - ar14n24b          # 单页 267
-      - v2ray_extractor   # 单页 205
-      - farah_vpn         # 单页 200
-      - soskeynet         # 单页 177
-      - daily_configs     # 单页 154
-      - prrofile_purple   # 单页 147
-      - icv2ray           # 单页 137
-      - v2ray1_ng         # 单页 134
-      - gh_v2rayng        # 单页 131
-      - irv2rey           # 单页 131
+      - v2ray_official         # 单页 503
+      - ar14n24b               # 单页 267
+      - v2ray_extractor        # 单页 205
+      - farah_vpn              # 单页 200
+      - soskeynet              # 单页 177
+      - daily_configs          # 单页 154
+      - prrofile_purple        # 单页 147
+      - icv2ray                # 单页 137
+      - v2ray1_ng              # 单页 134
+      - gh_v2rayng             # 单页 131
+      - irv2rey                # 单页 131
+      - shadowsocks_phs        # 单页 121
+      - i10vpn                 # 单页 120
+      - bigsmoke_config        # 单页 112
+      - vmesskhodam            # 单页 103
+      - hopev2ray              # 单页 100
+      - vpnv2r4y               # 单页 98
+      - shh_proxy              # 单页 96
+      - vpnsal                 # 单页 96
+      - oneclickvpnkeys        # 单页 91
+      - v2ray_confing33        # 单页 91
+      - v2rayargon             # 单页 91
+      - outlineopenkey         # 单页 90
+      - v2raybaaz              # 单页 84
+      - v2ry_proxy             # 单页 84
+      - keysoutline            # 单页 77
+      - vpn_click              # 单页 75
+      - v2rayngvpn             # 单页 64
+      - v2raych                # 单页 62
+      - vistav2ray             # 单页 54
+      - erfanandroid           # 单页 52
+      - new_mtproxi2           # 单页 50
+      - v2rayng_1378           # 单页 49
+      - v2rayng_ip             # 单页 48
+      - confingv2raayng        # 单页 47
+      - expressvpn_420         # 单页 47
+      - fast78_channel         # 单页 44
+      - selinc                 # 单页 44
+      - configpluse            # 单页 39
+      - surfboardv2ray         # 单页 38
+      - vpn_mafia              # 单页 38
+      - configx2ray            # 单页 36
+      - tehranargo             # 单页 34
+      - stretten               # 单页 33
+      - vaynora                # 单页 32
+      - siigmavpn              # 单页 31
+      - iran_v2ray1            # 单页 30
+      - iraneazad_net          # 单页 30
+      - farahvpn               # 单页 29
+      - ssrsub                 # 单页 29
+      - net2proxy              # 单页 26
+      - singbox1               # 单页 25
+      - zede_filteri           # 单页 24
+      - v2rayng_fast           # 单页 23
+      - v2rfa                  # 单页 23
+      - archive_android        # 单页 22
+      - capoit                 # 单页 20
+      - free1ss                # 单页 20
+      - shadowsockskeys        # 单页 20
+      - v2rayrootfree          # 单页 20
+      - v2ray_free_conf        # 单页 19
+      - vpnfail_v2ray          # 单页 19
+      - wedbazvpn              # 单页 19
+      - h110vpn                # 单页 18
+      - vpnbaz                 # 单页 18
+      - freeland8              # 单页 15
+      - anotherme_night        # 单页 14
+      - configshub             # 单页 14
+      - proxy_kafee            # 单页 14
+      - sharecentrepro         # 单页 14
+      - v2rayng_fars           # 单页 14
+      - v2ray26                # 单页 13
+      - directvpn              # 单页 12
+      - netv2reyng             # 单页 12
+      - privatevpns            # 单页 12
+      - vlessconfig            # 单页 12
+      - mtproxy_lists          # 单页 11
+      - v2freehub              # 单页 11
+      - v2r_ayorg              # 单页 11
+      - nt_safe                # 单页 10
+      - payam_nsi              # 单页 10
+      - skivpn                 # 单页 10
+      - config_proxy           # 单页 9
+      - config_fre             # 单页 6
+      - maznet                 # 单页 6
+      - wxdy666                # 单页 4
+      - academi_vpn            # 单页 3
+      - vaslvip                # 单页 3
+      - juzibaipiao            # 单页 2
+      - kia_net                # 单页 2
+      - satarvpn1              # 单页 2
+      - configology            # 单页 1
+      - safenetir              # 单页 1
 
   # 公开网页分享页；regex 可选，用于从噪声页面中先截取节点片段
   # - type: webpage
