@@ -17,6 +17,10 @@ sources:
       - https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray
       - https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray
       - https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt
+      # 俄罗斯 anti-RKN 聚合（Hidashimora/free-vpn-anti-rkn）。vpn.txt 是合并后的
+      # 短列表（约 540 个，94% 带 TLS）；configs/ 下 113 个分文件合计约 4 万节点，
+      # 全接会把 probe 压垮，先只接合并列表，实测产出好再看要不要加全量分文件。
+      - https://raw.githubusercontent.com/Hidashimora/free-vpn-anti-rkn/main/configs/vpn.txt
 
   # 第三方聚合订阅（Clash 格式），五层过滤会再筛一遍
   - type: subscription
