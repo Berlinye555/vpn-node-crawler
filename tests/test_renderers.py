@@ -79,16 +79,8 @@ def test_tag_groups_are_created():
     assert by_name["🏠 住宅 IP"]["type"] == "url-test"
 
 
-def test_ai_group_created():
-    nodes = sample_nodes()
-    nodes[0].params["ai_level"] = "clean"
-    by_name = {g["name"]: g for g in yaml.safe_load(render_clash(nodes, {}))["proxy-groups"]}
-    assert by_name["🤖 AI 优选"]["proxies"] == ["HK-01"]
-
-
 def test_tag_groups_skipped_when_empty():
     names = [g["name"] for g in yaml.safe_load(render_clash(sample_nodes(), {}))["proxy-groups"]]
-    assert "🤖 AI 优选" not in names
     assert "🏠 住宅 IP" not in names
     assert "🟢 安全" not in names
     assert "⚡ 低延迟" not in names

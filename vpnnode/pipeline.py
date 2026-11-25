@@ -15,7 +15,6 @@ import yaml
 
 from vpnnode.aggregator import aggregate
 from vpnnode.deliver import upload_outputs
-from vpnnode.filters.ai_probe import HAS_CURL_CFFI, check_ai, overall_level
 from vpnnode.filters.alive import check_alive, filter_alive
 from vpnnode.filters.exit_probe import probe_exits
 from vpnnode.filters.intel import apply_intel
@@ -305,29 +304,6 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
     report["stats"]["quality"] = {"kept": len(kept), "rejected": len(quality_rejected),
                                   "reasons": _reason_counts(quality_rejected)}
     mark("quality")
-
-    if mihomo_path and filters.get("ai_probe_enabled", True) and kept:
-        ai_results = await check_ai(kept, mihomo_path, filters)
-        for node in kept:
-            levels = ai_results.get(node.fingerprint)
-            if not levels:
-                continue
-            node.params["ai"] = levels
-            node.params["ai_level"] = overall_level(levels)
-        ai_levels = Counter(node.params.get("ai_level") for node in kept if node.params.get("ai_level"))
-        by_target: dict[str, Counter] = {}
-        for levels in ai_results.values():
-            for target, level in levels.items():
-                by_target.setdefault(target, Counter())[level] += 1
-        report["stats"]["ai"] = {
-            "tested": len(ai_results),
-            "levels": dict(ai_levels),
-            "by_target": {name: dict(counter) for name, counter in by_target.items()},
-            "impersonate": HAS_CURL_CFFI,
-        }
-    else:
-        report["stats"]["ai"] = {"skipped": True}
-    mark("ai")
 
     if filters.get("intel_enabled", True) and kept:
         report["stats"]["tagging"] = await apply_intel(kept, filters)

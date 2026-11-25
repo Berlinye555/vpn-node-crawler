@@ -69,7 +69,7 @@ Telegram 源抓 `t.me/s/<channel>` 公开预览页，免 token：`channels` 支�
 
 `intel_enabled: true` 会在 quality 之后按出口 IP 查 ip-api（国家/ASN/`proxy`/`hosting`）和 `intel_dnsbl_zones` 里的黑名单，给每个节点打安全/速度/IP 类型标签。注意 `dnsbl_zones` 查的是入口 IP（剔除用），`intel_dnsbl_zones` 查的是出口 IP（打标用），两者分开。
 
-`ai_probe_enabled: true` 会经节点请求 OpenAI / Anthropic 的 API 与前端端点，判断能否正常使用 ChatGPT、Claude，通过的节点打 🤖 标签并进入 `🤖 AI 优选` 分组。客户端优先用 `curl_cffi` 模拟 Chrome TLS 指纹；未安装时自动降级 urllib，`report.stats.ai.impersonate` 会标出是否降级。
+> AI 平台可用性探测（P4）评估后**未采用**：探测「API 层没封这个 IP」推不出「网页可用」，且免费节点几乎全是数据中心共享 IP，`clean` 数量趋近于 0。需要判断能否用于 AI 时，看出口 IP 的 `hosting` / `proxy` 标记即可（数据中心 + 代理标记的基本不用指望）。详见设计文档第 10 节。
 
 ## 测试
 

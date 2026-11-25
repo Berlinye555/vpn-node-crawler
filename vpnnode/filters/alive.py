@@ -26,9 +26,6 @@ class AliveResult:
     success: int
     samples: int
     delay: int | None = None
-    exit_ip: str = ""
-    exit_loc: str = ""
-    warp: str = ""
 
     @property
     def rate(self) -> float:
