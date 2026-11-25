@@ -5,6 +5,12 @@ on:
     # 21:17 UTC = 北京时间 05:17
     - cron: "17 21 * * *"
   workflow_dispatch:
+  # 代码改动自动验证一轮。output/ 是 CI 自己提交的产物，必须排除，
+  # 否则 commit→触发→commit 会无限循环。
+  push:
+    branches: [main]
+    paths-ignore:
+      - "output/**"
 
 permissions:
   contents: write
