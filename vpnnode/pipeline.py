@@ -285,7 +285,9 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
             if (alive_results.get(node.fingerprint) is not None
                 and alive_results[node.fingerprint].rate >= probe_min_rate)
         ]
-        exit_infos = await probe_exits(probe_targets, mihomo_path, filters) if probe_targets else {}
+        exit_stats: dict = {}
+        exit_infos = (await probe_exits(probe_targets, mihomo_path, filters, exit_stats)
+                      if probe_targets else {})
         for node in nodes:
             info = exit_infos.get(node.fingerprint)
             if not info:
@@ -294,7 +296,11 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
             node.params["exit_loc"] = info["loc"]
             if info["warp"]:
                 node.params["warp"] = info["warp"]
-        report["stats"]["exit_probe"] = {"tested": len(probe_targets), "resolved": len(exit_infos)}
+        report["stats"]["exit_probe"] = {
+            "tested": len(probe_targets),
+            "resolved": len(exit_infos),
+            **exit_stats,
+        }
     else:
         report["stats"]["exit_probe"] = {"skipped": True}
     mark("exit")

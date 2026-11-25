@@ -58,11 +58,13 @@ async def probe_exits(
     nodes: list[Node],
     mihomo_path: str,
     cfg: dict | None = None,
+    stats: dict | None = None,
 ) -> dict[str, dict[str, str]]:
     """对给定节点各开一个本地端口测真实出口，返回 {fingerprint: {ip, loc, warp}}。
 
     只在 alive 之后调用，且只应传入已确认可靠的节点。单个畸形节点会让整批配置
-    被内核拒绝，所以按批启动，失败批不拖累其他批。
+    被内核拒绝，所以按批启动，失败批不拖累其他批。stats 会被填入批次数统计，
+    用于区分「内核拒批」和「批跑通但探测全超时」。
     """
     cfg = cfg or {}
     if not nodes:
@@ -70,8 +72,10 @@ async def probe_exits(
 
     batch_size = max(1, int(cfg.get("exit_probe_batch_size", 300)))
     merged: dict[str, dict[str, str]] = {}
+    total_batches = 0
     failed = 0
     for start in range(0, len(nodes), batch_size):
+        total_batches += 1
         batch = nodes[start:start + batch_size]
         part = await _probe_batch(batch, mihomo_path, cfg)
         if part is None:
@@ -80,7 +84,10 @@ async def probe_exits(
             continue
         merged.update(part)
     if failed:
-        log.warning("exit probe: %d batch(es) rejected by core", failed)
+        log.warning("exit probe: %d/%d batch(es) rejected by core", failed, total_batches)
+    if stats is not None:
+        stats["batches"] = total_batches
+        stats["failed_batches"] = failed
     return merged
 
 
