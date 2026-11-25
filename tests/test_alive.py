@@ -18,8 +18,18 @@ def test_filter_alive_by_success_rate():
         dead.fingerprint: AliveResult(0, 2, None),
     }
     kept, rejected = filter_alive([reliable, unstable, dead, untested], results, 0.66)
+    # 未测试到的节点默认剔除，避免未经验证的节点混进最终列表
+    assert kept == [reliable]
+    assert rejected == [(unstable, "unstable_proxy"), (dead, "dead_proxy"),
+                        (untested, "alive_untested")]
+
+
+def test_filter_alive_can_keep_untested():
+    reliable, untested = _node("1.1.1.1"), _node("2.2.2.2")
+    results = {reliable.fingerprint: AliveResult(3, 3, 100)}
+    kept, rejected = filter_alive([reliable, untested], results, 0.66, keep_untested=True)
     assert kept == [reliable, untested]
-    assert rejected == [(unstable, "unstable_proxy"), (dead, "dead_proxy")]
+    assert rejected == []
 
 
 def test_alive_result_rate():

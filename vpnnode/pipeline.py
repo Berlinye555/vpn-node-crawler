@@ -257,7 +257,10 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
         alive_results = await check_alive(nodes, mihomo_path, filters)
         if alive_results:
             min_rate = float(filters.get("alive_min_success_rate", 0.66))
-            nodes, alive_rejected = filter_alive(nodes, alive_results, min_rate)
+            nodes, alive_rejected = filter_alive(
+                nodes, alive_results, min_rate,
+                keep_untested=bool(filters.get("alive_allow_untested", False)),
+            )
             all_rejected.extend(alive_rejected)
             for node in nodes:
                 result = alive_results.get(node.fingerprint)

@@ -14,6 +14,8 @@ alive_samples: 1
 alive_min_success_rate: 1.0
 alive_timeout_ms: 4000
 alive_concurrency: 120
+# 分批测试时若有批次失败，未测到的节点默认剔除（未经任何验证，不该进最终列表）
+alive_allow_untested: false
 
 # 出口 IP 探测：经每个存活节点请求 cloudflare trace，拿真实出口地址。
 # CDN 中转节点的 server 解析地址是入口，不代表出口；关掉可省一轮请求。

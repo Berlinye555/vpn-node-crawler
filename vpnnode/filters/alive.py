@@ -36,13 +36,24 @@ def filter_alive(
     nodes: list[Node],
     results: dict[str, AliveResult],
     min_rate: float,
+    keep_untested: bool = False,
 ) -> tuple[list[Node], list[tuple[Node, str]]]:
-    """按真实请求成功率过滤；未测试到的节点保留。"""
+    """按真实请求成功率过滤。
+
+    默认剔除未测试到的节点：分批测试时可能有批次失败，把它们当作可用会让
+    未经任何验证的节点混进最终列表（实测曾有一半以上的最终节点属于这种情况）。
+    """
     kept: list[Node] = []
     rejected: list[tuple[Node, str]] = []
     for node in nodes:
         result = results.get(node.fingerprint)
-        if result is None or result.rate >= min_rate:
+        if result is None:
+            if keep_untested:
+                kept.append(node)
+            else:
+                rejected.append((node, "alive_untested"))
+            continue
+        if result.rate >= min_rate:
             kept.append(node)
             continue
         rejected.append((node, "dead_proxy" if result.success == 0 else "unstable_proxy"))
