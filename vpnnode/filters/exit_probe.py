@@ -61,14 +61,36 @@ async def probe_exits(
 ) -> dict[str, dict[str, str]]:
     """对给定节点各开一个本地端口测真实出口，返回 {fingerprint: {ip, loc, warp}}。
 
-    只在 alive 之后调用：存活节点通常只有几十到几百个，listeners 数量可控。
-    整批挂在 alive 阶段会随节点总数线性膨胀，数千节点时会让内核起不来。
+    只在 alive 之后调用，且只应传入已确认可靠的节点。单个畸形节点会让整批配置
+    被内核拒绝，所以按批启动，失败批不拖累其他批。
     """
-    from vpnnode.filters.alive import _wait_api, build_config
-
     cfg = cfg or {}
     if not nodes:
         return {}
+
+    batch_size = max(1, int(cfg.get("exit_probe_batch_size", 300)))
+    merged: dict[str, dict[str, str]] = {}
+    failed = 0
+    for start in range(0, len(nodes), batch_size):
+        batch = nodes[start:start + batch_size]
+        part = await _probe_batch(batch, mihomo_path, cfg)
+        if part is None:
+            failed += 1
+            log.warning("exit probe batch @%d failed (%d nodes)", start, len(batch))
+            continue
+        merged.update(part)
+    if failed:
+        log.warning("exit probe: %d batch(es) rejected by core", failed)
+    return merged
+
+
+async def _probe_batch(
+    nodes: list[Node],
+    mihomo_path: str,
+    cfg: dict,
+) -> dict[str, dict[str, str]] | None:
+    """跑一批；返回 None 表示内核因配置问题未能启动。"""
+    from vpnnode.filters.alive import _wait_api, build_config
 
     workdir = tempfile.mkdtemp(prefix="mihomo-exit-")
     config, _ = build_config(nodes, listen_base_port=MIXED_BASE_PORT)
@@ -87,7 +109,7 @@ async def probe_exits(
             handle.close()
     except Exception as exc:
         log.warning("exit probe launch failed: %s", exc)
-        return {}
+        return None
 
     try:
         if not await _wait_api(proc):
@@ -97,7 +119,7 @@ async def probe_exits(
             except Exception:
                 pass
             log.warning("exit probe mihomo not ready (exit=%s): %s", proc.returncode, tail)
-            return {}
+            return None
 
         timeout_ms = int(cfg.get("exit_probe_timeout_ms", 5000))
         concurrency = int(cfg.get("exit_probe_concurrency", 30))

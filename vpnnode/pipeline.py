@@ -252,7 +252,9 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
     mark("reputation")
 
     mihomo_path = getattr(args, "mihomo", "") or os.environ.get("MIHOMO_PATH", "")
+    alive_results: dict = {}
     if mihomo_path:
+        alive_input = len(nodes)
         alive_results = await check_alive(nodes, mihomo_path, filters)
         if alive_results:
             min_rate = float(filters.get("alive_min_success_rate", 0.66))
@@ -263,6 +265,7 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
                 if result is not None and result.delay:
                     node.params["latency_ms"] = result.delay
             report["stats"]["alive"] = {
+                "input": alive_input,
                 "tested": len(alive_results),
                 "reliable": sum(1 for r in alive_results.values() if r.rate >= min_rate),
                 "dead": sum(1 for r in alive_results.values() if r.success == 0),
@@ -275,9 +278,15 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
         report["stats"]["alive"] = {"skipped": "no mihomo"}
     mark("alive")
 
-    # 出口探测单独起一台小实例，只对存活节点开端口；挂在 alive 里会随节点总数膨胀
-    if mihomo_path and nodes and filters.get("exit_probe", True):
-        exit_infos = await probe_exits(nodes, mihomo_path, filters)
+    # 出口探测只对 alive 确认可靠的节点做：未测到的节点出口未知，不值得占端口
+    if mihomo_path and filters.get("exit_probe", True):
+        probe_min_rate = float(filters.get("alive_min_success_rate", 0.66))
+        probe_targets = [
+            node for node in nodes
+            if (alive_results.get(node.fingerprint) is not None
+                and alive_results[node.fingerprint].rate >= probe_min_rate)
+        ]
+        exit_infos = await probe_exits(probe_targets, mihomo_path, filters) if probe_targets else {}
         for node in nodes:
             info = exit_infos.get(node.fingerprint)
             if not info:
@@ -286,7 +295,7 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
             node.params["exit_loc"] = info["loc"]
             if info["warp"]:
                 node.params["warp"] = info["warp"]
-        report["stats"]["exit_probe"] = {"tested": len(nodes), "resolved": len(exit_infos)}
+        report["stats"]["exit_probe"] = {"tested": len(probe_targets), "resolved": len(exit_infos)}
     else:
         report["stats"]["exit_probe"] = {"skipped": True}
     mark("exit")

@@ -1,4 +1,8 @@
+import asyncio
+
+from vpnnode.filters import ai_probe as ai_mod
 from vpnnode.filters.ai_probe import TARGETS, classify, overall_level
+from vpnnode.models import Node
 
 
 def test_classify_healthy_responses():
@@ -48,3 +52,18 @@ def test_overall_level_blocked():
 def test_overall_level_dead():
     levels = {name: "dead" for name in TARGETS}
     assert overall_level(levels) == "dead"
+
+
+def test_check_ai_batches_and_merges(monkeypatch):
+    nodes = [Node("ss", f"10.1.0.{i}", f"10.1.0.{i}", 8388,
+                  {"cipher": "aes-256-gcm", "password": "p"}) for i in range(5)]
+    calls = []
+
+    async def fake_run(batch, path, cfg):
+        calls.append(len(batch))
+        return {node.fingerprint: {"openai_api": "ok"} for node in batch}
+
+    monkeypatch.setattr(ai_mod, "_run", fake_run)
+    result = asyncio.run(ai_mod.check_ai(nodes, "mihomo", {"ai_probe_batch_size": 2}))
+    assert calls == [2, 2, 1]
+    assert len(result) == 5

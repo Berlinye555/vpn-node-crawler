@@ -496,6 +496,8 @@ tagging:
 1. `check_alive()` 改为按 `chunk_size`（默认 2000）分批，单批被拒再按 200 细分，且**覆盖全部节点**；
 2. 出口探测移出 alive，改为 `exit_probe.probe_exits()` 单独起实例，只对存活节点开端口（通常几十到几百个）；AI 探测的端口段顺延到 `21000`，避免与出口探测争用。
 
+**二次修复（2026-11-25）**：第一版修完后 `exit_probe` 仍 0.8s、`ai` 0.4s 就返回——同样是单个畸形节点让整批配置被内核拒绝。两处都改为按批启动（出口 300/批、AI 150/批），失败批只丢弃该批、不影响其他批；同时出口探测的目标从「filter_alive 后的全部节点」收敛为「alive 确认可靠的节点」，避免 759 个未测到的节点白白占端口。`report.stats.alive` 增加 `input` 字段，用于核对分批后的覆盖率。
+
 #### P3 分级打标
 
 - `filters/intel.py`（新）：`classify_ip`（cdn/mobile/datacenter/residential）、`safety_level`、`latency_level`、`ip_score`、`apply_tags`；`apply_intel` 按**出口 IP** 查 ip-api 与 DNSBL，给节点打标。

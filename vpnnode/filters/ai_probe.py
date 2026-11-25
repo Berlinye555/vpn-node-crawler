@@ -188,5 +188,15 @@ async def check_ai(nodes: list[Node], mihomo_path: str, cfg: dict | None = None)
     cfg = cfg or {}
     if not nodes or not cfg.get("ai_probe_enabled", True):
         return {}
-    result = await _run(nodes, mihomo_path, cfg)
-    return result or {}
+
+    # 单个畸形节点就能让整批配置被内核拒绝，与出口探测同样的处理
+    batch_size = max(1, int(cfg.get("ai_probe_batch_size", 150)))
+    merged: dict[str, dict[str, str]] = {}
+    for start in range(0, len(nodes), batch_size):
+        batch = nodes[start:start + batch_size]
+        part = await _run(batch, mihomo_path, cfg)
+        if part is None:
+            log.warning("ai probe batch @%d rejected by core (%d nodes)", start, len(batch))
+            continue
+        merged.update(part)
+    return merged
