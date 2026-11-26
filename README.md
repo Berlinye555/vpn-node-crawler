@@ -38,9 +38,13 @@ HTTPS_PROXY=http://127.0.0.1:7890 HTTP_PROXY=http://127.0.0.1:7890 \
 输出：
 
 - `output/clash.yaml` — 直接导入 Clash Verge / Mihomo；节点名带分级标签，含 `🏠 住宅 IP` / `🟢 安全` / `⚡ 低延迟` 等用途分组
+  - `🚀 自动` 只收**抗封锁协议**（TLS / REALITY / hysteria2 / trojan / 带 TLS 的 ws、grpc）
+  - `📦 全部节点` 含明文 SS 等全部节点；`♻️ 手动` 可自选
 - `output/sub.base64` — v2rayN / v2rayNG 订阅
-- `output/nodes.json` — 单节点明细：出口 IP、ASN、IP 类型、安全等级、延迟、`ip_score`、标签
+- `output/nodes.json` — 单节点明细：出口 IP、ASN、IP 类型、安全等级、延迟、`ip_score`、`resistant` 标记
 - `output/report.json` — 漏斗统计、分阶段耗时、每源抓取数与最终贡献、被剔除原因、分级分布
+
+> 为什么自动组要过滤：明文 SS/VLESS 在境外测全通、境内必被墙（GFW 按流量特征识别）。CI 跑在境外机房，测不出这一点，所以改为按协议判定而不是实测。抗封锁节点不足 10 个时自动组回退为全部节点。
 
 节点分级为三个正交维度，不合成单一等级：
 

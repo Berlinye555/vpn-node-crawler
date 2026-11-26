@@ -9,6 +9,7 @@ from vpnnode.models import Node
 log = logging.getLogger(__name__)
 
 AUTO_GROUP = "🚀 自动"
+ALL_GROUP = "📦 全部节点"
 MANUAL_GROUP = "♻️ 手动"
 RESIDENTIAL_GROUP = "🏠 住宅 IP"
 SAFE_GROUP = "🟢 安全"
@@ -196,10 +197,31 @@ def _to_clash(node: Node, name: str) -> dict:
     return proxy
 
 
+def is_resistant(node: Node) -> bool:
+    """能否过 GFW 粗筛：明文传输（无 TLS 的 ss/vmess/vless）在国内基本必死。
+
+    这是基于协议的判断，不依赖任何实测——GitHub Actions 在境外，
+    测不出「境外能连、国内被墙」。
+    """
+    p = node.params
+    if node.protocol == "hysteria2":
+        return True
+    if node.protocol == "trojan":
+        return bool(p.get("tls", True))
+    if p.get("security") == "reality" or p.get("reality_pbk"):
+        return True
+    return bool(p.get("tls"))
+
+
 def _build_groups(nodes: list[Node], names: list[str]) -> list[dict]:
+    resistant = [name for node, name in zip(nodes, names) if is_resistant(node)]
+    # 抗封锁节点太少时不做拆分，否则默认组会只剩个位数
+    auto_members = resistant if len(resistant) >= 10 else list(names)
     groups: list[dict] = [
-        {**URLTEST_OPTS, "name": AUTO_GROUP, "proxies": list(names)},
+        {**URLTEST_OPTS, "name": AUTO_GROUP, "proxies": auto_members},
     ]
+    if resistant and len(resistant) < len(names):
+        groups.append({**URLTEST_OPTS, "name": ALL_GROUP, "proxies": list(names)})
 
     # 按用途拆分的分组：空组不输出，避免客户端出现选不中的组
     tag_groups = [

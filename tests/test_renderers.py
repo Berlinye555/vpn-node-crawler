@@ -4,7 +4,7 @@ import yaml
 
 from vpnnode.models import Node
 from vpnnode.renderers.base64_sub import render_base64
-from vpnnode.renderers.clash import render_clash
+from vpnnode.renderers.clash import is_resistant, render_clash
 
 
 def sample_nodes():
@@ -84,6 +84,36 @@ def test_tag_groups_skipped_when_empty():
     assert "🏠 住宅 IP" not in names
     assert "🟢 安全" not in names
     assert "⚡ 低延迟" not in names
+
+
+def test_is_resistant_by_protocol():
+    assert is_resistant(Node("ss", "n", "1.1.1.1", 8388,
+                              {"cipher": "aes-256-gcm", "password": "p"})) is False
+    assert is_resistant(Node("vless", "n", "1.1.1.1", 443, {"uuid": "u"})) is False
+    assert is_resistant(Node("vless", "n", "1.1.1.1", 443, {"uuid": "u", "tls": True})) is True
+    assert is_resistant(Node("vless", "n", "1.1.1.1", 443,
+                              {"uuid": "u", "security": "reality", "reality_pbk": "k"})) is True
+    assert is_resistant(Node("trojan", "n", "1.1.1.1", 443, {"password": "p", "tls": True})) is True
+    assert is_resistant(Node("hysteria2", "n", "1.1.1.1", 443, {"password": "p"})) is True
+
+
+def test_auto_group_prefers_resistant_nodes():
+    resistant = [Node("vless", f"r{i}", f"10.0.0.{i}", 443, {"uuid": f"u{i}", "tls": True})
+                 for i in range(12)]
+    plain = [Node("ss", f"p{i}", f"10.1.0.{i}", 8388,
+                  {"cipher": "aes-256-gcm", "password": "p"}) for i in range(3)]
+    groups = {g["name"]: g for g in yaml.safe_load(render_clash(resistant + plain, {}))["proxy-groups"]}
+    assert len(groups["🚀 自动"]["proxies"]) == 12
+    assert len(groups["📦 全部节点"]["proxies"]) == 15
+
+
+def test_auto_group_falls_back_when_few_resistant():
+    resistant = [Node("vless", f"r{i}", f"10.0.0.{i}", 443, {"uuid": f"u{i}", "tls": True})
+                 for i in range(3)]
+    plain = [Node("ss", f"p{i}", f"10.1.0.{i}", 8388,
+                  {"cipher": "aes-256-gcm", "password": "p"}) for i in range(3)]
+    groups = {g["name"]: g for g in yaml.safe_load(render_clash(resistant + plain, {}))["proxy-groups"]}
+    assert len(groups["🚀 自动"]["proxies"]) == 6
 
 
 def test_render_clash_empty_nodes():
