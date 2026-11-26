@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-26T10:07:47.108446+00:00",
+  "generated_at": "2026-11-26T10:18:35.671603+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
-      "total": 9818,
+      "total": 9807,
       "specs": 4,
       "urls": 12
     },
@@ -37,14 +37,14 @@
       "vpnv2r4y": 97,
       "vmesskhodam": 96,
       "vpnsal": 96,
-      "vpn_click": 95,
       "outlineopenkey": 92,
       "v2raybaaz": 92,
       "v2rayargon": 91,
       "v2raych": 89,
+      "vpn_click": 86,
       "v2ry_proxy": 84,
       "keysoutline": 82,
-      "v2ray_confing33": 81,
+      "v2ray_confing33": 79,
       "v2rayngvpn": 68,
       "confingv2raayng": 66,
       "xlyv2ray": 61,
@@ -117,18 +117,18 @@
       "safenetir": 1
     },
     "aggregate": {
-      "input": 9818,
-      "unique": 5594,
-      "duplicates": 4224,
+      "input": 9807,
+      "unique": 5601,
+      "duplicates": 4206,
       "by_source": {
         "github": 3364,
         "subscription": 253,
-        "telegram": 1977
+        "telegram": 1984
       },
       "by_protocol": {
         "ss": 913,
-        "vmess": 1207,
-        "vless": 2583,
+        "vmess": 1211,
+        "vless": 2586,
         "anytls": 11,
         "hysteria": 6,
         "hysteria2": 283,
@@ -139,7 +139,7 @@
       }
     },
     "precheck": {
-      "kept": 4183,
+      "kept": 4190,
       "rejected": 1411,
       "reasons": {
         "unsupported_protocol": 41,
@@ -151,100 +151,99 @@
       }
     },
     "probe": {
-      "probed": 4183,
-      "failed": 2034,
-      "bad_cert": 222,
-      "ws_dead": 545
+      "probed": 4190,
+      "failed": 2033,
+      "bad_cert": 223,
+      "ws_dead": 553
     },
     "reputation": {
       "enabled": true,
-      "resolved_ips": 3216,
-      "dnsbl_hits": 217,
-      "dnsbl_unverified": 1757,
+      "resolved_ips": 3224,
+      "dnsbl_hits": 226,
+      "dnsbl_unverified": 1724,
       "unverified": 138,
-      "rejected": 309
+      "rejected": 284
     },
     "alive": {
-      "input": 3874,
-      "tested": 2874,
-      "reliable": 341,
-      "dead": 2533,
+      "input": 3906,
+      "tested": 2906,
+      "reliable": 355,
+      "dead": 2551,
       "unstable": 0,
       "samples": 1
     },
     "exit_probe": {
-      "tested": 341,
-      "resolved": 322,
+      "tested": 355,
+      "resolved": 328,
       "batches": 2,
       "failed_batches": 0
     },
     "quality": {
-      "kept": 246,
-      "rejected": 95,
+      "kept": 263,
+      "rejected": 92,
       "reasons": {
         "ws_dead": 2,
-        "connect_failed": 7,
-        "over_group_limit": 86
+        "connect_failed": 9,
+        "over_group_limit": 81
       }
     },
     "tagging": {
-      "queried": 192,
-      "resolved": 192,
-      "dnsbl_hits": 79,
+      "queried": 198,
+      "resolved": 198,
+      "dnsbl_hits": 86,
       "dnsbl_by_zone": {
-        "zen.spamhaus.org": 65,
-        "dnsbl.dronebl.org": 43,
-        "bl.spamcop.net": 4
+        "dnsbl.dronebl.org": 44,
+        "zen.spamhaus.org": 75,
+        "bl.spamcop.net": 2
       },
       "by_ip_type": {
+        "datacenter": 158,
         "residential": 75,
-        "datacenter": 148,
-        "unknown": 14,
+        "unknown": 21,
         "cdn": 4,
         "mobile": 5
       },
       "by_safety": {
-        "suspicious": 237,
-        "safe": 9
+        "suspicious": 248,
+        "safe": 15
       },
       "by_latency": {
-        "fast": 49,
-        "medium": 144,
-        "slow": 53
+        "slow": 75,
+        "medium": 150,
+        "fast": 38
       },
-      "ip_score_avg": 41.5
+      "ip_score_avg": 43.7
     },
-    "final": 246,
+    "final": 263,
     "final_by_source": {
-      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 78,
-      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 56,
-      "https://leidahub.top/clash.yaml": 46,
-      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 12,
-      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 10,
-      "soskeynet": 9,
-      "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray": 8,
-      "icv2ray": 5,
-      "i10vpn": 4,
-      "daily_configs": 4,
-      "farah_vpn": 3,
+      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 77,
+      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 64,
+      "https://leidahub.top/clash.yaml": 50,
+      "soskeynet": 15,
+      "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray": 12,
+      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 11,
+      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 11,
+      "farah_vpn": 5,
+      "icv2ray": 4,
+      "daily_configs": 3,
       "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 3,
+      "i10vpn": 2,
       "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 2,
-      "v2ray1_ng": 2,
-      "vpnv2r4y": 1,
       "shadowsocks_phs": 1,
-      "hopev2ray": 1,
-      "sharecentrepro": 1
+      "gh_v2rayng": 1,
+      "sharecentrepro": 1,
+      "v2ray1_ng": 1
     },
     "timings": {
-      "fetch": 12.3,
+      "fetch": 15.6,
       "aggregate": 0.0,
-      "precheck": 0.0,
-      "probe": 60.1,
-      "reputation": 67.8,
-      "alive": 56.2,
-      "exit": 17.5,
+      "precheck": 0.1,
+      "probe": 62.3,
+      "reputation": 67.7,
+      "alive": 57.2,
+      "exit": 19.8,
       "quality": 0.0,
-      "intel": 6.2
+      "intel": 3.7
     }
   },
   "failed_sources": [],
