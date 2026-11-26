@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-26T10:26:32.599852+00:00",
+  "generated_at": "2026-11-26T11:15:35.862059+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
-      "total": 9842,
+      "total": 9904,
       "specs": 4,
       "urls": 12
     },
@@ -19,36 +19,37 @@
       "farah_vpn": 200,
       "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 199,
       "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 198,
+      "soskeynet": 174,
       "v2ray1_ng": 165,
-      "soskeynet": 164,
       "https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray": 160,
       "prrofile_purple": 149,
       "icv2ray": 134,
-      "daily_configs": 133,
-      "gh_v2rayng": 131,
+      "daily_configs": 121,
       "shadowsocks_phs": 121,
+      "oneclickvpnkeys": 121,
       "i10vpn": 120,
       "https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/hellopool": 118,
+      "gh_v2rayng": 112,
       "irv2rey": 112,
       "bigsmoke_config": 112,
       "shh_proxy": 112,
-      "oneclickvpnkeys": 107,
+      "vpn_click": 107,
       "hopev2ray": 100,
       "vpnv2r4y": 97,
+      "v2ray_confing33": 97,
       "vmesskhodam": 96,
       "vpnsal": 96,
-      "v2raych": 93,
       "outlineopenkey": 92,
       "v2raybaaz": 92,
       "v2rayargon": 91,
-      "vpn_click": 86,
       "v2ry_proxy": 84,
       "keysoutline": 82,
-      "v2ray_confing33": 79,
-      "v2rayngvpn": 68,
+      "v2raych": 81,
+      "v2rayngvpn": 70,
       "confingv2raayng": 66,
       "xlyv2ray": 61,
       "vistav2ray": 59,
+      "expressvpn_420": 59,
       "fast78_channel": 56,
       "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray": 55,
       "v2rayng_1378": 55,
@@ -58,9 +59,8 @@
       "clashv8": 52,
       "new_mtproxi2": 50,
       "surfboardv2ray": 50,
-      "expressvpn_420": 46,
+      "singbox1": 49,
       "v2rayng_ip": 41,
-      "singbox1": 39,
       "configx2ray": 38,
       "tehranargo": 38,
       "stretten": 33,
@@ -70,6 +70,7 @@
       "vaynora": 32,
       "siigmavpn": 31,
       "net2proxy": 30,
+      "farahvpn": 29,
       "https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml": 27,
       "mtproxy_lists": 27,
       "iran_v2ray1": 25,
@@ -77,7 +78,7 @@
       "v2rayng_fast": 22,
       "v2rfa": 22,
       "archive_android": 22,
-      "farahvpn": 20,
+      "config_fre": 21,
       "shadowsockskeys": 20,
       "v2rayrootfree": 20,
       "v2ray_free_conf": 20,
@@ -85,8 +86,8 @@
       "free1ss": 19,
       "h110vpn": 18,
       "capoit": 17,
+      "proxy_kafee": 17,
       "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 16,
-      "configshub": 16,
       "payam_nsi": 15,
       "https://raw.githubusercontent.com/freefq/free/master/v2": 14,
       "sharecentrepro": 14,
@@ -101,11 +102,10 @@
       "nt_safe": 12,
       "v2freehub": 11,
       "freeland8": 10,
-      "config_fre": 10,
       "config_proxy": 9,
-      "proxy_kafee": 7,
       "skivpn": 7,
       "maznet": 6,
+      "configshub": 3,
       "academi_vpn": 3,
       "vaslvip": 3,
       "ssrsub": 2,
@@ -117,18 +117,18 @@
       "safenetir": 1
     },
     "aggregate": {
-      "input": 9842,
-      "unique": 5601,
-      "duplicates": 4241,
+      "input": 9904,
+      "unique": 5617,
+      "duplicates": 4287,
       "by_source": {
         "github": 3364,
         "subscription": 253,
-        "telegram": 1984
+        "telegram": 2000
       },
       "by_protocol": {
         "ss": 913,
-        "vmess": 1210,
-        "vless": 2588,
+        "vmess": 1211,
+        "vless": 2603,
         "anytls": 11,
         "hysteria": 6,
         "hysteria2": 283,
@@ -139,111 +139,111 @@
       }
     },
     "precheck": {
-      "kept": 4190,
+      "kept": 4206,
       "rejected": 1411,
       "reasons": {
         "unsupported_protocol": 41,
-        "insecure_tls": 1318,
+        "insecure_tls": 1319,
         "private_address": 20,
         "weak_cipher": 23,
-        "unsupported_flow": 4,
+        "unsupported_flow": 3,
         "missing_credentials": 5
       }
     },
     "probe": {
-      "probed": 4190,
-      "failed": 2033,
-      "bad_cert": 227,
-      "ws_dead": 547
+      "probed": 4206,
+      "failed": 2026,
+      "bad_cert": 225,
+      "ws_dead": 551
     },
     "reputation": {
       "enabled": true,
-      "resolved_ips": 3225,
-      "dnsbl_hits": 0,
-      "dnsbl_unverified": 1725,
-      "unverified": 138,
-      "rejected": 0
+      "resolved_ips": 3238,
+      "dnsbl_hits": 224,
+      "dnsbl_unverified": 1738,
+      "unverified": 137,
+      "rejected": 309
     },
     "alive": {
-      "input": 4190,
-      "tested": 3200,
-      "reliable": 391,
-      "dead": 2809,
+      "input": 3897,
+      "tested": 2697,
+      "reliable": 337,
+      "dead": 2360,
       "unstable": 0,
       "samples": 1
     },
     "exit_probe": {
-      "tested": 391,
-      "resolved": 373,
+      "tested": 337,
+      "resolved": 317,
       "batches": 2,
       "failed_batches": 0
     },
     "quality": {
-      "kept": 300,
-      "rejected": 91,
+      "kept": 224,
+      "rejected": 113,
       "reasons": {
-        "slow_handshake": 2,
-        "connect_failed": 10,
-        "over_group_limit": 12,
-        "over_total_limit": 67
+        "connect_failed": 7,
+        "slow_handshake": 1,
+        "over_group_limit": 105
       }
     },
     "tagging": {
-      "queried": 219,
-      "resolved": 219,
-      "dnsbl_hits": 76,
+      "queried": 179,
+      "resolved": 179,
+      "dnsbl_hits": 72,
       "dnsbl_by_zone": {
-        "dnsbl.dronebl.org": 76,
-        "bl.spamcop.net": 3
+        "zen.spamhaus.org": 59,
+        "dnsbl.dronebl.org": 45,
+        "bl.spamcop.net": 2
       },
       "by_ip_type": {
-        "datacenter": 179,
-        "residential": 104,
+        "datacenter": 147,
+        "residential": 57,
+        "cdn": 6,
         "unknown": 13,
-        "cdn": 2,
-        "mobile": 2
+        "mobile": 1
       },
       "by_safety": {
-        "suspicious": 283,
-        "safe": 17
+        "suspicious": 214,
+        "safe": 10
       },
       "by_latency": {
-        "fast": 64,
-        "slow": 43,
-        "medium": 193
+        "fast": 60,
+        "medium": 111,
+        "slow": 53
       },
-      "ip_score_avg": 40.1
+      "ip_score_avg": 42.2
     },
-    "final": 300,
+    "final": 224,
     "final_by_source": {
-      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 97,
-      "https://leidahub.top/clash.yaml": 74,
-      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 74,
-      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 16,
-      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 10,
+      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 73,
+      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 50,
+      "https://leidahub.top/clash.yaml": 38,
+      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 15,
+      "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 13,
+      "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray": 9,
       "icv2ray": 7,
-      "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray": 5,
-      "surfboardv2ray": 4,
-      "i10vpn": 4,
+      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 5,
+      "farah_vpn": 4,
+      "v2ray1_ng": 2,
       "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 2,
       "daily_configs": 1,
-      "v2ray1_ng": 1,
-      "gh_v2rayng": 1,
-      "shadowsocks_phs": 1,
+      "payam_nsi": 1,
+      "freeland8": 1,
       "v2ray_extractor": 1,
-      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 1,
-      "farah_vpn": 1
+      "soskeynet": 1,
+      "sharecentrepro": 1
     },
     "timings": {
-      "fetch": 16.5,
+      "fetch": 10.4,
       "aggregate": 0.0,
-      "precheck": 0.0,
-      "probe": 59.3,
-      "reputation": 55.4,
-      "alive": 59.1,
-      "exit": 19.1,
+      "precheck": 0.1,
+      "probe": 60.6,
+      "reputation": 63.6,
+      "alive": 51.8,
+      "exit": 17.3,
       "quality": 0.0,
-      "intel": 5.9
+      "intel": 4.5
     }
   },
   "failed_sources": [],
