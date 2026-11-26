@@ -35,10 +35,10 @@ latency_slow_ms: 800
 intel_batch_size: 100
 # 每个列表的命中数会写进 report.stats.tagging.dnsbl_by_zone，据此再删误伤严重的。
 # 已移除：uceprotect（免费查询常直接返回命中）、psbl.surriel.com（2019 年停维护）、
-# spam.spamrats.com（对未注册用户不稳定）。
+# spam.spamrats.com（对未注册用户不稳定）、all.s5h.net（2026-11-26 实测命中 125/221，
+# 对共享 IP 收录过宽，把 ip_score 压到平均 34，而同期 spamhaus 命中 0）。
 intel_dnsbl_zones:
   - zen.spamhaus.org
   - bl.spamcop.net
   - bl.blocklist.de
-  - all.s5h.net
   - dnsbl.dronebl.org
