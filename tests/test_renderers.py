@@ -4,7 +4,7 @@ import yaml
 
 from vpnnode.models import Node
 from vpnnode.renderers.base64_sub import render_base64
-from vpnnode.renderers.clash import is_resistant, render_clash
+from vpnnode.renderers.clash import is_resistant, is_trusted_source, render_clash
 
 
 def sample_nodes():
@@ -95,6 +95,26 @@ def test_is_resistant_by_protocol():
                               {"uuid": "u", "security": "reality", "reality_pbk": "k"})) is True
     assert is_resistant(Node("trojan", "n", "1.1.1.1", 443, {"password": "p", "tls": True})) is True
     assert is_resistant(Node("hysteria2", "n", "1.1.1.1", 443, {"password": "p"})) is True
+
+
+def test_is_trusted_source():
+    node = Node("ss", "n", "1.1.1.1", 8388, {"cipher": "aes-256-gcm", "password": "p"})
+    node.source = "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/clash.yml"
+    assert is_trusted_source(node) is True
+    node.source = "github:https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray"
+    assert is_trusted_source(node) is True
+    node.source = "github:https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity"
+    assert is_trusted_source(node) is False
+    node.source = "telegram:v2ray_official"
+    assert is_trusted_source(node) is False
+
+
+def test_trusted_group_created():
+    nodes = sample_nodes()
+    nodes[0].source = "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/x"
+    nodes[1].source = "github:https://raw.githubusercontent.com/mahdibland/x/Eternity"
+    by_name = {g["name"]: g for g in yaml.safe_load(render_clash(nodes, {}))["proxy-groups"]}
+    assert by_name["⭐ 可信源"]["proxies"] == ["HK-01"]
 
 
 def test_auto_group_prefers_resistant_nodes():

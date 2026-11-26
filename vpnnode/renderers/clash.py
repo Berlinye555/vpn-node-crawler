@@ -9,8 +9,28 @@ from vpnnode.models import Node
 log = logging.getLogger(__name__)
 
 AUTO_GROUP = "🚀 自动"
+TRUSTED_GROUP = "⭐ 可信源"
 ALL_GROUP = "📦 全部节点"
 MANUAL_GROUP = "♻️ 手动"
+
+# 长期存活、实测能用节点占比高的源。mahdibland 产出量最大但 97 个里只有 1 个
+# 抗封锁协议，属于典型的「量大质低」，故意不列入。
+TRUSTED_SOURCE_KEYS = (
+    "ssrsub/ssr",
+    "ermaozi/get_subscribe",
+    "ripaojiedian/freenode",
+    "leidahub.top",
+    "yasserdivar/pr0xy",
+    "icv2ray",
+    "anaer/sub",
+    "xiyaowong/freefq",
+    "peasoft/nomorewalls",
+)
+
+
+def is_trusted_source(node: Node) -> bool:
+    source = (node.source or "").lower()
+    return any(key in source for key in TRUSTED_SOURCE_KEYS)
 RESIDENTIAL_GROUP = "🏠 住宅 IP"
 SAFE_GROUP = "🟢 安全"
 FAST_GROUP = "⚡ 低延迟"
@@ -220,6 +240,9 @@ def _build_groups(nodes: list[Node], names: list[str]) -> list[dict]:
     groups: list[dict] = [
         {**URLTEST_OPTS, "name": AUTO_GROUP, "proxies": auto_members},
     ]
+    trusted = [name for node, name in zip(nodes, names) if is_trusted_source(node)]
+    if trusted:
+        groups.append({**URLTEST_OPTS, "name": TRUSTED_GROUP, "proxies": trusted})
     if resistant and len(resistant) < len(names):
         groups.append({**URLTEST_OPTS, "name": ALL_GROUP, "proxies": list(names)})
 

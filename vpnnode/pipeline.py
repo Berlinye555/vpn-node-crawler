@@ -25,7 +25,7 @@ from vpnnode.filters.reputation import apply_reputation
 from vpnnode.history import append_history, render_markdown
 from vpnnode.models import Node
 from vpnnode.renderers.base64_sub import render_base64
-from vpnnode.renderers.clash import country_label, is_resistant, render_clash
+from vpnnode.renderers.clash import country_label, is_resistant, is_trusted_source, render_clash
 from vpnnode.sources import github, subscription, telegram, webpage
 from vpnnode.sources.common import parse_any_text
 
@@ -161,6 +161,7 @@ def export_nodes(nodes: list[Node]) -> list[dict]:
             "asn": p.get("asn", ""),
             "ip_type": p.get("ip_type", ""),
             "resistant": is_resistant(node),
+            "trusted": is_trusted_source(node),
             "proxy": bool(p.get("proxy")),
             "hosting": bool(p.get("hosting")),
             "dnsbl": bool(p.get("dnsbl_hit")),
