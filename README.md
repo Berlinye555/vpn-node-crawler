@@ -77,6 +77,26 @@ Telegram 源抓 `t.me/s/<channel>` 公开预览页，免 token：`channels` 支�
 .venv/Scripts/python.exe -m pytest -q
 ```
 
+## 本地验证节点可用性
+
+CI 跑在境外机房，只能回答「节点后端是否活着」。**明文协议在境外测全通、境内必被墙**——要确认节点在你自己网络里能不能用，用这个脚本：
+
+```bash
+# 需要 mihomo 内核：放到项目根目录，或用 --mihomo / MIHOMO_PATH 指定
+python tools/local_check.py --clash output/clash.yaml
+
+# 直接测订阅（支持 base64 / Clash / 明文）
+python tools/local_check.py --sub https://gcore.jsdelivr.net/gh/Berlinye555/vpn-node-crawler@main/output/sub.base64
+
+# 只测抗封锁协议，跳过明文 SS
+python tools/local_check.py --clash output/clash.yaml --protocols vless,trojan
+
+# 只测前 50 个，超时 3 秒
+python tools/local_check.py --clash output/clash.yaml --limit 50 --timeout 3
+```
+
+默认目标是 `https://www.google.com/generate_204`（境内需过墙才是真可用）。注意：**测之前关掉其他代理和 TUN**，否则流量被接管，结果失真。脚本开头的自检会提示本机能否直连目标。
+
 ## 定时任务与订阅（GitHub Actions + jsDelivr）
 
 `.github/workflows/daily.yml` 每天北京时间 05:17 自动运行：抓取、过滤、下载 mihomo 做真实测试、把结果提交回 `output/`，然后清除 jsDelivr 缓存。
