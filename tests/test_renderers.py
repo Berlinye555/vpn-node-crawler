@@ -109,6 +109,14 @@ def test_is_trusted_source():
     assert is_trusted_source(node) is False
 
 
+def test_telegram_group_created():
+    nodes = sample_nodes()
+    nodes[0].source = "telegram:v2ray_official"
+    nodes[1].source = "github:https://raw.githubusercontent.com/ermaozi/x"
+    by_name = {g["name"]: g for g in yaml.safe_load(render_clash(nodes, {}))["proxy-groups"]}
+    assert by_name["📡 Telegram 源"]["proxies"] == ["HK-01"]
+
+
 def test_trusted_group_created():
     nodes = sample_nodes()
     nodes[0].source = "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/x"
