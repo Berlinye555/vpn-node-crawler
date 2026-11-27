@@ -1,313 +1,310 @@
 {
-  "generated_at": "2026-11-26T11:15:35.862059+00:00",
+  "generated_at": "2026-11-27T03:39:37.394569+00:00",
   "mode": "online",
   "stats": {
     "fetched": {
-      "total": 9904,
+      "total": 9426,
       "specs": 4,
       "urls": 12
     },
     "fetched_by_source": {
-      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 2142,
-      "https://leidahub.top/clash.yaml": 497,
-      "v2ray_official": 477,
-      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 363,
-      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 315,
-      "ar14n24b": 309,
+      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 1795,
+      "https://leidahub.top/clash.yaml": 496,
+      "v2ray_official": 479,
+      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 399,
+      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 322,
+      "ar14n24b": 287,
       "https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/jingfu": 267,
       "v2ray_extractor": 205,
       "farah_vpn": 200,
       "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 199,
       "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 198,
-      "soskeynet": 174,
-      "v2ray1_ng": 165,
+      "soskeynet": 169,
       "https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray": 160,
-      "prrofile_purple": 149,
+      "prrofile_purple": 156,
+      "v2ray1_ng": 156,
       "icv2ray": 134,
-      "daily_configs": 121,
+      "gh_v2rayng": 131,
       "shadowsocks_phs": 121,
-      "oneclickvpnkeys": 121,
       "i10vpn": 120,
       "https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/hellopool": 118,
-      "gh_v2rayng": 112,
+      "hopev2ray": 113,
       "irv2rey": 112,
-      "bigsmoke_config": 112,
       "shh_proxy": 112,
-      "vpn_click": 107,
-      "hopev2ray": 100,
+      "bigsmoke_config": 111,
+      "daily_configs": 105,
+      "v2ray_confing33": 105,
       "vpnv2r4y": 97,
-      "v2ray_confing33": 97,
-      "vmesskhodam": 96,
-      "vpnsal": 96,
-      "outlineopenkey": 92,
-      "v2raybaaz": 92,
+      "vmesskhodam": 94,
+      "vpnsal": 94,
+      "oneclickvpnkeys": 94,
+      "v2raybaaz": 93,
       "v2rayargon": 91,
-      "v2ry_proxy": 84,
-      "keysoutline": 82,
-      "v2raych": 81,
-      "v2rayngvpn": 70,
-      "confingv2raayng": 66,
+      "v2ry_proxy": 85,
+      "outlineopenkey": 83,
+      "keysoutline": 67,
       "xlyv2ray": 61,
-      "vistav2ray": 59,
+      "confingv2raayng": 59,
       "expressvpn_420": 59,
       "fast78_channel": 56,
       "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray": 55,
       "v2rayng_1378": 55,
       "selinc": 55,
-      "PrivateVPNs": 52,
-      "VlessConfig": 52,
-      "clashv8": 52,
+      "surfboardv2ray": 55,
+      "PrivateVPNs": 54,
+      "VlessConfig": 54,
+      "clashv8": 54,
+      "v2raych": 52,
+      "vistav2ray": 52,
       "new_mtproxi2": 50,
-      "surfboardv2ray": 50,
-      "singbox1": 49,
-      "v2rayng_ip": 41,
-      "configx2ray": 38,
-      "tehranargo": 38,
+      "configpluse": 49,
+      "vpn_click": 46,
+      "configx2ray": 42,
+      "tehranargo": 40,
+      "vpn_mafia": 37,
+      "v2rayng_ip": 34,
       "stretten": 33,
       "erfanandroid": 32,
-      "configpluse": 32,
-      "vpn_mafia": 32,
       "vaynora": 32,
+      "v2rayng_fast": 32,
+      "v2rfa": 32,
       "siigmavpn": 31,
-      "net2proxy": 30,
-      "farahvpn": 29,
       "https://raw.githubusercontent.com/zhangkaiitugithub/passcro/main/speednodes.yaml": 27,
-      "mtproxy_lists": 27,
+      "farahvpn": 27,
+      "singbox1": 26,
       "iran_v2ray1": 25,
       "zede_filteri": 24,
-      "v2rayng_fast": 22,
-      "v2rfa": 22,
+      "config_fre": 24,
+      "v2rayngvpn": 22,
       "archive_android": 22,
-      "config_fre": 21,
+      "net2proxy": 20,
       "shadowsockskeys": 20,
       "v2rayrootfree": 20,
       "v2ray_free_conf": 20,
       "vpnfail_v2ray": 20,
+      "h110vpn": 20,
+      "configshub": 20,
       "free1ss": 19,
-      "h110vpn": 18,
+      "proxy_kafee": 19,
+      "mtproxy_lists": 19,
+      "payam_nsi": 19,
       "capoit": 17,
-      "proxy_kafee": 17,
-      "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 16,
-      "payam_nsi": 15,
+      "freeland8": 15,
       "https://raw.githubusercontent.com/freefq/free/master/v2": 14,
+      "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 14,
       "sharecentrepro": 14,
       "v2rayng_fars": 14,
-      "v2ray26": 14,
-      "v2r_ayorg": 13,
+      "directvpn": 14,
+      "privatevpns": 14,
+      "vlessconfig": 14,
       "vpnbaz": 12,
-      "directvpn": 12,
       "netv2reyng": 12,
-      "privatevpns": 12,
-      "vlessconfig": 12,
-      "nt_safe": 12,
+      "v2ray26": 11,
       "v2freehub": 11,
-      "freeland8": 10,
+      "v2r_ayorg": 11,
       "config_proxy": 9,
+      "nt_safe": 8,
       "skivpn": 7,
       "maznet": 6,
-      "configshub": 3,
       "academi_vpn": 3,
       "vaslvip": 3,
       "ssrsub": 2,
-      "wxdy666": 2,
       "juzibaipiao": 2,
       "kia_net": 2,
       "satarvpn1": 2,
+      "wxdy666": 1,
       "configology": 1,
       "safenetir": 1
     },
     "aggregate": {
-      "input": 9904,
-      "unique": 5617,
-      "duplicates": 4287,
+      "input": 9426,
+      "unique": 5510,
+      "duplicates": 3916,
       "by_source": {
-        "github": 3364,
-        "subscription": 253,
-        "telegram": 2000
+        "github": 3165,
+        "subscription": 257,
+        "telegram": 2088
       },
       "by_protocol": {
-        "ss": 913,
-        "vmess": 1211,
-        "vless": 2603,
-        "anytls": 11,
-        "hysteria": 6,
-        "hysteria2": 283,
-        "trojan": 566,
-        "socks5": 2,
-        "http": 20,
+        "ss": 934,
+        "vmess": 820,
+        "vless": 2814,
+        "hysteria2": 288,
+        "hysteria": 3,
+        "trojan": 572,
+        "anytls": 13,
+        "socks5": 12,
+        "http": 44,
+        "wireguard": 8,
         "ssr": 2
       }
     },
     "precheck": {
-      "kept": 4206,
-      "rejected": 1411,
+      "kept": 4453,
+      "rejected": 1057,
       "reasons": {
-        "unsupported_protocol": 41,
-        "insecure_tls": 1319,
-        "private_address": 20,
+        "insecure_tls": 923,
+        "private_address": 21,
+        "unsupported_protocol": 82,
         "weak_cipher": 23,
         "unsupported_flow": 3,
         "missing_credentials": 5
       }
     },
     "probe": {
-      "probed": 4206,
-      "failed": 2026,
-      "bad_cert": 225,
-      "ws_dead": 551
+      "probed": 4453,
+      "failed": 2332,
+      "bad_cert": 210,
+      "ws_dead": 482
     },
     "reputation": {
       "enabled": true,
-      "resolved_ips": 3238,
-      "dnsbl_hits": 224,
-      "dnsbl_unverified": 1738,
-      "unverified": 137,
-      "rejected": 309
+      "resolved_ips": 3365,
+      "dnsbl_hits": 0,
+      "dnsbl_unverified": 1865,
+      "unverified": 324,
+      "rejected": 0
     },
     "alive": {
-      "input": 3897,
-      "tested": 2697,
-      "reliable": 337,
-      "dead": 2360,
-      "unstable": 0,
-      "samples": 1
+      "skipped": "no mihomo"
     },
     "exit_probe": {
-      "tested": 337,
-      "resolved": 317,
-      "batches": 2,
-      "failed_batches": 0
+      "skipped": true
     },
     "quality": {
-      "kept": 224,
-      "rejected": 113,
+      "kept": 300,
+      "rejected": 4153,
       "reasons": {
-        "connect_failed": 7,
+        "connect_failed": 2332,
+        "ws_dead": 482,
+        "bad_certificate": 210,
         "slow_handshake": 1,
-        "over_group_limit": 105
+        "over_group_limit": 64,
+        "over_total_limit": 1064
       }
     },
     "tagging": {
-      "queried": 179,
-      "resolved": 179,
-      "dnsbl_hits": 72,
-      "dnsbl_by_zone": {
-        "zen.spamhaus.org": 59,
-        "dnsbl.dronebl.org": 45,
-        "bl.spamcop.net": 2
-      },
+      "queried": 0,
+      "resolved": 0,
+      "dnsbl_hits": 0,
+      "dnsbl_by_zone": {},
       "by_ip_type": {
-        "datacenter": 147,
-        "residential": 57,
-        "cdn": 6,
-        "unknown": 13,
-        "mobile": 1
+        "unknown": 300
       },
       "by_safety": {
-        "suspicious": 214,
-        "safe": 10
+        "safe": 208,
+        "suspicious": 92
       },
       "by_latency": {
-        "fast": 60,
-        "medium": 111,
-        "slow": 53
+        "unknown": 300
       },
-      "ip_score_avg": 42.2
+      "ip_score_avg": 92.3
     },
-    "final": 224,
+    "final": 300,
     "final_by_source": {
-      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 73,
-      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 50,
-      "https://leidahub.top/clash.yaml": 38,
-      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 15,
+      "v2ray_official": 36,
+      "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity": 32,
+      "ar14n24b": 29,
+      "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml": 22,
+      "https://leidahub.top/clash.yaml": 22,
       "https://raw.githubusercontent.com/YasserDivaR/pr0xy/main/ShadowSocks2021.txt": 13,
-      "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray": 9,
+      "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml": 13,
+      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 12,
       "icv2ray": 7,
-      "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.txt": 5,
-      "farah_vpn": 4,
-      "v2ray1_ng": 2,
-      "https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub": 2,
-      "daily_configs": 1,
-      "payam_nsi": 1,
-      "freeland8": 1,
-      "v2ray_extractor": 1,
-      "soskeynet": 1,
-      "sharecentrepro": 1
+      "v2ray_extractor": 6,
+      "shadowsocks_phs": 6,
+      "outlineopenkey": 6,
+      "daily_configs": 6,
+      "i10vpn": 6,
+      "v2ray1_ng": 5,
+      "shh_proxy": 5,
+      "oneclickvpnkeys": 4,
+      "free1ss": 4,
+      "PrivateVPNs": 4,
+      "VlessConfig": 4,
+      "surfboardv2ray": 3,
+      "https://raw.githubusercontent.com/ssrsub/ssr/master/v2ray": 3,
+      "prrofile_purple": 3,
+      "bigsmoke_config": 3,
+      "hopev2ray": 3,
+      "iran_v2ray1": 2,
+      "new_mtproxi2": 2,
+      "zede_filteri": 2,
+      "v2rayrootfree": 2,
+      "v2raybaaz": 2,
+      "vaynora": 2,
+      "v2ray_confing33": 2,
+      "vpn_mafia": 2,
+      "vpn_click": 2,
+      "capoit": 2,
+      "vpnsal": 2,
+      "shadowsockskeys": 2,
+      "gh_v2rayng": 2,
+      "farah_vpn": 2,
+      "v2ry_proxy": 2,
+      "vmesskhodam": 2,
+      "v2ray_free_conf": 1,
+      "config_proxy": 1,
+      "farahvpn": 1,
+      "v2rayng_fast": 1,
+      "https://raw.githubusercontent.com/xiyaowong/freeFQ/main/v2ray": 1,
+      "vpnv2r4y": 1,
+      "https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/hellopool": 1,
+      "v2rayng_1378": 1,
+      "net2proxy": 1,
+      "https://raw.githubusercontent.com/hermanb001/ProxyTest/main/subscribe/jingfu": 1,
+      "safenetir": 1
     },
     "timings": {
-      "fetch": 10.4,
+      "fetch": 16.1,
       "aggregate": 0.0,
-      "precheck": 0.1,
-      "probe": 60.6,
-      "reputation": 63.6,
-      "alive": 51.8,
-      "exit": 17.3,
+      "precheck": 0.0,
+      "probe": 63.3,
+      "reputation": 71.5,
+      "alive": 0.0,
+      "exit": 0.0,
       "quality": 0.0,
-      "intel": 4.5
+      "intel": 0.0
     }
   },
   "failed_sources": [],
   "rejected_samples": [
     {
-      "name": "🇹🇼_TW_台湾_IPV4",
-      "protocol": "anytls",
-      "server": "a54ge.df6h451rh.xin",
-      "port": 443,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇭🇰_HK_香港_IPV4",
-      "protocol": "anytls",
-      "server": "5641sdds.df6h451rh.xin",
-      "port": 443,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇭🇰_HK_香港_IPV4 (2)",
-      "protocol": "anytls",
-      "server": "ibsdsf.df6h451rh.xin",
-      "port": 443,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇺🇸_US_美国_IPV4",
-      "protocol": "hysteria",
-      "server": "137.175.82.41",
-      "port": 20022,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇺🇸_US_美国_IPV4 (2)",
-      "protocol": "hysteria",
-      "server": "38.6.222.132",
-      "port": 11008,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇺🇸_US_美国_IPV4 (3)",
-      "protocol": "hysteria",
-      "server": "38.6.222.131",
-      "port": 11008,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇫🇷_FR_法国_IPV4",
-      "protocol": "hysteria",
-      "server": "62.210.124.132",
-      "port": 24667,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇺🇸_US_美国_IPV4 (4)",
+      "name": "🇦🇪_AE_阿拉伯联合酋长国->🇩🇪_DE_德国_IPV4",
       "protocol": "hysteria2",
-      "server": "starlink-ft.251313.xyz",
+      "server": "uk-tube-01.stre4m.net",
+      "port": 13337,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇫🇷_FR_法国_IPV6",
+      "protocol": "hysteria2",
+      "server": "2001:bc8:32d7:17b::14",
+      "port": 22000,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇫🇷_FR_法国_IPV6 (2)",
+      "protocol": "hysteria2",
+      "server": "2001:bc8:32d7:17b::12",
+      "port": 22000,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇫🇷_FR_法国_IPV6 (3)",
+      "protocol": "hysteria2",
+      "server": "2001:bc8:32d7:17b::10",
+      "port": 22000,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "@DeltaKroneckerGithub_741_IPV4",
+      "protocol": "vless",
+      "server": "172.67.139.189",
       "port": 443,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
@@ -393,6 +390,14 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
+      "name": "🇫🇷FR_1|3.4MB/s",
+      "protocol": "hysteria",
+      "server": "62.210.124.132",
+      "port": 24667,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
       "name": "https://alvin9999.com #1",
       "protocol": "hysteria2",
       "server": "2001:bc8:32d7:17b::11",
@@ -417,7 +422,7 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇬🇧25@exclavevpn",
+      "name": "🇩🇪DE_2|3.9MB/s",
       "protocol": "hysteria2",
       "server": "128.254.186.57",
       "port": 13337,
@@ -433,26 +438,18 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇺🇸230832 | ⚡️Telegram = t.me/L...",
+      "name": "@VPsave",
       "protocol": "hysteria2",
-      "server": "179.254.94.184",
-      "port": 8443,
+      "server": "a1dgus.supertoolify.com",
+      "port": 40205,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "@VPsave #2",
+      "name": "🇰🇷 韩国 | KOR #1",
       "protocol": "hysteria2",
-      "server": "22egdg.mateflora.com",
-      "port": 40055,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "@VPsave #3",
-      "protocol": "hysteria2",
-      "server": "a3dgus.supertoolify.com",
-      "port": 40055,
+      "server": "13.124.238.118",
+      "port": 443,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
@@ -465,26 +462,18 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "@OutlineReleasedKey #2",
+      "name": "🇸🇬SG-🚀@VPNine1",
       "protocol": "hysteria2",
-      "server": "136.148.83.69",
+      "server": "47.129.155.154",
       "port": 443,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇬🇧 英国 | GBR #3",
+      "name": "🇩🇪DE_4|4.4MB/s",
       "protocol": "hysteria2",
-      "server": "uk-tube-01.stre4m.net",
+      "server": "128.254.186.190",
       "port": 13337,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇺🇸230834 | ⚡️Telegram = t.me/L...",
-      "protocol": "hysteria2",
-      "server": "38.76.150.108",
-      "port": 36712,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
@@ -561,7 +550,7 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇩🇪230829 | ⚡️Telegram = t.me/L...",
+      "name": "Telegram@vpnjey #7",
       "protocol": "hysteria2",
       "server": "179.61.138.145",
       "port": 36264,
@@ -609,17 +598,25 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🔰34@oneclickvpnkeys",
+      "name": "🔷15@oneclickvpnkeys",
       "protocol": "hysteria2",
-      "server": "2001:bc8:32d7:17b::11",
+      "server": "2001:bc8:32d7:17b::10",
       "port": 443,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🔰32@oneclickvpnkeys",
+      "name": "🔷11@oneclickvpnkeys",
       "protocol": "hysteria2",
-      "server": "2001:bc8:32d7:17b::6",
+      "server": "2001:bc8:32d7:17b::12",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🔷12@oneclickvpnkeys",
+      "protocol": "hysteria2",
+      "server": "2001:bc8:32d7:17b::14",
       "port": 443,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
@@ -635,16 +632,24 @@
     {
       "name": "Telegram@vpnjey #10",
       "protocol": "hysteria2",
+      "server": "2a0f:5707:aaf1:11a6::1",
+      "port": 5707,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "Telegram@vpnjey #11",
+      "protocol": "hysteria2",
       "server": "179.61.138.145",
       "port": 36264,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🏳[www.v2nodes.com] vless- #6",
-      "protocol": "vless",
-      "server": "154.40.61.186",
-      "port": 8443,
+      "name": "Telegram@vpnjey #12",
+      "protocol": "hysteria2",
+      "server": "179.61.138.145",
+      "port": 36264,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
@@ -653,14 +658,6 @@
       "protocol": "trojan",
       "server": "sclass-00.catcat321.com",
       "port": 20123,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇮🇩[www.v2nodes.com] trojan-ID-...",
-      "protocol": "trojan",
-      "server": "i1tr.mateflora.com",
-      "port": 443,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
@@ -689,7 +686,47 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇰🇷KR_1|1.8MB/s",
+      "name": "🇭🇰 香港 | HKG",
+      "protocol": "anytls",
+      "server": "ibsdsf.df6h451rh.xin",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇹🇼 台湾2|@ripaojiedian",
+      "protocol": "anytls",
+      "server": "a54ge.df6h451rh.xin",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇭🇰 香港3|@ripaojiedian",
+      "protocol": "anytls",
+      "server": "5641sdds.df6h451rh.xin",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA #7",
+      "protocol": "trojan",
+      "server": "66.163.114.106",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA #10",
+      "protocol": "trojan",
+      "server": "66.163.114.166",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇰🇷KR_1|5.0MB/s",
       "protocol": "socks5",
       "server": "59.11.209.162",
       "port": 1080,
@@ -697,121 +734,9 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇰🇷KR_2|1.7MB/s",
-      "protocol": "socks5",
-      "server": "183.106.215.208",
-      "port": 1080,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇨🇦 加拿大 | CAN",
-      "protocol": "anytls",
-      "server": "im.lovehk.xyz",
-      "port": 443,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇨🇳 CN_63 #1",
-      "protocol": "trojan",
-      "server": "sclass-01.catcat321.com",
-      "port": 20103,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇨🇳 CN_64 #1",
-      "protocol": "trojan",
-      "server": "sclass-01.catcat321.com",
-      "port": 20001,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇬🇧 英国 | GBR #1",
-      "protocol": "hysteria2",
-      "server": "128.254.186.190",
-      "port": 13337,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇭🇰 香港 | HKG #3",
-      "protocol": "vmess",
-      "server": "47.86.90.31",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇭🇰 香港 | HKG #9",
-      "protocol": "vmess",
-      "server": "47.244.120.197",
-      "port": 23026,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇭🇰 香港 | HKG #10",
-      "protocol": "vmess",
-      "server": "47.244.120.197",
-      "port": 44867,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇯🇵 日本 | JPN #1",
-      "protocol": "hysteria2",
-      "server": "43.165.129.121",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇰🇷 韩国 | KOR 3",
-      "protocol": "vmess",
-      "server": "kr.075661.xyz",
-      "port": 19283,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇸🇬 新加坡 | SGP #5",
-      "protocol": "hysteria2",
-      "server": "54.254.183.34",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇹🇭 泰国 | THA",
-      "protocol": "vmess",
-      "server": "8.213.211.160",
-      "port": 18565,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇹🇼 🇨🇳 台湾 | TWN",
-      "protocol": "anytls",
-      "server": "theme.lovehk.xyz",
-      "port": 443,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇹🇼 🇨🇳 台湾 | TWN 3",
+      "name": "🇹🇼TW_1|1.6MB/s",
       "protocol": "anytls",
       "server": "er8u54dh.df6h451rh.xin",
-      "port": 443,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "BE_speednode_0001",
-      "protocol": "http",
-      "server": "146.70.123.98",
       "port": 443,
       "reason": "unsupported_protocol",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
@@ -825,26 +750,50 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "DE_speednode_0003",
+      "name": "NL_speednode_0014",
       "protocol": "http",
-      "server": "149.36.50.1",
+      "server": "149.36.51.129",
       "port": 443,
       "reason": "unsupported_protocol",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "DK_speednode_0004",
+      "name": "US_speednode_0027",
       "protocol": "http",
-      "server": "158.173.154.1",
+      "server": "172.64.69.89",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸US_4|1.7MB/s",
+      "protocol": "http",
+      "server": "138.199.35.220",
       "port": 9002,
       "reason": "unsupported_protocol",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "DK_speednode_0005",
+      "name": "🇹🇼TW_2|2.8MB/s",
+      "protocol": "anytls",
+      "server": "rtifgjdr.df6h451rh.xin",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "BE_speednode_0001",
       "protocol": "http",
-      "server": "158.173.154.4",
-      "port": 9002,
+      "server": "146.70.123.98",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "DE_speednode_0003",
+      "protocol": "http",
+      "server": "149.36.50.1",
+      "port": 443,
       "reason": "unsupported_protocol",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
@@ -889,22 +838,6 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "NL_speednode_0014",
-      "protocol": "http",
-      "server": "149.36.51.129",
-      "port": 443,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "NL_speednode_0015",
-      "protocol": "http",
-      "server": "84.17.47.148",
-      "port": 9002,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
       "name": "NL_speednode_0016",
       "protocol": "http",
       "server": "84.17.47.125",
@@ -937,18 +870,498 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "NL_speednode_0022",
+      "name": "NN_speednode_0023",
       "protocol": "http",
-      "server": "84.17.47.124",
+      "server": "usgp1-cdn-route.couldflare-cdn.com",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇷🇴RO_1|3.1MB/s",
+      "protocol": "http",
+      "server": "193.176.84.27",
       "port": 9002,
       "reason": "unsupported_protocol",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "NN_speednode_0023",
+      "name": "🇺🇸US_6|1.7MB/s",
       "protocol": "http",
-      "server": "usgp1-cdn-route.couldflare-cdn.com",
+      "server": "38.95.111.226",
+      "port": 9443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸US_7|3.5MB/s",
+      "protocol": "http",
+      "server": "138.199.35.196",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸US_8|3.3MB/s",
+      "protocol": "http",
+      "server": "138.199.35.200",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇷🇴RO_2|1.6MB/s",
+      "protocol": "http",
+      "server": "193.176.84.19",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸US_9|2.2MB/s",
+      "protocol": "http",
+      "server": "138.199.35.201",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇳🇱NL_7|3.3MB/s",
+      "protocol": "http",
+      "server": "84.17.47.146",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸US_10|3.7MB/s",
+      "protocol": "socks5",
+      "server": "66.253.2.69",
+      "port": 62000,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸US_11|2.5MB/s",
+      "protocol": "http",
+      "server": "149.88.21.129",
       "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇯🇵JP_1|3.9MB/s",
+      "protocol": "http",
+      "server": "fan.571589.xyz",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇲🇽MX_1|3.4MB/s",
+      "protocol": "socks5",
+      "server": "72.57.228.30",
+      "port": 62000,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇮🇩ID_1|2.2MB/s",
+      "protocol": "socks5",
+      "server": "202.155.99.32",
+      "port": 62000,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇮🇹IT_11|1.3MB/s",
+      "protocol": "socks5",
+      "server": "69.16.157.244",
+      "port": 1080,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇹🇼TW_3|5.1MB/s",
+      "protocol": "anytls",
+      "server": "mfjh645drfj1dr6j5.df6h451rh.xin",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇹🇭TH_1|2.3MB/s",
+      "protocol": "socks5",
+      "server": "103.14.164.202",
+      "port": 42000,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸US_14|1.2MB/s",
+      "protocol": "socks5",
+      "server": "23.230.200.176",
+      "port": 62000,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇮🇩ID_2|1009KB/s",
+      "protocol": "socks5",
+      "server": "203.84.138.59",
+      "port": 62000,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇹🇭TH_2|2.3MB/s",
+      "protocol": "socks5",
+      "server": "103.14.164.30",
+      "port": 42000,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇯🇵JP_2|1.3MB/s",
+      "protocol": "socks5",
+      "server": "103.248.150.50",
+      "port": 42000,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇯🇵JP_3|3.5MB/s",
+      "protocol": "socks5",
+      "server": "103.248.150.238",
+      "port": 42000,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸US_15|1.0MB/s",
+      "protocol": "socks5",
+      "server": "104.168.249.36",
+      "port": 1080,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇨🇳CN_1|2.3MB/s",
+      "protocol": "wireguard",
+      "server": "162.159.192.1",
+      "port": 500,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇨🇳CN_2|2.8MB/s",
+      "protocol": "wireguard",
+      "server": "8.6.112.207",
+      "port": 8742,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇨🇳CN_3|1.3MB/s",
+      "protocol": "wireguard",
+      "server": "8.6.112.134",
+      "port": 3854,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇨🇳CN_4|1.9MB/s",
+      "protocol": "wireguard",
+      "server": "162.159.192.2",
+      "port": 500,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "❓Other_1|1.4MB/s",
+      "protocol": "wireguard",
+      "server": "162.159.192.6",
+      "port": 500,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇨🇳CN_5|2.7MB/s",
+      "protocol": "wireguard",
+      "server": "162.159.192.6",
+      "port": 4500,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇨🇳CN_6|1.6MB/s",
+      "protocol": "wireguard",
+      "server": "162.159.192.4",
+      "port": 4500,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "❓Other_2|1.7MB/s",
+      "protocol": "wireguard",
+      "server": "162.159.192.3",
+      "port": 2408,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇷🇴RO_5|4.2MB/s",
+      "protocol": "http",
+      "server": "193.176.84.24",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "❓Other_3|2.0MB/s",
+      "protocol": "http",
+      "server": "167.99.74.174",
+      "port": 9090,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸US_18|1.9MB/s",
+      "protocol": "http",
+      "server": "198.44.138.27",
+      "port": 9443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇬🇷GR_1|1.4MB/s",
+      "protocol": "http",
+      "server": "149.22.85.65",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇮🇹IT_12|2.7MB/s",
+      "protocol": "http",
+      "server": "185.183.105.130",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇲🇰MK_1|3.1MB/s",
+      "protocol": "http",
+      "server": "185.225.28.50",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇬🇧GB_2|1.1MB/s",
+      "protocol": "http",
+      "server": "84.17.50.214",
+      "port": 9443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇪🇪EE_2|1.4MB/s",
+      "protocol": "http",
+      "server": "95.153.31.66",
+      "port": 9443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇨🇾CY_1|2.5MB/s",
+      "protocol": "http",
+      "server": "46.199.75.105",
+      "port": 9443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇦🇱AL_1|1.8MB/s",
+      "protocol": "http",
+      "server": "87.120.103.242",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇨🇭CH_1|2.9MB/s",
+      "protocol": "http",
+      "server": "149.88.27.33",
+      "port": 9443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇷🇴RO_4|2.0MB/s",
+      "protocol": "http",
+      "server": "193.176.84.21",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇷🇴RO_6|2.4MB/s",
+      "protocol": "http",
+      "server": "193.176.84.23",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇷🇴RO_7|3.0MB/s",
+      "protocol": "http",
+      "server": "193.176.84.20",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇩🇪 德国 | DEU 3",
+      "protocol": "vmess",
+      "server": "194.110.210.41",
+      "port": 28059,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇬🇧 英国 | GBR #1",
+      "protocol": "vmess",
+      "server": "yg2.needss.top",
+      "port": 12007,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇭🇰 香港 | HKG #1",
+      "protocol": "trojan",
+      "server": "47.242.93.89",
+      "port": 12012,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇭🇰 香港 | HKG #2",
+      "protocol": "vmess",
+      "server": "47.86.90.31",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇭🇰 香港 | HKG 4",
+      "protocol": "anytls",
+      "server": "dddz-1-x.473221.xyz",
+      "port": 43120,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇸🇬 新加坡 | SGP #1",
+      "protocol": "vmess",
+      "server": "8.222.172.146",
+      "port": 54327,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇹🇼 🇨🇳 台湾 | TWN",
+      "protocol": "anytls",
+      "server": "theme.lovehk.xyz",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA 4",
+      "protocol": "trojan",
+      "server": "3x-sub.linzhonghong.com",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA #5",
+      "protocol": "trojan",
+      "server": "66.163.114.114",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA #6",
+      "protocol": "vmess",
+      "server": "US032020.ssgreen.org",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA 8",
+      "protocol": "anytls",
+      "server": "signal.lovehk.xyz",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA #8",
+      "protocol": "trojan",
+      "server": "186.241.106.5",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA #9",
+      "protocol": "vmess",
+      "server": "US032023.ssgreen.org",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA #4",
+      "protocol": "trojan",
+      "server": "3x-sub.linzhonghong.com",
+      "port": 443,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "DK_speednode_0004",
+      "protocol": "http",
+      "server": "158.173.154.1",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "DK_speednode_0005",
+      "protocol": "http",
+      "server": "158.173.154.4",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "NL_speednode_0015",
+      "protocol": "http",
+      "server": "84.17.47.148",
+      "port": 9002,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "NL_speednode_0022",
+      "protocol": "http",
+      "server": "84.17.47.124",
+      "port": 9002,
       "reason": "unsupported_protocol",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
@@ -961,57 +1374,33 @@
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "US_speednode_0027",
-      "protocol": "http",
-      "server": "172.64.69.89",
-      "port": 443,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "ProxyPool | 🇩🇪 德国 | DEU",
+      "name": "ProxyPool | 🇭🇰 香港 | HKG",
       "protocol": "anytls",
-      "server": "signal.frnhk.xyz",
+      "server": "im.lovehk.xyz",
       "port": 443,
       "reason": "unsupported_protocol",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇭🇰 香港 | HKG",
-      "protocol": "hysteria2",
-      "server": "23.141.172.229",
-      "port": 50541,
+      "name": "🇭🇰 香港 | HKG 3",
+      "protocol": "vmess",
+      "server": "47.244.120.197",
+      "port": 44867,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇭🇰 香港 | HKG 8",
+      "name": "🇯🇵 日本 | JPN",
       "protocol": "anytls",
-      "server": "site.ddddd.site",
-      "port": 36031,
+      "server": "media.gosthk.site",
+      "port": 57180,
       "reason": "unsupported_protocol",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇭🇰 香港 | HKG 10",
-      "protocol": "trojan",
-      "server": "47.242.93.89",
-      "port": 12012,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "ProxyPool | 🇰🇷 韩国 | KOR 3",
+      "name": "🇸🇬 新加坡 | SGP 2",
       "protocol": "hysteria2",
-      "server": "43.201.31.151",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇸🇬 新加坡 | SGP 3",
-      "protocol": "hysteria2",
-      "server": "54.255.246.31",
+      "server": "47.128.219.111",
       "port": 443,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
@@ -1019,37 +1408,29 @@
     {
       "name": "ProxyPool | 🇹🇼 🇨🇳 台湾 | TWN 2",
       "protocol": "anytls",
+      "server": "photo.lovehk.xyz",
+      "port": 443,
+      "reason": "unsupported_protocol",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇹🇼 🇨🇳 台湾 | TWN 3",
+      "protocol": "trojan",
+      "server": "sclass-c2.catcat321.com",
+      "port": 20200,
+      "reason": "insecure_tls",
+      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    },
+    {
+      "name": "🇺🇸 美国 | USA 34",
+      "protocol": "anytls",
       "server": "sdf65h46wr.df6h451rh.xin",
       "port": 443,
       "reason": "unsupported_protocol",
       "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     },
     {
-      "name": "🇹🇼 🇨🇳 台湾 | TWN 4",
-      "protocol": "anytls",
-      "server": "rtifgjdr.df6h451rh.xin",
-      "port": 443,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "🇺🇸 美国 | USA",
-      "protocol": "anytls",
-      "server": "site.ddddd.site",
-      "port": 36038,
-      "reason": "unsupported_protocol",
-      "source": "github:https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
-    },
-    {
-      "name": "美国 040",
-      "protocol": "vmess",
-      "server": "mk33hz8-g01.jp03-j7-vm0.entry.fr0528.art",
-      "port": 21581,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 049",
+      "name": "美国 009",
       "protocol": "trojan",
       "server": "23.227.38.11",
       "port": 443,
@@ -1065,7 +1446,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 015",
+      "name": "其他 005",
       "protocol": "vmess",
       "server": "547.rtxconfigz.shop",
       "port": 8080,
@@ -1073,7 +1454,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 064",
+      "name": "美国 024",
       "protocol": "vmess",
       "server": "t1.620720.xyz",
       "port": 8443,
@@ -1089,7 +1470,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 016",
+      "name": "其他 006",
       "protocol": "vmess",
       "server": "v2ray.codefyinc.com",
       "port": 443,
@@ -1097,7 +1478,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 065",
+      "name": "美国 025",
       "protocol": "vmess",
       "server": "support.zoom.us",
       "port": 8080,
@@ -1105,7 +1486,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 066",
+      "name": "美国 026",
       "protocol": "vmess",
       "server": "209.126.84.189",
       "port": 443,
@@ -1113,7 +1494,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 067",
+      "name": "美国 027",
       "protocol": "vmess",
       "server": "sy4.620720.xyz",
       "port": 443,
@@ -1121,7 +1502,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 068",
+      "name": "美国 028",
       "protocol": "vmess",
       "server": "hgtrojan.zabc.net",
       "port": 2083,
@@ -1129,7 +1510,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 070",
+      "name": "美国 030",
       "protocol": "vmess",
       "server": "cg1c04.waimaojd.com",
       "port": 443,
@@ -1137,7 +1518,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 071",
+      "name": "美国 031",
       "protocol": "vmess",
       "server": "cg1c14.waimaojd.com",
       "port": 443,
@@ -1145,7 +1526,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 017",
+      "name": "其他 007",
       "protocol": "trojan",
       "server": "fkvip102.qlgq.fun",
       "port": 11789,
@@ -1153,7 +1534,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 018",
+      "name": "其他 008",
       "protocol": "trojan",
       "server": "fkvip102.qlgq.fun",
       "port": 21789,
@@ -1161,7 +1542,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 019",
+      "name": "其他 009",
       "protocol": "trojan",
       "server": "fkvip102.qlgq.fun",
       "port": 31789,
@@ -1169,7 +1550,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 020",
+      "name": "其他 010",
       "protocol": "trojan",
       "server": "ukvip101.qlgq.fun",
       "port": 14568,
@@ -1177,7 +1558,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 021",
+      "name": "其他 011",
       "protocol": "trojan",
       "server": "ukvip101.qlgq.fun",
       "port": 14586,
@@ -1185,7 +1566,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 022",
+      "name": "其他 012",
       "protocol": "trojan",
       "server": "ukvip101.qlgq.fun",
       "port": 18885,
@@ -1193,7 +1574,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 023",
+      "name": "其他 013",
       "protocol": "trojan",
       "server": "klvip101.qlgq.fun",
       "port": 10443,
@@ -1201,7 +1582,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 024",
+      "name": "其他 014",
       "protocol": "trojan",
       "server": "klvip101.qlgq.fun",
       "port": 20443,
@@ -1209,7 +1590,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 025",
+      "name": "其他 015",
       "protocol": "trojan",
       "server": "klvip101.qlgq.fun",
       "port": 30443,
@@ -1217,7 +1598,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 026",
+      "name": "其他 016",
       "protocol": "trojan",
       "server": "sgvip101.qlgq.fun",
       "port": 11223,
@@ -1225,7 +1606,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 027",
+      "name": "其他 017",
       "protocol": "trojan",
       "server": "sgvip101.qlgq.fun",
       "port": 21223,
@@ -1233,7 +1614,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 028",
+      "name": "其他 018",
       "protocol": "trojan",
       "server": "sgvip101.qlgq.fun",
       "port": 31223,
@@ -1241,7 +1622,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 029",
+      "name": "其他 019",
       "protocol": "trojan",
       "server": "sgvip101.qlgq.fun",
       "port": 41223,
@@ -1249,7 +1630,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 030",
+      "name": "其他 020",
       "protocol": "trojan",
       "server": "sgvip101.qlgq.fun",
       "port": 51223,
@@ -1257,7 +1638,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 031",
+      "name": "其他 021",
       "protocol": "trojan",
       "server": "lavip101.qlgq.fun",
       "port": 11156,
@@ -1265,7 +1646,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 032",
+      "name": "其他 022",
       "protocol": "trojan",
       "server": "lavip101.qlgq.fun",
       "port": 21156,
@@ -1273,7 +1654,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 033",
+      "name": "其他 023",
       "protocol": "trojan",
       "server": "lavip101.qlgq.fun",
       "port": 31156,
@@ -1281,7 +1662,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 034",
+      "name": "其他 024",
       "protocol": "trojan",
       "server": "lavip102.qlgq.fun",
       "port": 49643,
@@ -1289,7 +1670,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 035",
+      "name": "其他 025",
       "protocol": "trojan",
       "server": "lavip102.qlgq.fun",
       "port": 20443,
@@ -1297,7 +1678,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 036",
+      "name": "其他 026",
       "protocol": "trojan",
       "server": "lavip102.qlgq.fun",
       "port": 30443,
@@ -1305,7 +1686,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 037",
+      "name": "其他 027",
       "protocol": "trojan",
       "server": "hkvip101.qlgq.fun",
       "port": 12249,
@@ -1313,7 +1694,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 038",
+      "name": "其他 028",
       "protocol": "trojan",
       "server": "hkvip101.qlgq.fun",
       "port": 22249,
@@ -1321,7 +1702,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 039",
+      "name": "其他 029",
       "protocol": "trojan",
       "server": "hkvip102.qlgq.fun",
       "port": 32249,
@@ -1329,7 +1710,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 040",
+      "name": "其他 030",
       "protocol": "trojan",
       "server": "hkvip102.qlgq.fun",
       "port": 42249,
@@ -1337,7 +1718,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 041",
+      "name": "其他 031",
       "protocol": "trojan",
       "server": "hkvip103.qlgq.fun",
       "port": 52249,
@@ -1345,7 +1726,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 042",
+      "name": "其他 032",
       "protocol": "trojan",
       "server": "hkvip103.qlgq.fun",
       "port": 11116,
@@ -1353,7 +1734,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 043",
+      "name": "其他 033",
       "protocol": "trojan",
       "server": "hkvip104.qlgq.fun",
       "port": 45136,
@@ -1361,7 +1742,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 044",
+      "name": "其他 034",
       "protocol": "trojan",
       "server": "hkvip104.qlgq.fun",
       "port": 46216,
@@ -1369,7 +1750,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 045",
+      "name": "其他 035",
       "protocol": "trojan",
       "server": "hkvip105.qlgq.fun",
       "port": 41116,
@@ -1377,7 +1758,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 046",
+      "name": "其他 036",
       "protocol": "trojan",
       "server": "hkvip105.qlgq.fun",
       "port": 51116,
@@ -1385,7 +1766,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "澳大利亚 002",
+      "name": "澳大利亚 001",
       "protocol": "vmess",
       "server": "1.1.1.1",
       "port": 443,
@@ -1393,7 +1774,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 047",
+      "name": "其他 037",
       "protocol": "vmess",
       "server": "usbk.cfip.top",
       "port": 8443,
@@ -1401,7 +1782,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 048",
+      "name": "其他 038",
       "protocol": "vmess",
       "server": "US-Los_Angeles-A.cfip.top",
       "port": 8443,
@@ -1409,7 +1790,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 049",
+      "name": "其他 039",
       "protocol": "vmess",
       "server": "US-Los_Angeles-B.cfip.top",
       "port": 8443,
@@ -1417,7 +1798,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 050",
+      "name": "其他 040",
       "protocol": "vmess",
       "server": "htsub-2024.899696998.xyz",
       "port": 20011,
@@ -1433,7 +1814,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 072",
+      "name": "美国 032",
       "protocol": "vmess",
       "server": "134.195.198.92",
       "port": 443,
@@ -1441,7 +1822,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "其他 051",
+      "name": "其他 041",
       "protocol": "vmess",
       "server": "c.jamekk.org",
       "port": 443,
@@ -1449,7 +1830,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 073",
+      "name": "美国 033",
       "protocol": "vmess",
       "server": "104.19.45.50",
       "port": 2082,
@@ -1457,7 +1838,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 074",
+      "name": "美国 034",
       "protocol": "vmess",
       "server": "172.64.167.5",
       "port": 2082,
@@ -1465,7 +1846,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 075",
+      "name": "美国 035",
       "protocol": "vmess",
       "server": "172.64.167.35",
       "port": 2095,
@@ -1473,7 +1854,7 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 076",
+      "name": "美国 036",
       "protocol": "vmess",
       "server": "172.64.166.8",
       "port": 2082,
@@ -1481,369 +1862,9 @@
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     },
     {
-      "name": "美国 077",
+      "name": "美国 037",
       "protocol": "vmess",
       "server": "104.19.21.63",
-      "port": 2095,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 078",
-      "protocol": "vmess",
-      "server": "104.19.55.49",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 079",
-      "protocol": "vmess",
-      "server": "russia.com",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 080",
-      "protocol": "vmess",
-      "server": "172.64.167.10",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 081",
-      "protocol": "vmess",
-      "server": "104.20.17.186",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 082",
-      "protocol": "vmess",
-      "server": "104.19.42.49",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 083",
-      "protocol": "vmess",
-      "server": "172.64.99.22",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 084",
-      "protocol": "vmess",
-      "server": "172.64.167.35",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 085",
-      "protocol": "vmess",
-      "server": "172.64.175.213",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 086",
-      "protocol": "vmess",
-      "server": "162.159.140.45",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 087",
-      "protocol": "vmess",
-      "server": "singapore.com",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 088",
-      "protocol": "vmess",
-      "server": "172.64.166.20",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 089",
-      "protocol": "vmess",
-      "server": "104.26.5.67",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 090",
-      "protocol": "vmess",
-      "server": "104.19.45.90",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 091",
-      "protocol": "vmess",
-      "server": "malaysia.com",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 092",
-      "protocol": "vmess",
-      "server": "www.visa.com",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 093",
-      "protocol": "vmess",
-      "server": "104.19.45.42",
-      "port": 2095,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 094",
-      "protocol": "vmess",
-      "server": "104.21.238.100",
-      "port": 2095,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "比利时 002",
-      "protocol": "vmess",
-      "server": "57.129.24.142",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 095",
-      "protocol": "vmess",
-      "server": "23.162.200.227",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "加拿大 003",
-      "protocol": "trojan",
-      "server": "52.60.59.39",
-      "port": 22222,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 052",
-      "protocol": "trojan",
-      "server": "ent1.imyourdaddy.top",
-      "port": 20992,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 053",
-      "protocol": "vmess",
-      "server": "discord.vpnsell.beauty",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "英国 004",
-      "protocol": "trojan",
-      "server": "35.177.201.76",
-      "port": 22222,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "日本 001",
-      "protocol": "vmess",
-      "server": "92.38.178.93",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 054",
-      "protocol": "trojan",
-      "server": "plowman.meijireform.com",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 096",
-      "protocol": "trojan",
-      "server": "154.31.114.10",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 055",
-      "protocol": "trojan",
-      "server": "n3.jp4589871.top",
-      "port": 8443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "俄罗斯 006",
-      "protocol": "vmess",
-      "server": "socks5tobefree.ydns.eu",
-      "port": 33026,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 097",
-      "protocol": "trojan",
-      "server": "aafrtpfxr.jpl01i9zjfegelp.5xfsur8v62.gosdk.xyz",
-      "port": 27001,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 056",
-      "protocol": "vmess",
-      "server": "bs.yichueng.org",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 057",
-      "protocol": "vmess",
-      "server": "us-new03.daluquan.top",
-      "port": 8880,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 098",
-      "protocol": "trojan",
-      "server": "h.522226.xyz",
-      "port": 45800,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 099",
-      "protocol": "trojan",
-      "server": "f.522226.xyz",
-      "port": 45601,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 058",
-      "protocol": "vmess",
-      "server": "de-new01.daluquan.top",
-      "port": 8080,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 100",
-      "protocol": "vmess",
-      "server": "shs.xiaoqi666.xyz",
-      "port": 2086,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 101",
-      "protocol": "vmess",
-      "server": "obdii.cfd",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 102",
-      "protocol": "vmess",
-      "server": "fkyyg.mmzhk.website",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 059",
-      "protocol": "vmess",
-      "server": "fnujs.whmvmkwuey.store",
-      "port": 443,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 060",
-      "protocol": "trojan",
-      "server": "ent1.imyourdaddy.top",
-      "port": 20983,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 061",
-      "protocol": "trojan",
-      "server": "ent1.imyourdaddy.top",
-      "port": 20982,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 103",
-      "protocol": "vmess",
-      "server": "172.64.166.16",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 104",
-      "protocol": "vmess",
-      "server": "104.19.47.65",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 105",
-      "protocol": "vmess",
-      "server": "172.64.175.88",
-      "port": 2082,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "其他 062",
-      "protocol": "trojan",
-      "server": "ent1.imyourdaddy.top",
-      "port": 20987,
-      "reason": "insecure_tls",
-      "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    },
-    {
-      "name": "美国 106",
-      "protocol": "vmess",
-      "server": "104.19.45.17",
       "port": 2095,
       "reason": "insecure_tls",
       "source": "github:https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
