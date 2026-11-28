@@ -28,313 +28,260 @@ dns:
   - https://223.5.5.5/dns-query
   - https://doh.pub/dns-query
 proxies:
-- name: 🇺🇸 美国 01 🟡 ⚡
-  type: ss
-  server: 95.215.201.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 02 🟡 🏠
-  type: ss
-  server: 23.150.152.38
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- sni: ''
-  alpn:
-  - ''
-  tls: false
-  name: 🇺🇸 美国 03 🟡 ⚡
-  type: vmess
-  server: 129.146.77.248
-  port: 39495
-  uuid: f836c736-87fc-4fde-aabc-00857ecdff3e
-  alterId: 0
-  cipher: auto
-  network: ws
-  ws-opts:
-    path: /cctv13.m3u8
-    headers:
-      Host: 129.146.77.248
-- name: 🇺🇸 美国 04 🟡 ⚡
-  type: ss
-  server: 137.184.89.151
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 05 🟡 ⚡
-  type: ss
-  server: 173.244.56.6
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-- sni: 169.197.142.22
-  alpn:
-  - ''
-  tls: false
-  name: 🇺🇸 美国 06 🟡 ⚡
-  type: vmess
-  server: 169.197.142.22
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  network: tcp
-- name: 🇺🇸 美国 07 🟢 🏠
-  type: vless
-  server: 179.254.94.184
-  port: 443
-  uuid: 2f12e5b5-6ce7-47ab-88b9-6110c1a3fc60
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: www.bing.com
-  reality-opts:
-    public-key: q49v36UVMNsNION3nn-cQU6_8VwgM_psm1s5z7XVaWc
-    short-id: e6052385636f0700
-  client-fingerprint: chrome
-- name: 🇺🇸 美国 08 🟡 ⚡
-  type: ss
-  server: 169.197.142.68
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- sni: ''
-  alpn:
-  - ''
-  tls: false
-  name: 🇺🇸 美国 09 🟡 ⚡
-  type: vmess
-  server: 169.197.142.22
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  network: raw
-- name: 🇺🇸 美国 10 🟡 ⚡
-  type: ss
-  server: 156.146.38.170
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-- name: 🇺🇸 美国 11 🟡 ⚡
-  type: vless
-  server: 15.204.97.198
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: 🇺🇸 美国 12 🟡 ⚡
-  type: vless
-  server: 15.204.97.195
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: 🇺🇸 美国 13 🟡 ⚡
-  type: vless
-  server: 15.204.97.219
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: 🇺🇸 美国 14 🟡 ⚡
-  type: vless
-  server: 15.204.97.214
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: 🇺🇸 美国 15 🟡 ⚡
-  type: vless
-  server: 15.204.97.216
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: 🇺🇸 美国 16 🟡 ⚡
-  type: ss
-  server: 167.88.63.99
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- network: http
-  cipher: auto
-  udp: true
-  http-opts:
-    method: GET
-    path:
-    - /x
-    headers:
-      Host:
-      - down-cdn.dingtalk.com
-  uuid: 2659ef8a-3456-48f8-95fe-08b82d3f4984
-  alterId: 0
-  name: 🇺🇸 美国 17 🟡 ⚡
-  type: vmess
-  server: 107.150.19.24
-  port: 54321
-- name: 🇺🇸 美国 18 🟡 🏠
-  type: ss
-  server: 38.121.43.231
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 19 🟡 ⚡
-  type: ss
-  server: 172.111.36.123
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 20 🟡 🏠
-  type: ss
-  server: 38.121.43.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 21 🟡 ⚡
-  type: ss
-  server: 149.40.57.133
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 22 🟡 ⚡
-  type: vless
-  server: 15.204.97.206
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: 🇺🇸 美国 23 🟡 🏠
-  type: ss
-  server: 38.22.17.129
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 24 🟡 🏠
-  type: ss
-  server: 38.121.43.225
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 25 🟡 🏠
+- name: 🇺🇸 美国 01 🟡 🏠
   type: ss
   server: 216.106.178.169
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 26 🟡 ⚡
+- name: 🇺🇸 美国 02 🟡 ⚡
+  type: ss
+  server: 156.146.38.168
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇺🇸 美国 03 🟡 ⚡
+  type: ss
+  server: 156.146.38.169
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+  name: 🇺🇸 美国 04 🟡 ⚡
+  type: ss
+  server: 67.220.73.178
+  port: 19999
+- name: 🇺🇸 美国 05 🟡 ⚡
   type: ss
   server: 38.128.66.32
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 27 🟡
+- name: 🇺🇸 美国 06 🟡 ⚡
   type: ss
-  server: 162.251.62.31
+  server: 172.111.36.123
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
+- cipher: auto
+  alterId: 0
   udp: true
-  name: 🇺🇸 美国 28 🟡 🏠
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  name: 🇺🇸 美国 07 🟡 ⚡
+  type: vmess
+  server: 67.220.85.46
+  port: 18000
+  network: tcp
+- name: 🇺🇸 美国 08 🟡 ⚡
   type: ss
-  server: 38.22.17.214
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  udp: true
-  name: 🇺🇸 美国 29 🟡 ⚡
-  type: ss
-  server: 167.88.63.39
-  port: 19999
-- name: 🇺🇸 美国 30 🟡
-  type: ss
-  server: 193.151.160.18
+  server: 193.151.163.18
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 31 🟡
+- name: 🇺🇸 美国 09 🟡 ⚡
   type: ss
-  server: 38.91.107.188
+  server: 172.111.38.72
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇨🇦 加拿大 01 🟡 ⚡
+- name: 🇺🇸 美国 10 🟡 ⚡
   type: ss
-  server: 149.22.95.183
+  server: 37.19.198.160
   port: 443
   cipher: aes-128-gcm
   password: shadowsocks
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  udp: true
-  name: 🇺🇸 美国 32 🟡
-  type: ss
-  server: 38.91.107.19
-  port: 19999
-- sni: 38.91.107.49
-  alpn:
-  - ''
-  tls: false
-  name: 🇺🇸 美国 33 🟡
-  type: vmess
-  server: 38.91.107.49
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  network: tcp
-- name: 🇺🇸 美国 34 🟡 ⚡
-  type: ss
-  server: 193.151.160.9
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 35 🟡 🏠
+- name: 🇺🇸 美国 11 🟡 🏠
   type: ss
   server: 38.22.17.219
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 36 🟡 ⚡
+- name: 🇺🇸 美国 12 🟡 ⚡
+  type: ss
+  server: 38.91.100.39
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 13 🟡 ⚡
+  type: vless
+  server: 47.253.226.114
+  port: 443
+  uuid: 055a1ce8-2a16-4a0d-a2c2-22826c9b2413
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc
+    short-id: ''
+  client-fingerprint: chrome
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+  name: 🇺🇸 美国 14 🟡 ⚡
+  type: ss
+  server: 185.215.132.9
+  port: 19999
+- name: 🇺🇸 美国 15 🟡 ⚡
+  type: ss
+  server: 37.19.198.243
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- tls: false
+  sni: 134.195.196.211
+  alpn:
+  - ''
+  name: 🇨🇦 加拿大 01 🟡 🐢
+  type: vmess
+  server: 134.195.196.211
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  network: tcp
+- name: 🇺🇸 美国 16 🟡 ⚡
+  type: ss
+  server: 45.86.51.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 17 🟡 🏠
+  type: ss
+  server: 38.121.43.225
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+  name: 🇺🇸 美国 18 🟡 🏠
+  type: ss
+  server: 38.22.17.214
+  port: 19999
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+  name: 🇺🇸 美国 19 🟡 ⚡
+  type: ss
+  server: 167.88.63.39
+  port: 19999
+- name: 🇺🇸 美国 20 🟡 ⚡
+  type: ss
+  server: 200.102.179.179
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+- name: 🇺🇸 美国 21 🟡 ⚡
+  type: ss
+  server: 37.19.198.244
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- name: 🇺🇸 美国 22 🟡 ⚡
+  type: ss
+  server: 37.19.198.236
+  port: 443
+  cipher: aes-128-gcm
+  password: shadowsocks
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+  name: 🇺🇸 美国 23 🟡 ⚡
+  type: ss
+  server: 185.215.132.18
+  port: 19999
+- name: 🇺🇸 美国 24 🟡 ⚡
+  type: vless
+  server: 169.40.42.90
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: ios
+- name: 🇨🇦 加拿大 02 🟡 ⚡
+  type: ss
+  server: 192.99.151.230
+  port: 8388
+  cipher: aes-256-gcm
+  password: itzvpn@321
+- name: 🇺🇸 美国 25 🟡 🏠
+  type: ss
+  server: 38.121.43.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 26 🟡 🏠
+  type: ss
+  server: 38.121.43.231
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 27 🟡 ⚡
+  type: vless
+  server: 159.89.87.21
+  port: 28190
+  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: aws.amazon.com
+  reality-opts:
+    public-key: ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno
+    short-id: ''
+  client-fingerprint: chrome
+- name: 🇺🇸 美国 28 🟡 ⚡
+  type: ss
+  server: 138.197.89.234
+  port: 28960
+  cipher: chacha20-ietf-poly1305
+  password: DZRy4Q3QH0jUGfKFl2jDCZ
+- name: 🇺🇸 美国 29 🟡 ⚡
+  type: vless
+  server: 169.40.42.74
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: ios
+- name: 🇺🇸 美国 30 🟡 🏠
+  type: vless
+  server: 169.40.42.163
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: random
+- tls: false
+  sni: ''
+  alpn:
+  - ''
+  name: 🇨🇦 加拿大 03 🟡 ⚡
+  type: vmess
+  server: 134.195.196.211
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
+  network: tcp
+- name: 🇺🇸 美国 31 🟡 ⚡
   type: vless
   server: 188.114.98.0
   port: 443
@@ -347,129 +294,7 @@ proxies:
     path: /proxyip=ProxyIP.JP.CMLiussss.netfp=chrome
     headers:
       Host: freeceshi6.frii.site
-- name: 🇺🇸 美国 37 🟡 ☁️
-  type: vless
-  server: 172.64.154.113
-  port: 8443
-  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
-  network: ws
-  tls: true
-  servername: freeceshi6.frii.site
-  ws-opts:
-    path: /?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560
-    headers:
-      Host: freeceshi6.frii.site
-- name: 🇺🇸 美国 38 🟡 ☁️
-  type: vless
-  server: 188.114.98.0
-  port: 443
-  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
-  network: ws
-  tls: true
-  servername: freeceshi6.frii.site
-  client-fingerprint: unsafe
-  ws-opts:
-    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-    headers:
-      Host: freeceshi6.frii.site
-- name: 🇨🇦 加拿大 02 🟡 ⚡
-  type: vless
-  server: 172.64.154.113
-  port: 8443
-  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
-  network: ws
-  tls: true
-  servername: freeceshi6.frii.site
-  client-fingerprint: chrome
-  ws-opts:
-    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-    headers:
-      Host: freeceshi6.frii.site
-- sni: ''
-  alpn:
-  - ''
-  tls: false
-  name: 🇨🇦 加拿大 03 🟡 ⚡
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  network: tcp
-- name: 🇺🇸 美国 39 🟡 ⚡
-  type: vless
-  server: 23.227.38.48
-  port: 443
-  uuid: 531d9e93-53be-4f05-a9c1-33490d4da2f3
-  network: ws
-  tls: true
-  servername: uub01.gg9901.uk
-  ws-opts:
-    path: /images
-    headers:
-      Host: uub01.gg9901.uk
-- sni: ''
-  alpn:
-  - ''
-  tls: false
-  name: 🇨🇦 加拿大 04 🟡 ⚡
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  network: tcp
-- name: 🇨🇦 加拿大 05 🟡 ⚡
-  type: ss
-  server: 134.195.198.163
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: PmCqK98WqhSC
-- sni: 134.195.196.211
-  alpn:
-  - ''
-  tls: false
-  name: 🇨🇦 加拿大 06 🟡 ⚡
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  cipher: auto
-  network: tcp
-- network: tcp
-  cipher: auto
-  udp: true
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  name: 🇨🇦 加拿大 07 🟡 ⚡
-  type: vmess
-  server: 134.195.196.211
-  port: 18000
-- password: Y6R9pAtvxxzmGC
-  cipher: aes-256-gcm
-  name: 🇨🇦 加拿大 08 🟡 🐢
-  type: ss
-  server: 51.222.200.165
-  port: 5000
-- password: kDWvXYZoTBcGkC4
-  cipher: aes-256-gcm
-  name: 🇨🇦 加拿大 09 🟡
-  type: ss
-  server: 51.222.136.236
-  port: 8882
-- network: tcp
-  cipher: auto
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  tls: false
-  name: 🇨🇦 加拿大 10 🟡 🏠
-  type: vmess
-  server: 23.162.200.198
-  port: 18000
-- name: 🇺🇸 美国 40 🟡 ☁️
+- name: 🇺🇸 美国 32 🟡 ☁️
   type: vless
   server: 172.64.154.113
   port: 8443
@@ -482,77 +307,57 @@ proxies:
     path: /?Telegram---Safewebsbot
     headers:
       Host: freeceshi6.frii.site
-- network: ws
-  skip-cert-verify: false
+- cipher: aes-256-gcm
+  password: cdBIDV42DCwnfIN
+  name: 🇨🇦 加拿大 04 🟡
+  type: ss
+  server: 51.79.85.185
+  port: 8118
+- cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
+  name: 🇨🇦 加拿大 05 🟡 ⚡
+  type: ss
+  server: 51.222.12.127
+  port: 445
+- cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
+  name: 🇨🇦 加拿大 06 🟡 ⚡
+  type: ss
+  server: 51.222.141.125
+  port: 445
+- client-fingerprint: chrome
+  servername: mohammadhoseini4532.pages.dev
   ws-opts:
     headers:
-      Host: edge-fef90023.pages.dev
-    path: /fp=chrome
-  servername: edge-fef90023.pages.dev
-  udp: true
-  uuid: fceb3200-2516-47d2-8e28-d04ecde9427a
-  tls: true
-  name: 🇺🇸 美国 41 🟡 ☁️
-  type: vless
-  server: 104.19.52.70
-  port: 8443
-- network: ws
-  skip-cert-verify: false
-  ws-opts:
-    headers:
-      Host: worker3.reviso4655.workers.dev
+      Host: mohammadhoseini4532.pages.dev
     path: /
-  servername: worker3.reviso4655.workers.dev
-  client-fingerprint: chrome
   udp: true
-  uuid: 0d46fdf1-0dc5-4a71-8dfc-8f68ff6aab66
+  uuid: 51a0af77-a60c-4d9b-81a4-f50e1b38d90b
   tls: true
-  name: 🇩🇪 德国 01 🟡 ⚡
+  network: ws
+  skip-cert-verify: false
+  name: 🇺🇸 美国 33 🟡 ☁️
   type: vless
-  server: 104.18.220.84
-  port: 8443
-- name: 🇨🇦 加拿大 11 🟡
+  server: 104.18.45.236
+  port: 2096
+- name: 🇨🇦 加拿大 07 🟡 🐢
   type: ss
   server: 184.107.106.78
   port: 8388
   cipher: aes-256-gcm
   password: itzvpn@321
-- network: ws
-  skip-cert-verify: false
-  ws-opts:
-    headers:
-      Host: mohammadhoseini4532.pages.dev
-    path: /
-  servername: mohammadhoseini4532.pages.dev
-  client-fingerprint: chrome
+- cipher: auto
+  alterId: 0
   udp: true
-  uuid: 51a0af77-a60c-4d9b-81a4-f50e1b38d90b
-  tls: true
-  name: 🇺🇸 美国 42 🟡 ☁️
-  type: vless
-  server: 104.18.45.236
-  port: 2096
-- name: 🇯🇵 日本 01 🟡
-  type: ss
-  server: 47.91.16.50
-  port: 5555
-  cipher: aes-256-gcm
-  password: '123456'
-- password: '123456'
-  cipher: aes-256-gcm
-  name: 🇯🇵 日本 02 🟡
-  type: ss
-  server: 47.245.40.193
-  port: 5555
-- password: shadowsocks
-  cipher: aes-128-gcm
-  name: 🇬🇧 英国 01 🟡
-  type: ss
-  server: 158.173.24.73
-  port: 443
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  network: tcp
+  name: 🇨🇦 加拿大 08 🟡 ⚡
+  type: vmess
+  server: 134.195.196.211
+  port: 18000
 - name: 🇳🇱 荷兰 01 🟡
   type: vless
-  server: 51.158.206.97
+  server: 51.158.206.96
   port: 23576
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   network: tcp
@@ -565,20 +370,7 @@ proxies:
   client-fingerprint: chrome
 - name: 🇳🇱 荷兰 02 🟡
   type: vless
-  server: 51.158.206.26
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: firefox
-- name: 🇳🇱 荷兰 03 🟡
-  type: vless
-  server: 51.158.206.34
+  server: 51.158.206.29
   port: 23576
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   network: tcp
@@ -589,7 +381,7 @@ proxies:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
   client-fingerprint: chrome
-- name: 🇳🇱 荷兰 04 🟡
+- name: 🇳🇱 荷兰 03 🟡
   type: vless
   server: 51.158.206.12
   port: 23576
@@ -602,9 +394,27 @@ proxies:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
   client-fingerprint: chrome
-- name: 🇳🇱 荷兰 05 🟡
+- cipher: aes-128-gcm
+  password: shadowsocks
+  name: 🇬🇧 英国 01 🟡
+  type: ss
+  server: 158.173.24.73
+  port: 443
+- cipher: chacha20-ietf-poly1305
+  password: 29ZZXVa34x7sC48w9FKQ54UKHiJJGTVgKFppBRgviLrVCAYVVyKZdD3obbpjCyk31V5b2G2d7xzqmaPBFdcheCVB9UQ4ZghF
+  name: 🇳🇱 荷兰 04 🟡 🐢
+  type: ss
+  server: 156.67.120.205
+  port: 51628
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇳🇱 荷兰 05 🟢 🏠
+  type: ss
+  server: 151.241.19.29
+  port: 19999
+- name: 🇳🇱 荷兰 06 🟡
   type: vless
-  server: 51.158.206.29
+  server: 51.158.206.34
   port: 23576
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   network: tcp
@@ -615,19 +425,32 @@ proxies:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
   client-fingerprint: chrome
-- name: 🇩🇪 德国 02 🟡
+- name: 🇳🇱 荷兰 07 🟡
+  type: vless
+  server: 51.158.206.8
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇬🇧 英国 02 🟡
   type: ss
-  server: 18.135.5.220
-  port: 443
-  cipher: 2022-blake3-chacha20-poly1305
-  password: Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4=
-- name: 🇩🇪 德国 03 🟡 🐢
+  server: 198.244.202.215
+  port: 19999
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇬🇧 英国 03 🟡
   type: ss
-  server: 8.211.57.86
-  port: 443
-  cipher: 2022-blake3-chacha20-poly1305
-  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
-- name: 🇳🇱 荷兰 06 🟡
+  server: 142.202.51.22
+  port: 19999
+- name: 🇳🇱 荷兰 08 🟡
   type: vless
   server: 51.158.206.20
   port: 23576
@@ -640,73 +463,20 @@ proxies:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
   client-fingerprint: chrome
-- password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
-  cipher: 2022-blake3-chacha20-poly1305
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   udp: true
-  name: 🇩🇪 德国 04 🟡
+  name: 🇫🇷 法国 01 🟡
   type: ss
-  server: 8.220.81.25
-  port: 443
-- password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
-  cipher: 2022-blake3-chacha20-poly1305
+  server: 79.137.99.183
+  port: 19999
+- cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
-  name: 🇩🇪 德国 05 🟡
+  name: 🇳🇱 荷兰 09 🟡 🏠
   type: ss
-  server: 8.211.38.49
-  port: 443
-- password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
-  cipher: 2022-blake3-chacha20-poly1305
-  udp: true
-  name: 🇩🇪 德国 06 🟡
-  type: ss
-  server: 47.91.74.232
-  port: 443
-- password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
-  cipher: 2022-blake3-chacha20-poly1305
-  udp: true
-  name: 🇩🇪 德国 07 🟡
-  type: ss
-  server: 47.245.174.67
-  port: 443
-- name: 🇳🇱 荷兰 07 🟡
-  type: vless
-  server: 51.158.206.87
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: ''
-  client-fingerprint: chrome
-- name: 🇳🇱 荷兰 08 🟡
-  type: vless
-  server: 51.158.206.98
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: 🇫🇷 法国 01 🟡
-  type: vless
-  server: 62.210.91.10
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
+  server: 82.38.31.183
+  port: 8080
 - name: 🇫🇷 法国 02 🟡
   type: vless
   server: 62.210.91.2
@@ -720,41 +490,111 @@ proxies:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
   client-fingerprint: chrome
-- name: 🇳🇱 荷兰 09 🟡
-  type: vless
-  server: 152.70.58.201
+- name: 🇬🇧 英国 04 🟡
+  type: ss
+  server: 141.98.101.179
   port: 443
-  uuid: 8892e34a-339b-4526-b88d-cf68c516231c
+  cipher: aes-128-gcm
+  password: shadowsocks
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+  name: 🇩🇪 德国 01 🟡
+  type: ss
+  server: 193.108.116.98
+  port: 19999
+- name: 🇳🇱 荷兰 10 🟡 🏠
+  type: ss
+  server: 82.38.31.191
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱 荷兰 11 🟡 🏠
+  type: ss
+  server: 82.38.31.48
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  name: 🇳🇱 荷兰 12 🟡 🏠
+  type: ss
+  server: 82.38.31.178
+  port: 8080
+- name: 🇳🇱 荷兰 13 🟡 🏠
+  type: ss
+  server: 82.38.31.210
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱 荷兰 14 🟡 🏠
+  type: ss
+  server: 178.83.185.156
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇫🇷 法国 03 🟡
+  type: vless
+  server: 62.210.91.10
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   network: tcp
   flow: xtls-rprx-vision
   tls: true
-  servername: www.nvidia.com
+  servername: fuck.rkn
   reality-opts:
-    public-key: Hg_ivwbClYmR-SEHdoGgq4yEk6ltbjS5c4yiQRa4_28
-    short-id: 52c723e0fad49689
-  client-fingerprint: firefox
-- password: qwerREWQ@@
-  cipher: aes-256-cfb
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
   udp: true
-  name: 🇰🇷 韩国 01 🟡 🏠
+  name: 🇩🇪 德国 02 🟡 🐢
   type: ss
-  server: 218.237.185.234
-  port: 4652
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  udp: true
-  name: 🇩🇪 德国 08 🟡
-  type: ss
-  server: 185.176.204.18
-  port: 19999
-- password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
-  cipher: 2022-blake3-chacha20-poly1305
-  udp: true
-  name: 🇩🇪 德国 09 🟡
-  type: ss
-  server: 47.245.173.25
+  server: 8.211.38.49
   port: 443
-- name: 🌍 其他 01 🟢
+- name: 🇳🇱 荷兰 15 🟡 🏠
+  type: ss
+  server: 82.38.31.205
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
+  udp: true
+  name: 🇳🇱 荷兰 16 🟡 🏠
+  type: ss
+  server: 193.29.139.212
+  port: 8080
+- cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  name: 🇳🇱 荷兰 17 🟡 🏠
+  type: ss
+  server: 82.38.31.211
+  port: 8080
+- cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  udp: true
+  name: 🇳🇱 荷兰 18 🟡 🏠
+  type: ss
+  server: 82.38.31.220
+  port: 8080
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇫🇷 法国 04 🟡 🏠
+  type: ss
+  server: 23.162.152.22
+  port: 19999
+- cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
+  udp: true
+  name: 🇩🇪 德国 03 🟡
+  type: ss
+  server: 47.254.175.2
+  port: 443
+- name: 🇳🇱 荷兰 19 🟢
   type: vless
   server: 185.121.179.122
   port: 443
@@ -767,82 +607,101 @@ proxies:
     public-key: wpZDT_592emHu309qN-7-qceofbMJzoAdIx9m9RFJGg
     short-id: 98753667b2406829
   client-fingerprint: safari
-- password: Xd4G9xn7AgT88msCYC9MZfavMUqd3dWFNAvswi6KfaD9YcexptMbPn4cSECEMzDgvAMomAWJHyweqJer99ssMVYGH6TK8k4c
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 10 🟡
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇬🇧 英国 05 🟡 🏠
   type: ss
-  server: 216.172.144.199
-  port: 40643
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  udp: true
-  name: 🇩🇪 德国 10 🟡
-  type: ss
-  server: 193.108.116.98
+  server: 38.114.120.221
   port: 19999
-- name: 🇳🇱 荷兰 11 🟡
-  type: vless
-  server: 51.158.206.93
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- skip-cert-verify: true
-  tls: false
-  name: 🇰🇷 韩国 02 🟡
-  type: vmess
-  server: 129.154.61.196
-  port: 800
-  uuid: a915b1d6-cf28-4dc8-e4b4-e09c48c37ec0
-  alterId: 0
-  cipher: auto
-  network: tcp
-- name: 🇩🇪 德国 11 🟡 🐢
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇬🇧 英国 06 🟡
   type: ss
-  server: 8.209.106.54
-  port: 443
-  cipher: 2022-blake3-chacha20-poly1305
-  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
-- name: 🇫🇷 法国 03 🟡
-  type: vless
-  server: 163.245.42.56
-  port: 443
-  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: mother-earth.fyi
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: ''
-  client-fingerprint: chrome
-- network: ws
-  ws-opts:
-    headers:
-      Host: freeceshi6.frii.site
-    path: /proxyip=ProxyIP.JP.CMLiussss.netfp=chrome
-  servername: freeceshi6.frii.site
-  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
-  tls: true
-  name: 🇺🇸 美国 43 🟡 ⚡
-  type: vless
-  server: 172.64.154.113
-  port: 8443
-- password: XKFKl2rULjIp74
-  cipher: aes-256-gcm
+  server: 185.176.206.9
+  port: 19999
+- name: 🇳🇱 荷兰 20 🟡 🏠
+  type: ss
+  server: 82.38.31.190
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱 荷兰 21 🟡 🏠
+  type: ss
+  server: 82.38.31.202
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱 荷兰 22 🟡 🏠
+  type: ss
+  server: 82.38.31.194
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱 荷兰 23 🟡 🏠
+  type: ss
+  server: 82.38.31.35
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 🇳🇱 荷兰 24 🟡 🏠
+  type: ss
+  server: 82.38.31.47
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+- cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
-  name: 🇩🇪 德国 12 🟡
+  name: 🇳🇱 荷兰 25 🟡 🏠
   type: ss
-  server: 185.226.172.8
-  port: 8008
-- name: 🇫🇷 法国 04 🟡
+  server: 82.38.31.195
+  port: 8080
+- cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  udp: true
+  name: 🇳🇱 荷兰 26 🟡 🏠
+  type: ss
+  server: 82.38.31.165
+  port: 443
+- cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: 🇳🇱 荷兰 27 🟡 🏠
+  type: ss
+  server: 82.38.31.207
+  port: 8080
+- cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: 🇳🇱 荷兰 28 🟡 🏠
+  type: ss
+  server: 193.29.139.198
+  port: 8080
+- name: 🇳🇱 荷兰 29 🟡 🏠
+  type: ss
+  server: 82.38.31.217
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- name: 🇳🇱 荷兰 30 🟡 🏠
+  type: ss
+  server: 82.38.31.193
+  port: 8080
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+- cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
+  udp: true
+  name: 🇩🇪 德国 04 🟡
+  type: ss
+  server: 47.91.74.232
+  port: 443
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+  name: 🇩🇪 德国 05 🟡
+  type: ss
+  server: 185.176.204.18
+  port: 19999
+- name: 🇫🇷 法国 05 🟡
   type: vless
   server: 9.247.23.209
   port: 443
@@ -855,301 +714,52 @@ proxies:
     public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     short-id: ''
   client-fingerprint: chrome
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  udp: true
-  name: 🇫🇷 法国 05 🟡
-  type: ss
-  server: 79.137.99.183
-  port: 19999
-- name: 🇳🇱 荷兰 12 🟡 🏠
-  type: ss
-  server: 82.38.31.208
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇬🇧 英国 02 🟡
-  type: ss
-  server: 141.98.101.182
-  port: 443
-  cipher: aes-128-gcm
-  password: shadowsocks
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  udp: true
-  name: 🇩🇪 德国 13 🟡
-  type: ss
-  server: 57.129.76.233
-  port: 19999
-- name: 🇳🇱 荷兰 13 🟡 🏠
-  type: ss
-  server: 82.38.31.194
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 14 🟡 🏠
-  type: ss
-  server: 82.38.31.210
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 15 🟡 🏠
-  type: ss
-  server: 82.38.31.190
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 16 🟡 🏠
-  type: ss
-  server: 82.38.31.178
-  port: 8080
-- password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
-  cipher: 2022-blake3-chacha20-poly1305
-  udp: true
-  name: 🇩🇪 德国 14 🟡
-  type: ss
-  server: 47.254.175.2
-  port: 443
-- name: 🇹🇼 台湾 01 🟢 🏠
+- name: 🇫🇷 法国 06 🟡
   type: vless
-  server: 85.237.207.221
+  server: 163.245.42.56
   port: 443
-  uuid: b59bcb5b-5150-4c6b-9227-681886197014
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
   network: tcp
   flow: xtls-rprx-vision
   tls: true
-  servername: dl.google.com
+  servername: mother-earth.fyi
   reality-opts:
-    public-key: lJz7AGWUC-ZTEIJaU5y1GRrROWJ9J_VzQRyrYPmOygs
-    short-id: fd2fa5e06670120b
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
   client-fingerprint: chrome
-- name: 🇳🇱 荷兰 17 🟡 🏠
+- cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  name: 🇳🇴 挪威 01 🟡 🏠
   type: ss
-  server: 82.38.31.217
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 18 🟡 🏠
-  type: ss
-  server: 82.38.31.202
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 19 🟡 🏠
-  type: ss
-  server: 82.38.31.203
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 20 🟡 🏠
-  type: ss
-  server: 82.38.31.214
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 21 🟡 🏠
-  type: ss
-  server: 82.38.31.180
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 22 🟡 🏠
-  type: ss
-  server: 82.38.31.48
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
+  server: 185.213.23.63
+  port: 990
+- cipher: aes-256-cfb
+  password: jt2ekBNc9HuVtm2a
   udp: true
-  name: 🇳🇱 荷兰 23 🟡 🏠
+  name: 🇵🇱 波兰 01 🟡 🏠
   type: ss
-  server: 82.38.31.201
-  port: 8080
-- password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
+  server: 217.30.10.44
+  port: 9052
+- cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
   udp: true
-  name: 🇳🇱 荷兰 24 🟡 🏠
+  name: 🇩🇪 德国 06 🟡
   type: ss
-  server: 82.38.31.195
-  port: 8080
-- password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 25 🟡 🏠
+  server: 47.245.173.25
+  port: 443
+- name: 🇩🇪 德国 07 🟡
   type: ss
-  server: 82.38.31.213
-  port: 8080
-- password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 26 🟡 🏠
-  type: ss
-  server: 82.38.31.220
-  port: 8080
-- password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 27 🟡 🏠
-  type: ss
-  server: 82.38.31.200
-  port: 8080
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇬🇧 英国 03 🟡
-  type: ss
-  server: 142.202.51.22
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇬🇧 英国 04 🟡 🏠
-  type: ss
-  server: 38.114.120.221
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇬🇧 英国 05 🟡
-  type: ss
-  server: 185.176.206.9
-  port: 19999
-- password: 4a2rfixophdjffa8KVA4Aa
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 28 🟢 🐢
-  type: ss
-  server: 193.29.139.234
-  port: 8080
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  udp: true
-  name: 🇨🇭 瑞士 01 🟡 🏠
-  type: ss
-  server: 23.166.88.189
-  port: 19999
-- password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 29 🟡 🏠
-  type: ss
-  server: 82.38.31.204
-  port: 8080
-- name: 🇳🇱 荷兰 30 🟡 🏠
-  type: ss
-  server: 82.38.31.179
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 31 🟡 🏠
-  type: ss
-  server: 82.38.31.187
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- name: 🇳🇱 荷兰 32 🟡 🏠
-  type: ss
-  server: 178.83.185.156
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: 🇳🇱 荷兰 33 🟡 🏠
-  type: ss
-  server: 82.38.31.35
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: 🇳🇱 荷兰 34 🟡 🏠
-  type: ss
-  server: 82.38.31.61
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-- password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 35 🟡 🏠
-  type: ss
-  server: 82.38.31.199
-  port: 8080
-- password: QCXDxuDlTTMD7jtgHUjIoj
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 36 🟡 🏠
-  type: ss
-  server: 193.29.139.212
-  port: 8080
-- name: 🇳🇱 荷兰 37 🟡 🏠
-  type: ss
-  server: 82.38.31.212
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- password: oZIoA69Q8yhcQV8ka3Pa3A
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 38 🟡 🏠
-  type: ss
-  server: 82.38.31.157
-  port: 8080
-- password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
+  server: 18.135.5.220
+  port: 443
   cipher: 2022-blake3-chacha20-poly1305
-  name: 🇩🇪 德国 15 🟡 🐢
-  type: ss
-  server: 8.211.56.98
-  port: 443
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇫🇷 法国 06 🟡 🏠
-  type: ss
-  server: 23.162.152.22
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇫🇷 法国 07 🟡 🏠
-  type: ss
-  server: 167.17.64.27
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇫🇷 法国 08 🟡 🏠
-  type: ss
-  server: 172.99.189.142
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇬🇧 英国 06 🟡
-  type: ss
-  server: 198.244.202.215
-  port: 19999
-- password: shadowsocks
-  cipher: aes-128-gcm
-  name: 🇬🇧 英国 07 🟡
-  type: ss
-  server: 141.98.101.181
-  port: 443
-- network: tcp
-  flow: xtls-rprx-vision
-  servername: 6bf329t.nl18.h1clayd.click
-  client-fingerprint: chrome
+  password: Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4=
+- cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
   udp: true
-  uuid: e894c08a-fecc-46f5-bf03-c95d0274c79d
-  tls: true
-  reality-opts:
-    public-key: p35RUaaaItuoyNiCrLpGeStBUpEJMSiZ2AajdfhhmiM
-    short-id: 92aee92130b46fe2
-  name: 🇫🇷 法国 09 🟡 🐢
-  type: vless
-  server: 13.141.36.43
-  port: 443
-- password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-  udp: true
-  name: 🇳🇱 荷兰 39 🟡 🏠
+  name: 🇩🇪 德国 08 🟡
   type: ss
-  server: 82.38.31.215
-  port: 8080
+  server: 47.245.174.67
+  port: 443
 - name: 🇪🇸 西班牙 01 🟡
   type: vless
   server: 2.27.27.33
@@ -1162,261 +772,303 @@ proxies:
     public-key: B4NK8UZflXK2SI7P6wvCbfSw0wspQRO0ElZM30gc_1E
     short-id: ''
   client-fingerprint: random
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   name: 🇸🇪 瑞典 01 🟡
   type: ss
   server: 138.199.55.243
   port: 19999
-- password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
-  cipher: chacha20-ietf-poly1305
-  name: 🇳🇴 挪威 01 🟡 🏠
-  type: ss
-  server: 185.213.23.63
-  port: 990
-- password: oZIoA69Q8yhcQV8ka3Pa3A
-  cipher: chacha20-ietf-poly1305
+- cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
   udp: true
-  name: 🇳🇱 荷兰 40 🟡 🏠
+  name: 🇩🇪 德国 09 🟡
   type: ss
-  server: 82.38.31.39
-  port: 8080
-- password: jt2ekBNc9HuVtm2a
-  cipher: aes-256-cfb
-  udp: true
-  name: 🇵🇱 波兰 01 🟡 🏠
+  server: 8.220.81.25
+  port: 443
+- client-fingerprint: chrome
+  servername: freeceshi6.frii.site
+  ws-opts:
+    headers:
+      Host: freeceshi6.frii.site
+    path: /proxyip=ProxyIP.JP.CMLiussss.net
+  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
+  tls: true
+  network: ws
+  name: 🇯🇵 日本 01 🟡 ☁️
+  type: vless
+  server: 172.64.154.113
+  port: 8443
+- cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
+  name: 🇩🇪 德国 10 🟡 🐢
   type: ss
-  server: 217.30.10.44
-  port: 9052
-- name: 🇳🇱 荷兰 41 🟡 🏠
-  type: ss
-  server: 82.38.31.193
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇫🇷 法国 10 🟡 🏠
+  server: 8.211.56.98
+  port: 443
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇫🇷 法国 07 🟡 🏠
   type: ss
   server: 38.109.228.110
   port: 19999
-- network: tcp
-  cipher: auto
-  udp: true
-  uuid: e7c302f3-90d6-42dd-9d7d-94a3683a3707
-  alterId: 0
-  name: 🇰🇷 韩国 03 🟡
-  type: vmess
-  server: 146.56.112.110
-  port: 8888
-- password: oZIoA69Q8yhcQV8ka3Pa3A
-  cipher: chacha20-ietf-poly1305
-  name: 🇳🇱 荷兰 42 🟡 🏠
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇫🇷 法国 08 🟡 🏠
   type: ss
-  server: 82.38.31.162
-  port: 443
-- password: 5mKjXAGrliIAlYwWDeFzkCEMIgQdFQLe
-  cipher: aes-256-gcm
-  name: 🇷🇺 俄罗斯 01 🟡
-  type: ss
-  server: 194.87.69.12
-  port: 18443
-- password: PRBf4BS2HvJqtWxY
-  cipher: aes-256-cfb
+  server: 167.17.64.27
+  port: 19999
+- cipher: aes-256-cfb
+  password: 2KUaE2a8NWTvuCZ3
   udp: true
   name: 🇧🇬 保加利亚 01 🟡
   type: ss
   server: 213.183.63.60
-  port: 9049
-- password: qItG8SueYQcP
-  cipher: chacha20-ietf-poly1305
+  port: 9066
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇮🇹 意大利 01 🟢 🏠
+  type: ss
+  server: 185.164.175.81
+  port: 19999
+- flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  servername: www.microsoft.com
+  udp: true
+  uuid: 66171cbe-0b4b-4b24-99f6-d5a822f4dc9a
+  reality-opts:
+    public-key: 99eQkMBHqOEKororOWKFlmH8M0o9VaVpV9w1vQIxhz8
+    short-id: 684c7531e599dec0
+  tls: true
+  name: 🇯🇵 日本 02 🟡
+  type: vless
+  server: 158.101.151.157
+  port: 443
+  network: tcp
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇮🇹 意大利 02 🟡
+  type: ss
+  server: 202.50.253.36
+  port: 19999
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇮🇹 意大利 03 🟡
+  type: ss
+  server: 202.50.253.27
+  port: 19999
+- cipher: aes-128-gcm
+  password: shadowsocks
+  name: 🇯🇵 日本 03 🟡
+  type: ss
+  server: 149.22.87.240
+  port: 443
+- cipher: chacha20-ietf-poly1305
+  password: qItG8SueYQcP
   name: 🇪🇸 西班牙 02 🟡
   type: ss
   server: 108.181.121.170
   port: 443
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇨🇭 瑞士 02 🟡 🏠
+- cipher: aes-256-gcm
+  password: DgMywXKqojHXeuXY8hOJaYGPFcjweCIJeD5cdg/cUUY=
+  name: 🇫🇮 芬兰 01 🟡 🏠
   type: ss
-  server: 23.166.88.127
+  server: 213.176.92.148
+  port: 40647
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇫🇷 法国 09 🟡 🏠
+  type: ss
+  server: 172.99.189.142
   port: 19999
-- password: GeregetR8cvQHzYr
-  cipher: aes-256-cfb
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  udp: true
+  name: 🇨🇭 瑞士 01 🟡 🏠
+  type: ss
+  server: 23.166.88.189
+  port: 19999
+- cipher: aes-256-cfb
+  password: p5wSkb2uM3pKSS3j
+  udp: true
+  name: 🇮🇹 意大利 04 🟡
+  type: ss
+  server: 91.201.65.122
+  port: 9074
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇦🇹 奥地利 01 🟢 🏠
+  type: ss
+  server: 82.110.60.9
+  port: 19999
+- cipher: aes-256-cfb
+  password: PRBf4BS2HvJqtWxY
   udp: true
   name: 🇧🇬 保加利亚 02 🟡
   type: ss
   server: 213.183.63.60
-  port: 9030
-- password: 2KUaE2a8NWTvuCZ3
-  cipher: aes-256-cfb
+  port: 9049
+- cipher: aes-256-cfb
+  password: GeregetR8cvQHzYr
   udp: true
   name: 🇧🇬 保加利亚 03 🟡
   type: ss
   server: 213.183.63.60
-  port: 9066
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇮🇹 意大利 01 🟡
+  port: 9030
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇮🇹 意大利 05 🟡
   type: ss
-  server: 202.50.253.45
+  server: 202.50.253.54
   port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇮🇹 意大利 06 🟡
+  type: ss
+  server: 202.50.253.72
+  port: 19999
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇮🇹 意大利 07 🟡
+  type: ss
+  server: 202.50.253.99
+  port: 19999
+- cipher: chacha20-ietf-poly1305
+  password: AdawffFMHymlasRb0VOP3HFf7sTG5sJx
+  name: 🇦🇹 奥地利 02 🟢 🏠
+  type: ss
+  server: 152.53.1.57
+  port: 8388
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇨🇭 瑞士 02 🟡 🏠
+  type: ss
+  server: 23.166.88.127
+  port: 19999
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   name: 🇨🇭 瑞士 03 🟡
   type: ss
   server: 186.190.215.251
   port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇮🇹 意大利 02 🟡
-  type: ss
-  server: 202.50.253.81
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇮🇹 意大利 03 🟡
-  type: ss
-  server: 202.50.253.99
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇮🇹 意大利 04 🟡
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇮🇹 意大利 08 🟡
   type: ss
   server: 202.50.253.90
   port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇮🇹 意大利 05 🟡
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇮🇹 意大利 09 🟡
   type: ss
-  server: 202.50.253.27
+  server: 202.50.253.45
   port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇮🇹 意大利 06 🟡
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇮🇹 意大利 10 🟡
   type: ss
-  server: 202.50.253.54
+  server: 202.50.253.81
   port: 19999
-- password: AdawffFMHymlasRb0VOP3HFf7sTG5sJx
-  cipher: chacha20-ietf-poly1305
-  name: 🇦🇹 奥地利 01 🟢 🏠
+- servername: freeceshi6.frii.site
+  ws-opts:
+    headers:
+      Host: freeceshi6.frii.site
+    path: /proxyip=ProxyIP.JP.CMLiussss.netfp=chrome
+  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
+  tls: true
+  network: ws
+  name: 🇺🇸 美国 34 🟡 ⚡
+  type: vless
+  server: 172.64.154.113
+  port: 8443
+- cipher: aes-256-gcm
+  password: 5mKjXAGrliIAlYwWDeFzkCEMIgQdFQLe
+  name: 🇷🇺 俄罗斯 01 🟡
   type: ss
-  server: 152.53.1.57
-  port: 8388
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇮🇹 意大利 07 🟡
-  type: ss
-  server: 202.50.253.72
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇮🇹 意大利 08 🟡
-  type: ss
-  server: 202.50.253.36
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇮🇹 意大利 09 🟢 🏠
-  type: ss
-  server: 185.164.175.81
-  port: 19999
+  server: 194.87.69.12
+  port: 18443
 - name: 🇭🇰 香港 01 🟡 🐢
   type: ss
   server: 143.20.71.68
   port: 28014
   cipher: chacha20-ietf-poly1305
   password: abc62f00-95a8-4c2e-a85d-36a2cdc977da
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇦🇹 奥地利 02 🟢 🏠
-  type: ss
-  server: 82.110.60.9
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇨🇭 瑞士 04 🟡
-  type: ss
-  server: 79.127.184.104
-  port: 19999
-- password: DgMywXKqojHXeuXY8hOJaYGPFcjweCIJeD5cdg/cUUY=
-  cipher: aes-256-gcm
-  name: 🇫🇮 芬兰 01 🟡 🏠
-  type: ss
-  server: 213.176.92.148
-  port: 40647
-- sni: guanwang.awsno.com
-  network: ws
-  cipher: auto
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: guanwang.awsno.com
-  servername: guanwang.awsno.com
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  tls: true
-  name: 🇺🇸 美国 44 🟡 ⚡
-  type: vmess
-  server: www.shopify.com
-  port: 443
-- servername: www.cloudflare.com
-  client-fingerprint: chrome
+- client-fingerprint: chrome
+  servername: www.cloudflare.com
   udp: true
   uuid: 67952583-8572-42e1-943d-0602794f885b
-  tls: true
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: d9a6b52e98121db2
+  tls: true
   name: 🇸🇬 新加坡 01 🟡 🐢
   type: vless
   server: 103.106.229.177
   port: 21002
   network: tcp
-- password: p5wSkb2uM3pKSS3j
-  cipher: aes-256-cfb
-  udp: true
-  name: 🇮🇹 意大利 10 🟡
-  type: ss
-  server: 91.201.65.122
-  port: 9074
-- network: tcp
-  cipher: auto
-  udp: true
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  alterId: 0
-  name: 🇸🇬 新加坡 02 🟡
-  type: vmess
-  server: 149.88.23.202
-  port: 18000
-- name: 🇸🇬 新加坡 03 🟡
+- name: 🇸🇬 新加坡 02 🟡
   type: ss
   server: 149.88.106.73
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- network: http
-  cipher: auto
-  udp: true
-  http-opts:
-    method: GET
-    path:
-    - /3x
-    headers:
-      Host:
-      - down-cdn.dingtalk.com
-  uuid: ec3c8b97-f308-4fee-aa16-95e2c7595acd
-  alterId: 0
-  name: 🇫🇮 芬兰 02 🟡
-  type: vmess
-  server: 185.212.149.7
-  port: 52080
 - name: 🇮🇹 意大利 11 🟡
   type: ss
   server: 202.50.253.18
   port: 19999
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇨🇦 加拿大 12 🟡 🐢
+- cipher: auto
+  alterId: 0
+  udp: true
+  uuid: e7c302f3-90d6-42dd-9d7d-94a3683a3707
+  network: tcp
+  name: 🇰🇷 韩国 01 🟡
+  type: vmess
+  server: 146.56.112.110
+  port: 8888
+- name: 🇮🇹 意大利 12 🟡
+  type: ss
+  server: 202.50.253.63
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇸🇬 新加坡 03 🟡
+  type: ss
+  server: 149.88.106.74
+  port: 19999
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇸🇬 新加坡 04 🟡
+  type: ss
+  server: 149.88.107.74
+  port: 19999
+- cipher: auto
+  alterId: 0
+  udp: true
+  uuid: 9b76bc31-17a5-4454-934a-8d5fb602cd70
+  name: 🇹🇭 泰国 01 🟡 🐢
+  type: vmess
+  server: 119.46.51.45
+  port: 37515
+  network: tcp
+- cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: 🇸🇬 新加坡 05 🟡
+  type: ss
+  server: 149.88.107.47
+  port: 19999
+- name: 🇩🇪 德国 11 🟡
+  type: vless
+  server: 57.129.41.216
+  port: 80
+  uuid: 7d90f043-ed7f-40c9-ac2f-352987904958
+  network: ws
+  ws-opts:
+    path: /vless/
+    headers:
+      Host: ov-germany1.09vpn.com
+- name: 🇨🇦 加拿大 09 🟡 🐢
   type: vless
   server: 38.207.172.59
   port: 28418
@@ -1429,181 +1081,50 @@ proxies:
     public-key: mfxE6lW_fuPZKWtrySdTx9HOh0vtX3-7aMiYDCh2YCA
     short-id: ddd21e20
   client-fingerprint: chrome
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇺🇸 美国 45 🟡
-  type: vmess
-  server: 172.111.36.123
-  port: 1270
-  network: tcp
-- name: 🇮🇹 意大利 12 🟡
-  type: ss
-  server: 202.50.253.63
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇸🇬 新加坡 04 🟡
-  type: ss
-  server: 149.88.107.47
-  port: 19999
-- password: Sn5B7jTqr76aCJT8
-  cipher: aes-256-cfb
-  udp: true
-  name: 🇮🇹 意大利 13 🟡
-  type: ss
-  server: 91.201.65.122
-  port: 9097
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇸🇬 新加坡 05 🟡
-  type: ss
-  server: 149.88.107.74
-  port: 19999
-- password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  name: 🇸🇬 新加坡 06 🟡
-  type: ss
-  server: 149.88.106.74
-  port: 19999
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇺🇸 美国 46 🟡
-  type: vmess
-  server: 67.220.74.197
-  port: 1270
-  network: tcp
-- uuid: b83faafc-cbb7-4655-99d4-2c4c39a49d1b
-  tls: false
-  name: 🇻🇳 越南 01 🟡 🐢
-  type: vless
-  server: 150.95.109.109
-  port: 2086
-  network: tcp
-- network: ws
+- encryption: none
   ws-opts:
     headers:
-      Host: freeceshi6.frii.site
-    path: /proxyip=ProxyIP.JP.CMLiussss.net
-  servername: freeceshi6.frii.site
-  client-fingerprint: chrome
-  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
-  tls: true
-  name: 🇯🇵 日本 03 🟡 ⚡
-  type: vless
-  server: 172.64.154.113
-  port: 8443
-- network: tcp
-  flow: xtls-rprx-vision
-  servername: 8a2e72t.nl20.h1clayd.shop
-  client-fingerprint: firefox
+      Host: OV-Germany1.09vpn.com
+    path: /vless/
   udp: true
-  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
-  tls: true
-  reality-opts:
-    public-key: VZS639V1i-35g7VXb9EoTYL-Srm7858sxcvFAunncmA
-    short-id: 8d0d0679f42ffd98
-  name: 🇳🇱 荷兰 43 🟡 🐢
-  type: vless
-  server: 196.196.148.76
-  port: 443
-- name: 🇫🇷 法国 11 🟡
-  type: vless
-  server: edge.bookmai.com
-  port: 443
-  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
-  network: tcp
-  flow: xtls-rprx-vision
-  tls: true
-  servername: mother-earth.fyi
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: ''
-  client-fingerprint: chrome
-- network: tcp
-  flow: xtls-rprx-vision
-  servername: 7aa271t.es9.h1clayd.click
-  client-fingerprint: firefox
-  udp: true
-  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
-  tls: true
-  reality-opts:
-    public-key: ZSmetD4e9QG5CiXhniHg5HJB68L4kwbgAkJmMHtVwEE
-    short-id: 42426c882c5fcd41
-  name: 🇪🇸 西班牙 03 🟡 🐢
-  type: vless
-  server: 196.196.148.90
-  port: 443
-- name: 🇺🇸 美国 47 🟡 🐢
-  type: vless
-  server: uuafe56.cf.877774.xyz
-  port: 443
-  uuid: 531d9e93-53be-4f05-a9c1-33490d4da2f3
+  packet-encoding: xudp
+  uuid: 7d74eae4-8a06-4306-a923-ad686f30bf26
   network: ws
-  tls: true
-  servername: uua01.gg9901.uk
-  ws-opts:
-    path: /images
-    headers:
-      Host: uua01.gg9901.uk
-- name: 🇨🇭 瑞士 05 🟡 🏠
-  type: ss
-  server: leviko-ch0322.shopingggg.ir
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- network: ws
-  ws-opts:
-    path: /
-  uuid: 27c5483f-17f4-48ae-9a04-def53d88440d
-  tls: false
-  name: 🇰🇷 韩国 04 🟡
+  skip-cert-verify: false
+  name: 🇩🇪 德国 12 🟡
   type: vless
-  server: 152.69.226.63
-  port: 25555
-- name: 🇨🇭 瑞士 06 🟡 🏠
-  type: ss
-  server: leviko-ch7340.shopingggg.ir
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- password: aduB9HGxQHjA2SBMRjkHX6
-  cipher: chacha20-ietf-poly1305
+  server: OV-Germany1.09vpn.com
+  port: 80
+- cipher: chacha20-ietf-poly1305
+  password: aduB9HGxQHjA2SBMRjkHX6
   name: 🇿🇦 南非 01 🟡 🏠
   type: ss
   server: 102.37.156.224
   port: 443
-- password: Xsy8Ox4yOV3xLlpxtjzs3X
-  cipher: chacha20-ietf-poly1305
+- cipher: chacha20-ietf-poly1305
+  password: Xsy8Ox4yOV3xLlpxtjzs3X
   name: 🇿🇦 南非 02 🟡 🐢
   type: ss
   server: 102.133.165.160
   port: 16233
-- network: ws
-  encryption: none
-  packet-encoding: xudp
-  skip-cert-verify: false
-  ws-opts:
+- ws-opts:
     headers:
-      Host: sc-thenetherlands1.09vpn.com
-    path: /vless/
-  udp: true
-  uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
+      Host: 5.178.109.174
+    path: /vless
+  uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
   tls: false
-  name: 🇳🇱 荷兰 44 🟡
+  network: ws
+  name: 🇸🇪 瑞典 02 🟡 🏠
   type: vless
-  server: sc-thenetherlands1.09vpn.com
-  port: 80
-- name: 🇩🇪 德国 16 🟡 🐢
+  server: 5.178.109.174
+  port: 14430
+- cipher: chacha20-ietf-poly1305
+  password: abc62f00-95a8-4c2e-a85d-36a2cdc977da
+  name: 🇭🇰 香港 02 🟡 🐢
+  type: ss
+  server: waic.pro.main.sys-metric-report.com
+  port: 28014
+- name: 🇩🇪 德国 13 🟡 🐢
   type: vless
   server: lists.soloramtin.cyou
   port: 443
@@ -1616,75 +1137,288 @@ proxies:
     public-key: G7bpUPFSW28-oE6ff8qZac1_apU6PiJ-GHmi7tAPDSY
     short-id: 91af08b1ce1f
   client-fingerprint: chrome
-- name: 🇰🇷 韩国 05 🟡 🏠
-  type: ss
-  server: p141.panda001.net
-  port: 4652
-  cipher: aes-256-cfb
-  password: qwerREWQ@@
-- network: ws
-  encryption: none
-  packet-encoding: xudp
-  skip-cert-verify: false
-  ws-opts:
-    headers:
-      Host: OV-France1.09vpn.com
-    path: /vless/
-  udp: true
-  uuid: 25f86cb1-2140-4085-abcb-c3a0ea7a4be0
-  tls: false
-  name: 🇫🇷 法国 12 🟡
+- name: 🇯🇵 日本 04 🟡
   type: vless
-  server: OV-France1.09vpn.com
-  port: 80
-- name: 🇳🇱 荷兰 45 🟡
-  type: vless
-  server: sc-thenetherlands1.09vpn.com
-  port: 80
-  uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
-  network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: sc-thenetherlands1.09vpn.com
-- network: ws
-  ws-opts:
-    headers:
-      Host: 5.178.109.174
-    path: /vless
-  uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
-  tls: false
-  name: 🇸🇪 瑞典 02 🟡 🏠
-  type: vless
-  server: 5.178.109.174
-  port: 14430
-- name: 🇺🇸 美国 48 🟡 ☁️
-  type: vless
-  server: leviko-us6278.shopingggg.ir
-  port: 8443
-  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
+  server: 57.129.52.47
+  port: 52014
+  uuid: ecc4675b-1607-4699-8b20-23af97b671af
   network: ws
   tls: true
-  servername: freeceshi6.frii.site
+  servername: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
   client-fingerprint: chrome
   ws-opts:
-    path: /
+    path: /@Marisa_kristi
     headers:
-      Host: freeceshi6.frii.site
-- network: ws
-  encryption: none
-  packet-encoding: xudp
-  skip-cert-verify: false
+      Host: kqjifhg9rw.tradsc8p9xp7wxyqmc1wy0ah.workers.dev
+- servername: 95.174.68.188
   ws-opts:
     headers:
-      Host: OV-Germany1.09vpn.com
-    path: /vless/
-  udp: true
-  uuid: 7d74eae4-8a06-4306-a923-ad686f30bf26
-  name: 🇩🇪 德国 17 🟡
+      Host: 95.174.68.188
+    path: /vless
+  uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
+  tls: false
+  network: ws
+  name: 🇦🇪 阿联酋 01 🟡 🐢
   type: vless
-  server: OV-Germany1.09vpn.com
-  port: 80
+  server: 95.174.68.188
+  port: 14430
+- tls: false
+  skip-cert-verify: true
+  name: 🇸🇬 新加坡 06 🟡 🐢
+  type: vmess
+  server: 8.222.172.146
+  port: 54327
+  uuid: 8a3d03bc-9b35-43b4-d901-c8531f2bbc6d
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /pages
+- tls: false
+  sni: ''
+  skip-cert-verify: true
+  name: 🇭🇰 香港 03 🟡 🏠
+  type: vmess
+  server: 156.245.232.239
+  port: 35043
+  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
+  alterId: 0
+  cipher: auto
+  network: ws
+  ws-opts:
+    path: /
+- cipher: auto
+  servername: v2ray1.dozapp.xyz
+  ws-opts:
+    path: /lMnsZUN4/
+    headers:
+      Host: v2ray1.dozapp.xyz
+  alterId: 0
+  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
+  tls: true
+  network: ws
+  sni: v2ray1.dozapp.xyz
+  name: 🇨🇦 加拿大 10 🟡 🐢
+  type: vmess
+  server: 172.64.80.1
+  port: 8443
+- name: 🇧🇾 白俄罗斯 01 🟡 🐢
+  type: vless
+  server: 95.128.71.79
+  port: 14430
+  uuid: 8cef7621-c6f0-486e-b51d-59c30c5b0b25
+  network: ws
+  ws-opts:
+    path: /vless
+    headers:
+      Host: 95.128.71.79
+- ws-opts:
+    path: /
+  uuid: 27c5483f-17f4-48ae-9a04-def53d88440d
+  tls: false
+  network: ws
+  name: 🇰🇷 韩国 02 🟡
+  type: vless
+  server: 152.69.226.63
+  port: 25555
+- name: 🇳🇱 荷兰 31 🟡
+  type: vless
+  server: 196.240.125.12
+  port: 8443
+  uuid: f121ffc8-f6dc-4728-a871-a05e3f9cf8c5
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: api-v2-6b09ce88.vmagnum.win
+  client-fingerprint: ios
+- cipher: auto
+  servername: xmfhlpy.com
+  alterId: 0
+  udp: true
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  tls: true
+  name: 🇫🇷 法国 10 🟡
+  type: vmess
+  server: 162.19.82.57
+  port: 1270
+  network: tcp
+- ws-opts:
+    path: /vless
+    headers:
+      Host: 95.128.71.79
+  udp: true
+  uuid: 8cef7621-c6f0-486e-b51d-59c30c5b0b25
+  tls: false
+  network: ws
+  name: 🇧🇾 白俄罗斯 02 🟡 🐢
+  type: vless
+  server: 95.128.71.79
+  port: 14430
+- cipher: auto
+  servername: xmfhlpy.com
+  alterId: 0
+  udp: true
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  tls: true
+  name: 🇫🇷 法国 11 🟡
+  type: vmess
+  server: 91.134.35.72
+  port: 1270
+  network: tcp
+- cipher: auto
+  servername: xmfhlpy.com
+  alterId: 0
+  udp: true
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  tls: true
+  name: 🇫🇷 法国 12 🟡
+  type: vmess
+  server: 46.105.222.157
+  port: 1270
+  network: tcp
+- encryption: mlkem768x25519plus.native.0rtt.l4vL8o_tMDEuI19vLDJYXFJOvYodTEgF6uK6gqjsDVw
+  udp: true
+  uuid: d1ec39e3-ad7b-4b65-9f65-813696f9a04e
+  tls: false
+  network: tcp
+  name: 🇩🇪 德国 14 🟡 🐢
+  type: vless
+  server: alsu.deev-guard.ir
+  port: 1289
+- cipher: auto
+  servername: xmfhlpy.com
+  alterId: 0
+  udp: true
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  tls: true
+  name: 🇫🇷 法国 13 🟡
+  type: vmess
+  server: 46.105.222.155
+  port: 1270
+  network: tcp
+- flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  servername: 105ky37.virtual-network.lol
+  udp: true
+  uuid: 352a250d-080b-47b5-b7db-f9f8fa31c551
+  tls: true
+  network: tcp
+  skip-cert-verify: false
+  name: 🇩🇪 德国 15 🟢 🏠
+  type: vless
+  server: 130.78.30.147
+  port: 443
+- cipher: auto
+  servername: guanwang.awsno.com
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+  alterId: 0
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  tls: true
+  network: ws
+  sni: guanwang.awsno.com
+  name: 🇺🇸 美国 35 🟡
+  type: vmess
+  server: www.shopify.com
+  port: 443
+- cipher: auto
+  servername: xmfhlpy.com
+  alterId: 0
+  udp: true
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  tls: true
+  name: 🇫🇷 法国 14 🟡
+  type: vmess
+  server: 79.137.99.183
+  port: 1270
+  network: tcp
+- name: 🇩🇪 德国 16 🟡
+  type: vless
+  server: 191.217.215.228
+  port: 2053
+  uuid: fbe22815-0718-4eae-816f-e91c67d15b54
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 191.217.215.228
+  client-fingerprint: firefox
+- cipher: auto
+  servername: xmfhlpy.com
+  alterId: 0
+  udp: true
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  tls: true
+  name: 🇩🇪 德国 17 🟢 🏠
+  type: vmess
+  server: 193.108.119.87
+  port: 1270
+  network: tcp
+- ws-opts:
+    headers:
+      Host: 13.140.56.100
+    path: /vless
+  uuid: 68512eac-cd53-4de3-8d1e-08f6e04af1a9
+  tls: false
+  network: ws
+  name: 🇮🇳 印度 01 🟡 🐢
+  type: vless
+  server: 13.140.56.100
+  port: 14430
+- cipher: auto
+  servername: xmfhlpy.com
+  alterId: 0
+  udp: true
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  tls: true
+  name: 🇸🇪 瑞典 03 🟡
+  type: vmess
+  server: 138.199.55.230
+  port: 1270
+  network: tcp
+- servername: diyichongdi.us.ci
+  udp: true
+  uuid: a61ce788-6cfe-4bbe-9f81-155ea8fa8e16
+  tls: true
+  network: tcp
+  name: 🇬🇧 英国 07 🟢
+  type: vless
+  server: 82.152.18.32
+  port: 443
+- name: 🇫🇷 法国 15 🟡
+  type: vless
+  server: edge.bookmai.com
+  port: 443
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: mother-earth.fyi
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+  client-fingerprint: chrome
+- client-fingerprint: firefox
+  servername: jp.reddotcorp.org
+  uuid: 8840fac2-5361-4cb6-b887-cd1b95092394
+  tls: true
+  name: 🇯🇵 日本 05 🟡
+  type: vless
+  server: 50.7.159.242
+  port: 443
+  network: tcp
+- client-fingerprint: chrome
+  servername: szqbx-ru-77dc.my-fade.cloud
+  udp: true
+  uuid: 666821a2-5c3d-0001-a56f-5a3a562d7324
+  tls: true
+  network: tcp
+  skip-cert-verify: false
+  name: 🇫🇮 芬兰 02 🟡
+  type: vless
+  server: 136.148.83.69
+  port: 443
 - name: 🇫🇮 芬兰 03 🟡 🐢
   type: vless
   server: 45.38.143.210
@@ -1697,357 +1431,111 @@ proxies:
     public-key: 2hV4TY2ygvQ7ISa5o4u_FUKXzlIhLgbsScE8M1h0m3Y
     short-id: 67ece882d65d0f1a
   client-fingerprint: chrome
-- network: ws
-  ws-opts:
-    headers:
-      Host: 95.174.68.188
-    path: /vless
-  servername: 95.174.68.188
-  uuid: 965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0
-  tls: false
-  name: 🇦🇪 阿联酋 01 🟡 🐢
-  type: vless
-  server: 95.174.68.188
-  port: 14430
-- network: ws
-  ws-opts:
-    headers:
-      Host: 13.140.56.100
-    path: /vless
-  uuid: 68512eac-cd53-4de3-8d1e-08f6e04af1a9
-  tls: false
-  name: 🇮🇳 印度 01 🟡 🐢
-  type: vless
-  server: 13.140.56.100
-  port: 14430
-- servername: jp.reddotcorp.org
-  client-fingerprint: firefox
-  uuid: 8840fac2-5361-4cb6-b887-cd1b95092394
-  tls: true
-  name: 🇯🇵 日本 04 🟡
-  type: vless
-  server: 50.7.159.242
-  port: 443
-  network: tcp
-- cipher: auto
-  servername: xmfhlpy.com
+- client-fingerprint: firefox
+  servername: vps3.nemnogogo.com
   udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
   tls: true
-  name: 🇬🇧 英国 08 🟡 🏠
-  type: vmess
-  server: 149.7.16.228
-  port: 1270
-  network: tcp
-- sni: ''
-  skip-cert-verify: true
-  tls: false
-  name: 🇭🇰 香港 02 🟡 🏠
-  type: vmess
-  server: 156.245.232.239
-  port: 35043
-  uuid: b15e481d-17e4-41a8-84c2-23d4f0514d9a
-  alterId: 0
-  cipher: auto
-  network: ws
-  ws-opts:
-    path: /
-- network: tcp
-  encryption: mlkem768x25519plus.native.0rtt.l4vL8o_tMDEuI19vLDJYXFJOvYodTEgF6uK6gqjsDVw
-  udp: true
-  uuid: d1ec39e3-ad7b-4b65-9f65-813696f9a04e
-  tls: false
-  name: 🇩🇪 德国 18 🟡
-  type: vless
-  server: alsu.deev-guard.ir
-  port: 1289
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇳🇱 荷兰 46 🟡
-  type: vmess
-  server: 188.166.81.135
-  port: 1270
-  network: tcp
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇩🇪 德国 19 🟢 🏠
-  type: vmess
-  server: 193.108.119.87
-  port: 1270
-  network: tcp
-- name: 🇷🇺 俄罗斯 02 🟡 🐢
-  type: vless
-  server: er5we.cf.877774.xyz
-  port: 443
-  uuid: 531d9e93-53be-4f05-a9c1-33490d4da2f3
-  network: ws
-  tls: true
-  servername: era01.gg9901.uk
-  ws-opts:
-    path: /images
-    headers:
-      Host: era01.gg9901.uk
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇫🇷 法国 13 🟡
-  type: vmess
-  server: 162.19.82.57
-  port: 1270
-  network: tcp
-- network: ws
-  skip-cert-verify: false
-  ws-opts:
-    headers:
-      Host: st3b6e5.rumedia-cdn.com
-    path: /cdn/v3/live
-  flow: ''
-  servername: st3b6e5.rumedia-cdn.com
-  udp: true
-  uuid: fbe22815-0718-4eae-816f-e91c67d15b54
-  tls: true
-  name: 🇩🇪 德国 20 🟡 🐢
-  type: vless
-  server: 191.217.215.228
-  port: 2096
-- network: tcp
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  udp: true
-  uuid: fbe22815-0718-4eae-816f-e91c67d15b54
-  tls: true
-  name: 🇩🇪 德国 21 🟡 🐢
-  type: vless
-  server: 191.217.215.228
-  port: 2053
-  servername: 191.217.215.228
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇫🇷 法国 14 🟡
-  type: vmess
-  server: 91.134.35.72
-  port: 1270
-  network: tcp
-- network: ws
-  cipher: auto
-  ws-opts:
-    path: /vmess/
-    headers:
-      Host: wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc
-  udp: true
-  uuid: 567f4be5-12ab-42e1-b8d9-db6fd1fdd31c
-  alterId: 0
-  name: 🇰🇿 哈萨克斯坦 01 🟡 🐢
-  type: vmess
-  server: 3h-kazakhstan1.09vpn.com
-  port: 80
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇫🇷 法国 15 🟡
-  type: vmess
-  server: 46.105.222.157
-  port: 1270
-  network: tcp
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇫🇷 法国 16 🟡
-  type: vmess
-  server: 79.137.99.183
-  port: 1270
-  network: tcp
-- name: 🇯🇵 日本 05 🟢 🏠
-  type: vless
-  server: jllp.cf.877774.xyz
-  port: 443
-  uuid: 531d9e93-53be-4f05-a9c1-33490d4da2f3
-  network: ws
-  tls: true
-  servername: jp.bbusxxxh.top
-  ws-opts:
-    path: /images
-    headers:
-      Host: jp.bbusxxxh.top
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇫🇷 法国 17 🟡
-  type: vmess
-  server: 46.105.222.155
-  port: 1270
-  network: tcp
-- sni: v2ray1.dozapp.xyz
-  network: ws
-  cipher: auto
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
-  servername: v2ray1.dozapp.xyz
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  tls: true
-  name: 🇺🇸 美国 49 🟡 🐢
-  type: vmess
-  server: 104.17.77.77
-  port: 8443
-- network: tcp
-  skip-cert-verify: false
-  flow: xtls-rprx-vision
-  servername: 105ky37.virtual-network.lol
-  client-fingerprint: chrome
-  udp: true
-  uuid: 352a250d-080b-47b5-b7db-f9f8fa31c551
-  tls: true
-  name: 🇩🇪 德国 22 🟢 🏠
-  type: vless
-  server: 130.78.30.147
-  port: 443
-- network: ws
-  ws-opts:
-    headers:
-      Host: krd.80782636.xyz
-    path: /kw7x2mq9
-  servername: krd.80782636.xyz
-  client-fingerprint: chrome
-  uuid: db906786-8c49-4b17-9182-cea680ef954d
-  tls: true
-  name: 🇰🇷 韩国 06 🟡
-  type: vless
-  server: krd.80782636.xyz
-  port: 443
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇸🇪 瑞典 03 🟡
-  type: vmess
-  server: 138.199.55.230
-  port: 1270
-  network: tcp
-- sni: bywxdhirqkjj8xaz.v.3dns.vip
-  skip-cert-verify: true
-  tls: true
-  name: 🇭🇰 香港 03 🟡 🐢
-  type: vmess
-  server: 47.86.90.31
-  port: 443
-  uuid: 234a8041-2b4d-44a3-a8d8-523cbfd58dc4
-  alterId: 0
-  cipher: auto
-  network: ws
-  servername: bywxdhirqkjj8xaz.v.3dns.vip
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: bywxdhirqkjj8xaz.v.3dns.vip
-- cipher: auto
-  servername: xmfhlpy.com
-  udp: true
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  alterId: 0
-  tls: true
-  name: 🇧🇷 巴西 01 🟡
-  type: vmess
-  server: 103.88.232.55
-  port: 1270
-  network: tcp
-- name: 🇭🇰 香港 04 🟡 ☁️
-  type: vless
-  server: 216.236.51.44
-  port: 1891
-  uuid: e9923122-5d88-43f1-8548-5771d7750ef5
-  network: ws
-  tls: true
-  servername: senflarelink-node-71i.pages.dev
-  client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: senflarelink-node-71i.pages.dev
-- network: grpc
   grpc-opts:
-    grpc-service-name: 138-124-86-230-sslip-io
-  servername: 138-124-86-230.sslip.io
-  client-fingerprint: firefox
-  uuid: b2fe1fa4-6a79-4938-a3f4-63b54ae7f16b
-  tls: true
-  name: 🇸🇪 瑞典 04 🟢 🏠
+    grpc-mode: gun
+    grpc-service-name: mobile.api.Event
+  network: grpc
+  name: 🇷🇺 俄罗斯 02 🟡
   type: vless
-  server: 138.124.86.230
-  port: 48115
-- network: ws
-  skip-cert-verify: false
+  server: 201.51.12.98
+  port: 443
+- client-fingerprint: chrome
+  servername: aszbk-ru-78dc.my-fade.cloud
   ws-opts:
-    headers:
-      Host: free.sahanwickramasinghe.com
     path: /
-  servername: free.sahanwickramasinghe.com
-  client-fingerprint: chrome
   udp: true
-  uuid: 3692de53-42e6-4aed-a522-40ec355dcd2f
+  uuid: 00000000-0000-0001-0000-000000000000
   tls: true
-  name: 🇩🇪 德国 23 🟡 🐢
+  network: tcp
+  name: 🇵🇱 波兰 02 🟡
   type: vless
-  server: 104.17.70.206
-  port: 8443
-- network: ws
+  server: 136.148.83.70
+  port: 443
+- name: 🇨🇭 瑞士 04 🟡 🏠
+  type: ss
+  server: leviko-ch0322.shopingggg.ir
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 36 🟡 ☁️
+  type: vless
+  server: leviko-us4350.shopingggg.ir
+  port: 443
+  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
+  network: ws
+  tls: true
+  servername: freeceshi6.frii.site
+  ws-opts:
+    path: /proxyip
+    headers:
+      Host: freeceshi6.frii.site
+- client-fingerprint: chrome
+  servername: free-server.techsonic.dev
   ws-opts:
     path: /free-server.techsonic.dev
     headers:
       Host: free-server.techsonic.dev
-  servername: free-server.techsonic.dev
-  client-fingerprint: chrome
   udp: true
   uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
   tls: true
+  network: ws
   name: 🇸🇬 新加坡 07 🟡 ☁️
   type: vless
   server: 139.162.27.96
   port: 2096
-- network: tcp
-  skip-cert-verify: false
-  servername: szqbx-ru-77dc.my-fade.cloud
-  client-fingerprint: chrome
+- client-fingerprint: firefox
+  servername: vps3.nemnogogo.com
   udp: true
-  uuid: 666821a2-5c3d-0001-a56f-5a3a562d7324
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
   tls: true
-  name: 🇫🇮 芬兰 04 🟡 🐢
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: mobile.api.Event
+  network: grpc
+  name: 🇷🇺 俄罗斯 03 🟡
   type: vless
-  server: 136.148.83.69
+  server: 201.24.116.192
   port: 443
-- skip-cert-verify: true
-  tls: false
-  name: 🇺🇸 美国 50 🟡 🐢
+- client-fingerprint: chrome
+  udp: true
+  uuid: 4777d90d-265b-4927-a0d1-63f36ed1421c
+  tls: true
+  network: xhttp
+  xhttp-opts:
+    mode: auto
+    path: /assets/nlrelay01/
+  name: 🇳🇱 荷兰 32 🟡
+  type: vless
+  server: 201.34.142.108
+  port: 443
+  servername: 201.34.142.108
+- name: 🇨🇭 瑞士 05 🟡 🏠
+  type: ss
+  server: leviko-ch7340.shopingggg.ir
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 37 🟡 ☁️
+  type: vless
+  server: leviko-us6278.shopingggg.ir
+  port: 8443
+  uuid: 53bbdad4-2f4e-45db-8df4-fa491a6a7227
+  network: ws
+  tls: true
+  servername: freeceshi6.frii.site
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: freeceshi6.frii.site
+- tls: false
+  skip-cert-verify: true
+  name: 🇺🇸 美国 38 🟡 🐢
   type: vmess
   server: fctwi.xiaoyan.io
   port: 16648
@@ -2059,243 +1547,173 @@ proxies:
     path: /
     headers:
       Host: 86714acc4cc5924e812db1c117db832f.mobgslb.tbcache.com
-- password: AMok40FfaM+Ikwre16psBpVk6JHxsQZw
-  cipher: aes-256-gcm
-  name: 🇭🇰 香港 05 🟢 🏠
-  type: ss
-  server: 209.248.57.105
-  port: 8388
-- network: xhttp
-  xhttp-opts:
-    mode: auto
-    path: /assets/nlrelay01/
+- name: 🇹🇷 土耳其 01 🟢 🐢
+  type: vless
+  server: 185.71.216.94
+  port: 2092
+  uuid: ca21222b-caf1-4418-b404-345ea713daa4
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.apple.com
+  reality-opts:
+    public-key: zeyIqmHylDrPbbtdG9BleBt0-fqKCHpZ0OZ9OY2_WUI
+    short-id: 716b7eba38125f3a
   client-fingerprint: chrome
-  udp: true
-  uuid: 4777d90d-265b-4927-a0d1-63f36ed1421c
-  tls: true
-  name: 🇳🇱 荷兰 47 🟡 🐢
-  type: vless
-  server: 201.34.142.108
-  port: 443
-  servername: 201.34.142.108
-- network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: mobile.api.Event
-  servername: vps3.nemnogogo.com
-  client-fingerprint: firefox
-  udp: true
-  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
-  tls: true
-  name: 🇷🇺 俄罗斯 03 🟡 🐢
-  type: vless
-  server: 201.51.12.98
-  port: 443
-- network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: mobile.api.Event
-  servername: vps3.nemnogogo.com
-  client-fingerprint: firefox
-  udp: true
-  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
-  tls: true
-  name: 🇷🇺 俄罗斯 04 🟡 🐢
-  type: vless
-  server: 201.24.116.192
-  port: 443
-- network: ws
+- client-fingerprint: chrome
+  servername: free.sahanwickramasinghe.com
   ws-opts:
     headers:
-      Host: ws.dhafhdtjdti.site
+      Host: free.sahanwickramasinghe.com
     path: /
-  servername: ws.dhafhdtjdti.site
-  client-fingerprint: chrome
-  uuid: 9f749472-c636-4c5a-af51-7f8feefaac81
-  tls: true
-  name: 🇸🇪 瑞典 05 🟡 🐢
-  type: vless
-  server: ws.dhafhdtjdti.site
-  port: 2053
-- skip-cert-verify: false
-  tls: false
-  name: 🇩🇪 德国 24 🟡 🐢
-  type: vmess
-  server: Ir.wbzo.ir
-  port: 2080
-  uuid: b7e3e8af-d1ca-45da-a95f-8b9ad77398b1
-  alterId: 0
-  cipher: auto
-  network: tcp
-- network: tcp
-  ws-opts:
-    path: /
-  servername: aszbk-ru-78dc.my-fade.cloud
-  client-fingerprint: chrome
   udp: true
-  uuid: 00000000-0000-0001-0000-000000000000
+  uuid: 3692de53-42e6-4aed-a522-40ec355dcd2f
   tls: true
-  name: 🇫🇮 芬兰 05 🟡 🐢
+  network: ws
+  skip-cert-verify: false
+  name: 🇩🇪 德国 18 🟡 🐢
   type: vless
-  server: 136.148.83.70
-  port: 443
-- network: ws
-  alpn:
-  - http/1.1
+  server: 104.17.70.206
+  port: 8443
+- client-fingerprint: firefox
+  servername: 147-93-171-8.sslip.io
   ws-opts:
     headers:
       Host: 147-93-171-8.sslip.io
     path: /vpn-live
-  servername: 147-93-171-8.sslip.io
-  client-fingerprint: firefox
   udp: true
   uuid: 591e7de6-f2dd-4ff9-ae21-8e00d5affa2a
   tls: true
+  network: ws
+  alpn:
+  - http/1.1
   name: 🇮🇳 印度 02 🟡 🐢
   type: vless
   server: 147.93.171.8
   port: 8443
-- network: tcp
-  skip-cert-verify: false
+- client-fingerprint: chrome
   servername: kuruish.org
-  client-fingerprint: chrome
   udp: true
   uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
   tls: true
-  name: 🇨🇦 加拿大 13 🟡
+  network: tcp
+  skip-cert-verify: false
+  name: 🇨🇦 加拿大 11 🟡 ⚡
   type: vless
   server: 66.163.113.9
   port: 443
-- name: 🇫🇷 法国 18 🟢 🏠
-  type: ss
-  server: uk.fusetea.ir
-  port: 154
-  cipher: chacha20-ietf-poly1305
-  password: eCUs1n3b2Fh9b6WATvkNILLBzYbruQ_X
-- name: 🇫🇷 法国 19 🟡
-  type: vless
-  server: 152.228.162.19
-  port: 80
-  uuid: 5ce84688-f535-46ad-a512-37b17becf6ea
+- client-fingerprint: chrome
+  servername: ws.dhafhdtjdti.site
+  ws-opts:
+    headers:
+      Host: ws.dhafhdtjdti.site
+    path: /
+  uuid: 9f749472-c636-4c5a-af51-7f8feefaac81
+  tls: true
   network: ws
-  ws-opts:
-    path: /vless/
-    headers:
-      Host: akamaized.net
-- password: abc62f00-95a8-4c2e-a85d-36a2cdc977da
-  cipher: chacha20-ietf-poly1305
-  name: 🇭🇰 香港 06 🟢 🐢
+  name: 🇸🇪 瑞典 04 🟡 🐢
+  type: vless
+  server: ws.dhafhdtjdti.site
+  port: 2053
+- name: 🇰🇷 韩国 03 🟡 🏠
   type: ss
-  server: waic.pro.main.sys-metric-report.com
-  port: 28014
-- network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-  servername: jp3.yohototo.top
-  client-fingerprint: chrome
+  server: 211.178.105.134
+  port: 6123
+  cipher: aes-256-cfb
+  password: qwerREWQ@@
+- cipher: aes-256-cfb
+  password: qwerREWQ@@
   udp: true
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  tls: true
-  name: 🇯🇵 日本 06 🟡 🐢
-  type: vless
-  server: 104.16.10.2
-  port: 443
-- network: grpc
-  alpn:
-  - h2
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: mobile.api.Event
-  servername: vps3.nemnogogo.com
-  client-fingerprint: firefox
-  udp: true
-  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
-  tls: true
-  name: 🇷🇺 俄罗斯 05 🟡 🐢
-  type: vless
-  server: vps3.nemnogogo.com
-  port: 443
-- network: grpc
-  grpc-opts:
-    grpc-service-name: grpc-ru
-  servername: xssite.webredirect.org
-  client-fingerprint: random
-  uuid: c90395e6-2140-47ad-a54d-9b166729d3ef
-  tls: true
-  name: 🇷🇺 俄罗斯 06 🟡 🐢
-  type: vless
-  server: xssite.webredirect.org
-  port: 443
-- network: xhttp
-  alpn:
-  - h2
-  - http/1.1
+  name: 🇰🇷 韩国 04 🟡 🏠
+  type: ss
+  server: 218.237.185.234
+  port: 4652
+- name: 🇰🇷 韩国 05 🟡 🏠
+  type: ss
+  server: p141.panda001.net
+  port: 4652
+  cipher: aes-256-cfb
+  password: qwerREWQ@@
+- client-fingerprint: firefox
   servername: alderpond.moltex.click
+  udp: true
+  uuid: 749b1c56-e658-4bf5-94bd-5c3286a4aed1
+  tls: true
+  network: xhttp
   xhttp-opts:
     path: /api/de2/sync
     host: prairie.moltex.click
     mode: auto
-  client-fingerprint: firefox
-  udp: true
-  uuid: 749b1c56-e658-4bf5-94bd-5c3286a4aed1
-  tls: true
-  name: 🇩🇪 德国 25 🟢 🏠
+  alpn:
+  - h2
+  - http/1.1
+  name: 🇩🇪 德国 19 🟢 🏠
   type: vless
   server: prairie.moltex.click
   port: 443
-- sni: docs.blog-forme.ru
-  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
+- client-fingerprint: random
+  servername: xssite.webredirect.org
+  uuid: c90395e6-2140-47ad-a54d-9b166729d3ef
+  tls: true
+  grpc-opts:
+    grpc-service-name: grpc-ru
+  network: grpc
+  name: 🇷🇺 俄罗斯 04 🟡 🐢
+  type: vless
+  server: xssite.webredirect.org
+  port: 443
+- client-fingerprint: firefox
+  servername: vps3.nemnogogo.com
+  udp: true
+  uuid: 38308ff1-5aa9-494f-a25a-0f2870d56b3e
+  tls: true
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: mobile.api.Event
+  network: grpc
+  alpn:
+  - h2
+  name: 🇷🇺 俄罗斯 05 🟡
+  type: vless
+  server: vps3.nemnogogo.com
+  port: 443
+- name: 🇫🇮 芬兰 04 🟡
+  type: vless
+  server: mail1.besttotaldns.com
+  port: 443
+  uuid: da14e323-6af7-406f-a5c2-1eb7975ada8b
+  network: tcp
+  flow: xtls-rprx-vision
+  tls: true
+  servername: mail1.besttotaldns.com
   client-fingerprint: chrome
+- client-fingerprint: chrome
+  password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
   tls: false
-  name: 🇳🇱 荷兰 48 🟡
+  sni: docs.blog-forme.ru
+  name: 🇳🇱 荷兰 33 🟡
   type: hysteria2
   server: 94.183.164.119
   port: 24403
-- sni: szqbx-ru-77dc.my-fade.cloud
-  password: 87bb2ac4-b7a1-0001-b11d-2107709ea6cb
+- password: 87bb2ac4-b7a1-0001-b11d-2107709ea6cb
   tls: false
-  name: 🇫🇮 芬兰 06 🟡 🐢
+  sni: szqbx-ru-77dc.my-fade.cloud
+  name: 🇫🇮 芬兰 05 🟡
   type: hysteria2
   server: 136.148.83.69
   port: 443
-- sni: mother-earth.fyi
-  password: 900c8c92-1979-4c7c-8f2f-63e87d53d8fe
+- password: 900c8c92-1979-4c7c-8f2f-63e87d53d8fe
   tls: false
-  name: 🇬🇧 英国 09 🟡 🏠
+  sni: mother-earth.fyi
+  name: 🇬🇧 英国 08 🟡 🏠
   type: hysteria2
   server: 128.254.186.190
   port: 13337
 - password: d4ca9415f0eac7897472e1e5b86d2e96
-  name: 🇳🇱 荷兰 49 🟡
+  name: 🇳🇱 荷兰 34 🟡
   type: hysteria2
   server: promo.betust.net
   port: 443
-- name: 🇧🇷 巴西 02 🟡
-  type: hysteria2
-  server: 137.131.177.121
-  port: 20000
-  password: z/yIxn3sBV03PkAxbnX8rg==
-  sni: hy2-br.whuiy.xyz
-  obfs: salamander
-  obfs-password: z/yIxn3sBV03PkAxbnX8rg==
-- name: 🇧🇷 巴西 03 🟡
-  type: hysteria2
-  server: 150.230.229.100
-  port: 20000
-  password: CyG0RFxMjzs41uQD4OLuHQ==
-  sni: hy2-br2.whuiy.xyz
-  obfs: salamander
-  obfs-password: CyG0RFxMjzs41uQD4OLuHQ==
-- name: 🇦🇺 澳大利亚 01 🟡 🐢
-  type: hysteria2
-  server: 159.13.55.48
-  port: 20000
-  password: b42d90fa667942aebc734d60
-  sni: hy2-au2.whuiy.xyz
-  obfs: salamander
-  obfs-password: b42d90fa667942aebc734d60
 proxy-groups:
 - type: url-test
   url: https://www.gstatic.com/generate_204
@@ -2303,429 +1721,331 @@ proxy-groups:
   tolerance: 50
   name: 🚀 自动
   proxies:
-  - 🇺🇸 美国 07 🟢 🏠
-  - 🇺🇸 美国 11 🟡 ⚡
-  - 🇺🇸 美国 12 🟡 ⚡
   - 🇺🇸 美国 13 🟡 ⚡
-  - 🇺🇸 美国 14 🟡 ⚡
-  - 🇺🇸 美国 15 🟡 ⚡
-  - 🇺🇸 美国 22 🟡 ⚡
-  - 🇺🇸 美国 36 🟡 ⚡
-  - 🇺🇸 美国 37 🟡 ☁️
-  - 🇺🇸 美国 38 🟡 ☁️
-  - 🇨🇦 加拿大 02 🟡 ⚡
-  - 🇺🇸 美国 39 🟡 ⚡
-  - 🇺🇸 美国 40 🟡 ☁️
-  - 🇺🇸 美国 41 🟡 ☁️
-  - 🇩🇪 德国 01 🟡 ⚡
-  - 🇺🇸 美国 42 🟡 ☁️
+  - 🇺🇸 美国 24 🟡 ⚡
+  - 🇺🇸 美国 27 🟡 ⚡
+  - 🇺🇸 美国 29 🟡 ⚡
+  - 🇺🇸 美国 30 🟡 🏠
+  - 🇺🇸 美国 31 🟡 ⚡
+  - 🇺🇸 美国 32 🟡 ☁️
+  - 🇺🇸 美国 33 🟡 ☁️
   - 🇳🇱 荷兰 01 🟡
   - 🇳🇱 荷兰 02 🟡
   - 🇳🇱 荷兰 03 🟡
-  - 🇳🇱 荷兰 04 🟡
-  - 🇳🇱 荷兰 05 🟡
   - 🇳🇱 荷兰 06 🟡
   - 🇳🇱 荷兰 07 🟡
   - 🇳🇱 荷兰 08 🟡
-  - 🇫🇷 法国 01 🟡
   - 🇫🇷 法国 02 🟡
-  - 🇳🇱 荷兰 09 🟡
-  - 🌍 其他 01 🟢
-  - 🇳🇱 荷兰 11 🟡
   - 🇫🇷 法国 03 🟡
-  - 🇺🇸 美国 43 🟡 ⚡
-  - 🇫🇷 法国 04 🟡
-  - 🇹🇼 台湾 01 🟢 🏠
-  - 🇫🇷 法国 09 🟡 🐢
+  - 🇳🇱 荷兰 19 🟢
+  - 🇫🇷 法国 05 🟡
+  - 🇫🇷 法国 06 🟡
   - 🇪🇸 西班牙 01 🟡
-  - 🇺🇸 美国 44 🟡 ⚡
+  - 🇯🇵 日本 01 🟡 ☁️
+  - 🇯🇵 日本 02 🟡
+  - 🇺🇸 美国 34 🟡 ⚡
   - 🇸🇬 新加坡 01 🟡 🐢
-  - 🇨🇦 加拿大 12 🟡 🐢
-  - 🇺🇸 美国 45 🟡
-  - 🇺🇸 美国 46 🟡
-  - 🇯🇵 日本 03 🟡 ⚡
-  - 🇳🇱 荷兰 43 🟡 🐢
-  - 🇫🇷 法国 11 🟡
-  - 🇪🇸 西班牙 03 🟡 🐢
-  - 🇺🇸 美国 47 🟡 🐢
-  - 🇩🇪 德国 16 🟡 🐢
-  - 🇺🇸 美国 48 🟡 ☁️
-  - 🇫🇮 芬兰 03 🟡 🐢
+  - 🇨🇦 加拿大 09 🟡 🐢
+  - 🇩🇪 德国 13 🟡 🐢
   - 🇯🇵 日本 04 🟡
-  - 🇬🇧 英国 08 🟡 🏠
-  - 🇳🇱 荷兰 46 🟡
-  - 🇩🇪 德国 19 🟢 🏠
-  - 🇷🇺 俄罗斯 02 🟡 🐢
+  - 🇨🇦 加拿大 10 🟡 🐢
+  - 🇳🇱 荷兰 31 🟡
+  - 🇫🇷 法国 10 🟡
+  - 🇫🇷 法国 11 🟡
+  - 🇫🇷 法国 12 🟡
   - 🇫🇷 法国 13 🟡
-  - 🇩🇪 德国 20 🟡 🐢
-  - 🇩🇪 德国 21 🟡 🐢
+  - 🇩🇪 德国 15 🟢 🏠
+  - 🇺🇸 美国 35 🟡
   - 🇫🇷 法国 14 🟡
-  - 🇫🇷 法国 15 🟡
-  - 🇫🇷 法国 16 🟡
-  - 🇯🇵 日本 05 🟢 🏠
-  - 🇫🇷 法国 17 🟡
-  - 🇺🇸 美国 49 🟡 🐢
-  - 🇩🇪 德国 22 🟢 🏠
-  - 🇰🇷 韩国 06 🟡
+  - 🇩🇪 德国 16 🟡
+  - 🇩🇪 德国 17 🟢 🏠
   - 🇸🇪 瑞典 03 🟡
-  - 🇭🇰 香港 03 🟡 🐢
-  - 🇧🇷 巴西 01 🟡
-  - 🇭🇰 香港 04 🟡 ☁️
-  - 🇸🇪 瑞典 04 🟢 🏠
-  - 🇩🇪 德国 23 🟡 🐢
+  - 🇬🇧 英国 07 🟢
+  - 🇫🇷 法国 15 🟡
+  - 🇯🇵 日本 05 🟡
+  - 🇫🇮 芬兰 02 🟡
+  - 🇫🇮 芬兰 03 🟡 🐢
+  - 🇷🇺 俄罗斯 02 🟡
+  - 🇵🇱 波兰 02 🟡
+  - 🇺🇸 美国 36 🟡 ☁️
   - 🇸🇬 新加坡 07 🟡 ☁️
-  - 🇫🇮 芬兰 04 🟡 🐢
-  - 🇳🇱 荷兰 47 🟡 🐢
-  - 🇷🇺 俄罗斯 03 🟡 🐢
-  - 🇷🇺 俄罗斯 04 🟡 🐢
-  - 🇸🇪 瑞典 05 🟡 🐢
-  - 🇫🇮 芬兰 05 🟡 🐢
+  - 🇷🇺 俄罗斯 03 🟡
+  - 🇳🇱 荷兰 32 🟡
+  - 🇺🇸 美国 37 🟡 ☁️
+  - 🇹🇷 土耳其 01 🟢 🐢
+  - 🇩🇪 德国 18 🟡 🐢
   - 🇮🇳 印度 02 🟡 🐢
-  - 🇨🇦 加拿大 13 🟡
-  - 🇯🇵 日本 06 🟡 🐢
-  - 🇷🇺 俄罗斯 05 🟡 🐢
-  - 🇷🇺 俄罗斯 06 🟡 🐢
-  - 🇩🇪 德国 25 🟢 🏠
-  - 🇳🇱 荷兰 48 🟡
-  - 🇫🇮 芬兰 06 🟡 🐢
-  - 🇬🇧 英国 09 🟡 🏠
-  - 🇳🇱 荷兰 49 🟡
-  - 🇧🇷 巴西 02 🟡
-  - 🇧🇷 巴西 03 🟡
-  - 🇦🇺 澳大利亚 01 🟡 🐢
+  - 🇨🇦 加拿大 11 🟡 ⚡
+  - 🇸🇪 瑞典 04 🟡 🐢
+  - 🇩🇪 德国 19 🟢 🏠
+  - 🇷🇺 俄罗斯 04 🟡 🐢
+  - 🇷🇺 俄罗斯 05 🟡
+  - 🇫🇮 芬兰 04 🟡
+  - 🇳🇱 荷兰 33 🟡
+  - 🇫🇮 芬兰 05 🟡
+  - 🇬🇧 英国 08 🟡 🏠
+  - 🇳🇱 荷兰 34 🟡
 - type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   name: ⭐ 可信源
   proxies:
-  - 🇺🇸 美国 17 🟡 ⚡
-  - 🇺🇸 美国 22 🟡 ⚡
-  - 🇺🇸 美国 28 🟡 🏠
-  - 🇺🇸 美国 29 🟡 ⚡
-  - 🇺🇸 美国 32 🟡
-  - 🇺🇸 美国 36 🟡 ⚡
-  - 🇨🇦 加拿大 07 🟡 ⚡
-  - 🇨🇦 加拿大 08 🟡 🐢
-  - 🇨🇦 加拿大 09 🟡
-  - 🇨🇦 加拿大 10 🟡 🏠
-  - 🇺🇸 美国 41 🟡 ☁️
-  - 🇩🇪 德国 01 🟡 ⚡
-  - 🇺🇸 美国 42 🟡 ☁️
-  - 🇯🇵 日本 02 🟡
-  - 🇬🇧 英国 01 🟡
+  - 🇺🇸 美国 04 🟡 ⚡
+  - 🇺🇸 美国 07 🟡 ⚡
+  - 🇺🇸 美国 13 🟡 ⚡
+  - 🇺🇸 美国 14 🟡 ⚡
+  - 🇺🇸 美国 18 🟡 🏠
+  - 🇺🇸 美国 19 🟡 ⚡
+  - 🇺🇸 美国 23 🟡 ⚡
+  - 🇺🇸 美国 27 🟡 ⚡
+  - 🇺🇸 美国 31 🟡 ⚡
+  - 🇨🇦 加拿大 04 🟡
+  - 🇨🇦 加拿大 05 🟡 ⚡
+  - 🇨🇦 加拿大 06 🟡 ⚡
+  - 🇺🇸 美国 33 🟡 ☁️
+  - 🇨🇦 加拿大 08 🟡 ⚡
   - 🇳🇱 荷兰 01 🟡
+  - 🇳🇱 荷兰 02 🟡
   - 🇳🇱 荷兰 03 🟡
-  - 🇳🇱 荷兰 04 🟡
-  - 🇳🇱 荷兰 05 🟡
-  - 🇩🇪 德国 02 🟡
-  - 🇩🇪 德国 03 🟡 🐢
+  - 🇬🇧 英国 01 🟡
+  - 🇳🇱 荷兰 04 🟡 🐢
+  - 🇳🇱 荷兰 05 🟢 🏠
   - 🇳🇱 荷兰 06 🟡
-  - 🇩🇪 德国 04 🟡
-  - 🇩🇪 德国 05 🟡
-  - 🇩🇪 德国 06 🟡
-  - 🇩🇪 德国 07 🟡
+  - 🇳🇱 荷兰 07 🟡
+  - 🇬🇧 英国 02 🟡
+  - 🇬🇧 英国 03 🟡
   - 🇳🇱 荷兰 08 🟡
   - 🇫🇷 法国 01 🟡
+  - 🇳🇱 荷兰 09 🟡 🏠
   - 🇫🇷 法国 02 🟡
-  - 🇰🇷 韩国 01 🟡 🏠
-  - 🇩🇪 德国 08 🟡
-  - 🇩🇪 德国 09 🟡
-  - 🌍 其他 01 🟢
-  - 🇳🇱 荷兰 10 🟡
-  - 🇩🇪 德国 10 🟡
-  - 🇩🇪 德国 11 🟡 🐢
-  - 🇺🇸 美国 43 🟡 ⚡
-  - 🇩🇪 德国 12 🟡
-  - 🇫🇷 法国 05 🟡
-  - 🇩🇪 德国 13 🟡
+  - 🇩🇪 德国 01 🟡
+  - 🇳🇱 荷兰 12 🟡 🏠
+  - 🇫🇷 法国 03 🟡
+  - 🇩🇪 德国 02 🟡 🐢
   - 🇳🇱 荷兰 16 🟡 🏠
-  - 🇩🇪 德国 14 🟡
-  - 🇳🇱 荷兰 23 🟡 🏠
-  - 🇳🇱 荷兰 24 🟡 🏠
+  - 🇳🇱 荷兰 17 🟡 🏠
+  - 🇳🇱 荷兰 18 🟡 🏠
+  - 🇫🇷 法国 04 🟡 🏠
+  - 🇩🇪 德国 03 🟡
+  - 🇳🇱 荷兰 19 🟢
+  - 🇬🇧 英国 05 🟡 🏠
+  - 🇬🇧 英国 06 🟡
   - 🇳🇱 荷兰 25 🟡 🏠
   - 🇳🇱 荷兰 26 🟡 🏠
   - 🇳🇱 荷兰 27 🟡 🏠
-  - 🇬🇧 英国 03 🟡
-  - 🇬🇧 英国 04 🟡 🏠
-  - 🇬🇧 英国 05 🟡
-  - 🇳🇱 荷兰 28 🟢 🐢
-  - 🇨🇭 瑞士 01 🟡 🏠
-  - 🇳🇱 荷兰 29 🟡 🏠
-  - 🇳🇱 荷兰 35 🟡 🏠
-  - 🇳🇱 荷兰 36 🟡 🏠
-  - 🇳🇱 荷兰 38 🟡 🏠
-  - 🇩🇪 德国 15 🟡 🐢
-  - 🇫🇷 法国 06 🟡 🏠
-  - 🇫🇷 法国 07 🟡 🏠
-  - 🇫🇷 法国 08 🟡 🏠
-  - 🇬🇧 英国 06 🟡
-  - 🇬🇧 英国 07 🟡
-  - 🇫🇷 法国 09 🟡 🐢
-  - 🇳🇱 荷兰 39 🟡 🏠
+  - 🇳🇱 荷兰 28 🟡 🏠
+  - 🇩🇪 德国 04 🟡
+  - 🇩🇪 德国 05 🟡
+  - 🇳🇴 挪威 01 🟡 🏠
+  - 🇵🇱 波兰 01 🟡 🏠
+  - 🇩🇪 德国 06 🟡
+  - 🇩🇪 德国 07 🟡
+  - 🇩🇪 德国 08 🟡
   - 🇪🇸 西班牙 01 🟡
   - 🇸🇪 瑞典 01 🟡
-  - 🇳🇴 挪威 01 🟡 🏠
-  - 🇳🇱 荷兰 40 🟡 🏠
-  - 🇵🇱 波兰 01 🟡 🏠
-  - 🇫🇷 法国 10 🟡 🏠
-  - 🇰🇷 韩国 03 🟡
-  - 🇳🇱 荷兰 42 🟡 🏠
-  - 🇷🇺 俄罗斯 01 🟡
+  - 🇩🇪 德国 09 🟡
+  - 🇯🇵 日本 01 🟡 ☁️
+  - 🇩🇪 德国 10 🟡 🐢
+  - 🇫🇷 法国 07 🟡 🏠
+  - 🇫🇷 法国 08 🟡 🏠
   - 🇧🇬 保加利亚 01 🟡
-  - 🇪🇸 西班牙 02 🟡
-  - 🇨🇭 瑞士 02 🟡 🏠
-  - 🇧🇬 保加利亚 02 🟡
-  - 🇧🇬 保加利亚 03 🟡
-  - 🇮🇹 意大利 01 🟡
-  - 🇨🇭 瑞士 03 🟡
+  - 🇮🇹 意大利 01 🟢 🏠
+  - 🇯🇵 日本 02 🟡
   - 🇮🇹 意大利 02 🟡
   - 🇮🇹 意大利 03 🟡
+  - 🇯🇵 日本 03 🟡
+  - 🇪🇸 西班牙 02 🟡
+  - 🇫🇮 芬兰 01 🟡 🏠
+  - 🇫🇷 法国 09 🟡 🏠
+  - 🇨🇭 瑞士 01 🟡 🏠
   - 🇮🇹 意大利 04 🟡
+  - 🇦🇹 奥地利 01 🟢 🏠
+  - 🇧🇬 保加利亚 02 🟡
+  - 🇧🇬 保加利亚 03 🟡
   - 🇮🇹 意大利 05 🟡
   - 🇮🇹 意大利 06 🟡
-  - 🇦🇹 奥地利 01 🟢 🏠
   - 🇮🇹 意大利 07 🟡
-  - 🇮🇹 意大利 08 🟡
-  - 🇮🇹 意大利 09 🟢 🏠
-  - 🇭🇰 香港 01 🟡 🐢
   - 🇦🇹 奥地利 02 🟢 🏠
-  - 🇨🇭 瑞士 04 🟡
-  - 🇫🇮 芬兰 01 🟡 🏠
-  - 🇺🇸 美国 44 🟡 ⚡
-  - 🇸🇬 新加坡 01 🟡 🐢
+  - 🇨🇭 瑞士 02 🟡 🏠
+  - 🇨🇭 瑞士 03 🟡
+  - 🇮🇹 意大利 08 🟡
+  - 🇮🇹 意大利 09 🟡
   - 🇮🇹 意大利 10 🟡
-  - 🇸🇬 新加坡 02 🟡
-  - 🇫🇮 芬兰 02 🟡
+  - 🇺🇸 美国 34 🟡 ⚡
+  - 🇷🇺 俄罗斯 01 🟡
+  - 🇭🇰 香港 01 🟡 🐢
+  - 🇸🇬 新加坡 01 🟡 🐢
   - 🇮🇹 意大利 11 🟡
-  - 🇨🇦 加拿大 12 🟡 🐢
-  - 🇺🇸 美国 45 🟡
+  - 🇰🇷 韩国 01 🟡
   - 🇮🇹 意大利 12 🟡
+  - 🇸🇬 新加坡 03 🟡
   - 🇸🇬 新加坡 04 🟡
-  - 🇮🇹 意大利 13 🟡
+  - 🇹🇭 泰国 01 🟡 🐢
   - 🇸🇬 新加坡 05 🟡
-  - 🇸🇬 新加坡 06 🟡
-  - 🇺🇸 美国 46 🟡
-  - 🇻🇳 越南 01 🟡 🐢
-  - 🇯🇵 日本 03 🟡 ⚡
-  - 🇳🇱 荷兰 43 🟡 🐢
-  - 🇫🇷 法国 11 🟡
-  - 🇪🇸 西班牙 03 🟡 🐢
-  - 🇨🇭 瑞士 05 🟡 🏠
-  - 🇰🇷 韩国 04 🟡
-  - 🇨🇭 瑞士 06 🟡 🏠
+  - 🇨🇦 加拿大 09 🟡 🐢
+  - 🇩🇪 德国 12 🟡
   - 🇿🇦 南非 01 🟡 🏠
   - 🇿🇦 南非 02 🟡 🐢
-  - 🇳🇱 荷兰 44 🟡
-  - 🇩🇪 德国 16 🟡 🐢
-  - 🇫🇷 法国 12 🟡
   - 🇸🇪 瑞典 02 🟡 🏠
-  - 🇩🇪 德国 17 🟡
+  - 🇭🇰 香港 02 🟡 🐢
+  - 🇩🇪 德国 13 🟡 🐢
   - 🇦🇪 阿联酋 01 🟡 🐢
-  - 🇮🇳 印度 01 🟡 🐢
-  - 🇯🇵 日本 04 🟡
-  - 🇬🇧 英国 08 🟡 🏠
-  - 🇩🇪 德国 18 🟡
-  - 🇳🇱 荷兰 46 🟡
-  - 🇩🇪 德国 19 🟢 🏠
+  - 🇨🇦 加拿大 10 🟡 🐢
+  - 🇧🇾 白俄罗斯 01 🟡 🐢
+  - 🇰🇷 韩国 02 🟡
+  - 🇫🇷 法国 10 🟡
+  - 🇧🇾 白俄罗斯 02 🟡 🐢
+  - 🇫🇷 法国 11 🟡
+  - 🇫🇷 法国 12 🟡
+  - 🇩🇪 德国 14 🟡 🐢
   - 🇫🇷 法国 13 🟡
-  - 🇩🇪 德国 20 🟡 🐢
-  - 🇩🇪 德国 21 🟡 🐢
+  - 🇩🇪 德国 15 🟢 🏠
+  - 🇺🇸 美国 35 🟡
   - 🇫🇷 法国 14 🟡
-  - 🇰🇿 哈萨克斯坦 01 🟡 🐢
-  - 🇫🇷 法国 15 🟡
-  - 🇫🇷 法国 16 🟡
-  - 🇫🇷 法国 17 🟡
-  - 🇺🇸 美国 49 🟡 🐢
-  - 🇩🇪 德国 22 🟢 🏠
-  - 🇰🇷 韩国 06 🟡
+  - 🇩🇪 德国 16 🟡
+  - 🇩🇪 德国 17 🟢 🏠
+  - 🇮🇳 印度 01 🟡 🐢
   - 🇸🇪 瑞典 03 🟡
-  - 🇧🇷 巴西 01 🟡
-  - 🇭🇰 香港 04 🟡 ☁️
-  - 🇸🇪 瑞典 04 🟢 🏠
-  - 🇩🇪 德国 23 🟡 🐢
+  - 🇬🇧 英国 07 🟢
+  - 🇫🇷 法国 15 🟡
+  - 🇯🇵 日本 05 🟡
+  - 🇫🇮 芬兰 02 🟡
+  - 🇷🇺 俄罗斯 02 🟡
+  - 🇵🇱 波兰 02 🟡
+  - 🇨🇭 瑞士 04 🟡 🏠
   - 🇸🇬 新加坡 07 🟡 ☁️
-  - 🇫🇮 芬兰 04 🟡 🐢
-  - 🇭🇰 香港 05 🟢 🏠
-  - 🇳🇱 荷兰 47 🟡 🐢
-  - 🇷🇺 俄罗斯 03 🟡 🐢
-  - 🇷🇺 俄罗斯 04 🟡 🐢
-  - 🇸🇪 瑞典 05 🟡 🐢
-  - 🇩🇪 德国 24 🟡 🐢
-  - 🇫🇮 芬兰 05 🟡 🐢
+  - 🇷🇺 俄罗斯 03 🟡
+  - 🇳🇱 荷兰 32 🟡
+  - 🇨🇭 瑞士 05 🟡 🏠
+  - 🇹🇷 土耳其 01 🟢 🐢
+  - 🇩🇪 德国 18 🟡 🐢
   - 🇮🇳 印度 02 🟡 🐢
-  - 🇨🇦 加拿大 13 🟡
-  - 🇭🇰 香港 06 🟢 🐢
-  - 🇯🇵 日本 06 🟡 🐢
-  - 🇷🇺 俄罗斯 05 🟡 🐢
-  - 🇷🇺 俄罗斯 06 🟡 🐢
-  - 🇩🇪 德国 25 🟢 🏠
-  - 🇳🇱 荷兰 48 🟡
-  - 🇫🇮 芬兰 06 🟡 🐢
-  - 🇬🇧 英国 09 🟡 🏠
-  - 🇳🇱 荷兰 49 🟡
+  - 🇨🇦 加拿大 11 🟡 ⚡
+  - 🇸🇪 瑞典 04 🟡 🐢
+  - 🇰🇷 韩国 04 🟡 🏠
+  - 🇩🇪 德国 19 🟢 🏠
+  - 🇷🇺 俄罗斯 04 🟡 🐢
+  - 🇷🇺 俄罗斯 05 🟡
+  - 🇫🇮 芬兰 04 🟡
+  - 🇳🇱 荷兰 33 🟡
+  - 🇫🇮 芬兰 05 🟡
+  - 🇬🇧 英国 08 🟡 🏠
+  - 🇳🇱 荷兰 34 🟡
 - type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   name: 📡 Telegram 源
   proxies:
-  - 🇺🇸 美国 03 🟡 ⚡
-  - 🇺🇸 美国 06 🟡 ⚡
-  - 🇺🇸 美国 07 🟢 🏠
-  - 🇺🇸 美国 09 🟡 ⚡
-  - 🇺🇸 美国 11 🟡 ⚡
-  - 🇺🇸 美国 12 🟡 ⚡
-  - 🇺🇸 美国 13 🟡 ⚡
-  - 🇺🇸 美国 14 🟡 ⚡
-  - 🇺🇸 美国 15 🟡 ⚡
-  - 🇺🇸 美国 33 🟡
-  - 🇺🇸 美国 36 🟡 ⚡
-  - 🇺🇸 美国 37 🟡 ☁️
-  - 🇺🇸 美国 38 🟡 ☁️
+  - 🇨🇦 加拿大 01 🟡 🐢
+  - 🇺🇸 美国 20 🟡 ⚡
+  - 🇺🇸 美国 24 🟡 ⚡
   - 🇨🇦 加拿大 02 🟡 ⚡
+  - 🇺🇸 美国 28 🟡 ⚡
+  - 🇺🇸 美国 29 🟡 ⚡
+  - 🇺🇸 美国 30 🟡 🏠
   - 🇨🇦 加拿大 03 🟡 ⚡
-  - 🇺🇸 美国 39 🟡 ⚡
-  - 🇨🇦 加拿大 04 🟡 ⚡
-  - 🇨🇦 加拿大 05 🟡 ⚡
-  - 🇨🇦 加拿大 06 🟡 ⚡
-  - 🇺🇸 美国 40 🟡 ☁️
-  - 🇨🇦 加拿大 11 🟡
-  - 🇯🇵 日本 01 🟡
-  - 🇳🇱 荷兰 02 🟡
-  - 🇩🇪 德国 03 🟡 🐢
-  - 🇳🇱 荷兰 07 🟡
-  - 🇳🇱 荷兰 09 🟡
-  - 🌍 其他 01 🟢
-  - 🇳🇱 荷兰 11 🟡
-  - 🇰🇷 韩国 02 🟡
-  - 🇩🇪 德国 11 🟡 🐢
-  - 🇫🇷 法国 03 🟡
-  - 🇫🇷 法国 04 🟡
-  - 🇹🇼 台湾 01 🟢 🏠
+  - 🇺🇸 美国 31 🟡 ⚡
+  - 🇺🇸 美国 32 🟡 ☁️
+  - 🇨🇦 加拿大 07 🟡 🐢
+  - 🇳🇱 荷兰 19 🟢
+  - 🇫🇷 法国 05 🟡
+  - 🇫🇷 法国 06 🟡
   - 🇪🇸 西班牙 01 🟡
-  - 🇫🇷 法国 11 🟡
-  - 🇺🇸 美国 47 🟡 🐢
-  - 🇨🇭 瑞士 05 🟡 🏠
-  - 🇨🇭 瑞士 06 🟡 🏠
-  - 🇳🇱 荷兰 45 🟡
-  - 🇺🇸 美国 48 🟡 ☁️
+  - 🇩🇪 德国 11 🟡
+  - 🇯🇵 日本 04 🟡
+  - 🇸🇬 新加坡 06 🟡 🐢
+  - 🇳🇱 荷兰 31 🟡
+  - 🇩🇪 德国 16 🟡
+  - 🇫🇷 法国 15 🟡
   - 🇫🇮 芬兰 03 🟡 🐢
-  - 🇷🇺 俄罗斯 02 🟡 🐢
-  - 🇯🇵 日本 05 🟢 🏠
-  - 🇭🇰 香港 03 🟡 🐢
-  - 🇺🇸 美国 50 🟡 🐢
-  - 🇫🇷 法国 18 🟢 🏠
-  - 🇫🇷 法国 19 🟡
-  - 🇧🇷 巴西 02 🟡
-  - 🇧🇷 巴西 03 🟡
-  - 🇦🇺 澳大利亚 01 🟡 🐢
+  - 🇨🇭 瑞士 04 🟡 🏠
+  - 🇺🇸 美国 36 🟡 ☁️
+  - 🇨🇭 瑞士 05 🟡 🏠
+  - 🇺🇸 美国 37 🟡 ☁️
+  - 🇺🇸 美国 38 🟡 🐢
+  - 🇹🇷 土耳其 01 🟢 🐢
+  - 🇫🇮 芬兰 04 🟡
 - type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   name: 📦 全部节点
   proxies:
-  - 🇺🇸 美国 01 🟡 ⚡
-  - 🇺🇸 美国 02 🟡 🏠
+  - 🇺🇸 美国 01 🟡 🏠
+  - 🇺🇸 美国 02 🟡 ⚡
   - 🇺🇸 美国 03 🟡 ⚡
   - 🇺🇸 美国 04 🟡 ⚡
   - 🇺🇸 美国 05 🟡 ⚡
   - 🇺🇸 美国 06 🟡 ⚡
-  - 🇺🇸 美国 07 🟢 🏠
+  - 🇺🇸 美国 07 🟡 ⚡
   - 🇺🇸 美国 08 🟡 ⚡
   - 🇺🇸 美国 09 🟡 ⚡
   - 🇺🇸 美国 10 🟡 ⚡
-  - 🇺🇸 美国 11 🟡 ⚡
+  - 🇺🇸 美国 11 🟡 🏠
   - 🇺🇸 美国 12 🟡 ⚡
   - 🇺🇸 美国 13 🟡 ⚡
   - 🇺🇸 美国 14 🟡 ⚡
   - 🇺🇸 美国 15 🟡 ⚡
+  - 🇨🇦 加拿大 01 🟡 🐢
   - 🇺🇸 美国 16 🟡 ⚡
-  - 🇺🇸 美国 17 🟡 ⚡
+  - 🇺🇸 美国 17 🟡 🏠
   - 🇺🇸 美国 18 🟡 🏠
   - 🇺🇸 美国 19 🟡 ⚡
-  - 🇺🇸 美国 20 🟡 🏠
+  - 🇺🇸 美国 20 🟡 ⚡
   - 🇺🇸 美国 21 🟡 ⚡
   - 🇺🇸 美国 22 🟡 ⚡
-  - 🇺🇸 美国 23 🟡 🏠
-  - 🇺🇸 美国 24 🟡 🏠
-  - 🇺🇸 美国 25 🟡 🏠
-  - 🇺🇸 美国 26 🟡 ⚡
-  - 🇺🇸 美国 27 🟡
-  - 🇺🇸 美国 28 🟡 🏠
-  - 🇺🇸 美国 29 🟡 ⚡
-  - 🇺🇸 美国 30 🟡
-  - 🇺🇸 美国 31 🟡
-  - 🇨🇦 加拿大 01 🟡 ⚡
-  - 🇺🇸 美国 32 🟡
-  - 🇺🇸 美国 33 🟡
-  - 🇺🇸 美国 34 🟡 ⚡
-  - 🇺🇸 美国 35 🟡 🏠
-  - 🇺🇸 美国 36 🟡 ⚡
-  - 🇺🇸 美国 37 🟡 ☁️
-  - 🇺🇸 美国 38 🟡 ☁️
+  - 🇺🇸 美国 23 🟡 ⚡
+  - 🇺🇸 美国 24 🟡 ⚡
   - 🇨🇦 加拿大 02 🟡 ⚡
+  - 🇺🇸 美国 25 🟡 🏠
+  - 🇺🇸 美国 26 🟡 🏠
+  - 🇺🇸 美国 27 🟡 ⚡
+  - 🇺🇸 美国 28 🟡 ⚡
+  - 🇺🇸 美国 29 🟡 ⚡
+  - 🇺🇸 美国 30 🟡 🏠
   - 🇨🇦 加拿大 03 🟡 ⚡
-  - 🇺🇸 美国 39 🟡 ⚡
-  - 🇨🇦 加拿大 04 🟡 ⚡
+  - 🇺🇸 美国 31 🟡 ⚡
+  - 🇺🇸 美国 32 🟡 ☁️
+  - 🇨🇦 加拿大 04 🟡
   - 🇨🇦 加拿大 05 🟡 ⚡
   - 🇨🇦 加拿大 06 🟡 ⚡
-  - 🇨🇦 加拿大 07 🟡 ⚡
-  - 🇨🇦 加拿大 08 🟡 🐢
-  - 🇨🇦 加拿大 09 🟡
-  - 🇨🇦 加拿大 10 🟡 🏠
-  - 🇺🇸 美国 40 🟡 ☁️
-  - 🇺🇸 美国 41 🟡 ☁️
-  - 🇩🇪 德国 01 🟡 ⚡
-  - 🇨🇦 加拿大 11 🟡
-  - 🇺🇸 美国 42 🟡 ☁️
-  - 🇯🇵 日本 01 🟡
-  - 🇯🇵 日本 02 🟡
-  - 🇬🇧 英国 01 🟡
+  - 🇺🇸 美国 33 🟡 ☁️
+  - 🇨🇦 加拿大 07 🟡 🐢
+  - 🇨🇦 加拿大 08 🟡 ⚡
   - 🇳🇱 荷兰 01 🟡
   - 🇳🇱 荷兰 02 🟡
   - 🇳🇱 荷兰 03 🟡
-  - 🇳🇱 荷兰 04 🟡
-  - 🇳🇱 荷兰 05 🟡
-  - 🇩🇪 德国 02 🟡
-  - 🇩🇪 德国 03 🟡 🐢
+  - 🇬🇧 英国 01 🟡
+  - 🇳🇱 荷兰 04 🟡 🐢
+  - 🇳🇱 荷兰 05 🟢 🏠
   - 🇳🇱 荷兰 06 🟡
-  - 🇩🇪 德国 04 🟡
-  - 🇩🇪 德国 05 🟡
-  - 🇩🇪 德国 06 🟡
-  - 🇩🇪 德国 07 🟡
   - 🇳🇱 荷兰 07 🟡
+  - 🇬🇧 英国 02 🟡
+  - 🇬🇧 英国 03 🟡
   - 🇳🇱 荷兰 08 🟡
   - 🇫🇷 法国 01 🟡
+  - 🇳🇱 荷兰 09 🟡 🏠
   - 🇫🇷 法国 02 🟡
-  - 🇳🇱 荷兰 09 🟡
-  - 🇰🇷 韩国 01 🟡 🏠
-  - 🇩🇪 德国 08 🟡
-  - 🇩🇪 德国 09 🟡
-  - 🌍 其他 01 🟢
-  - 🇳🇱 荷兰 10 🟡
-  - 🇩🇪 德国 10 🟡
-  - 🇳🇱 荷兰 11 🟡
-  - 🇰🇷 韩国 02 🟡
-  - 🇩🇪 德国 11 🟡 🐢
-  - 🇫🇷 法国 03 🟡
-  - 🇺🇸 美国 43 🟡 ⚡
-  - 🇩🇪 德国 12 🟡
-  - 🇫🇷 法国 04 🟡
-  - 🇫🇷 法国 05 🟡
+  - 🇬🇧 英国 04 🟡
+  - 🇩🇪 德国 01 🟡
+  - 🇳🇱 荷兰 10 🟡 🏠
+  - 🇳🇱 荷兰 11 🟡 🏠
   - 🇳🇱 荷兰 12 🟡 🏠
-  - 🇬🇧 英国 02 🟡
-  - 🇩🇪 德国 13 🟡
   - 🇳🇱 荷兰 13 🟡 🏠
   - 🇳🇱 荷兰 14 🟡 🏠
+  - 🇫🇷 法国 03 🟡
+  - 🇩🇪 德国 02 🟡 🐢
   - 🇳🇱 荷兰 15 🟡 🏠
   - 🇳🇱 荷兰 16 🟡 🏠
-  - 🇩🇪 德国 14 🟡
-  - 🇹🇼 台湾 01 🟢 🏠
   - 🇳🇱 荷兰 17 🟡 🏠
   - 🇳🇱 荷兰 18 🟡 🏠
-  - 🇳🇱 荷兰 19 🟡 🏠
+  - 🇫🇷 法国 04 🟡 🏠
+  - 🇩🇪 德国 03 🟡
+  - 🇳🇱 荷兰 19 🟢
+  - 🇬🇧 英国 05 🟡 🏠
+  - 🇬🇧 英国 06 🟡
   - 🇳🇱 荷兰 20 🟡 🏠
   - 🇳🇱 荷兰 21 🟡 🏠
   - 🇳🇱 荷兰 22 🟡 🏠
@@ -2734,173 +2054,146 @@ proxy-groups:
   - 🇳🇱 荷兰 25 🟡 🏠
   - 🇳🇱 荷兰 26 🟡 🏠
   - 🇳🇱 荷兰 27 🟡 🏠
-  - 🇬🇧 英国 03 🟡
-  - 🇬🇧 英国 04 🟡 🏠
-  - 🇬🇧 英国 05 🟡
-  - 🇳🇱 荷兰 28 🟢 🐢
-  - 🇨🇭 瑞士 01 🟡 🏠
+  - 🇳🇱 荷兰 28 🟡 🏠
   - 🇳🇱 荷兰 29 🟡 🏠
   - 🇳🇱 荷兰 30 🟡 🏠
-  - 🇳🇱 荷兰 31 🟡 🏠
-  - 🇳🇱 荷兰 32 🟡 🏠
-  - 🇳🇱 荷兰 33 🟡 🏠
-  - 🇳🇱 荷兰 34 🟡 🏠
-  - 🇳🇱 荷兰 35 🟡 🏠
-  - 🇳🇱 荷兰 36 🟡 🏠
-  - 🇳🇱 荷兰 37 🟡 🏠
-  - 🇳🇱 荷兰 38 🟡 🏠
-  - 🇩🇪 德国 15 🟡 🐢
-  - 🇫🇷 法国 06 🟡 🏠
-  - 🇫🇷 法国 07 🟡 🏠
-  - 🇫🇷 法国 08 🟡 🏠
-  - 🇬🇧 英国 06 🟡
-  - 🇬🇧 英国 07 🟡
-  - 🇫🇷 法国 09 🟡 🐢
-  - 🇳🇱 荷兰 39 🟡 🏠
+  - 🇩🇪 德国 04 🟡
+  - 🇩🇪 德国 05 🟡
+  - 🇫🇷 法国 05 🟡
+  - 🇫🇷 法国 06 🟡
+  - 🇳🇴 挪威 01 🟡 🏠
+  - 🇵🇱 波兰 01 🟡 🏠
+  - 🇩🇪 德国 06 🟡
+  - 🇩🇪 德国 07 🟡
+  - 🇩🇪 德国 08 🟡
   - 🇪🇸 西班牙 01 🟡
   - 🇸🇪 瑞典 01 🟡
-  - 🇳🇴 挪威 01 🟡 🏠
-  - 🇳🇱 荷兰 40 🟡 🏠
-  - 🇵🇱 波兰 01 🟡 🏠
-  - 🇳🇱 荷兰 41 🟡 🏠
-  - 🇫🇷 法国 10 🟡 🏠
-  - 🇰🇷 韩国 03 🟡
-  - 🇳🇱 荷兰 42 🟡 🏠
-  - 🇷🇺 俄罗斯 01 🟡
+  - 🇩🇪 德国 09 🟡
+  - 🇯🇵 日本 01 🟡 ☁️
+  - 🇩🇪 德国 10 🟡 🐢
+  - 🇫🇷 法国 07 🟡 🏠
+  - 🇫🇷 法国 08 🟡 🏠
   - 🇧🇬 保加利亚 01 🟡
-  - 🇪🇸 西班牙 02 🟡
-  - 🇨🇭 瑞士 02 🟡 🏠
-  - 🇧🇬 保加利亚 02 🟡
-  - 🇧🇬 保加利亚 03 🟡
-  - 🇮🇹 意大利 01 🟡
-  - 🇨🇭 瑞士 03 🟡
+  - 🇮🇹 意大利 01 🟢 🏠
+  - 🇯🇵 日本 02 🟡
   - 🇮🇹 意大利 02 🟡
   - 🇮🇹 意大利 03 🟡
+  - 🇯🇵 日本 03 🟡
+  - 🇪🇸 西班牙 02 🟡
+  - 🇫🇮 芬兰 01 🟡 🏠
+  - 🇫🇷 法国 09 🟡 🏠
+  - 🇨🇭 瑞士 01 🟡 🏠
   - 🇮🇹 意大利 04 🟡
+  - 🇦🇹 奥地利 01 🟢 🏠
+  - 🇧🇬 保加利亚 02 🟡
+  - 🇧🇬 保加利亚 03 🟡
   - 🇮🇹 意大利 05 🟡
   - 🇮🇹 意大利 06 🟡
-  - 🇦🇹 奥地利 01 🟢 🏠
   - 🇮🇹 意大利 07 🟡
-  - 🇮🇹 意大利 08 🟡
-  - 🇮🇹 意大利 09 🟢 🏠
-  - 🇭🇰 香港 01 🟡 🐢
   - 🇦🇹 奥地利 02 🟢 🏠
-  - 🇨🇭 瑞士 04 🟡
-  - 🇫🇮 芬兰 01 🟡 🏠
-  - 🇺🇸 美国 44 🟡 ⚡
-  - 🇸🇬 新加坡 01 🟡 🐢
+  - 🇨🇭 瑞士 02 🟡 🏠
+  - 🇨🇭 瑞士 03 🟡
+  - 🇮🇹 意大利 08 🟡
+  - 🇮🇹 意大利 09 🟡
   - 🇮🇹 意大利 10 🟡
+  - 🇺🇸 美国 34 🟡 ⚡
+  - 🇷🇺 俄罗斯 01 🟡
+  - 🇭🇰 香港 01 🟡 🐢
+  - 🇸🇬 新加坡 01 🟡 🐢
   - 🇸🇬 新加坡 02 🟡
-  - 🇸🇬 新加坡 03 🟡
-  - 🇫🇮 芬兰 02 🟡
   - 🇮🇹 意大利 11 🟡
-  - 🇨🇦 加拿大 12 🟡 🐢
-  - 🇺🇸 美国 45 🟡
+  - 🇰🇷 韩国 01 🟡
   - 🇮🇹 意大利 12 🟡
+  - 🇸🇬 新加坡 03 🟡
   - 🇸🇬 新加坡 04 🟡
-  - 🇮🇹 意大利 13 🟡
+  - 🇹🇭 泰国 01 🟡 🐢
   - 🇸🇬 新加坡 05 🟡
-  - 🇸🇬 新加坡 06 🟡
-  - 🇺🇸 美国 46 🟡
-  - 🇻🇳 越南 01 🟡 🐢
-  - 🇯🇵 日本 03 🟡 ⚡
-  - 🇳🇱 荷兰 43 🟡 🐢
-  - 🇫🇷 法国 11 🟡
-  - 🇪🇸 西班牙 03 🟡 🐢
-  - 🇺🇸 美国 47 🟡 🐢
-  - 🇨🇭 瑞士 05 🟡 🏠
-  - 🇰🇷 韩国 04 🟡
-  - 🇨🇭 瑞士 06 🟡 🏠
+  - 🇩🇪 德国 11 🟡
+  - 🇨🇦 加拿大 09 🟡 🐢
+  - 🇩🇪 德国 12 🟡
   - 🇿🇦 南非 01 🟡 🏠
   - 🇿🇦 南非 02 🟡 🐢
-  - 🇳🇱 荷兰 44 🟡
-  - 🇩🇪 德国 16 🟡 🐢
-  - 🇰🇷 韩国 05 🟡 🏠
-  - 🇫🇷 法国 12 🟡
-  - 🇳🇱 荷兰 45 🟡
   - 🇸🇪 瑞典 02 🟡 🏠
-  - 🇺🇸 美国 48 🟡 ☁️
-  - 🇩🇪 德国 17 🟡
-  - 🇫🇮 芬兰 03 🟡 🐢
-  - 🇦🇪 阿联酋 01 🟡 🐢
-  - 🇮🇳 印度 01 🟡 🐢
+  - 🇭🇰 香港 02 🟡 🐢
+  - 🇩🇪 德国 13 🟡 🐢
   - 🇯🇵 日本 04 🟡
-  - 🇬🇧 英国 08 🟡 🏠
-  - 🇭🇰 香港 02 🟡 🏠
-  - 🇩🇪 德国 18 🟡
-  - 🇳🇱 荷兰 46 🟡
-  - 🇩🇪 德国 19 🟢 🏠
-  - 🇷🇺 俄罗斯 02 🟡 🐢
+  - 🇦🇪 阿联酋 01 🟡 🐢
+  - 🇸🇬 新加坡 06 🟡 🐢
+  - 🇭🇰 香港 03 🟡 🏠
+  - 🇨🇦 加拿大 10 🟡 🐢
+  - 🇧🇾 白俄罗斯 01 🟡 🐢
+  - 🇰🇷 韩国 02 🟡
+  - 🇳🇱 荷兰 31 🟡
+  - 🇫🇷 法国 10 🟡
+  - 🇧🇾 白俄罗斯 02 🟡 🐢
+  - 🇫🇷 法国 11 🟡
+  - 🇫🇷 法国 12 🟡
+  - 🇩🇪 德国 14 🟡 🐢
   - 🇫🇷 法国 13 🟡
-  - 🇩🇪 德国 20 🟡 🐢
-  - 🇩🇪 德国 21 🟡 🐢
+  - 🇩🇪 德国 15 🟢 🏠
+  - 🇺🇸 美国 35 🟡
   - 🇫🇷 法国 14 🟡
-  - 🇰🇿 哈萨克斯坦 01 🟡 🐢
-  - 🇫🇷 法国 15 🟡
-  - 🇫🇷 法国 16 🟡
-  - 🇯🇵 日本 05 🟢 🏠
-  - 🇫🇷 法国 17 🟡
-  - 🇺🇸 美国 49 🟡 🐢
-  - 🇩🇪 德国 22 🟢 🏠
-  - 🇰🇷 韩国 06 🟡
+  - 🇩🇪 德国 16 🟡
+  - 🇩🇪 德国 17 🟢 🏠
+  - 🇮🇳 印度 01 🟡 🐢
   - 🇸🇪 瑞典 03 🟡
-  - 🇭🇰 香港 03 🟡 🐢
-  - 🇧🇷 巴西 01 🟡
-  - 🇭🇰 香港 04 🟡 ☁️
-  - 🇸🇪 瑞典 04 🟢 🏠
-  - 🇩🇪 德国 23 🟡 🐢
+  - 🇬🇧 英国 07 🟢
+  - 🇫🇷 法国 15 🟡
+  - 🇯🇵 日本 05 🟡
+  - 🇫🇮 芬兰 02 🟡
+  - 🇫🇮 芬兰 03 🟡 🐢
+  - 🇷🇺 俄罗斯 02 🟡
+  - 🇵🇱 波兰 02 🟡
+  - 🇨🇭 瑞士 04 🟡 🏠
+  - 🇺🇸 美国 36 🟡 ☁️
   - 🇸🇬 新加坡 07 🟡 ☁️
-  - 🇫🇮 芬兰 04 🟡 🐢
-  - 🇺🇸 美国 50 🟡 🐢
-  - 🇭🇰 香港 05 🟢 🏠
-  - 🇳🇱 荷兰 47 🟡 🐢
-  - 🇷🇺 俄罗斯 03 🟡 🐢
-  - 🇷🇺 俄罗斯 04 🟡 🐢
-  - 🇸🇪 瑞典 05 🟡 🐢
-  - 🇩🇪 德国 24 🟡 🐢
-  - 🇫🇮 芬兰 05 🟡 🐢
+  - 🇷🇺 俄罗斯 03 🟡
+  - 🇳🇱 荷兰 32 🟡
+  - 🇨🇭 瑞士 05 🟡 🏠
+  - 🇺🇸 美国 37 🟡 ☁️
+  - 🇺🇸 美国 38 🟡 🐢
+  - 🇹🇷 土耳其 01 🟢 🐢
+  - 🇩🇪 德国 18 🟡 🐢
   - 🇮🇳 印度 02 🟡 🐢
-  - 🇨🇦 加拿大 13 🟡
-  - 🇫🇷 法国 18 🟢 🏠
-  - 🇫🇷 法国 19 🟡
-  - 🇭🇰 香港 06 🟢 🐢
-  - 🇯🇵 日本 06 🟡 🐢
-  - 🇷🇺 俄罗斯 05 🟡 🐢
-  - 🇷🇺 俄罗斯 06 🟡 🐢
-  - 🇩🇪 德国 25 🟢 🏠
-  - 🇳🇱 荷兰 48 🟡
-  - 🇫🇮 芬兰 06 🟡 🐢
-  - 🇬🇧 英国 09 🟡 🏠
-  - 🇳🇱 荷兰 49 🟡
-  - 🇧🇷 巴西 02 🟡
-  - 🇧🇷 巴西 03 🟡
-  - 🇦🇺 澳大利亚 01 🟡 🐢
+  - 🇨🇦 加拿大 11 🟡 ⚡
+  - 🇸🇪 瑞典 04 🟡 🐢
+  - 🇰🇷 韩国 03 🟡 🏠
+  - 🇰🇷 韩国 04 🟡 🏠
+  - 🇰🇷 韩国 05 🟡 🏠
+  - 🇩🇪 德国 19 🟢 🏠
+  - 🇷🇺 俄罗斯 04 🟡 🐢
+  - 🇷🇺 俄罗斯 05 🟡
+  - 🇫🇮 芬兰 04 🟡
+  - 🇳🇱 荷兰 33 🟡
+  - 🇫🇮 芬兰 05 🟡
+  - 🇬🇧 英国 08 🟡 🏠
+  - 🇳🇱 荷兰 34 🟡
 - type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   name: 🏠 住宅 IP
   proxies:
-  - 🇺🇸 美国 02 🟡 🏠
-  - 🇺🇸 美国 07 🟢 🏠
+  - 🇺🇸 美国 01 🟡 🏠
+  - 🇺🇸 美国 11 🟡 🏠
+  - 🇺🇸 美国 17 🟡 🏠
   - 🇺🇸 美国 18 🟡 🏠
-  - 🇺🇸 美国 20 🟡 🏠
-  - 🇺🇸 美国 23 🟡 🏠
-  - 🇺🇸 美国 24 🟡 🏠
   - 🇺🇸 美国 25 🟡 🏠
-  - 🇺🇸 美国 28 🟡 🏠
-  - 🇺🇸 美国 35 🟡 🏠
-  - 🇨🇦 加拿大 10 🟡 🏠
-  - 🇰🇷 韩国 01 🟡 🏠
+  - 🇺🇸 美国 26 🟡 🏠
+  - 🇺🇸 美国 30 🟡 🏠
+  - 🇳🇱 荷兰 05 🟢 🏠
+  - 🇳🇱 荷兰 09 🟡 🏠
+  - 🇳🇱 荷兰 10 🟡 🏠
+  - 🇳🇱 荷兰 11 🟡 🏠
   - 🇳🇱 荷兰 12 🟡 🏠
   - 🇳🇱 荷兰 13 🟡 🏠
   - 🇳🇱 荷兰 14 🟡 🏠
   - 🇳🇱 荷兰 15 🟡 🏠
   - 🇳🇱 荷兰 16 🟡 🏠
-  - 🇹🇼 台湾 01 🟢 🏠
   - 🇳🇱 荷兰 17 🟡 🏠
   - 🇳🇱 荷兰 18 🟡 🏠
-  - 🇳🇱 荷兰 19 🟡 🏠
+  - 🇫🇷 法国 04 🟡 🏠
+  - 🇬🇧 英国 05 🟡 🏠
   - 🇳🇱 荷兰 20 🟡 🏠
   - 🇳🇱 荷兰 21 🟡 🏠
   - 🇳🇱 荷兰 22 🟡 🏠
@@ -2909,228 +2202,173 @@ proxy-groups:
   - 🇳🇱 荷兰 25 🟡 🏠
   - 🇳🇱 荷兰 26 🟡 🏠
   - 🇳🇱 荷兰 27 🟡 🏠
-  - 🇬🇧 英国 04 🟡 🏠
-  - 🇨🇭 瑞士 01 🟡 🏠
+  - 🇳🇱 荷兰 28 🟡 🏠
   - 🇳🇱 荷兰 29 🟡 🏠
   - 🇳🇱 荷兰 30 🟡 🏠
-  - 🇳🇱 荷兰 31 🟡 🏠
-  - 🇳🇱 荷兰 32 🟡 🏠
-  - 🇳🇱 荷兰 33 🟡 🏠
-  - 🇳🇱 荷兰 34 🟡 🏠
-  - 🇳🇱 荷兰 35 🟡 🏠
-  - 🇳🇱 荷兰 36 🟡 🏠
-  - 🇳🇱 荷兰 37 🟡 🏠
-  - 🇳🇱 荷兰 38 🟡 🏠
-  - 🇫🇷 法国 06 🟡 🏠
+  - 🇳🇴 挪威 01 🟡 🏠
+  - 🇵🇱 波兰 01 🟡 🏠
   - 🇫🇷 法国 07 🟡 🏠
   - 🇫🇷 法国 08 🟡 🏠
-  - 🇳🇱 荷兰 39 🟡 🏠
-  - 🇳🇴 挪威 01 🟡 🏠
-  - 🇳🇱 荷兰 40 🟡 🏠
-  - 🇵🇱 波兰 01 🟡 🏠
-  - 🇳🇱 荷兰 41 🟡 🏠
-  - 🇫🇷 法国 10 🟡 🏠
-  - 🇳🇱 荷兰 42 🟡 🏠
-  - 🇨🇭 瑞士 02 🟡 🏠
-  - 🇦🇹 奥地利 01 🟢 🏠
-  - 🇮🇹 意大利 09 🟢 🏠
-  - 🇦🇹 奥地利 02 🟢 🏠
+  - 🇮🇹 意大利 01 🟢 🏠
   - 🇫🇮 芬兰 01 🟡 🏠
-  - 🇨🇭 瑞士 05 🟡 🏠
-  - 🇨🇭 瑞士 06 🟡 🏠
+  - 🇫🇷 法国 09 🟡 🏠
+  - 🇨🇭 瑞士 01 🟡 🏠
+  - 🇦🇹 奥地利 01 🟢 🏠
+  - 🇦🇹 奥地利 02 🟢 🏠
+  - 🇨🇭 瑞士 02 🟡 🏠
   - 🇿🇦 南非 01 🟡 🏠
-  - 🇰🇷 韩国 05 🟡 🏠
   - 🇸🇪 瑞典 02 🟡 🏠
-  - 🇬🇧 英国 08 🟡 🏠
-  - 🇭🇰 香港 02 🟡 🏠
+  - 🇭🇰 香港 03 🟡 🏠
+  - 🇩🇪 德国 15 🟢 🏠
+  - 🇩🇪 德国 17 🟢 🏠
+  - 🇨🇭 瑞士 04 🟡 🏠
+  - 🇨🇭 瑞士 05 🟡 🏠
+  - 🇰🇷 韩国 03 🟡 🏠
+  - 🇰🇷 韩国 04 🟡 🏠
+  - 🇰🇷 韩国 05 🟡 🏠
   - 🇩🇪 德国 19 🟢 🏠
-  - 🇯🇵 日本 05 🟢 🏠
-  - 🇩🇪 德国 22 🟢 🏠
-  - 🇸🇪 瑞典 04 🟢 🏠
-  - 🇭🇰 香港 05 🟢 🏠
-  - 🇫🇷 法国 18 🟢 🏠
-  - 🇩🇪 德国 25 🟢 🏠
-  - 🇬🇧 英国 09 🟡 🏠
+  - 🇬🇧 英国 08 🟡 🏠
 - type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   name: 🟢 安全
   proxies:
-  - 🇺🇸 美国 07 🟢 🏠
-  - 🌍 其他 01 🟢
-  - 🇹🇼 台湾 01 🟢 🏠
-  - 🇳🇱 荷兰 28 🟢 🐢
+  - 🇳🇱 荷兰 05 🟢 🏠
+  - 🇳🇱 荷兰 19 🟢
+  - 🇮🇹 意大利 01 🟢 🏠
   - 🇦🇹 奥地利 01 🟢 🏠
-  - 🇮🇹 意大利 09 🟢 🏠
   - 🇦🇹 奥地利 02 🟢 🏠
+  - 🇩🇪 德国 15 🟢 🏠
+  - 🇩🇪 德国 17 🟢 🏠
+  - 🇬🇧 英国 07 🟢
+  - 🇹🇷 土耳其 01 🟢 🐢
   - 🇩🇪 德国 19 🟢 🏠
-  - 🇯🇵 日本 05 🟢 🏠
-  - 🇩🇪 德国 22 🟢 🏠
-  - 🇸🇪 瑞典 04 🟢 🏠
-  - 🇭🇰 香港 05 🟢 🏠
-  - 🇫🇷 法国 18 🟢 🏠
-  - 🇭🇰 香港 06 🟢 🐢
-  - 🇩🇪 德国 25 🟢 🏠
 - type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   name: ⚡ 低延迟
   proxies:
-  - 🇺🇸 美国 01 🟡 ⚡
-  - 🇺🇸 美国 02 🟡 🏠
+  - 🇺🇸 美国 01 🟡 🏠
+  - 🇺🇸 美国 02 🟡 ⚡
   - 🇺🇸 美国 03 🟡 ⚡
   - 🇺🇸 美国 04 🟡 ⚡
   - 🇺🇸 美国 05 🟡 ⚡
   - 🇺🇸 美国 06 🟡 ⚡
-  - 🇺🇸 美国 07 🟢 🏠
+  - 🇺🇸 美国 07 🟡 ⚡
   - 🇺🇸 美国 08 🟡 ⚡
   - 🇺🇸 美国 09 🟡 ⚡
   - 🇺🇸 美国 10 🟡 ⚡
-  - 🇺🇸 美国 11 🟡 ⚡
+  - 🇺🇸 美国 11 🟡 🏠
   - 🇺🇸 美国 12 🟡 ⚡
   - 🇺🇸 美国 13 🟡 ⚡
   - 🇺🇸 美国 14 🟡 ⚡
   - 🇺🇸 美国 15 🟡 ⚡
   - 🇺🇸 美国 16 🟡 ⚡
-  - 🇺🇸 美国 17 🟡 ⚡
+  - 🇺🇸 美国 17 🟡 🏠
   - 🇺🇸 美国 18 🟡 🏠
   - 🇺🇸 美国 19 🟡 ⚡
-  - 🇺🇸 美国 20 🟡 🏠
+  - 🇺🇸 美国 20 🟡 ⚡
   - 🇺🇸 美国 21 🟡 ⚡
   - 🇺🇸 美国 22 🟡 ⚡
-  - 🇺🇸 美国 23 🟡 🏠
-  - 🇺🇸 美国 24 🟡 🏠
-  - 🇺🇸 美国 25 🟡 🏠
-  - 🇺🇸 美国 26 🟡 ⚡
-  - 🇺🇸 美国 28 🟡 🏠
-  - 🇺🇸 美国 29 🟡 ⚡
-  - 🇨🇦 加拿大 01 🟡 ⚡
-  - 🇺🇸 美国 34 🟡 ⚡
-  - 🇺🇸 美国 35 🟡 🏠
-  - 🇺🇸 美国 36 🟡 ⚡
-  - 🇺🇸 美国 37 🟡 ☁️
-  - 🇺🇸 美国 38 🟡 ☁️
+  - 🇺🇸 美国 23 🟡 ⚡
+  - 🇺🇸 美国 24 🟡 ⚡
   - 🇨🇦 加拿大 02 🟡 ⚡
+  - 🇺🇸 美国 25 🟡 🏠
+  - 🇺🇸 美国 26 🟡 🏠
+  - 🇺🇸 美国 27 🟡 ⚡
+  - 🇺🇸 美国 28 🟡 ⚡
+  - 🇺🇸 美国 29 🟡 ⚡
+  - 🇺🇸 美国 30 🟡 🏠
   - 🇨🇦 加拿大 03 🟡 ⚡
-  - 🇺🇸 美国 39 🟡 ⚡
-  - 🇨🇦 加拿大 04 🟡 ⚡
+  - 🇺🇸 美国 31 🟡 ⚡
+  - 🇺🇸 美国 32 🟡 ☁️
   - 🇨🇦 加拿大 05 🟡 ⚡
   - 🇨🇦 加拿大 06 🟡 ⚡
-  - 🇨🇦 加拿大 07 🟡 ⚡
-  - 🇨🇦 加拿大 10 🟡 🏠
-  - 🇺🇸 美国 40 🟡 ☁️
-  - 🇺🇸 美国 41 🟡 ☁️
-  - 🇩🇪 德国 01 🟡 ⚡
-  - 🇺🇸 美国 42 🟡 ☁️
-  - 🇺🇸 美国 43 🟡 ⚡
-  - 🇺🇸 美国 44 🟡 ⚡
-  - 🇯🇵 日本 03 🟡 ⚡
-  - 🇺🇸 美国 48 🟡 ☁️
+  - 🇺🇸 美国 33 🟡 ☁️
+  - 🇨🇦 加拿大 08 🟡 ⚡
+  - 🇯🇵 日本 01 🟡 ☁️
+  - 🇺🇸 美国 34 🟡 ⚡
+  - 🇺🇸 美国 36 🟡 ☁️
+  - 🇺🇸 美国 37 🟡 ☁️
+  - 🇨🇦 加拿大 11 🟡 ⚡
 - name: ♻️ 手动
   type: select
   proxies:
-  - 🇺🇸 美国 01 🟡 ⚡
-  - 🇺🇸 美国 02 🟡 🏠
+  - 🇺🇸 美国 01 🟡 🏠
+  - 🇺🇸 美国 02 🟡 ⚡
   - 🇺🇸 美国 03 🟡 ⚡
   - 🇺🇸 美国 04 🟡 ⚡
   - 🇺🇸 美国 05 🟡 ⚡
   - 🇺🇸 美国 06 🟡 ⚡
-  - 🇺🇸 美国 07 🟢 🏠
+  - 🇺🇸 美国 07 🟡 ⚡
   - 🇺🇸 美国 08 🟡 ⚡
   - 🇺🇸 美国 09 🟡 ⚡
   - 🇺🇸 美国 10 🟡 ⚡
-  - 🇺🇸 美国 11 🟡 ⚡
+  - 🇺🇸 美国 11 🟡 🏠
   - 🇺🇸 美国 12 🟡 ⚡
   - 🇺🇸 美国 13 🟡 ⚡
   - 🇺🇸 美国 14 🟡 ⚡
   - 🇺🇸 美国 15 🟡 ⚡
+  - 🇨🇦 加拿大 01 🟡 🐢
   - 🇺🇸 美国 16 🟡 ⚡
-  - 🇺🇸 美国 17 🟡 ⚡
+  - 🇺🇸 美国 17 🟡 🏠
   - 🇺🇸 美国 18 🟡 🏠
   - 🇺🇸 美国 19 🟡 ⚡
-  - 🇺🇸 美国 20 🟡 🏠
+  - 🇺🇸 美国 20 🟡 ⚡
   - 🇺🇸 美国 21 🟡 ⚡
   - 🇺🇸 美国 22 🟡 ⚡
-  - 🇺🇸 美国 23 🟡 🏠
-  - 🇺🇸 美国 24 🟡 🏠
-  - 🇺🇸 美国 25 🟡 🏠
-  - 🇺🇸 美国 26 🟡 ⚡
-  - 🇺🇸 美国 27 🟡
-  - 🇺🇸 美国 28 🟡 🏠
-  - 🇺🇸 美国 29 🟡 ⚡
-  - 🇺🇸 美国 30 🟡
-  - 🇺🇸 美国 31 🟡
-  - 🇨🇦 加拿大 01 🟡 ⚡
-  - 🇺🇸 美国 32 🟡
-  - 🇺🇸 美国 33 🟡
-  - 🇺🇸 美国 34 🟡 ⚡
-  - 🇺🇸 美国 35 🟡 🏠
-  - 🇺🇸 美国 36 🟡 ⚡
-  - 🇺🇸 美国 37 🟡 ☁️
-  - 🇺🇸 美国 38 🟡 ☁️
+  - 🇺🇸 美国 23 🟡 ⚡
+  - 🇺🇸 美国 24 🟡 ⚡
   - 🇨🇦 加拿大 02 🟡 ⚡
+  - 🇺🇸 美国 25 🟡 🏠
+  - 🇺🇸 美国 26 🟡 🏠
+  - 🇺🇸 美国 27 🟡 ⚡
+  - 🇺🇸 美国 28 🟡 ⚡
+  - 🇺🇸 美国 29 🟡 ⚡
+  - 🇺🇸 美国 30 🟡 🏠
   - 🇨🇦 加拿大 03 🟡 ⚡
-  - 🇺🇸 美国 39 🟡 ⚡
-  - 🇨🇦 加拿大 04 🟡 ⚡
+  - 🇺🇸 美国 31 🟡 ⚡
+  - 🇺🇸 美国 32 🟡 ☁️
+  - 🇨🇦 加拿大 04 🟡
   - 🇨🇦 加拿大 05 🟡 ⚡
   - 🇨🇦 加拿大 06 🟡 ⚡
-  - 🇨🇦 加拿大 07 🟡 ⚡
-  - 🇨🇦 加拿大 08 🟡 🐢
-  - 🇨🇦 加拿大 09 🟡
-  - 🇨🇦 加拿大 10 🟡 🏠
-  - 🇺🇸 美国 40 🟡 ☁️
-  - 🇺🇸 美国 41 🟡 ☁️
-  - 🇩🇪 德国 01 🟡 ⚡
-  - 🇨🇦 加拿大 11 🟡
-  - 🇺🇸 美国 42 🟡 ☁️
-  - 🇯🇵 日本 01 🟡
-  - 🇯🇵 日本 02 🟡
-  - 🇬🇧 英国 01 🟡
+  - 🇺🇸 美国 33 🟡 ☁️
+  - 🇨🇦 加拿大 07 🟡 🐢
+  - 🇨🇦 加拿大 08 🟡 ⚡
   - 🇳🇱 荷兰 01 🟡
   - 🇳🇱 荷兰 02 🟡
   - 🇳🇱 荷兰 03 🟡
-  - 🇳🇱 荷兰 04 🟡
-  - 🇳🇱 荷兰 05 🟡
-  - 🇩🇪 德国 02 🟡
-  - 🇩🇪 德国 03 🟡 🐢
+  - 🇬🇧 英国 01 🟡
+  - 🇳🇱 荷兰 04 🟡 🐢
+  - 🇳🇱 荷兰 05 🟢 🏠
   - 🇳🇱 荷兰 06 🟡
-  - 🇩🇪 德国 04 🟡
-  - 🇩🇪 德国 05 🟡
-  - 🇩🇪 德国 06 🟡
-  - 🇩🇪 德国 07 🟡
   - 🇳🇱 荷兰 07 🟡
+  - 🇬🇧 英国 02 🟡
+  - 🇬🇧 英国 03 🟡
   - 🇳🇱 荷兰 08 🟡
   - 🇫🇷 法国 01 🟡
+  - 🇳🇱 荷兰 09 🟡 🏠
   - 🇫🇷 法国 02 🟡
-  - 🇳🇱 荷兰 09 🟡
-  - 🇰🇷 韩国 01 🟡 🏠
-  - 🇩🇪 德国 08 🟡
-  - 🇩🇪 德国 09 🟡
-  - 🌍 其他 01 🟢
-  - 🇳🇱 荷兰 10 🟡
-  - 🇩🇪 德国 10 🟡
-  - 🇳🇱 荷兰 11 🟡
-  - 🇰🇷 韩国 02 🟡
-  - 🇩🇪 德国 11 🟡 🐢
-  - 🇫🇷 法国 03 🟡
-  - 🇺🇸 美国 43 🟡 ⚡
-  - 🇩🇪 德国 12 🟡
-  - 🇫🇷 法国 04 🟡
-  - 🇫🇷 法国 05 🟡
+  - 🇬🇧 英国 04 🟡
+  - 🇩🇪 德国 01 🟡
+  - 🇳🇱 荷兰 10 🟡 🏠
+  - 🇳🇱 荷兰 11 🟡 🏠
   - 🇳🇱 荷兰 12 🟡 🏠
-  - 🇬🇧 英国 02 🟡
-  - 🇩🇪 德国 13 🟡
   - 🇳🇱 荷兰 13 🟡 🏠
   - 🇳🇱 荷兰 14 🟡 🏠
+  - 🇫🇷 法国 03 🟡
+  - 🇩🇪 德国 02 🟡 🐢
   - 🇳🇱 荷兰 15 🟡 🏠
   - 🇳🇱 荷兰 16 🟡 🏠
-  - 🇩🇪 德国 14 🟡
-  - 🇹🇼 台湾 01 🟢 🏠
   - 🇳🇱 荷兰 17 🟡 🏠
   - 🇳🇱 荷兰 18 🟡 🏠
-  - 🇳🇱 荷兰 19 🟡 🏠
+  - 🇫🇷 法国 04 🟡 🏠
+  - 🇩🇪 德国 03 🟡
+  - 🇳🇱 荷兰 19 🟢
+  - 🇬🇧 英国 05 🟡 🏠
+  - 🇬🇧 英国 06 🟡
   - 🇳🇱 荷兰 20 🟡 🏠
   - 🇳🇱 荷兰 21 🟡 🏠
   - 🇳🇱 荷兰 22 🟡 🏠
@@ -3139,147 +2377,120 @@ proxy-groups:
   - 🇳🇱 荷兰 25 🟡 🏠
   - 🇳🇱 荷兰 26 🟡 🏠
   - 🇳🇱 荷兰 27 🟡 🏠
-  - 🇬🇧 英国 03 🟡
-  - 🇬🇧 英国 04 🟡 🏠
-  - 🇬🇧 英国 05 🟡
-  - 🇳🇱 荷兰 28 🟢 🐢
-  - 🇨🇭 瑞士 01 🟡 🏠
+  - 🇳🇱 荷兰 28 🟡 🏠
   - 🇳🇱 荷兰 29 🟡 🏠
   - 🇳🇱 荷兰 30 🟡 🏠
-  - 🇳🇱 荷兰 31 🟡 🏠
-  - 🇳🇱 荷兰 32 🟡 🏠
-  - 🇳🇱 荷兰 33 🟡 🏠
-  - 🇳🇱 荷兰 34 🟡 🏠
-  - 🇳🇱 荷兰 35 🟡 🏠
-  - 🇳🇱 荷兰 36 🟡 🏠
-  - 🇳🇱 荷兰 37 🟡 🏠
-  - 🇳🇱 荷兰 38 🟡 🏠
-  - 🇩🇪 德国 15 🟡 🐢
-  - 🇫🇷 法国 06 🟡 🏠
-  - 🇫🇷 法国 07 🟡 🏠
-  - 🇫🇷 法国 08 🟡 🏠
-  - 🇬🇧 英国 06 🟡
-  - 🇬🇧 英国 07 🟡
-  - 🇫🇷 法国 09 🟡 🐢
-  - 🇳🇱 荷兰 39 🟡 🏠
+  - 🇩🇪 德国 04 🟡
+  - 🇩🇪 德国 05 🟡
+  - 🇫🇷 法国 05 🟡
+  - 🇫🇷 法国 06 🟡
+  - 🇳🇴 挪威 01 🟡 🏠
+  - 🇵🇱 波兰 01 🟡 🏠
+  - 🇩🇪 德国 06 🟡
+  - 🇩🇪 德国 07 🟡
+  - 🇩🇪 德国 08 🟡
   - 🇪🇸 西班牙 01 🟡
   - 🇸🇪 瑞典 01 🟡
-  - 🇳🇴 挪威 01 🟡 🏠
-  - 🇳🇱 荷兰 40 🟡 🏠
-  - 🇵🇱 波兰 01 🟡 🏠
-  - 🇳🇱 荷兰 41 🟡 🏠
-  - 🇫🇷 法国 10 🟡 🏠
-  - 🇰🇷 韩国 03 🟡
-  - 🇳🇱 荷兰 42 🟡 🏠
-  - 🇷🇺 俄罗斯 01 🟡
+  - 🇩🇪 德国 09 🟡
+  - 🇯🇵 日本 01 🟡 ☁️
+  - 🇩🇪 德国 10 🟡 🐢
+  - 🇫🇷 法国 07 🟡 🏠
+  - 🇫🇷 法国 08 🟡 🏠
   - 🇧🇬 保加利亚 01 🟡
-  - 🇪🇸 西班牙 02 🟡
-  - 🇨🇭 瑞士 02 🟡 🏠
-  - 🇧🇬 保加利亚 02 🟡
-  - 🇧🇬 保加利亚 03 🟡
-  - 🇮🇹 意大利 01 🟡
-  - 🇨🇭 瑞士 03 🟡
+  - 🇮🇹 意大利 01 🟢 🏠
+  - 🇯🇵 日本 02 🟡
   - 🇮🇹 意大利 02 🟡
   - 🇮🇹 意大利 03 🟡
+  - 🇯🇵 日本 03 🟡
+  - 🇪🇸 西班牙 02 🟡
+  - 🇫🇮 芬兰 01 🟡 🏠
+  - 🇫🇷 法国 09 🟡 🏠
+  - 🇨🇭 瑞士 01 🟡 🏠
   - 🇮🇹 意大利 04 🟡
+  - 🇦🇹 奥地利 01 🟢 🏠
+  - 🇧🇬 保加利亚 02 🟡
+  - 🇧🇬 保加利亚 03 🟡
   - 🇮🇹 意大利 05 🟡
   - 🇮🇹 意大利 06 🟡
-  - 🇦🇹 奥地利 01 🟢 🏠
   - 🇮🇹 意大利 07 🟡
-  - 🇮🇹 意大利 08 🟡
-  - 🇮🇹 意大利 09 🟢 🏠
-  - 🇭🇰 香港 01 🟡 🐢
   - 🇦🇹 奥地利 02 🟢 🏠
-  - 🇨🇭 瑞士 04 🟡
-  - 🇫🇮 芬兰 01 🟡 🏠
-  - 🇺🇸 美国 44 🟡 ⚡
-  - 🇸🇬 新加坡 01 🟡 🐢
+  - 🇨🇭 瑞士 02 🟡 🏠
+  - 🇨🇭 瑞士 03 🟡
+  - 🇮🇹 意大利 08 🟡
+  - 🇮🇹 意大利 09 🟡
   - 🇮🇹 意大利 10 🟡
+  - 🇺🇸 美国 34 🟡 ⚡
+  - 🇷🇺 俄罗斯 01 🟡
+  - 🇭🇰 香港 01 🟡 🐢
+  - 🇸🇬 新加坡 01 🟡 🐢
   - 🇸🇬 新加坡 02 🟡
-  - 🇸🇬 新加坡 03 🟡
-  - 🇫🇮 芬兰 02 🟡
   - 🇮🇹 意大利 11 🟡
-  - 🇨🇦 加拿大 12 🟡 🐢
-  - 🇺🇸 美国 45 🟡
+  - 🇰🇷 韩国 01 🟡
   - 🇮🇹 意大利 12 🟡
+  - 🇸🇬 新加坡 03 🟡
   - 🇸🇬 新加坡 04 🟡
-  - 🇮🇹 意大利 13 🟡
+  - 🇹🇭 泰国 01 🟡 🐢
   - 🇸🇬 新加坡 05 🟡
-  - 🇸🇬 新加坡 06 🟡
-  - 🇺🇸 美国 46 🟡
-  - 🇻🇳 越南 01 🟡 🐢
-  - 🇯🇵 日本 03 🟡 ⚡
-  - 🇳🇱 荷兰 43 🟡 🐢
-  - 🇫🇷 法国 11 🟡
-  - 🇪🇸 西班牙 03 🟡 🐢
-  - 🇺🇸 美国 47 🟡 🐢
-  - 🇨🇭 瑞士 05 🟡 🏠
-  - 🇰🇷 韩国 04 🟡
-  - 🇨🇭 瑞士 06 🟡 🏠
+  - 🇩🇪 德国 11 🟡
+  - 🇨🇦 加拿大 09 🟡 🐢
+  - 🇩🇪 德国 12 🟡
   - 🇿🇦 南非 01 🟡 🏠
   - 🇿🇦 南非 02 🟡 🐢
-  - 🇳🇱 荷兰 44 🟡
-  - 🇩🇪 德国 16 🟡 🐢
-  - 🇰🇷 韩国 05 🟡 🏠
-  - 🇫🇷 法国 12 🟡
-  - 🇳🇱 荷兰 45 🟡
   - 🇸🇪 瑞典 02 🟡 🏠
-  - 🇺🇸 美国 48 🟡 ☁️
-  - 🇩🇪 德国 17 🟡
-  - 🇫🇮 芬兰 03 🟡 🐢
-  - 🇦🇪 阿联酋 01 🟡 🐢
-  - 🇮🇳 印度 01 🟡 🐢
+  - 🇭🇰 香港 02 🟡 🐢
+  - 🇩🇪 德国 13 🟡 🐢
   - 🇯🇵 日本 04 🟡
-  - 🇬🇧 英国 08 🟡 🏠
-  - 🇭🇰 香港 02 🟡 🏠
-  - 🇩🇪 德国 18 🟡
-  - 🇳🇱 荷兰 46 🟡
-  - 🇩🇪 德国 19 🟢 🏠
-  - 🇷🇺 俄罗斯 02 🟡 🐢
+  - 🇦🇪 阿联酋 01 🟡 🐢
+  - 🇸🇬 新加坡 06 🟡 🐢
+  - 🇭🇰 香港 03 🟡 🏠
+  - 🇨🇦 加拿大 10 🟡 🐢
+  - 🇧🇾 白俄罗斯 01 🟡 🐢
+  - 🇰🇷 韩国 02 🟡
+  - 🇳🇱 荷兰 31 🟡
+  - 🇫🇷 法国 10 🟡
+  - 🇧🇾 白俄罗斯 02 🟡 🐢
+  - 🇫🇷 法国 11 🟡
+  - 🇫🇷 法国 12 🟡
+  - 🇩🇪 德国 14 🟡 🐢
   - 🇫🇷 法国 13 🟡
-  - 🇩🇪 德国 20 🟡 🐢
-  - 🇩🇪 德国 21 🟡 🐢
+  - 🇩🇪 德国 15 🟢 🏠
+  - 🇺🇸 美国 35 🟡
   - 🇫🇷 法国 14 🟡
-  - 🇰🇿 哈萨克斯坦 01 🟡 🐢
-  - 🇫🇷 法国 15 🟡
-  - 🇫🇷 法国 16 🟡
-  - 🇯🇵 日本 05 🟢 🏠
-  - 🇫🇷 法国 17 🟡
-  - 🇺🇸 美国 49 🟡 🐢
-  - 🇩🇪 德国 22 🟢 🏠
-  - 🇰🇷 韩国 06 🟡
+  - 🇩🇪 德国 16 🟡
+  - 🇩🇪 德国 17 🟢 🏠
+  - 🇮🇳 印度 01 🟡 🐢
   - 🇸🇪 瑞典 03 🟡
-  - 🇭🇰 香港 03 🟡 🐢
-  - 🇧🇷 巴西 01 🟡
-  - 🇭🇰 香港 04 🟡 ☁️
-  - 🇸🇪 瑞典 04 🟢 🏠
-  - 🇩🇪 德国 23 🟡 🐢
+  - 🇬🇧 英国 07 🟢
+  - 🇫🇷 法国 15 🟡
+  - 🇯🇵 日本 05 🟡
+  - 🇫🇮 芬兰 02 🟡
+  - 🇫🇮 芬兰 03 🟡 🐢
+  - 🇷🇺 俄罗斯 02 🟡
+  - 🇵🇱 波兰 02 🟡
+  - 🇨🇭 瑞士 04 🟡 🏠
+  - 🇺🇸 美国 36 🟡 ☁️
   - 🇸🇬 新加坡 07 🟡 ☁️
-  - 🇫🇮 芬兰 04 🟡 🐢
-  - 🇺🇸 美国 50 🟡 🐢
-  - 🇭🇰 香港 05 🟢 🏠
-  - 🇳🇱 荷兰 47 🟡 🐢
-  - 🇷🇺 俄罗斯 03 🟡 🐢
-  - 🇷🇺 俄罗斯 04 🟡 🐢
-  - 🇸🇪 瑞典 05 🟡 🐢
-  - 🇩🇪 德国 24 🟡 🐢
-  - 🇫🇮 芬兰 05 🟡 🐢
+  - 🇷🇺 俄罗斯 03 🟡
+  - 🇳🇱 荷兰 32 🟡
+  - 🇨🇭 瑞士 05 🟡 🏠
+  - 🇺🇸 美国 37 🟡 ☁️
+  - 🇺🇸 美国 38 🟡 🐢
+  - 🇹🇷 土耳其 01 🟢 🐢
+  - 🇩🇪 德国 18 🟡 🐢
   - 🇮🇳 印度 02 🟡 🐢
-  - 🇨🇦 加拿大 13 🟡
-  - 🇫🇷 法国 18 🟢 🏠
-  - 🇫🇷 法国 19 🟡
-  - 🇭🇰 香港 06 🟢 🐢
-  - 🇯🇵 日本 06 🟡 🐢
-  - 🇷🇺 俄罗斯 05 🟡 🐢
-  - 🇷🇺 俄罗斯 06 🟡 🐢
-  - 🇩🇪 德国 25 🟢 🏠
-  - 🇳🇱 荷兰 48 🟡
-  - 🇫🇮 芬兰 06 🟡 🐢
-  - 🇬🇧 英国 09 🟡 🏠
-  - 🇳🇱 荷兰 49 🟡
-  - 🇧🇷 巴西 02 🟡
-  - 🇧🇷 巴西 03 🟡
-  - 🇦🇺 澳大利亚 01 🟡 🐢
+  - 🇨🇦 加拿大 11 🟡 ⚡
+  - 🇸🇪 瑞典 04 🟡 🐢
+  - 🇰🇷 韩国 03 🟡 🏠
+  - 🇰🇷 韩国 04 🟡 🏠
+  - 🇰🇷 韩国 05 🟡 🏠
+  - 🇩🇪 德国 19 🟢 🏠
+  - 🇷🇺 俄罗斯 04 🟡 🐢
+  - 🇷🇺 俄罗斯 05 🟡
+  - 🇫🇮 芬兰 04 🟡
+  - 🇳🇱 荷兰 33 🟡
+  - 🇫🇮 芬兰 05 🟡
+  - 🇬🇧 英国 08 🟡 🏠
+  - 🇳🇱 荷兰 34 🟡
 - name: 🇦🇪 阿联酋
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3293,12 +2504,6 @@ proxy-groups:
   proxies:
   - 🇦🇹 奥地利 01 🟢 🏠
   - 🇦🇹 奥地利 02 🟢 🏠
-- name: 🇦🇺 澳大利亚
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  proxies:
-  - 🇦🇺 澳大利亚 01 🟡 🐢
 - name: 🇧🇬 保加利亚
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3307,32 +2512,29 @@ proxy-groups:
   - 🇧🇬 保加利亚 01 🟡
   - 🇧🇬 保加利亚 02 🟡
   - 🇧🇬 保加利亚 03 🟡
-- name: 🇧🇷 巴西
+- name: 🇧🇾 白俄罗斯
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇷 巴西 01 🟡
-  - 🇧🇷 巴西 02 🟡
-  - 🇧🇷 巴西 03 🟡
+  - 🇧🇾 白俄罗斯 01 🟡 🐢
+  - 🇧🇾 白俄罗斯 02 🟡 🐢
 - name: 🇨🇦 加拿大
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇨🇦 加拿大 01 🟡 ⚡
+  - 🇨🇦 加拿大 01 🟡 🐢
   - 🇨🇦 加拿大 02 🟡 ⚡
   - 🇨🇦 加拿大 03 🟡 ⚡
-  - 🇨🇦 加拿大 04 🟡 ⚡
+  - 🇨🇦 加拿大 04 🟡
   - 🇨🇦 加拿大 05 🟡 ⚡
   - 🇨🇦 加拿大 06 🟡 ⚡
-  - 🇨🇦 加拿大 07 🟡 ⚡
-  - 🇨🇦 加拿大 08 🟡 🐢
-  - 🇨🇦 加拿大 09 🟡
-  - 🇨🇦 加拿大 10 🟡 🏠
-  - 🇨🇦 加拿大 11 🟡
-  - 🇨🇦 加拿大 12 🟡 🐢
-  - 🇨🇦 加拿大 13 🟡
+  - 🇨🇦 加拿大 07 🟡 🐢
+  - 🇨🇦 加拿大 08 🟡 ⚡
+  - 🇨🇦 加拿大 09 🟡 🐢
+  - 🇨🇦 加拿大 10 🟡 🐢
+  - 🇨🇦 加拿大 11 🟡 ⚡
 - name: 🇨🇭 瑞士
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3341,39 +2543,32 @@ proxy-groups:
   - 🇨🇭 瑞士 01 🟡 🏠
   - 🇨🇭 瑞士 02 🟡 🏠
   - 🇨🇭 瑞士 03 🟡
-  - 🇨🇭 瑞士 04 🟡
+  - 🇨🇭 瑞士 04 🟡 🏠
   - 🇨🇭 瑞士 05 🟡 🏠
-  - 🇨🇭 瑞士 06 🟡 🏠
 - name: 🇩🇪 德国
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇩🇪 德国 01 🟡 ⚡
-  - 🇩🇪 德国 02 🟡
-  - 🇩🇪 德国 03 🟡 🐢
+  - 🇩🇪 德国 01 🟡
+  - 🇩🇪 德国 02 🟡 🐢
+  - 🇩🇪 德国 03 🟡
   - 🇩🇪 德国 04 🟡
   - 🇩🇪 德国 05 🟡
   - 🇩🇪 德国 06 🟡
   - 🇩🇪 德国 07 🟡
   - 🇩🇪 德国 08 🟡
   - 🇩🇪 德国 09 🟡
-  - 🇩🇪 德国 10 🟡
-  - 🇩🇪 德国 11 🟡 🐢
+  - 🇩🇪 德国 10 🟡 🐢
+  - 🇩🇪 德国 11 🟡
   - 🇩🇪 德国 12 🟡
-  - 🇩🇪 德国 13 🟡
-  - 🇩🇪 德国 14 🟡
-  - 🇩🇪 德国 15 🟡 🐢
-  - 🇩🇪 德国 16 🟡 🐢
-  - 🇩🇪 德国 17 🟡
-  - 🇩🇪 德国 18 🟡
+  - 🇩🇪 德国 13 🟡 🐢
+  - 🇩🇪 德国 14 🟡 🐢
+  - 🇩🇪 德国 15 🟢 🏠
+  - 🇩🇪 德国 16 🟡
+  - 🇩🇪 德国 17 🟢 🏠
+  - 🇩🇪 德国 18 🟡 🐢
   - 🇩🇪 德国 19 🟢 🏠
-  - 🇩🇪 德国 20 🟡 🐢
-  - 🇩🇪 德国 21 🟡 🐢
-  - 🇩🇪 德国 22 🟢 🏠
-  - 🇩🇪 德国 23 🟡 🐢
-  - 🇩🇪 德国 24 🟡 🐢
-  - 🇩🇪 德国 25 🟢 🏠
 - name: 🇪🇸 西班牙
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3381,7 +2576,6 @@ proxy-groups:
   proxies:
   - 🇪🇸 西班牙 01 🟡
   - 🇪🇸 西班牙 02 🟡
-  - 🇪🇸 西班牙 03 🟡 🐢
 - name: 🇫🇮 芬兰
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3390,9 +2584,8 @@ proxy-groups:
   - 🇫🇮 芬兰 01 🟡 🏠
   - 🇫🇮 芬兰 02 🟡
   - 🇫🇮 芬兰 03 🟡 🐢
-  - 🇫🇮 芬兰 04 🟡 🐢
-  - 🇫🇮 芬兰 05 🟡 🐢
-  - 🇫🇮 芬兰 06 🟡 🐢
+  - 🇫🇮 芬兰 04 🟡
+  - 🇫🇮 芬兰 05 🟡
 - name: 🇫🇷 法国
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3401,22 +2594,18 @@ proxy-groups:
   - 🇫🇷 法国 01 🟡
   - 🇫🇷 法国 02 🟡
   - 🇫🇷 法国 03 🟡
-  - 🇫🇷 法国 04 🟡
+  - 🇫🇷 法国 04 🟡 🏠
   - 🇫🇷 法国 05 🟡
-  - 🇫🇷 法国 06 🟡 🏠
+  - 🇫🇷 法国 06 🟡
   - 🇫🇷 法国 07 🟡 🏠
   - 🇫🇷 法国 08 🟡 🏠
-  - 🇫🇷 法国 09 🟡 🐢
-  - 🇫🇷 法国 10 🟡 🏠
+  - 🇫🇷 法国 09 🟡 🏠
+  - 🇫🇷 法国 10 🟡
   - 🇫🇷 法国 11 🟡
   - 🇫🇷 法国 12 🟡
   - 🇫🇷 法国 13 🟡
   - 🇫🇷 法国 14 🟡
   - 🇫🇷 法国 15 🟡
-  - 🇫🇷 法国 16 🟡
-  - 🇫🇷 法国 17 🟡
-  - 🇫🇷 法国 18 🟢 🏠
-  - 🇫🇷 法国 19 🟡
 - name: 🇬🇧 英国
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3425,23 +2614,19 @@ proxy-groups:
   - 🇬🇧 英国 01 🟡
   - 🇬🇧 英国 02 🟡
   - 🇬🇧 英国 03 🟡
-  - 🇬🇧 英国 04 🟡 🏠
-  - 🇬🇧 英国 05 🟡
+  - 🇬🇧 英国 04 🟡
+  - 🇬🇧 英国 05 🟡 🏠
   - 🇬🇧 英国 06 🟡
-  - 🇬🇧 英国 07 🟡
+  - 🇬🇧 英国 07 🟢
   - 🇬🇧 英国 08 🟡 🏠
-  - 🇬🇧 英国 09 🟡 🏠
 - name: 🇭🇰 香港
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇭🇰 香港 01 🟡 🐢
-  - 🇭🇰 香港 02 🟡 🏠
-  - 🇭🇰 香港 03 🟡 🐢
-  - 🇭🇰 香港 04 🟡 ☁️
-  - 🇭🇰 香港 05 🟢 🏠
-  - 🇭🇰 香港 06 🟢 🐢
+  - 🇭🇰 香港 02 🟡 🐢
+  - 🇭🇰 香港 03 🟡 🏠
 - name: 🇮🇳 印度
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3454,7 +2639,7 @@ proxy-groups:
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇹 意大利 01 🟡
+  - 🇮🇹 意大利 01 🟢 🏠
   - 🇮🇹 意大利 02 🟡
   - 🇮🇹 意大利 03 🟡
   - 🇮🇹 意大利 04 🟡
@@ -3462,39 +2647,30 @@ proxy-groups:
   - 🇮🇹 意大利 06 🟡
   - 🇮🇹 意大利 07 🟡
   - 🇮🇹 意大利 08 🟡
-  - 🇮🇹 意大利 09 🟢 🏠
+  - 🇮🇹 意大利 09 🟡
   - 🇮🇹 意大利 10 🟡
   - 🇮🇹 意大利 11 🟡
   - 🇮🇹 意大利 12 🟡
-  - 🇮🇹 意大利 13 🟡
 - name: 🇯🇵 日本
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇯🇵 日本 01 🟡
+  - 🇯🇵 日本 01 🟡 ☁️
   - 🇯🇵 日本 02 🟡
-  - 🇯🇵 日本 03 🟡 ⚡
+  - 🇯🇵 日本 03 🟡
   - 🇯🇵 日本 04 🟡
-  - 🇯🇵 日本 05 🟢 🏠
-  - 🇯🇵 日本 06 🟡 🐢
+  - 🇯🇵 日本 05 🟡
 - name: 🇰🇷 韩国
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇰🇷 韩国 01 🟡 🏠
+  - 🇰🇷 韩国 01 🟡
   - 🇰🇷 韩国 02 🟡
-  - 🇰🇷 韩国 03 🟡
-  - 🇰🇷 韩国 04 🟡
+  - 🇰🇷 韩国 03 🟡 🏠
+  - 🇰🇷 韩国 04 🟡 🏠
   - 🇰🇷 韩国 05 🟡 🏠
-  - 🇰🇷 韩国 06 🟡
-- name: 🇰🇿 哈萨克斯坦
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  proxies:
-  - 🇰🇿 哈萨克斯坦 01 🟡 🐢
 - name: 🇳🇱 荷兰
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3503,14 +2679,14 @@ proxy-groups:
   - 🇳🇱 荷兰 01 🟡
   - 🇳🇱 荷兰 02 🟡
   - 🇳🇱 荷兰 03 🟡
-  - 🇳🇱 荷兰 04 🟡
-  - 🇳🇱 荷兰 05 🟡
+  - 🇳🇱 荷兰 04 🟡 🐢
+  - 🇳🇱 荷兰 05 🟢 🏠
   - 🇳🇱 荷兰 06 🟡
   - 🇳🇱 荷兰 07 🟡
   - 🇳🇱 荷兰 08 🟡
-  - 🇳🇱 荷兰 09 🟡
-  - 🇳🇱 荷兰 10 🟡
-  - 🇳🇱 荷兰 11 🟡
+  - 🇳🇱 荷兰 09 🟡 🏠
+  - 🇳🇱 荷兰 10 🟡 🏠
+  - 🇳🇱 荷兰 11 🟡 🏠
   - 🇳🇱 荷兰 12 🟡 🏠
   - 🇳🇱 荷兰 13 🟡 🏠
   - 🇳🇱 荷兰 14 🟡 🏠
@@ -3518,7 +2694,7 @@ proxy-groups:
   - 🇳🇱 荷兰 16 🟡 🏠
   - 🇳🇱 荷兰 17 🟡 🏠
   - 🇳🇱 荷兰 18 🟡 🏠
-  - 🇳🇱 荷兰 19 🟡 🏠
+  - 🇳🇱 荷兰 19 🟢
   - 🇳🇱 荷兰 20 🟡 🏠
   - 🇳🇱 荷兰 21 🟡 🏠
   - 🇳🇱 荷兰 22 🟡 🏠
@@ -3527,28 +2703,13 @@ proxy-groups:
   - 🇳🇱 荷兰 25 🟡 🏠
   - 🇳🇱 荷兰 26 🟡 🏠
   - 🇳🇱 荷兰 27 🟡 🏠
-  - 🇳🇱 荷兰 28 🟢 🐢
+  - 🇳🇱 荷兰 28 🟡 🏠
   - 🇳🇱 荷兰 29 🟡 🏠
   - 🇳🇱 荷兰 30 🟡 🏠
-  - 🇳🇱 荷兰 31 🟡 🏠
-  - 🇳🇱 荷兰 32 🟡 🏠
-  - 🇳🇱 荷兰 33 🟡 🏠
-  - 🇳🇱 荷兰 34 🟡 🏠
-  - 🇳🇱 荷兰 35 🟡 🏠
-  - 🇳🇱 荷兰 36 🟡 🏠
-  - 🇳🇱 荷兰 37 🟡 🏠
-  - 🇳🇱 荷兰 38 🟡 🏠
-  - 🇳🇱 荷兰 39 🟡 🏠
-  - 🇳🇱 荷兰 40 🟡 🏠
-  - 🇳🇱 荷兰 41 🟡 🏠
-  - 🇳🇱 荷兰 42 🟡 🏠
-  - 🇳🇱 荷兰 43 🟡 🐢
-  - 🇳🇱 荷兰 44 🟡
-  - 🇳🇱 荷兰 45 🟡
-  - 🇳🇱 荷兰 46 🟡
-  - 🇳🇱 荷兰 47 🟡 🐢
-  - 🇳🇱 荷兰 48 🟡
-  - 🇳🇱 荷兰 49 🟡
+  - 🇳🇱 荷兰 31 🟡
+  - 🇳🇱 荷兰 32 🟡
+  - 🇳🇱 荷兰 33 🟡
+  - 🇳🇱 荷兰 34 🟡
 - name: 🇳🇴 挪威
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3561,17 +2722,17 @@ proxy-groups:
   interval: 300
   proxies:
   - 🇵🇱 波兰 01 🟡 🏠
+  - 🇵🇱 波兰 02 🟡
 - name: 🇷🇺 俄罗斯
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇷🇺 俄罗斯 01 🟡
-  - 🇷🇺 俄罗斯 02 🟡 🐢
-  - 🇷🇺 俄罗斯 03 🟡 🐢
+  - 🇷🇺 俄罗斯 02 🟡
+  - 🇷🇺 俄罗斯 03 🟡
   - 🇷🇺 俄罗斯 04 🟡 🐢
-  - 🇷🇺 俄罗斯 05 🟡 🐢
-  - 🇷🇺 俄罗斯 06 🟡 🐢
+  - 🇷🇺 俄罗斯 05 🟡
 - name: 🇸🇪 瑞典
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3580,8 +2741,7 @@ proxy-groups:
   - 🇸🇪 瑞典 01 🟡
   - 🇸🇪 瑞典 02 🟡 🏠
   - 🇸🇪 瑞典 03 🟡
-  - 🇸🇪 瑞典 04 🟢 🏠
-  - 🇸🇪 瑞典 05 🟡 🐢
+  - 🇸🇪 瑞典 04 🟡 🐢
 - name: 🇸🇬 新加坡
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -3592,75 +2752,63 @@ proxy-groups:
   - 🇸🇬 新加坡 03 🟡
   - 🇸🇬 新加坡 04 🟡
   - 🇸🇬 新加坡 05 🟡
-  - 🇸🇬 新加坡 06 🟡
+  - 🇸🇬 新加坡 06 🟡 🐢
   - 🇸🇬 新加坡 07 🟡 ☁️
-- name: 🇹🇼 台湾
+- name: 🇹🇭 泰国
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇹🇼 台湾 01 🟢 🏠
+  - 🇹🇭 泰国 01 🟡 🐢
+- name: 🇹🇷 土耳其
+  type: url-test
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  proxies:
+  - 🇹🇷 土耳其 01 🟢 🐢
 - name: 🇺🇸 美国
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇺🇸 美国 01 🟡 ⚡
-  - 🇺🇸 美国 02 🟡 🏠
+  - 🇺🇸 美国 01 🟡 🏠
+  - 🇺🇸 美国 02 🟡 ⚡
   - 🇺🇸 美国 03 🟡 ⚡
   - 🇺🇸 美国 04 🟡 ⚡
   - 🇺🇸 美国 05 🟡 ⚡
   - 🇺🇸 美国 06 🟡 ⚡
-  - 🇺🇸 美国 07 🟢 🏠
+  - 🇺🇸 美国 07 🟡 ⚡
   - 🇺🇸 美国 08 🟡 ⚡
   - 🇺🇸 美国 09 🟡 ⚡
   - 🇺🇸 美国 10 🟡 ⚡
-  - 🇺🇸 美国 11 🟡 ⚡
+  - 🇺🇸 美国 11 🟡 🏠
   - 🇺🇸 美国 12 🟡 ⚡
   - 🇺🇸 美国 13 🟡 ⚡
   - 🇺🇸 美国 14 🟡 ⚡
   - 🇺🇸 美国 15 🟡 ⚡
   - 🇺🇸 美国 16 🟡 ⚡
-  - 🇺🇸 美国 17 🟡 ⚡
+  - 🇺🇸 美国 17 🟡 🏠
   - 🇺🇸 美国 18 🟡 🏠
   - 🇺🇸 美国 19 🟡 ⚡
-  - 🇺🇸 美国 20 🟡 🏠
+  - 🇺🇸 美国 20 🟡 ⚡
   - 🇺🇸 美国 21 🟡 ⚡
   - 🇺🇸 美国 22 🟡 ⚡
-  - 🇺🇸 美国 23 🟡 🏠
-  - 🇺🇸 美国 24 🟡 🏠
+  - 🇺🇸 美国 23 🟡 ⚡
+  - 🇺🇸 美国 24 🟡 ⚡
   - 🇺🇸 美国 25 🟡 🏠
-  - 🇺🇸 美国 26 🟡 ⚡
-  - 🇺🇸 美国 27 🟡
-  - 🇺🇸 美国 28 🟡 🏠
+  - 🇺🇸 美国 26 🟡 🏠
+  - 🇺🇸 美国 27 🟡 ⚡
+  - 🇺🇸 美国 28 🟡 ⚡
   - 🇺🇸 美国 29 🟡 ⚡
-  - 🇺🇸 美国 30 🟡
-  - 🇺🇸 美国 31 🟡
-  - 🇺🇸 美国 32 🟡
-  - 🇺🇸 美国 33 🟡
+  - 🇺🇸 美国 30 🟡 🏠
+  - 🇺🇸 美国 31 🟡 ⚡
+  - 🇺🇸 美国 32 🟡 ☁️
+  - 🇺🇸 美国 33 🟡 ☁️
   - 🇺🇸 美国 34 🟡 ⚡
-  - 🇺🇸 美国 35 🟡 🏠
-  - 🇺🇸 美国 36 🟡 ⚡
+  - 🇺🇸 美国 35 🟡
+  - 🇺🇸 美国 36 🟡 ☁️
   - 🇺🇸 美国 37 🟡 ☁️
-  - 🇺🇸 美国 38 🟡 ☁️
-  - 🇺🇸 美国 39 🟡 ⚡
-  - 🇺🇸 美国 40 🟡 ☁️
-  - 🇺🇸 美国 41 🟡 ☁️
-  - 🇺🇸 美国 42 🟡 ☁️
-  - 🇺🇸 美国 43 🟡 ⚡
-  - 🇺🇸 美国 44 🟡 ⚡
-  - 🇺🇸 美国 45 🟡
-  - 🇺🇸 美国 46 🟡
-  - 🇺🇸 美国 47 🟡 🐢
-  - 🇺🇸 美国 48 🟡 ☁️
-  - 🇺🇸 美国 49 🟡 🐢
-  - 🇺🇸 美国 50 🟡 🐢
-- name: 🇻🇳 越南
-  type: url-test
-  url: https://www.gstatic.com/generate_204
-  interval: 300
-  proxies:
-  - 🇻🇳 越南 01 🟡 🐢
+  - 🇺🇸 美国 38 🟡 🐢
 - name: 🇿🇦 南非
   type: url-test
   url: https://www.gstatic.com/generate_204
