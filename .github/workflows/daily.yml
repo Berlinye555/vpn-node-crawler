@@ -35,22 +35,31 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # 内核缺失时必须让任务失败：跳过真实测试会发布一批从未验证过的节点
       - name: Install mihomo core
-        continue-on-error: true
         run: |
-          URL=$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest \
+          URL=$(curl -fsSL --retry 3 --retry-delay 2 --max-time 60 \
+            https://api.github.com/repos/MetaCubeX/mihomo/releases/latest \
             | jq -r '.assets[] | select(.name | test("mihomo-linux-amd64-v[0-9].*\\.gz$")) | .browser_download_url' \
             | head -1)
+          if [ -z "$URL" ] || [ "$URL" = "null" ]; then
+            echo "::error::无法解析 mihomo 下载地址"
+            exit 1
+          fi
           echo "downloading: $URL"
-          curl -fsSL -o mihomo.gz "$URL" && gunzip -f mihomo.gz && chmod +x mihomo && ./mihomo -v
+          curl -fsSL --retry 3 --retry-delay 2 --max-time 120 -o mihomo.gz "$URL" \
+            || curl -fsSL --retry 3 --retry-delay 2 --max-time 120 -o mihomo.gz "https://gh-proxy.com/$URL"
+          gunzip -f mihomo.gz && chmod +x mihomo && ./mihomo -v
 
       - name: Run crawler
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ARGS="--out output --no-upload"
-          if [ -x ./mihomo ]; then ARGS="$ARGS --mihomo ./mihomo"; fi
-          python -m vpnnode.pipeline $ARGS
+          if [ ! -x ./mihomo ]; then
+            echo "::error::mihomo 不可执行，拒绝发布未经真实测试的节点"
+            exit 1
+          fi
+          python -m vpnnode.pipeline --out output --no-upload --mihomo ./mihomo
 
       - name: Commit and push outputs
         id: commit

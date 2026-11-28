@@ -178,6 +178,14 @@ def export_nodes(nodes: list[Node]) -> list[dict]:
 async def run_pipeline(args: argparse.Namespace) -> dict:
     config_dir = pathlib.Path(args.config)
     output_dir = pathlib.Path(args.out)
+
+    mihomo_path = getattr(args, "mihomo", "") or os.environ.get("MIHOMO_PATH", "")
+    if not args.offline and not mihomo_path and not getattr(args, "allow_unverified", False):
+        raise InsufficientNodes(
+            "在线运行必须提供 mihomo 内核：跳过真实测试会把从未验证过的节点发布出去。"
+            "调试如需跳过，显式加 --allow-unverified"
+        )
+
     output_dir.mkdir(parents=True, exist_ok=True)
 
     filters = {**DEFAULT_FILTERS, **(load_yaml(config_dir / "filters.yaml", {}) or {})}
@@ -252,7 +260,6 @@ async def run_pipeline(args: argparse.Namespace) -> dict:
         report["stats"]["reputation"] = rep_stats
     mark("reputation")
 
-    mihomo_path = getattr(args, "mihomo", "") or os.environ.get("MIHOMO_PATH", "")
     alive_results: dict = {}
     if mihomo_path:
         alive_input = len(nodes)
@@ -381,6 +388,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--no-reputation", action="store_true", help="跳过 IP 信誉检测")
     parser.add_argument("--no-upload", action="store_true", help="跳过上传到 Worker")
     parser.add_argument("--mihomo", default="", help="mihomo 内核路径；提供后对每个节点做真实连通测试")
+    parser.add_argument("--allow-unverified", action="store_true",
+                        help="在线模式下允许不带 mihomo（仅调试；发布出去的是未经真实测试的节点）")
     parser.add_argument("--min-nodes", type=int, default=20, help="最终节点数低于该值时任务失败")
     parser.add_argument("--verbose", action="store_true", help="输出调试日志")
     return parser

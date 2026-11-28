@@ -4,6 +4,7 @@ import base64
 import json
 import pathlib
 
+import pytest
 import yaml
 
 from vpnnode.pipeline import run_pipeline
@@ -29,6 +30,14 @@ def make_args(tmp_path, **overrides):
 def run_offline(tmp_path, **overrides):
     args = make_args(tmp_path, **overrides)
     return asyncio.run(run_pipeline(args))
+
+
+def test_online_mode_requires_mihomo(tmp_path):
+    """没有内核就跳过真实测试，会把从未验证的节点直接发布——必须拒绝。"""
+    args = make_args(tmp_path, offline="", mihomo="")
+    with pytest.raises(Exception) as exc:
+        asyncio.run(run_pipeline(args))
+    assert "mihomo" in str(exc.value)
 
 
 def test_offline_pipeline_end_to_end(tmp_path):

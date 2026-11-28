@@ -25,9 +25,10 @@ python -m venv .venv
   --offline tests/fixtures --out output \
   --no-probe --no-reputation --no-upload --min-nodes 0
 
-# 在线运行（本地 raw 源不可达时需要代理）
+# 在线运行（本地 raw 源不可达时需要代理）。在线模式必须带 mihomo：
+# 没有真实测试的节点不发布；仅调试可用 --allow-unverified 跳过
 HTTPS_PROXY=http://127.0.0.1:7890 HTTP_PROXY=http://127.0.0.1:7890 \
-.venv/Scripts/python.exe -m vpnnode.pipeline --out output --no-upload
+.venv/Scripts/python.exe -m vpnnode.pipeline --out output --no-upload --mihomo ./mihomo
 
 # 有 mihomo 内核时追加真实请求验证
 .venv/Scripts/python.exe -m vpnnode.pipeline --out output --no-upload --mihomo ./mihomo
